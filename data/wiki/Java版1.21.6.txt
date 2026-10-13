@@ -1,0 +1,880 @@
+{{Infobox version
+|title=1.21.6
+|image=1.21.6.png
+|image2=Java Edition 1.21.6 Simplified.png\Java Edition 1.21.6 Traditional.png\Java Edition 1.21.6 Traditional HK.png
+|edition=Java
+|name=[[追逐天空]]
+|date=2025年6月17日
+|jsonhash=ac29333211286b32d68ca4a16d2026a834ac1430
+|clienthash=740a125b83dd3447feaa3c5e891ead7fbb21ae28
+|clientmap=848855615bc81e3db1c85e69b6afb150807a1261
+|serverhash=6e64dcabba3c01a7271b4fa6bd898483b794c59b
+|servermap=94d453080a58875d3acc1a9a249809767c91ed40
+|prevparent=1.21.5
+|prev=
+|next=1.21.7
+|nextparent=1.21.9
+}}{{Relevant guide|Java版指南/追逐天空}}
+
+'''1.21.6'''是'''[[追逐天空]]'''的首个正式版，也是{{el|je}}的一次[[小更新]]，发布于2025年6月17日<ref>{{article|minecraft-java-edition-1-21-6|Minecraft Java Edition 1.21.6|Jun 17, 2025}}</ref>。此次更新加入了[[失水恶魂]]、[[快乐恶魂]]、[[挽具]]等运输相关特性以及[[定位栏]]，并修复了一些漏洞。此版本不兼容1.21到1.21.5的服务端。
+
+== 新内容 ==
+=== 方块 ===
+'''[[失水恶魂]]'''
+* 在[[下界]]中作为[[下界化石]]的一部分自然生成。
+* 可使用1个[[灵魂沙]]和8个[[恶魂之泪]]合成。
+: {{Crafting Table|A1=Ghast Tear|A2=Ghast Tear|A3=Ghast Tear|B1=Ghast Tear|B2=Soul Sand|B3=Ghast Tear|C1=Ghast Tear|C2=Ghast Tear|C3=Ghast Tear|Output=Dried Ghast,1}}
+* 可通过与猪灵[[以物易物]]获得。
+* 被放置时默认处于“干枯”状态，[[含水]]时经过3个状态，持续约20分钟后会生成一只[[小恶魂]]。
+* 不再含水时，失水恶魂会逐渐恢复到“干枯”状态。
+* 改变湿润状态会发出频率为11的振动。
+
+=== 物品 ===
+'''[[挽具]]'''
+* 一种能够装备在[[快乐恶魂]]上的物品，允许玩家骑乘快乐恶魂。
+* 可使用3个[[皮革]]、2个[[玻璃]]和1个[[羊毛]]合成。
+* 可通过与[[染料]]合成以重新染色。
+* 对快乐恶魂{{ctrl|使用}}[[剪刀]]可卸下其装备的挽具。
+
+'''[[音乐唱片]]'''
+* 加入了新的音乐唱片Tears，作者是[[Amos Roddy]]。
+** 当[[恶魂]]被玩家反弹的[[火球]]杀死后掉落。
+** [[稀有度]]为“少见”。
+** 通过[[红石比较器]]输出的红石信号强度为10。
+
+'''[[刷怪蛋]]'''
+* 加入了快乐恶魂刷怪蛋。
+
+'''[[鞍]]'''
+* 加入了合成配方：
+: {{Crafting Table|B1=Leather|A2=Leather|C2=Leather|B2=Iron Ingot|Output=Saddle}}
+:* 此配方在物品栏中获得首个皮革时解锁。
+
+'''[[拴绳]]'''
+* 为拴绳断裂加入了新音效<code>entity/leashknot/break</code>。
+
+'''[[剪刀]]'''
+* 为剪下鞍、[[马铠]]和羊驼身上的[[地毯]]分别加入了新音效{{cd|d=pretty|mob/horse/armor_unequip|mob/horse/saddle_unequip|mob/llama/unequip}}。
+
+=== 生物 ===
+'''[[快乐恶魂]]'''
+* 一种生命值为{{hp|20}}的飞行可骑乘生物。
+* 幼年形态快乐恶魂被称为小恶魂，有着不同的行为：
+** 生成后会尝试跟随以下生物：
+*** 半径16格内的玩家
+*** 半径16格内的非水生成年友好生物
+** 若附近没有合适的可跟随生物，小恶魂会在其原点位置（生成位置或最后与之交互的位置）32格内游荡。
+** 会在20分钟后成长。
+** 可被喂食[[雪球]]以加速成长，每次喂食可减少约10%的剩余生长时间，也会被雪球吸引。
+* 可装备[[挽具]]，最多允许4名玩家骑乘。
+** 被骑乘时护目镜会下降并遮住眼睛，表示能够被控制。
+*** 未被骑乘时护目镜会升起，并且快乐恶魂会开始在原点位置附近游荡。
+** 第一个骑乘快乐恶魂的玩家会坐在最前方，能够控制它。
+** 后来骑乘的玩家会坐在两侧的槽位上，以第一个骑乘的玩家开始顺时针排序。
+** 玩家按下{{ctrl|潜行}}会脱离快乐恶魂。
+* 玩家位于其上方时会停止移动。
+* 会被雪球和挽具吸引。
+** 已装备挽具时不会被挽具吸引。
+* 无法[[繁殖]]和乘[[船]]。
+* 会缓慢地自然恢复生命值，[[降雨]]、[[降雪]]或飞行高度与[[云]]的高度相同时会加快恢复速度。
+* 游荡时会保持位于原点位置（生成位置或最后与之交互的位置）64格内。
+** 已装备挽具时会更靠近原点位置，保持位于32格内。
+** 单独游荡时会尝试靠近方块。
+
+'''[[恼鬼]]'''
+* 加入了{{nbt|int-array|owner}}字段存储生成恼鬼的AI生物的UUID。
+
+=== 非生物实体 ===
+'''[[被激活的TNT]]'''
+* 加入了{{nbt|int-array|owner}}字段存储激活TNT的生物的UUID。
+
+=== 世界生成 ===
+'''[[随机斑块]]'''
+* 枯叶堆斑块<code>patch_leaf_litter</code>现在要求生成位置下方一格是[[草方块]]。
+
+=== 游戏内容 ===
+'''[[进度]]'''
+* 加入了2个新进度：
+** [[进度#advancements-anchor-husbandry.place_dried_ghast_in_water|{{Advancement name|husbandry.place_dried_ghast_in_water|zh|rev=1}}]]
+*** 将[[失水恶魂]]放入水中时获得。
+** [[进度#advancements-anchor-adventure.heart_transplanter|{{Advancement name|adventure.heart_transplanter|zh|rev=1}}]]
+*** 将[[嘎枝之心]]以正确朝向放入两块[[苍白橡木原木]]之间时获得。
+
+'''[[属性]]'''
+* 加入了<code>camera_distance</code>属性，用于修改第三人称视角下相机与玩家或被旁观实体的距离，默认值<code>4.0</code>。
+** 如果被骑乘的实体的属性<code>camera_distance</code>更大，则会使用更大值。
+** 此距离会与<code>scale</code>属性相乘以得出最终相机距离。
+
+'''[[选项]]'''
+* 加入了“云层距离”视频设置选项以调整云层渲染范围，默认为128个区块。
+* 在“{{tr|音乐和声音选项|音樂和音效選項|音樂與音效選項}}”界面中加入了“{{tr|音乐播放频率|音樂頻率}}”选项，控制音乐在世界中播放的间歇时间，默认为20分钟。
+* 在“{{tr|音乐和声音选项|音樂和音效選項|音樂與音效選項}}”界面中加入了“{{tr|显示音乐弹窗|顯示音樂提示|顯示音樂通知}}”选项，控制音乐开始播放时及游戏暂停菜单中是否显示当前播放的音乐弹窗。
+* 在“{{tr|音乐和声音选项|音樂和音效選項|音樂與音效選項}}”界面中加入了“{{tr|用户界面|UI|用户界面}}”音量滑动条。
+
+'''[[定位栏]]'''
+* 一种在多人游戏中允许玩家定位其他玩家的界面元素。
+* 定位栏的定位依赖于路径点。
+** 玩家相机视野夹角120°内的路径点会在定位栏上显示不同颜色的指示器。
+** 路径点在相机视域（即屏幕）上/下方时，则会显示指向它的箭头。
+** 队伍中的玩家或生物的路径点的颜色由其所处的队伍颜色决定。
+* 默认情况下，所有玩家都会传输出一个路径点，所有玩家也会接收所有路径点。
+** [[潜行]]、在头盔槽戴有[[雕刻南瓜]]或[[生物头颅]]、[[隐身]]状态效果会使玩家不在定位栏中显示。
+** 旁观模式玩家只会在其他旁观模式玩家的定位栏中显示。
+** 会在普通情况下占用经验条的位置。
+
+'''[[游戏规则]]'''
+* 加入了<code>locatorBar</code>，默认启用。
+** 将其关闭时，游戏会断开所有玩家与路径点源的连接，移除路径点，但不会移除路径点源。
+
+'''[[迷雾]]'''
+* 加入了2种迷雾类型：维度或Boss迷雾和大气迷雾。
+
+'''[[统计信息]]'''
+* 加入了<code>happy_ghast_one_cm</code>统计信息。
+
+'''[[音乐]]'''
+* 在樱花树林、森林、沙漠、雪林、繁茂洞穴生物群系和主菜单中加入了5首新的音乐曲目，作者是Amos Roddy：
+** Below and Above
+** Broken Clocks
+** Fireflies
+** Lilypad
+** O's Piano
+
+=== 命令格式 ===
+'''{{cmd|datapack}}'''
+* 加入了子命令<code>create</code>，用于在当前世界文件夹下创建空数据包。
+** 新数据包所支持的数据包版本号总是等于当前游戏支持的版本号。
+** 仅限服主使用。
+** 语法：
+*** <code>datapack create <''id''> <''name''></code>
+**** {{cd|id}}：数据包名称，必须为有效的文件夹名称。
+**** {{cd|name}}：[[数据包#pack.mcmeta|{{filename|pack.mcmeta}}]]中{{nbt|string}}{{nbt|compound|description}}的值。
+
+'''{{cmd|dialog}}'''
+* 用于向客户端显示对话框的新命令。
+* 语法：
+** <code>dialog show <targets> <dialog></code>
+*** 向玩家显示对话框。
+*** 返回<code>targets</code>参数中玩家的数量。
+** <code>dialog clear <targets></code>
+*** 清除玩家可见的对话框。
+*** 返回<code>targets</code>参数中玩家的数量。
+* 参数：
+** <code><targets></code>：玩家名称、[[UUID]]或玩家选择器。
+** <code><dialog></code>：<code>dialog</code>注册表中的命名空间ID或内联对话框定义。
+
+'''{{cmd|version}}'''
+* 用于输出服务端的版本信息。
+* 无附加参数。
+* 需要一定的权限等级。
+
+'''{{cmd|waypoint}}'''
+* 用于查询或修改路径点。
+** 语法：
+*** {{cd|waypoint list}}
+*** {{cd|waypoint modify <entity-selector> color <color>}}
+*** {{cd|waypoint modify <entity-selector> color hex <hex-color>}}
+*** {{cd|waypoint modify <entity-selector> color reset}}
+*** <code>waypoint modify <entity-selector> style set <waypoint_style/resource></code>
+*** <code>waypoint modify <entity-selector> style reset</code>
+** 参数：
+*** {{cd|entity-selector}}：[[目标选择器]]，选择传输路径点的实体。
+*** {{cd|color}}：覆写此路径点在定位栏上的图标颜色。
+*** {{cd|hex-color}}：以Web格式（RRGGBB）覆写此路径点在定位栏上的图标颜色。
+
+'''{{cmd|playsound}}'''
+* 现在<code>-{}-[<类别>]</code>可接受<code>ui</code>作为可选项，归入声音分类“{{tr|用户界面|UI|用户界面}}”控制。
+** 此类别的声音即使在游戏暂停时也会播放，类似于“音乐”。
+
+'''[[参数类型]]'''
+* 加入了<code>hex_color</code>和<code>dialog</code>。
+
+=== 常规 ===
+'''[[进度定义格式]]'''
+* 加入了<code>player_sheared_equipment</code>触发器。
+** 当玩家对实体使用剪刀剪下装备时触发。
+** 条件如下：
+*** <code>item</code>：被剪下的物品。
+*** <code>entity</code>：被修剪的实体。
+
+'''[[控制]]'''
+* 加入了新按键绑定“{{tr|快捷操作|快速動作}}”，允许玩家打开一系列对话框。
+** 按键默认为{{key|G}}。
+** 其行为由对话框标签<code>#quick_actions</code>控制。
+*** 如果此标签为空，则不执行任何操作。
+*** 如果标签内有一个元素，则打开这一个对话框。
+*** 如果标签内有多个元素，则打开一个对话框列表。
+** 此选项用于自定义内容和服务器，默认为空。
+
+'''[[数据包]]'''
+* 加入了子文件夹{{filepath|dialog}}。
+
+'''[[调试屏幕]]'''
+* 现在按下{{key|F3+V}}会输出客户端的版本信息。
+
+'''[[对话框]]'''
+* 为玩家展示简单对话框的新方法。
+* 对话框通常存储在<code>dialog</code>注册表中，但也可以内联定义。
+* 目前是实验性功能。
+* 为避免混淆对话框和游戏UI，自定义对话框标题部分会有一个警示标志。点击此警示标志后：
+** 提示玩家此对话框为第三方提供。
+** 提供强制退出世界的选项，避免玩家因进入无退出选项的对话框而陷入死循环。
+** 如果玩家正在警告屏幕时接收到对话框，则游戏不会显示对话框，仅当玩家退出警告屏幕后才显示。
+* 服务端也可以在<code>play</code>和<code>configuration</code>阶段展示对话框，但是<code>configuration</code>阶段只接受内联定义。
+* 默认情况下按下{{key|ESC}}也会尝试退出对话框。如果对话框设定了特殊的退出行为则也会执行此行为，是否可通过按下{{key|ESC}}退出对话框也可以配置。
+* 通常情况下，对话框关闭后会返回打开此对话框的上一个屏幕。
+* 每个对话框都可以输入并提交信息。
+* 对话框可以配置为在暂停菜单中进入，这拓展了之前添加的“{{tr|服务器链接|伺服器連結}}”按钮。
+* 大多数对话框都遵循下列通用布局：
+** 页首，包括标题和警示标志
+** 正文内容，取决于对话框类型
+** 页脚，包括主按钮和提交按钮
+* 对话框可以在数据包的{{filepath|dialog}}目录下定义。
+* 由于对话框的各种形式会复用一部分标签，因此先行列出。
+** 通用标签：
+*** {{cd|type}}：对话框类型。
+*** {{cd|title}}：文本组件，对话框标题。
+*** {{cd|external_title}}：可选，文本组件，用于覆写展示此对话框的标题。
+*** {{cd|body}}：对话框主体，默认为空列表。
+*** {{cd|inputs}}：对话框输入控件，默认为空列表。
+*** {{cd|can_close_with_escape}}：是否可以通过按下{{key|ESC}}来退出对话框。
+** 按钮通用标签：
+*** {{cd|label}}：文本组件，按钮的文本。
+*** {{cd|tooltip}}：可选，文本组件，按钮高亮的提示文本。
+*** {{cd|width}}：按钮的宽度，默认为150。
+* 对话框类型
+** {{cd|notice}}
+*** 一个页脚包含一个按钮的屏幕。
+*** 退出动作由{{cd|action}}指定。
+*** 字段如下：
+**** ''通用标签''
+**** {{cd|action}}：点击行为，默认为{{cd|gui.ok}}。
+** {{cd|confirmation}}
+*** 页脚有两个按钮的屏幕。
+*** 退出行为由{{cd|no}}指定。
+*** 字段如下：
+**** ''通用标签''
+**** {{cd|yes}}：点击行为。
+**** {{cd|no}}：点击行为。
+** {{cd|multi_action}}
+*** 一个可以滚动的列表。
+*** 页脚依旧提供退出的按钮。
+**** 未指定时，按钮文本为{{cd|gui.cancel}}，点击行为为{{cd|gui.back}}。
+*** 退出动作由{{cd|exit_action}}指定。
+*** 字段如下：
+**** ''通用标签''
+**** {{cd|actions}}：操作的非空列表。
+**** {{cd|exit_action}}：退出操作。
+**** {{cd|columns}}：正整数，按钮的列数。默认为2。
+** {{cd|server_links}}
+*** 一个可以滚动的列表，来源{{cd|minecraft:server_links}}网络数据包。
+*** 页脚依旧提供退出的按钮。
+**** 行为与{{cd|multi_action}}一致。
+*** 退出行为由{{cd|exit_action}}指定。
+*** 字段如下：
+**** ''通用标签''
+**** {{cd|exit_action}}：退出操作。
+**** {{cd|columns}}：正整数，按钮的列数。默认为2。
+**** {{cd|button_width}}：正整数，按钮的宽度，默认为150。
+** {{cd|dialog_list}}
+*** 一个可以指向其他对话框的可滚动列表。
+**** 这些对话框使用{{cd|external_title}}作为预览标题。
+*** 页脚依旧提供退出的按钮。
+**** 行为与{{cd|multi_action}}一致。
+*** 退出行为由{{cd|exit_action}}指定。
+*** 字段如下：
+**** ''通用标签''
+**** {{cd|dialogs}}：一个对话框，或对话框的列表（不可混用命名空间ID和内联定义形式），或一个对话框标签。
+**** {{cd|exit_action}}：退出操作。
+**** {{cd|columns}}：正整数，按钮的列数。默认为2。
+**** {{cd|button_width}}：正整数，按钮的宽度，默认为150。
+* 对话框主体类型
+** 所有的对话框都可以定义对话框主体，对话框主体在页首之下。
+** 共通字段如下：
+*** {{cd|type}}：对话框主体类型。
+** {{cd|plain_message}}
+*** 一个多行的信息。
+*** 字段如下：
+**** {{cd|contents}}：文本组件。
+**** {{cd|width}}：信息的最大宽度，默认为200。
+** {{cd|item}}
+*** 一个带描述的物品。
+**** 指定了{{cd|description}}后就如同物品栏中的物品提示信息一样。
+*** 物品会向在物品栏中一样渲染。
+*** 物品本身不受{{cd|width}}和{{cd|height}}影响。
+*** 字段如下：
+**** {{cd|item}}：带数量的物品堆叠。
+**** {{cd|description}}：可以为文本组件，也可以为：
+***** {{cd|contents}}：文本组件。
+***** {{cd|width}}：内容的最大宽度，正整数，默认为200。
+**** {{cd|show_decorations}}：如果为{{cd|true}},则额外渲染物品数量、耐久度信息。默认为{{cd|true}}。
+**** {{cd|show_tooltip}}：如果为{{cd|true}}，则会渲染物品提示框。默认为{{cd|true}}。
+**** {{cd|width}}：内容元素的宽度，默认为16。
+**** {{cd|height}}：内容元素的高度，默认为16。
+* 输入控制类型
+** 输入控制允许玩家输入不同的数据。
+** 当提交数据时，这些值会转换为字符串或对应的NBT数据以提交到服务端。
+** 通用字段如下：
+*** {{cd|type}}：输入控制类型。
+*** {{cd|key}}：一个标识符，只能为字母、数字或下划线。
+** {{cd|text}}
+*** 文本输入。
+*** 数据会先将特殊字符转义后再发送。
+*** 字段如下：
+**** {{cd|width}}：输入宽度，默认为{{cd|200}}。
+**** {{cd|label}}：文本组件，显示输入标题。
+**** {{cd|label_visible}}：输入是否可见，默认为 {{cd|true}}。
+**** {{cd|initial}}：初始值，默认为空。
+** {{cd|boolean}}
+*** 一个复选框，用以输入是或否。
+*** 字段如下：
+**** {{cd|label}}：文本组件，渲染在复选框右侧。
+**** {{cd|initial}}：初始值。
+**** {{cd|on_true}}：勾选时的值。默认为{{cd|true}}。作为NBT发送时为{{cd|1b}}。
+**** {{cd|on_false}}：不勾选时的值。默认为{{cd|false}}。作为NBT发送时为{{cd|0b}}。
+** {{cd|single_option}}
+*** 可以通过点击切换选项的输入框。
+*** 发送当前选定的值。
+*** 字段如下：
+**** {{cd|label}}：文本组件，按钮上的文本。
+**** {{cd|label_visible}}：文本是否在按钮内。默认为{{cd|true}}。
+**** {{cd|width}}：按钮的宽度，默认为{{cd|200}}。
+**** {{cd|options}}：可选值，格式如下：
+***** {{cd|id}}：要发送的值。
+***** {{cd|display}}：覆写选项展示的值（不影响发送的值）。
+***** {{cd|initial}}：是否是初始值。此列表只能有一个初始值。
+***** 也可以直接指定字符串，此时与只指定{{cd|id}}等同。
+** <code>max_length</code>字段，表示输入文本的最大长度。
+** <code>multiline</code>字段，存在时允许输入多行文本。
+*** <code>max_lines</code>：如果存在，则限制最大行数。
+*** <code>height</code>：最大高度，取值在1至512之间。
+** {{cd|number_range}}
+*** 一个可选滑块的输入。
+*** 发送当前值，但整数不会带小数点。作为NBT发送时为带{{cd|f}}后缀的浮点数。
+*** 字段如下：
+**** {{cd|label}}：文本组件，按钮的基础描述文本。
+**** {{cd|label_format}}：按钮的文本格式。第一个参数为{{cd|label}}，第二个为当前值。
+**** {{cd|width}}：按钮的宽度，默认为{{cd|200}}。
+**** {{cd|start}}：左侧的值。
+**** {{cd|end}}：右侧的值。
+**** {{cd|step}}：正整数，决定是否采用分立取值，若指定则只允许输入区间内符合<code>initial + <any integer> * step</code>的值。
+**** {{cd|initial}}：初始值，必须在区间里，默认为中间的值。
+* 操作类型
+** 除{{cd|open_file}}外的所有点击事件都可以作为操作类型。
+*** 格式与文本组件相同，只需将{{cd|action}}替换为{{cd|type}}。
+** {{cd|dynamic/run_command}}
+*** 使用宏模板构建{{cd|run_command}}点击事件。
+*** 例如，如果宏模板为{{cd|some_command $(some_input)}}，则使用{{cd|key}}为 {{cd|some_input}}的输入控件提交的字符串进行替换。
+*** 未使用的值将忽略，未提交的值将被替换为空字符串。
+*** 格式如下：
+**** {{cd|template}}：一个字符串，包含将要被解析为命令的宏模板。
+** {{cd|dynamic/custom}}
+*** 此操作将使用所有输入值构建{{cd|custom}}点击事件。
+*** 所有输入内容都将在一个复合标签内一起发送，每个输入的标签值放在该输入的{{cd|key}}字段的{{cd|id}}下。
+*** 可以将其他静态字段添加到负载。
+*** 格式如下：
+**** {{cd|additions}}：可选的复合标签，将要被添加到负载。
+**** {{cd|id}}：命名空间ID。
+
+'''[[维度类型]]'''
+* 加入了可选字段{{nbt|int|cloud_height}}，表示此维度中云层的起始高度。
+
+'''[[实体数据格式]]'''
+* 生物共通标签中加入了{{nbt|compound|locator_bar_icon}}字段。
+* 为所有[[AI生物]]加入了{{nbt|int-array|home_pos}}和{{nbt|int|home_radius}}字段。
+** 设置此值的大部分生物只会在“家”周围的限定范围内寻路。
+*** [[蝙蝠]]、[[史莱姆]]、[[岩浆怪]]、[[幻翼]]和[[末影龙]]可能忽略此影响。
+** [[骑乘]]或使用拴绳会改变部分生物的“家”位置。
+
+'''[[兴趣点]]'''
+* 加入了<code>test_instance</code>兴趣点。
+
+'''[[资源包]]'''
+* 加入了子文件夹{{filepath|waypoint_style}}。
+
+'''[[语言]]'''
+* 加入了坎塔布-{里}-亚语和印度尼西亚语（改革前）。
+
+'''[[纹理]]'''
+* 加入了{{cd|d=pretty|icon/music_notes|toast/now_playing}}UI精灵图。
+
+'''[[物品模型映射]]'''
+* 物品模型定义现在包含可选项{{nbt|boolean|oversized_in_gui}}，默认为{{cd|false}}。
+** 如该项设置为{{cd|true}}，物品在物品栏中渲染时可以超出槽位边框；否则，物品将在边框处被截断。
+* 加入了动态模型{{cd|minecraft:player_head}}，用于渲染[[玩家的头]]。
+** 该模型使用{{cd|minecraft:profile}}组件所指定的玩家的纹理。在该纹理下载完成前，会先以默认玩家的纹理渲染。
+** 无其他字段。
+
+'''[[Realms]]'''
+* 新增了“地区偏好”设置，允许更精细地控制启动的Realms服务器所在的区域。
+** 可以指定一个可选地区，也可以选择根据Realms所有者或者首个加入会话的玩家的延迟自动决定地区。
+* 在Realms加载屏幕中加入了Realms徽标。
+* 在连接到Realms时加入了地区信息。
+
+'''[[Java版声音事件|声音事件]]'''
+* 加入了新的声音分类“{{tr|用户界面|UI|用户界面}}”，控制诸如按钮点击等UI元素的声音。
+
+'''[[闪烁标语]]'''
+* 加入了以下闪烁标语：
+** Music by Aaron Cherof!
+** Music by Kumi Tanioka!
+** Music by Amos Roddy!
+** Flint and Steel!
+** Chicken Jockey!
+
+'''[[文本组件]]'''
+* 加入了点击事件<code>custom</code>。
+** 当玩家点击带有此样式的文本时，客户端会向服务端发送<code>minecraft:custom_click_action</code>专用封包。
+** 预期用途是作为修改过的服务端的<code>run_command</code>的替代品，这样就无需担心添加自定义的命令。
+** 此封包在原版服务端上没有任何作用。
+<div class="treeview">
+::** {{nbt|string|id}}：命名空间ID。
+::** {{nbt|any|payload}}：要发送的负载。
+</div>
+* 加入了点击事件<code>show_dialog</code>。
+** 当玩家点击带有此样式的文本时，客户端会打开指定的对话框。
+<div class="treeview">
+::** {{nbt|string}}{{nbt|compound|dialog}}：要打开的对话框。
+</div>
+
+'''[[Java版标签|标签]]'''
+* 加入了下列方块标签：
+** <code>#triggers_ambient_desert_sand_block_sounds</code>：{{cd|d=pretty|sand|red_sand}}。
+*** 在沙子和红沙的环境音效判定中有效的方块。
+** {{cd|#happy_ghast_avoids}}：{{cd|sweet_berry_bush|cactus|wither_rose|magma_block|fire|pointed_dripstone|d=pretty}}。
+*** [[快乐恶魂]]不会主动靠近的方块。
+** {{cd|#triggers_ambient_dried_ghast_block_sounds}}：{{cd|soul_sand|soul_soil|d=pretty}}。
+*** 控制上方的[[失水恶魂]]产生环境音效的方块。
+* 加入了下列实体标签：
+** <code>#can_equip_harness</code>：{{cd|happy_ghast}}。
+*** 能装备挽具的实体。
+** <code>#followable_friendly_mobs</code>：{{cd|d=pretty|armadillo|bee|camel|cat|chicken|cow|donkey|fox|goat|horse|skeleton_horse|llama|mule|ocelot|panda|parrot|pig|polar_bear|rabbit|sheep|sniffer|strider|villager|wolf|happy_ghast}}。
+*** 会被幼年快乐恶魂{{sic}}跟随的非幼年实体。
+* 加入了下列物品标签：
+** <code>#happy_ghast_food</code>：{{cd|snowball}}。
+*** 可用于喂食快乐恶魂的物品。
+** <code>#happy_ghast_tempt_items</code>：{{cd|d=pretty|#happy_ghast_food|#harnesses}}。
+*** 可用于引诱快乐恶魂的物品。
+** <code>#harnesses</code>：{{cd|d=pretty|white_harness|orange_harness|magenta_harness|light_blue_harness|yellow_harness|lime_harness|pink_harness|gray_harness|light_gray_harness|cyan_harness|purple_harness|blue_harness|brown_harness|green_harness|red_harness|black_harness}}。
+*** 所有挽具物品。
+* 加入了空对话框标签：{{cd|d=pretty|#pause_screen_additions|#quick_actions}}。
+
+== 更改 ==
+=== 方块 ===
+'''所有[[陶瓦]]'''
+* 不再发出环境音效。
+
+'''[[矮枯草丛]]和[[高枯草丛]]'''
+* 现在当下方两格均为沙子、红沙或任何陶瓦时会发出特殊的环境音效。
+
+'''[[沙子]]和[[红沙]]'''
+* 现在会发出的环境音效不再包括“风声”。
+* 略微降低了播放环境音效的概率。
+* 修改了判断是否播放环境音效的逻辑，现在不需要方块本身露天，只需要上方一格为空气。
+
+'''[[枯萎的灌木]]'''
+* 略微提升了播放环境音效的概率。
+
+'''[[下界传送门（方块）|下界传送门]]'''
+* 回退了1.21.5中对{{bug|MC-101556}}的修复。
+
+=== 物品 ===
+'''[[烟花火箭]]'''
+* 玩家滑翔时，对方块{{ctrl|放置}}烟花火箭只会为玩家助推，而不是在方块上点燃烟花。
+
+'''[[拴绳]]'''
+* 可牵引长度由10格增长到12格，以判定箱中心距离计算。
+* 渲染厚度变为原来的两倍，与{{el|be}}效果统一。
+* 现在可以连接任意两个生物，而非只能将生物连接到玩家。
+** 玩家牵引生物时对另一生物潜行{{ctrl|使用}}拴绳会试图将拴绳连接转移到被点击的生物，但如果新连接距离太远，会立刻断裂而不会成功。
+** 拴绳不能连接一个生物与其自身。
+* 现在可以对被拴绳拴住的生物{{ctrl|使用}}[[剪刀]]，以剪断拴绳连接。
+** 装有剪刀的[[发射器]]也会试图剪断面前生物的拴绳连接。
+* 被拴绳牵引时，生物会转向被牵引的方向。
+* 玩家在牵引其他生物时使用[[烟花火箭]]推进会破坏拴绳连接。
+* 尝试拴上已经被拴住的生物时，除非该生物由其他玩家拴住，否则将会破坏原有连接，并由玩家拴住该生物。
+* 玩家与拴绳结的交互变化如下：
+** {{ctrl|使用}}时，会先尝试将玩家牵引的生物拴到拴绳结上，如果均不成功，则由玩家牵引其可牵引的所有生物；如拴绳结此后没有拴住任何生物，其将消失。
+** 潜行{{ctrl|使用}}时，只会试图将玩家牵引的生物拴到拴绳结上。
+** {{ctrl|使用}}剪刀或{{ctrl|攻击}}时，所有生物会由玩家牵引。
+* 由[[快乐恶魂]]牵引的拴绳自由长度为10格，最大牵引长度为16格。
+* [[船]]、[[运输船]]、[[骆驼]]、[[马]]、[[骡]]、[[驴]]和[[嗅探兽]]在连接到快乐恶魂上时，会用四根绳子连接二者的四角。
+** 如果快乐恶魂佩戴有[[挽具]]，在如此连接时会额外显示拴绳图层。
+* 现在合成配方中的[[黏液球]]被替换为[[线]]。
+
+'''[[苍白橡木船]]和[[苍白橡木运输船]]'''
+* 更改了纹理。
+
+=== 生物 ===
+'''[[恶魂]]'''
+* 纹理现在有更高的分辨率，以匹配[[快乐恶魂]]。
+* 现在默认具有0.06[[属性/飞行速度|飞行速度]]属性。
+
+'''[[玩家]]'''
+* 增加了旁观或骑乘恶魂、[[末影龙]]和[[巨人]]时的第三人称相机距离。
+
+'''[[狼]]、[[绵羊]]和[[猪]]'''
+* 更新了纹理模型，现在腿部也是镜像的。
+
+'''[[马]]、[[驴]]和[[骡]]'''
+* 现在可以通过喂食[[胡萝卜]]以治疗它们、加速其幼年变种成长和使其更容易驯服。
+* 现在可以对其{{ctrl|使用}}[[剪刀]]以剪下其所佩戴的鞍、[[马铠]]或[[地毯]]。
+** 当这些实体正被骑乘，或玩家[[潜行]]使用剪刀时，上述行为不会发生。
+** 带有剪刀的[[发射器]]不能从上述生物上移除相应的佩戴物。
+** 会发出振动频率为6的振动。
+
+'''[[骆驼]]、[[骷髅马]]、[[僵尸马]]、[[猪]]、[[炽足兽]]、[[羊驼]]'''
+* 现在可以对其{{ctrl|使用}}剪刀以剪下其所佩戴的鞍、马铠或地毯。
+
+=== 非生物实体 ===
+'''[[区域效果云]]'''
+* 实体数据<code>Particle</code>字段现已重命名为<code>custom_particle</code>，需要为默认有色粒子<code>entity_effect</code>的精确覆盖。
+** 指定{{cd|d=或|entity_effect|tinted_leaves}}时，颜色不再从药水效果中继承。
+
+'''[[喷溅药水]]'''
+* 药水效果持续时间现在取决于生物碰撞箱与喷溅药水[[判定箱]]之间的距离。
+** 即现在直接被喷溅药水击中的生物能获得完整的药水效果。
+
+'''[[弹射物]]'''
+* 弹射物的目标差幅不再为固定的0.3格，而是会在弹射物生成{{convert|2}}后从0起每刻增加0.05格，直到达到原来的0.3格差幅。
+** 这提高了近距离使用弹射物的精准度。
+
+'''[[被激活的TNT]]'''
+* 部分回退了对{{bug|MC-3697}}的修复；现在，TNT在水中爆炸时再次会破坏物品实体和盔甲架，但仍不会破坏画和物品展示框等装饰性实体。
+
+=== 世界生成 ===
+'''[[林地府邸]]'''
+* 结构{{filename|1x1_b5.nbt}}现在会正常生成。
+
+'''[[地物数据格式]]'''
+* 树木装饰器<code>place_on_ground</code>现在不能在除树叶外的阻止运动方块或流体下方放置地物。
+
+'''[[战利品表]]'''
+* 移除了以下结构战利品箱中的鞍，并以{{range|1|5}}个[[皮革]]代替：
+** [[刷怪房]]战利品箱
+** [[远古城市]]战利品箱
+** [[沙漠神殿]]战利品箱
+** [[丛林神庙]]战利品箱
+** [[要塞]]祭坛战利品箱
+
+=== 游戏内容 ===
+'''[[粒子]]'''
+* <code>firefly_particle</code>的生命周期由{{range|36|180}}游戏刻更改为{{range|200|300}}游戏刻。
+
+'''[[隐身]]'''
+* 现在会100%降低生物的<code>waypoint_transmit_range</code>属性。
+
+'''[[云]]'''
+* 现在会一直延伸到地平线。
+* 云的颜色不再能由纹理{{filename|clouds.png}}修改。
+* 更新了{{filename|clouds.png}}。
+** 包含一个向右旋转90°的[[苦力怕]]图案。
+
+'''[[迷雾]]'''
+* 改善了迷雾的氛围。
+* 现在[[降雨]]和[[雷暴]]天气会有更多的迷雾。
+
+'''[[属性]]'''
+* 现在[[属性/飞行速度|飞行速度]]属性（<code>flying_speed</code>）影响[[恶魂]]的飞行速度。
+
+'''[[音乐]]和[[声音]]'''
+* 现在游戏暂停时，音乐也会播放。
+
+'''[[音效]]'''
+* 更改了以下音效的名称：
+** <code>entity/leashknot/break1</code>→<code>entity/leashknot/unleash1</code>
+** <code>entity/leashknot/break2</code>→<code>entity/leashknot/unleash2</code>
+** <code>entity/leashknot/break3</code>→<code>entity/leashknot/unleash3</code>
+** <code>entity/leashknot/place1</code>→<code>entity/leashknot/leash1</code>
+** <code>entity/leashknot/place2</code>→<code>entity/leashknot/leash2</code>
+** <code>entity/leashknot/place3</code>→<code>entity/leashknot/leash3</code>
+
+=== 常规 ===
+'''[[全景图]]'''
+* 更新了主菜单全景图以匹配[[追逐天空]]。
+** 其使用种子{{cd|8819392414030687460}}在坐标为X=1266, Y=105, Z=-125的地方拍摄。<ref>https://www.youtube.com/watch?v=nFvMceXa80c</ref>
+
+'''[[数据包]]'''
+* 将数据包版本号更改为{{cd|80}}。
+
+'''[[暂停屏幕]]'''
+* 游戏现在会根据数据包和服务端的网络数据包判断是否展示自定义的对话框。
+* 此对话框依旧使用{{cd|external_title}}展示标题。
+* 此功能由对话框标签{{cd|#pause_screen_additions}}参与处理：
+** 如果未指定此标签或此标签为空，但服务端发送了{{cd|server_links}}网络数据包，则显示{{cd|server_links}}。
+** 如果标签有一个元素，则会替换“{{tr|报告漏洞|回報錯誤|報吿錯誤}}”按钮，显示此对话框按钮。
+** 如果有多个元素，则按钮指向{{cd|custom_options}}对话框，此对话框会调用标签依次显示对话框。
+
+'''[[数据组件]]'''
+* <code>painting/variant</code>组件不再接受内联变种。
+* 在<code>attribute_modifiers</code>组件中的属性修饰符项加入了可选字段{{nbt|compound|display}}，以修改属性修饰符的显示方式。
+** 格式如下：
+<div class="treeview">
+:** {{nbt|compound|display}}
+:*** {{nbt|string|type}}：显示类型。
+:*** {{nbt condition|当{{nbt|string|type}}为{{cd|default}}时，显示此项计算后的属性修饰符值。此项也是默认值。}}
+:*** {{nbt condition|当{{nbt|string|type}}为{{cd|hidden}}时，不显示此项属性修饰符值。}}
+:*** {{nbt condition|当{{nbt|string|type}}为{{cd|override}}时，替换所显示的属性修饰符文本，附加如下字段：}}
+:*** {{nbt|string}}{{nbt|compound}}{{nbt|list|value}}：（[[文本组件]]）替换值。
+</div>
+
+'''[[Java版声音事件|声音事件]]'''
+* 更改了以下声音分类的英文名称：
+** Friendly Creatures → Friendly Mobs
+** Hostile Creatures → Hostile Mobs
+* 将{{cd|block.sand.wind}}重命名为{{cd|block.dry_grass.ambient}}。
+* 移除了空事件<code>entity.puffer_fish.ambient</code>。
+
+'''[[配方]]'''
+* 将[[床]]和[[地毯]]的染色配方的配方种类由<code>building</code>更改为<code>misc</code>。
+* 将[[挽具]]的合成与染色配方的配方种类由<code>misc</code>更改为<code>equipment</code>。
+
+'''[[文本组件]]'''
+* 现在聊天屏幕和成书屏幕中点击事件<code>run_command</code>指定的命令若无法解析或所需的权限等级大于0，则玩家点击文本后会出现一个确认屏幕。
+
+'''[[Realms]]'''
+* 更改了Realms配置屏幕的外观，现在分为4个标签页——世界、玩家、订阅和设置。
+
+'''[[资源包]]'''
+* 将资源包版本号更改为{{cd|63}}。
+* 方块模型旋转角度不再必须为22.5的倍数。
+
+'''[[字体]]'''
+* Unifont已更新至16.0.03。
+* 加入了新的内置字体<code>include/unifont_pua</code>，包含了Unifont中位于私用区的未编码字，这些字符由Under-CSUR（Under-ConScript Unicode Registry）管理码位。
+** 游戏文本默认不会使用该字体，但可以在[[文本组件]]等中指定该字体。
+
+'''[[自定义字体]]'''
+* 字形提供器<code>unihex</code>的{{nbt|list|size_overrides}}字段现在可选，且默认为空。
+
+'''[[Java版标签|标签]]'''
+* 将方块标签{{cd|#plays_ambient_desert_block_sounds}}重命名为{{cd|#triggers_ambient_desert_dry_vegetation_block_sounds}}。
+* 在实体标签{{cd|d=pretty|#dismounts_underwater|#fall_damage_immune}}中加入{{cd|happy_ghast}}。
+* 向<code>#horse_food</code>物品标签中加入了<code>carrot</code>。
+
+'''[[纹理]]'''
+* [[全景图]]纹理现在必须为大小相同的正方形。
+* 移除了状态效果图集，而{{filepath|textures/mob_effect/}}文件夹中的精灵图现在移动到了GUI图集中，这意味着状态效果图标纹理现在是GUI纹理。
+
+'''[[物品模型映射]]'''
+* 动态模型{{cd|minecraft:head}}现在不再支持从{{cd|minecraft:profile}}组件读取玩家信息。
+** 当{{cd|kind}}值设置为{{cd|player}}且未设置纹理覆盖时，将渲染玩家的默认纹理。
+
+'''[[JSON]]'''
+* 世界、包、配置等使用的JSON解析器现在均以严格模式解析文件。
+
+'''游戏测试系统'''
+* 服务器重新启动后，测试框架将不再尝试重新启动此前运行的测试。
+
+'''[[客户端核心文件]]'''
+* <code>--quickPlaySingleplayer</code>命令行参数现在可以不指定标识符，以启动上次游玩的世界。
+
+'''[[闪烁标语]]'''
+* 移除了“Minors welcome!”。
+* 将“Pumpa kungen!”闪烁标语改为“Pumpakungen!”。
+* 将“10 years of Mining and Crafting!”闪烁标语改为“15 years of Mining and Crafting!”。
+
+'''[[着色器]]与后处理管线'''
+* 所有核心着色器的Uniform现在都是Uniform块。
+* 内置的Uniform现在都是Uniform块，而不是不透明松散的Uniform。
+* 后处理管线的Uniform现在使用Uniform块。
+* JSON中的Uniform现在按块定义。
+* 对后处理管线定义作如下更改：
+** 拓展{{nbt|compound|targets}}的映射值以支持新属性。
+*** <code>persistent</code>，默认为<code>false</code>。
+**** 如果为<code>true</code>，则渲染目标将在每帧之间持久化存在。
+**** 调整屏幕大小时渲染目标的内容会被清除。
+*** <code>clear_color</code>，默认为<code>[0, 0, 0, 0]</code>，格式为<code>[R, G, B, A]</code>。
+**** 渲染目标被创建或清除时，将使用此值填充颜色。
+** Uniform现在是每个块的列表，而不是全局列表，且其顺序'''必须'''与着色器的顺序匹配。
+** 弃用了<code>name</code>字段。
+** 移除了<code>values</code>字段，现在使用<code>value</code>字段指定Uniform。
+*** 仍然为必选项，格式视<code>type</code>而定：
+**** <code>int</code> - 单个整数
+**** <code>float</code> - 单个浮点数
+**** <code>vec2</code> - 两个浮点数的列表
+**** <code>vec3</code> - 三个浮点数的列表
+**** <code>ivec3</code> - 三个整数的列表
+**** <code>vec4</code> - 四个浮点数的列表
+**** <code>matrix4x4</code> - 四行四列浮点数的列表
+** Uniform类型不会被验证是否适用于指定的着色器，指定不合适的数据可能导致未定义的行为。
+* 对后处理管线程序作如下更改：
+** 现在每个Uniform不再是分立的不透明的类型，而是打包进Uniform块内。
+*** 它们将根据JSON定义的通道进行设置，并且在顶点着色器和片段着色器之间共享。
+** 大小的列表（所有<code>vec2*Size</code>的Uniform）现在被单个Uniform块<code>SamplerInfo</code>取代。
+*** 包含按顺序的输入纹理大小和输出纹理大小。
+*** 定义文件的纹理顺序决定采样器的顺序。
+*** 对于大多数后处理链而言这只是以前的<code>OutSize</code>（vec2）和<code>InSize</code>（vec2）。
+** <code>post/bits.fsh</code>：
+*** 需要<code>BitsConfig</code>，包含<code>Resolution</code>（float）和<code>MosaicSize</code>（float）。
+** <code>post/blit.fsh</code>：
+*** 需要<code>BlitConfig</code>，包含<code>ColorModulate</code>（vec4）。
+** <code>post/blur.vsh</code>和<code>post/box_blur.fsh</code>：
+*** 需要<code>BlurConfig</code>，包含<code>BlurDir</code>（vec2）和<code>Radius</code>（float）。
+** <code>post/color_convolve.fsh</code>：
+*** 需要<code>ColorConfig</code>，包含<code>RedMatrix</code>（vec3）、<code>GreenMatrix</code>（vec3）和<code>BlueMatrix</code>（vec3）。
+** <code>post/invert.fsh</code>：
+*** 需要<code>InvertConfig</code>，包含<code>InverseAmount</code>（float）。
+** <code>post/rotscale.vsh</code>：
+*** 需要<code>RotScaleConfig</code>，包含<code>InScale</code>（vec2）、<code>InOffset</code>（vec2）和<code>InRotation</code>（float）。
+** <code>post/spiderclip.fsh</code>：
+*** 需要<code>SpiderConfig</code>，包含<code>Scissor</code>（vec4）和<code>Vignette</code>（vec4）。
+* <code>Globals</code>Uniform块
+** 可以通过<code>#moj_import <minecraft:globals.glsl></code>引用。
+** 大多数着色器都能接收此Uniform块，尽管通常不使用它。
+** 包含<code>ScreenSize</code>、<code>GlintAlpha</code>、<code>GameTime</code>和<code>MenuBlurRadius</code>。
+*** <code>MenuBlurRadius</code>是打开菜单时背景的模糊半径。
+* <code>Fog</code>Uniform块
+** 可以通过<code>#moj_import <minecraft:fog.glsl></code>引用。
+** 大多数着色器都能接收此Uniform块，尽管通常不使用它。
+** 包含<code>FogColor</code>、<code>FogRenderDistanceStart</code>、<code>FogRenderDistanceEnd</code>、<code>FogSkyEnd</code>、<code>FogCloudsEnd</code>、<code>FogEnvironmentalStart</code>和<code>FogEnvironmentalEnd</code>。
+*** <code>FogSkyEnd</code>是绘制天空时雾的截止位置。
+*** <code>FogCloudsEnd</code>是绘制云时雾的截止位置。
+*** <code>FogRenderDistanceStart</code>是渲染距离迷雾的起始位置。
+*** <code>FogRenderDistanceEnd</code>是渲染距离迷雾的截止位置。
+*** <code>FogEnvironmentalStart</code>是环境迷雾的起始位置。
+*** <code>FogEnvironmentalEnd</code>是环境迷雾的截止位置。
+* <code>Projection</code>Uniform块
+** 可以通过<code>#moj_import <minecraft:projection.glsl></code>引用。
+** 大多数着色器都能接收此Uniform块，尽管通常不使用它。
+** 包含<code>ProjMat</code>。
+* <code>DynamicTransforms</code>Uniform块
+** 不可用于通常不使用它的着色器。
+** 包含<code>ModelViewMat</code>、<code>ColorModulator</code>、<code>ModelOffset</code>、<code>TextureMat</code>和<code>LineWidth</code>。
+** 一些值是硬编码的，对于给定的着色器可能没有意义。
+* <code>Lighting</code>Uniform块
+** 可以通过<code>#moj_import <minecraft:light.glsl></code>引用。
+** 大多数着色器都能接收此Uniform块，尽管通常不使用它。
+*** 如果着色器不使用该值，可能没有意义。
+** 包含<code>Light0_Direction</code>和<code>Light1_Direction</code>。
+* <code>CloudInfo</code>Uniform块
+** 仅用于渲染云的着色器<code>rendertype_clouds.vsh/fsh</code>。
+** 包含<code>CloudColor</code>、<code>CloudOffset</code>和<code>CellSize</code>。
+*** <code>CellSize</code>是云的单元格的大小。
+* <code>LightmapInfo</code>Uniform块
+** 仅用于光照渲染的着色器<code>lightmap.fsh</code>。
+** 包含<code>AmbientLightFactor</code>、<code>SkyFactor</code>、<code>BlockFactor</code>、<code>UseBrightLightmap</code>、<code>NightVisionFactor</code>、<code>DarknessScale</code>、<code>DarkenWorldFactor</code>、<code>BrightnessFactor</code>和<code>SkyLightColor</code>。
+* 对迷雾着色器进行了如下更改：
+** 迷雾现在分为环境迷雾和基于渲染距离的迷雾。
+*** 此前，这两种概念在同一个Uniform中混用。
+*** 环境迷雾用于形成玩家所处环境（比如水、熔岩、细雪，现在还有大气）的“朦胧感”，由球面距离影响其强度。
+*** 渲染距离迷雾用于模糊可见地形的边界，由圆柱距离影响其强度。
+*** 对于任何给定的顶点，得到的迷雾值是两种迷雾强度的最大值。
+
+== 修复 ==
+{{Fixes|fixedin=25w15a,25w16a,25w17a,25w18a,25w19a,25w20a,25w21a,1.21.6 Pre-Release 1,1.21.6 Pre-Release 2,1.21.6 Pre-Release 3,1.21.6 Pre-Release 4,1.21.6 Release Candidate 1|showdesc=1
+|;old
+|36696|点击菜单屏幕中的统计信息按钮会将游戏推进1游戏刻。
+|69821|世界重载后，TNT“忘记了”点燃它的玩家。
+|94800|打开URL对话框后显示的URL没有被缩短。
+|104231|加载自定义结构不会正常加载铁轨。
+|112730|信标光柱和结构方块每帧渲染两次。
+|118430|恼鬼的生成者尽管用于AI任务，却未存储于NBT中。
+|118432|恼鬼的生成者不会在其死亡后重置。
+|140819|讲台模型超出物品栏槽位。
+|147260|地图图标不在制图台中显示。
+|148278|在书本编辑GUI中反复按{{key|Tab}}键可以同时选中多个按钮。
+|187660|导入多个数据包时文本会重叠在按钮上。
+|189246|无法在书与笔的标题页进行复制粘贴操作。
+|191306|{{cmd|playsound|link=none}}会在所有维度中播放音效。
+|200092|<code>/setworldspawn</code>命令忽略了<code>angle</code>参数。
+|200925|恶魂不受投掷到头上的药水影响。
+|217887|1.9-pre1及之前版本的未署名的书不能正确升级。
+|224704|方块裂纹不受细雪或熔岩迷雾的影响。
+|228451|无法在书与笔的标题页移动光标。
+|229483|凋灵不受投掷在其头顶上方的瞬间伤害和瞬间治疗喷溅药水的影响。
+|230902|低渲染距离下天空尽头有时会出现黑块。
+|233604|GUI或物品渲染会严重影响帧率性能。
+|236464|重新加载区块后，从玩家下方发出的信标光柱不可见。
+|237015|书本签名界面中的光标在闪烁时不会完全变为不可见。
+|237698|在“{{tr|极佳！|極致！|極佳！}}”图形设置下，云和粒子可以透过透明方块顶部的实体阴影被看到，且无视距离雾和可见性。
+|238931|云在被雾挡住前就停止渲染了。
+|240121|{{filename|1x1_b5.nbt}}部件不会在林地府邸中生成。
+|256411|云会根据视角不完全渲染。
+|257532|1.18的世界高度更改后，云不再填满天空了。
+|258336|使用线程化或半阻塞区块构建器时，冰霜行者在区块边界频繁产生视觉崩坏。
+|262268|键盘导航在书与笔GUI中无效。
+|264431|<code>#minecraft:sand</code>标签中包含两个<code>minecraft:suspicious_sand</code>。
+|265294|命令方块界面中的“上一个输出”按钮文本渲染在命令建议的文本背景框上方。
+|266318|活板门和门的被打开/被关闭字幕不一致。
+|270279|禁用状态的物品冷却覆盖层在堆叠数量数字上渲染不正确。
+|272825|23w31a及更早版本中的自定义地图在更高版本中无法正确升级。
+|275374|<code>CanBreakDoors:1b</code>的溺尸不能破门。
+|275597|在Realm菜单中，悬停在玩家头颅纹理右半部分时，也会显示交通信号灯图标的悬停文本。
+|276264|进度界面阴影渲染于物品图标下。
+|277369|将举报保存为草稿时，举报草稿图标不会立刻显示。
+|277370|放弃举报时，举报草稿图标不会立刻消失。
+|277486|状态效果图标忽略mcmeta文件中的<code>scaling</code>参数。
+|277678|应用资源包时，文本会渲染在加载条的上方。
+|277903|创造模式物品栏标签栏图标会显示物品冷却贴图。
+|277992|苍白橡木运输船物品中的1种颜色错误。
+|278231|书与笔中行末的空格字符即使被赋予纹理也仍然不可见。
+|278459|{{filename|unifont.json}}包含尾随逗号。
+|278466|收纳袋实验性数据包相关字符串不在{{filename|deprecated.json}}中。
+|278873|在1.13版本前对花盆使用{{key|Ctrl}}+{{ctrl|选取方块}}获取物品后，数据修复器会重新生成包含此物品的区块，或是使物品栏中包含此物品的玩家的游戏崩溃。
+|279284|掷出的附魔之瓶生成的经验球很容易卡进方块中。
+|279417|将生物引诱到Y{{=}}-64的方块上会使其向最大高度寻路。
+|280353|制图台绘制地图颜色时会覆盖地图图标，导致图标被隐藏。
+|;1.21.5的漏洞
+|279515|运行设定大范围的{{cmd|test clearall|link=none}}命令时，游戏卡死。
+|279875|不能从悬空脚手架斜向爬上台阶。
+|280047|启用Programmer Art资源包的温带牛使用其1.14纹理。
+|280266|萤火虫灌木丛不会与基岩版一样产生同样多、或数量恒定的粒子。
+|280268|烈焰人和旋风人使用“大型”刷怪蛋而非因生物大小正常使用“中型”刷怪蛋。
+|280276|悬浮在地面上时，一些物品的模型仍然可能切入下方方块。
+|280281|浮漂在勾上移动的实体时快速抖动。
+|280297|草丛和泥土的音量不一致。
+|280471|区域效果云的<code>Particle.color</code>是只读的。
+|280476|游戏输出中会记录{{cd|Found unknown and unsupported uniform}}警告信息。
+|280502|翻译键<code>snbt.parser.undescore_not_allowed</code>包含一处拼写错误。
+|293619|Programmer Art中的鸡刷怪蛋纹理缺少与物品栏槽位背景颜色匹配的像素。
+|293754|Minecraft偶尔导致OpenGL错误。
+|295395|实体与下界传送门的交互不同。
+|295677|关闭“{{tr|欢迎进入Minecraft|歡迎遊玩 Minecraft|歡迎來到 Minecraft}}”屏幕后，标题屏幕自黑色淡入。
+|295681|枯叶堆能在林地府邸内部生成。
+|295690|玩家短暂接触火后会持续着火。
+|295850|创建世界“编辑游戏规则”屏幕中的“完成”和“取消”按钮起同一效果。
+|295866|某些情况下，{{cmd|setblock|link=none}}和{{cmd|fill|link=none}}命令不再更新红石信号强度。
+|295867|对上个版本的结构运行DataFixerUpper时失败。
+|295879|疾跑中攻击船并上此船致其陷入下方方块。
+|295895|1.21.5中，矿车穿越下界传送门的行为损坏。
+|295914|战利品表文件接受无效JSON。
+|295944|重新加载会导致无职业的僵尸村民获得随机的职业服装。
+|296035|<code>mooshroom_spawn_egg</code>中的两个像素与<code>cow_spawn_egg</code>中相同。
+|296043|某些uniform在某些GPU上无法加载。
+|296099|下界传送门碰撞箱是否工作取决于基本方向。
+|296121|<code>ClientboundLevelChunkPacketData</code>缓冲区过大。
+|296337|矿车导致内存使用量增加并引发崩溃。
+|296348|<code>NoAI:1b</code>的生物在1.21.5及以上版本中不能被骑乘。
+|296420|<code>/datapack create</code>命令可以创建名称非法的目录。
+|296624|Programmer Art中缺失旧版棕色哞菇纹理。
+|296638|使用“{{tr|极佳！|極致！|極佳！}}”画质时，具有特殊显示上下文的时钟、指南针和磁石指针不会渲染附魔光效。
+|296701|被转化的实体不会保留其<code>custom_data</code>组件。
+|296709|更新到1.21.4后，所有现有物品的非默认的<code>jukebox_playable</code>组件均被移除。
+|296784|“{{tr|欢迎进入Minecraft|歡迎遊玩 Minecraft|歡迎來到 Minecraft}}”屏幕缺少淡化。
+|296866|部分命名空间的谓词不能在{{cmd|execute|link=none}}中访问。
+|297264|猫的种类不再基于种子随机。
+|297347|已驯服的动物不再在其主人穿越到其他维度时坐下。
+|297461|装备和睡觉坐标数据在1.21.4中不能加载，但在1.21.5中能加载到生成于蜂巢和蜂箱的蜜蜂。
+|297537|多余的“<code>entity.wolf_whine.whine</code>”声音事件存在于{{filename|sounds.json}}中。
+|297591|末影珍珠可能会意外停止。
+|297614|持续时间大于或等于2147483628的区域效果云在1游戏刻后消失。
+}}
+
+== 参考 ==
+{{Reflist}}
+
+== 导航 ==
+{{Navbox Java Edition versions|1.21}}
+
+[[de:1.21.6]]
+[[en:Java Edition 1.21.6]]
+[[es:Java Edition 1.21.6]]
+[[fr:Édition Java 1.21.6]]
+[[ja:Java Edition 1.21.6]]
+[[ko:Java Edition 1.21.6]]
+[[pl:Java Edition 1.21.6]]
+[[pt:Edição Java 1.21.6]]
+[[ru:1.21.6 (Java Edition)]]
+[[th:รุ่น Java 1.21.6]]
+[[uk:1.21.6 (Java Edition)]]

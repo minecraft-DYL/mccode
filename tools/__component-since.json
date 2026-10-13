@@ -1,0 +1,529 @@
+{
+  "attack_animation": {
+    "since": "26.3",
+    "snapshot": "snapshot-10",
+    "evidence": "<code>attack_animation</code>和<code>attack_animation</code>的…字段重新加入了<code>none</code>动画类型，且…字段现在必须是非负整数。"
+  },
+  "attack_range": {
+    "since": "1.21.11",
+    "snapshot": "pre1",
+    "evidence": "加入了…组件。"
+  },
+  "attribute_modifiers": {
+    "since": "1.20.5",
+    "snapshot": "24w10a",
+    "evidence": "为…组件加入了简化定义。"
+  },
+  "banner_patterns": {
+    "since": null
+  },
+  "base_color": {
+    "since": null
+  },
+  "bees": {
+    "since": null
+  },
+  "block_entity_data": {
+    "since": null
+  },
+  "block_state": {
+    "since": null
+  },
+  "block_transformer": {
+    "since": "26.3",
+    "snapshot": "snapshot-2",
+    "evidence": "加入了<code>block_transformer</code>组件。"
+  },
+  "blocks_attacks": {
+    "since": "1.21.5",
+    "snapshot": "25w04a",
+    "evidence": "|加入了…组件。"
+  },
+  "break_sound": {
+    "since": "1.21.5",
+    "snapshot": "25w04a",
+    "evidence": "|加入了…组件。"
+  },
+  "brewing_fuel": {
+    "since": "26.3",
+    "snapshot": "snapshot-4",
+    "evidence": "加入了…组件。"
+  },
+  "bucket_entity_data": {
+    "since": null
+  },
+  "bundle_contents": {
+    "since": null
+  },
+  "can_break": {
+    "since": null
+  },
+  "can_place_on": {
+    "since": null
+  },
+  "charged_projectiles": {
+    "since": null
+  },
+  "compostable": {
+    "since": "26.3",
+    "snapshot": "snapshot-3",
+    "evidence": "加入了<code>compostable</code>组件。"
+  },
+  "consumable": {
+    "since": "1.21.2",
+    "snapshot": "24w34a",
+    "evidence": "加入了…组件。"
+  },
+  "container": {
+    "since": null
+  },
+  "container_loot": {
+    "since": null
+  },
+  "cooking_fuel": {
+    "since": "26.3",
+    "snapshot": "snapshot-4",
+    "evidence": "加入了…组件。"
+  },
+  "custom_data": {
+    "since": null
+  },
+  "custom_model_data": {
+    "since": null
+  },
+  "custom_name": {
+    "since": null
+  },
+  "damage": {
+    "since": null
+  },
+  "damage_resistant": {
+    "since": "1.21.2",
+    "snapshot": "24w37a",
+    "evidence": "加入了…组件。"
+  },
+  "damage_type": {
+    "since": "1.21.11",
+    "snapshot": "25w41a",
+    "evidence": "加入了…组件。"
+  },
+  "debug_stick_state": {
+    "since": null
+  },
+  "death_protection": {
+    "since": "1.21.2",
+    "snapshot": "24w37a",
+    "evidence": "加入了…组件。"
+  },
+  "dye": {
+    "since": "26.1",
+    "snapshot": "snapshot-5",
+    "evidence": "加入了<code>dye</code>组件。"
+  },
+  "dyed_color": {
+    "since": "1.20.5",
+    "snapshot": "24w10a",
+    "evidence": "为…组件加入了简化定义。"
+  },
+  "enchantable": {
+    "since": "1.21.2",
+    "snapshot": "24w33a",
+    "evidence": "加入了…组件。"
+  },
+  "enchantment_glint_override": {
+    "since": null
+  },
+  "enchantments": {
+    "since": "1.20.5",
+    "snapshot": "24w10a",
+    "evidence": "为…组件加入了简化定义。"
+  },
+  "entity_data": {
+    "since": null
+  },
+  "equippable": {
+    "since": "1.21.2",
+    "snapshot": "24w36a",
+    "evidence": "加入了…组件。"
+  },
+  "firework_explosion": {
+    "since": null
+  },
+  "fireworks": {
+    "since": null
+  },
+  "food": {
+    "since": "1.20.5",
+    "snapshot": "24w12a",
+    "evidence": "<ref>…</ref>\r\n|加入了…组件。"
+  },
+  "glider": {
+    "since": "1.21.2",
+    "snapshot": "24w36a",
+    "evidence": "加入了…组件。"
+  },
+  "instrument": {
+    "since": null
+  },
+  "intangible_projectile": {
+    "since": null
+  },
+  "interact_animation": {
+    "since": "26.3",
+    "snapshot": "snapshot-7",
+    "evidence": "加入了<code>interact_animation</code>组件。"
+  },
+  "item_model": {
+    "since": "1.21.2",
+    "snapshot": "24w36a",
+    "evidence": "加入了…组件。"
+  },
+  "item_name": {
+    "since": "1.20.5",
+    "snapshot": "24w13a",
+    "evidence": "加入了…组件。"
+  },
+  "jukebox_playable": {
+    "since": "1.21",
+    "snapshot": "24w21a",
+    "evidence": "加入了…组件。"
+  },
+  "kinetic_weapon": {
+    "since": "1.21.11",
+    "snapshot": "25w41a",
+    "evidence": "加入了…组件。"
+  },
+  "lock": {
+    "since": null
+  },
+  "lodestone_tracker": {
+    "since": null
+  },
+  "lore": {
+    "since": null
+  },
+  "map_decorations": {
+    "since": null
+  },
+  "map_id": {
+    "since": null
+  },
+  "max_damage": {
+    "since": "1.20.5",
+    "snapshot": "24w12a",
+    "evidence": "<ref>…</ref>\r\n|加入了…组件。"
+  },
+  "max_stack_size": {
+    "since": "1.20.5",
+    "snapshot": "24w12a",
+    "evidence": "<ref>…</ref>\r\n|加入了…组件。"
+  },
+  "minimum_attack_charge": {
+    "since": "1.21.11",
+    "snapshot": "25w41a",
+    "evidence": "加入了…组件。"
+  },
+  "mob_visibility": {
+    "since": "26.3",
+    "snapshot": "snapshot-4",
+    "evidence": "加入了…组件。"
+  },
+  "note_block_sound": {
+    "since": null
+  },
+  "ominous_bottle_amplifier": {
+    "since": "1.20.5",
+    "snapshot": "24w13a",
+    "evidence": "加入了…组件。"
+  },
+  "piercing_weapon": {
+    "since": "1.21.11",
+    "snapshot": "25w41a",
+    "evidence": "加入了…组件。"
+  },
+  "pot_decorations": {
+    "since": null
+  },
+  "potion_contents": {
+    "since": "1.20.5",
+    "snapshot": "24w10a",
+    "evidence": "为…组件加入了简化定义。"
+  },
+  "potion_duration_scale": {
+    "since": "1.21.5",
+    "snapshot": "25w02a",
+    "evidence": "|加入了…组件。"
+  },
+  "profile": {
+    "since": "1.20.5",
+    "snapshot": "24w10a",
+    "evidence": "为…组件加入了简化定义。"
+  },
+  "provides_banner_patterns": {
+    "since": "1.21.5",
+    "snapshot": "25w04a",
+    "evidence": "|加入了…组件。"
+  },
+  "provides_pottery_pattern": {
+    "since": "26.3",
+    "snapshot": "snapshot-1",
+    "evidence": "加入了<code>provides_pottery_pattern</code>组件。"
+  },
+  "provides_trim_material": {
+    "since": "1.21.5",
+    "snapshot": "25w04a",
+    "evidence": "|加入了…组件。"
+  },
+  "rarity": {
+    "since": "1.20.5",
+    "snapshot": "24w12a",
+    "evidence": "<ref>…</ref>\r\n|加入了…组件。"
+  },
+  "recipes": {
+    "since": null
+  },
+  "repair_cost": {
+    "since": null
+  },
+  "repairable": {
+    "since": "1.21.2",
+    "snapshot": "24w33a",
+    "evidence": "加入了…组件。"
+  },
+  "sign_text_back": {
+    "since": "26.3",
+    "snapshot": "snapshot-4",
+    "evidence": "加入了…组件。"
+  },
+  "sign_text_front": {
+    "since": "26.3",
+    "snapshot": "snapshot-4",
+    "evidence": "加入了…组件。"
+  },
+  "stored_enchantments": {
+    "since": "1.20.5",
+    "snapshot": "24w10a",
+    "evidence": "为…组件加入了简化定义。"
+  },
+  "sulfur_cube_content": {
+    "since": "26.2",
+    "snapshot": "snapshot-1",
+    "evidence": "加入了<code>sulfur_cube_content</code>组件。"
+  },
+  "suspicious_stew_effects": {
+    "since": null
+  },
+  "tool": {
+    "since": "1.20.5",
+    "snapshot": "24w12a",
+    "evidence": "<ref>…</ref>\r\n|加入了…组件。"
+  },
+  "tooltip_display": {
+    "since": "1.21.5",
+    "snapshot": "25w04a",
+    "evidence": "|加入了…组件。"
+  },
+  "tooltip_style": {
+    "since": "1.21.2",
+    "snapshot": "24w36a",
+    "evidence": "加入了…组件。"
+  },
+  "trim": {
+    "since": null
+  },
+  "unbreakable": {
+    "since": null
+  },
+  "use_cooldown": {
+    "since": "1.21.2",
+    "snapshot": "24w34a",
+    "evidence": "加入了…组件。"
+  },
+  "use_effects": {
+    "since": "1.21.11",
+    "snapshot": "25w41a",
+    "evidence": "加入了…组件。"
+  },
+  "use_remainder": {
+    "since": "1.21.2",
+    "snapshot": "24w34a",
+    "evidence": "加入了…组件。"
+  },
+  "villager_food": {
+    "since": "26.3",
+    "snapshot": "snapshot-4",
+    "evidence": "加入了…组件。"
+  },
+  "waxed": {
+    "since": "26.3",
+    "snapshot": "snapshot-4",
+    "evidence": "加入了…组件。"
+  },
+  "weapon": {
+    "since": "1.21.5",
+    "snapshot": "25w02a",
+    "evidence": "|加入了…组件。"
+  },
+  "writable_book_content": {
+    "since": null
+  },
+  "written_book_content": {
+    "since": null
+  },
+  "axolotl/variant": {
+    "since": "1.21.5",
+    "snapshot": "25w03a",
+    "evidence": "|加入了…组件。"
+  },
+  "cat/collar": {
+    "since": "1.21.5",
+    "snapshot": "25w03a",
+    "evidence": "|加入了…组件。"
+  },
+  "cat/sound_variant": {
+    "since": "26.1",
+    "snapshot": "snapshot-7",
+    "evidence": "加入了<code>cat/sound_variant</code>、<code>chicken/sound_variant</code>、<code>cow/sound_variant</code>和<code>pig/sound_variant</code>组件。"
+  },
+  "cat/variant": {
+    "since": "1.21.5",
+    "snapshot": "25w03a",
+    "evidence": "|加入了…组件。"
+  },
+  "chicken/sound_variant": {
+    "since": "26.1",
+    "snapshot": "snapshot-7",
+    "evidence": "加入了<code>cat/sound_variant</code>、<code>chicken/sound_variant</code>、<code>cow/sound_variant</code>和<code>pig/sound_variant</code>组件。"
+  },
+  "chicken/variant": {
+    "since": "1.21.5",
+    "snapshot": "25w06a",
+    "evidence": "加入了…组件。"
+  },
+  "cow/sound_variant": {
+    "since": "26.1",
+    "snapshot": "snapshot-7",
+    "evidence": "加入了<code>cat/sound_variant</code>、<code>chicken/sound_variant</code>、<code>cow/sound_variant</code>和<code>pig/sound_variant</code>组件。"
+  },
+  "cow/variant": {
+    "since": "1.21.5",
+    "snapshot": "25w05a",
+    "evidence": "加入了…组件。"
+  },
+  "cushion/color": {
+    "since": "26.3",
+    "snapshot": "snapshot-4",
+    "evidence": "加入了…组件。"
+  },
+  "fox/variant": {
+    "since": "1.21.5",
+    "snapshot": "25w03a",
+    "evidence": "|加入了…组件。"
+  },
+  "frog/variant": {
+    "since": "1.21.5",
+    "snapshot": "25w03a",
+    "evidence": "|加入了…组件。"
+  },
+  "horse/variant": {
+    "since": "1.21.5",
+    "snapshot": "25w03a",
+    "evidence": "|加入了…组件。"
+  },
+  "llama/variant": {
+    "since": "1.21.5",
+    "snapshot": "25w03a",
+    "evidence": "|加入了…组件。"
+  },
+  "mooshroom/variant": {
+    "since": "1.21.5",
+    "snapshot": "25w03a",
+    "evidence": "|加入了…组件。"
+  },
+  "painting/variant": {
+    "since": "1.21.5",
+    "snapshot": "25w03a",
+    "evidence": "|加入了…组件。"
+  },
+  "parrot/variant": {
+    "since": "1.21.5",
+    "snapshot": "25w03a",
+    "evidence": "|加入了…组件。"
+  },
+  "pig/sound_variant": {
+    "since": "26.1",
+    "snapshot": "snapshot-7",
+    "evidence": "加入了<code>cat/sound_variant</code>、<code>chicken/sound_variant</code>、<code>cow/sound_variant</code>和<code>pig/sound_variant</code>组件。"
+  },
+  "pig/variant": {
+    "since": "1.21.5",
+    "snapshot": "25w03a",
+    "evidence": "|加入了…组件。"
+  },
+  "rabbit/variant": {
+    "since": "1.21.5",
+    "snapshot": "25w03a",
+    "evidence": "|加入了…组件。"
+  },
+  "salmon/size": {
+    "since": "1.21.5",
+    "snapshot": "25w03a",
+    "evidence": "|加入了…组件。"
+  },
+  "sheep/color": {
+    "since": "1.21.5",
+    "snapshot": "25w03a",
+    "evidence": "|加入了…组件。"
+  },
+  "shulker/color": {
+    "since": "1.21.5",
+    "snapshot": "25w03a",
+    "evidence": "|加入了…组件。"
+  },
+  "tropical_fish/base_color": {
+    "since": "1.21.5",
+    "snapshot": "25w03a",
+    "evidence": "|加入了…组件。"
+  },
+  "tropical_fish/pattern": {
+    "since": "1.21.5",
+    "snapshot": "25w03a",
+    "evidence": "|加入了…组件。"
+  },
+  "tropical_fish/pattern_color": {
+    "since": "1.21.5",
+    "snapshot": "25w03a",
+    "evidence": "|加入了…组件。"
+  },
+  "villager/variant": {
+    "since": "1.21.5",
+    "snapshot": "25w03a",
+    "evidence": "|加入了…组件。"
+  },
+  "wolf/collar": {
+    "since": "1.21.5",
+    "snapshot": "25w03a",
+    "evidence": "|加入了…组件。"
+  },
+  "wolf/sound_variant": {
+    "since": "1.21.5",
+    "snapshot": "25w08a",
+    "evidence": "加入了…组件。"
+  },
+  "wolf/variant": {
+    "since": "1.21.5",
+    "snapshot": "25w03a",
+    "evidence": "|加入了…组件。"
+  },
+  "additional_trade_cost": {
+    "since": "26.1",
+    "snapshot": "snapshot-1",
+    "evidence": "加入了<code>additional_trade_cost</code>组件。"
+  },
+  "creative_slot_lock": {
+    "since": null
+  },
+  "map_post_processing": {
+    "since": null
+  }
+}

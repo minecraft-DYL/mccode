@@ -1,0 +1,22 @@
+{
+  "_note": "人工补查结果：仅收录 wiki 原文有明确表述的条目。查不到的一律留空（见 _unverified）。",
+  "lodestone_tracker": {
+    "since": "1.20.5",
+    "snapshot": "24w09a",
+    "evidence": "24w09a 的「加入了以下物品堆叠组件」列表里出现 lodestone_target（当时的名字）；24w10a 条目写「将 lodestone_target 组件重命名为 lodestone_tracker」。两个快照都属于 1.20.5，故引入版本记为 1.20.5，仅名称在 24w10a 变更。",
+    "source": "Java版24w09a section=2 + 数据组件 section=130",
+    "renamedIn": "24w10a"
+  },
+  "_unverified": {
+    "creative_slot_lock": {
+      "since": null,
+      "note": "「数据组件」section=126~129 把它列为「临时组件」，只描述功能（阻止玩家在物品栏内与此物品交互），未给引入版本；「数据组件」历史节（section=130）未出现该名字；全站 insource 正则搜索 /加入了[^。]{0,60}creative_slot_lock/ 命中 0 条。故留空。",
+      "sourcesChecked": ["数据组件 section=128", "数据组件 section=130", "insource 正则搜索"]
+    },
+    "map_post_processing": {
+      "since": null,
+      "note": "「数据组件」section=129 列为「临时组件」，只描述功能（同步地图的缩放等级和锁定信息），未给引入版本；历史节未出现该名字；Java版26.1 / 26.1-snapshot-5 只在「配方」里提到它会被设置为 1，属使用而非引入；全站 insource 正则搜索 /加入了[^。]{0,60}map_post_processing/ 命中 0 条。故留空。",
+      "sourcesChecked": ["数据组件 section=129", "Java版26.1-snapshot-5 section=3", "Java版26.1 配方小节", "insource 正则搜索"]
+    }
+  }
+}

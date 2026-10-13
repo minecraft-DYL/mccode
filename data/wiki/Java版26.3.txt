@@ -1,0 +1,2011 @@
+{{tr|mode=H|列表|串列}}{{tr|mode=H|返回|回傳|返回}}{{tr|mode=H|对象|物件}}{{tr|mode=H|改进透明显示|改善透明顯示|改進透明顯示}}{{stub|补充pre版本更改}}{{cleanup|清理所有仅出现在开发版本的更改}}
+{{Infobox version
+|title=26.3
+|image=26.3.jpg
+|image2=Java Edition 26.3 Simplified.png\Java Edition 26.3 Traditional.png\Java Edition 26.3 Traditional HK.png
+|edition=Java
+|name=[[奔赴荒野]]
+|date=2026年9月15日
+|jsonhash=96c00d95a31328714d3811cfade2804bb050e455
+|clienthash=e877b6a07acd633fb3bb475002175cec036e7b87
+|serverhash=33680f5f2ac32864d6d7cf5e56a705fdb3e05f4c
+|prevparent=26.2
+|prev=
+|next=
+|nextparent=26.4
+}}
+{{relevant guide|Java版指南/奔赴荒野}}
+
+'''26.3'''是'''[[奔赴荒野]]'''的正式版，也是{{el|je}}的一次[[小更新]]，发布于2026年9月15日<ref>{{article|minecraft-java-edition-26-3|Minecraft Java Edition 26.3|Sep 15, 2026}}</ref>。此次更新新增了[[斑驳森林]]生物群系，加入了[[杨树]]及其系列方块，以及相关自然方块，另加入了[[台阶]]和[[楼梯]]的[[羊毛]]和[[混凝土]]材质变种、[[坐垫]]和[[麦秆床]]，以及[[废弃营地]]，并修复了一些漏洞。
+
+== 新内容 ==
+=== 方块 ===
+'''[[杨树树叶]]'''
+* 随[[杨树]]生成的自然方块。
+* 有红色、橙色、黄色三种颜色。
+
+'''[[杨树树苗]]'''
+* 一种新的树苗，由杨树树叶掉落。
+* 可以与[[流浪商人]]交易获得。
+
+'''[[杨木原木]]'''
+* 随杨树生成的自然方块。
+* 有对应的去皮变种。
+** 可以合成对应种类的[[悬挂式告示牌]]。
+
+'''[[楊木塊]]'''
+* 由4个杨木原木合成。
+* 有对应的去皮变种。
+
+'''[[杨木木板]]'''
+* 一种新的木板。
+* 可用于合成对应的[[按钮]]、[[门]]、[[栅栏]]、[[栅栏门]]、[[压力板]]、[[告示牌]]、[[台阶]]、[[楼梯]]、[[活板门]]、[[船]]和[[运输船]]。
+
+'''[[层孔菇]]'''
+* 会生成在[[杨树]]和[[倒下的杨树]]的树干上。
+* 可以与[[流浪商人]]交易获得。
+* 有小型和大型两种尺寸。
+** 对小型层孔菇{{Control|使用}}[[骨粉]]可使其生长为大型层孔菇。
+** 大型层孔菇被破坏后会掉落两个层孔菇。
+* 可用于合成[[蘑菇煲]]。
+* 类似于[[床]]，具有一定的弹性，摔落其上可减免50%摔落高度的摔落伤害。
+
+'''[[麦秆床]]'''
+* 使用后可使玩家通过睡觉来跳过夜晚，但不会设置[[重生点]]。
+* 只能使用一次，使用后会被摧毁。
+* 无法在[[下界]]和[[末地]]中使用，如果试图在那里睡觉，则麦秆床会被破坏而不掉落自身，不会爆炸或生成火。
+* 使用3个[[干草捆]]合成4个麦秆床。
+* 合适的挖掘工具是[[锄]]。
+* 可用于[[堆肥]]，有85%的概率使堆肥层数增加一层。
+
+'''[[红灌木]]'''
+* 会在斑驳森林中以斑块形式自然生成。
+* 可用于[[堆肥]]，有30%的概率使堆肥层数增加一层。
+* 对其{{ctrl|使用}}[[骨粉]]会在附近可生成位置生成新的红灌木。
+
+'''[[羊毛楼梯]]和[[羊毛台阶]]'''
+* 共有16种颜色。
+* 可以在[[工作台]]中用[[羊毛]]制成。
+
+'''[[混凝土楼梯]]和[[混凝土台阶]]'''
+* 共有16种颜色。
+* 可以在工作台和[[切石机]]中用[[混凝土]]制成。
+
+=== 非生物实体 ===
+'''[[坐垫]]'''
+* 一种可以在放置后通过{{ctrl|交互}}来坐下的[[实体]]。
+* 有16种颜色。
+* 可以使用3个相同颜色的[[羊毛台阶]]合成。
+* 可被[[活塞]]破坏。
+* 可被会造成伤害的[[弹射物]]破坏。
+* 可以放置在方块[[轮廓箱]]的任意上表面上，且水平方向上总是居于方块位置的中心。
+** 如果支撑方块被移除或此实体边界箱被窒息方块完全覆盖，会在几秒后被破坏。
+** 没有碰撞体积，可以与其他不完整方块重叠。
+** 不能与其他坐垫重叠。
+* 不会穿越传送门。骑乘坐垫的玩家也不会穿越传送门。
+
+'''[[杨木船]]'''
+* 由[[杨木木板]]合成的船变种。
+
+'''[[杨木运输船]]'''
+* 由杨木木板合成的运输船变种。
+
+=== 物品 ===
+'''[[探险家地图]]'''
+* 加入了營地地圖，会指向位于下列群系的[[废弃营地]]：
+** [[竹林]]
+** [[樱花树林]]
+** [[桦木森林]]
+** [[斑驳森林]]
+** [[繁花森林]]
+** [[苍白之园]]
+** [[沼泽]]
+** [[风袭森林]]
+** 可以在废弃营地的[[箱子]]中找到。
+* 加入了暖水海底废墟地图、沙漠神殿地图、埋藏的废弃矿井地图和埋藏的远古城市地图。
+** 可以在废弃营地的[[氧化的铜箱子]]里找到。
+
+=== 世界生成 ===
+'''[[斑驳森林]]'''
+* 一种新的森林类生物群系，会在寒冷生物群系附近生成。
+* 会自然生成三种树叶颜色的[[杨树]]、倒下的杨树和少量[[云杉]]。
+* 地表会覆盖[[砂土]]，会生成[[红灌木]]、[[棕色蘑菇]]和[[枯叶堆]]。
+
+'''[[杨树]]'''
+* 自然生成于斑驳森林生物群系中的树类地物。
+* 有分别由红色、橙色、黄色三种杨树树叶组成树冠的三种变种。
+* 会生成为[[倒下的树木]]。
+
+'''[[废弃营地]]'''
+* 一种新的结构，可以在以下生物群系生成：
+** [[草甸]]
+** [[樱花树林]]
+** [[森林]]
+** [[桦木森林]]
+** [[原始桦木森林]]
+** [[繁花森林]]
+** [[风袭森林]]
+** [[斑驳森林]]
+** [[针叶林]]
+** [[积雪针叶林]]
+** [[原始云杉针叶林]]
+** [[原始松木针叶林]]
+** [[稀疏丛林]]
+** [[竹林]]
+** [[沼泽]]
+** [[热带草原]]
+** [[疏林恶地]]
+** [[苍白之园]]
+* 每个生物群系都有其独特的变种。
+* 该结构的某些部件在所有生物群系变种中是通用的。
+* 可以找到有战利品的[[箱子]]、[[铜箱子]]和[[木桶]]。
+
+=== 命令格式 ===
+'''{{cmd|posteffect}}'''
+* 添加或移除玩家使用的[[着色器#后处理管线|后处理效果]]。
+* 后处理效果仅存在于客户端，服务端无法获知后处理效果是否实际生效。
+* 语法：
+** {{cmd|posteffect add <player> <posteffect>|link=none|/=0}} - 为玩家添加指定的后处理效果。
+** {{cmd|posteffect clear <player>|link=none|/=0}} - 移除玩家的所有后处理效果。
+** {{cmd|posteffect list <target>|link=none|/=0}} - 列出玩家的所有后处理效果。
+** {{cmd|posteffect remove <player> <posteffect>|link=none|/=0}} - 移除玩家的指定的后处理效果。
+
+'''{{cmd|compute}}'''
+* 在指定[[战利品上下文]]中对[[数值提供器]]求值。
+* 语法：
+** {{cmd|link=none|compute default <provider> [<scale>{{!}}integer]}} - 使用<code>minecraft:command_compute_default</code>战利品上下文求值。
+** {{cmd|link=none|compute block <computePos> <provider> [<scale>{{!}}integer]}} - 基于指定方块的信息，使用<code>minecraft:command_compute_block</code>战利品上下文求值。
+** {{cmd|link=none|compute entity <computeTarget> <provider> [<scale>{{!}}integer]}} - 基于指定实体的信息，使用<code>minecraft:command_compute_entity</code>战利品上下文求值。
+<!--详细参数说明见命令页-->
+
+=== 常规 ===
+'''[[统计信息]]'''
+* 新增玩家在麦秆床上睡觉次数的统计信息。
+
+'''[[调试屏幕]]'''
+* 在调试选项屏幕中加入了“界面尺寸”选项，允许调试屏幕使用和游戏其他界面不同的尺寸。
+** 默认为“自动”，游戏会尝试用更高的分辨率渲染调试屏幕。
+** 设为“不變”可使调试屏幕使用和视频设置中“界面尺寸”选项相同的尺寸。
+** 其他可选值和含义和视频设置中“界面尺寸”选项相同。
+* 加入了<code>player_speed</code>调试信息：显示玩家的速度，以方块/[[游戏刻]]为单位。
+
+'''[[语言]]'''
+* 加入了{{tr|哥特|哥德}}语。
+
+'''[[选项]]'''
+* 在macOS上加入了“{{tr|菜单/程序坞可见性|選單列／Dock 顯示|選單列／Dock 可見度}}”选项，控制是否允许在全屏时将鼠标移动到屏幕边缘以显示macOS{{tr|菜单栏|選單列}}和{{tr|程序坞|Dock}}。
+* 在macOS上加入了「{{tr|右键单击模拟|右鍵模擬|按右鍵模擬}}」選項。
+** 啟用後，{{key|Control + 左鍵}}<!--en:Template:Mouse translation?-->會被視為右鍵。
+* 加入“{{tr|退出游戏快捷键|離開遊戲快捷鍵}}”选项，用于控制键盘快捷键是否可以关闭游戏。
+** 选项关闭后，Windows/Linux上的{{key|Alt+F4}}以及macOS上的{{key|Command+Q}}不会关闭游戏。
+*** 在部分Linux桌面上不起作用。<ref>{{bug|MC-310556||在kwin_wayland上按下{{key|Alt+F4}}仍会关闭游戏窗口，即使“Quit Shortcuts”选项已设为关。}}</ref>
+
+'''[[自定义世界生成]]'''
+* 加入了<code>minecraft:height_range</code>方块谓词。
+** 检查位置高度是否处在指定范围内。
+** 格式：
+*** <code>min_inclusive</code>：垂直锚点，指定所需的最小高度。
+*** <code>max_inclusive</code>：垂直锚点，指定所需的最大高度。
+* 为垂直锚点加入了新选项<code>relative_to_sea_level</code>，指定相对所处维度海平面的偏移量。
+* 加入了<code>minecraft:copy_properties_provider</code>方块状态提供器。
+** 将共通的方块状态属性从评估位置处的方块复制到输出的方块状态。
+** 格式为具有以下字段的对象：
+*** <code>source</code>：方块状态提供器，提供属性要复制到的方块状态。
+**** 只会复制来源和目标方块间共通的属性。
+* 加入了<code>minecraft:random_block_provider</code>方块状态提供器。
+** 提供一个随机方块的及其默认方块状态。
+** 具有如下附加字段：
+*** <code>blocks</code>：随机选择方块的范围。可以为单个方块ID、方块ID的列表或一个方块标签。
+
+'''[[数据包]]'''
+* 加入了<code>minecraft:worldgen/material_rule</code>注册表。
+** 和[[表面规则]]具有相同的格式。
+* 加入了<code>minecraft:worldgen/material_condition</code>注册表。
+** 和[[表面规则#表面规则条件|表面规则条件]]具有相同的格式。
+* 加入了<code>minecraft:number_provider</code>注册表。
+* 加入了<code>minecraft:block_transformer</code>注册表。
+
+'''[[数据组件]]'''
+* 加入了<code>provides_pottery_pattern</code>组件。
+** 存储物品携带的[[陶片]]图案。
+*** 格式：一种陶片图案的命名空间ID。
+* 加入了<code>block_transformer</code>组件。
+** 该组件可让物品在玩家交互时使方块转变为另一方块。
+** 格式如下：
+<div class="treeview">
+::* {{nbt|list|minecraft:block_transformer}}
+::** {{nbt|compound}}：一项转变规则。
+::*** {{nbt|compound|existonsave=1|required=1|block_state_provider}}：转变之后的方块状态，与世界生成中使用的方块状态提供器格式相同。若未返回结果，则尝试下一项转变规则。
+::*** {{nbt|string}}{{nbt|compound|sound}}：玩家交互时播放的声音事件。若未指定则默认不播放声音事件。
+::*** {{nbt|string|particle}}：（默认为<code>none</code>）玩家交互时显示的粒子。取值为{{cd|none|scrape|wax_on|wax_off|d=pretty|finaldelimiter=或}}。
+::*** {{nbt|list|disallowed_faces}}：（默认为空列表）指定不可交互的面。若在这些面上交互，则会尝试下一项转变规则。
+::**** {{nbt|string}}：面的方向。取值为{{cd|up|down|north|south|east|west|d=pretty|finaldelimiter=或}}。
+::*** {{nbt|string|loot}}：成功转变时掉落的物品使用的战利品表。若未指定则默认为无战利品表。
+::*** {{nbt|string|drop_strategy}}：（默认为<code>from_middle</code>）配置掉落物应从方块的哪个位置掉落。取值为<code>from_middle</code>（从中间掉落）或<code>clicked_face</code>（从点击的面处掉落）。
+::*** {{nbt|string|transform_type}}：（默认为<code>single_block</code>）配置此转变将如何影响周围的方块。取值为<code>single_block</code>或<code>copper_chest</code>。当值为<code>single_block</code>时，仅影响交互的方块；当值为<code>copper_chest</code>时，若转变前后的方块均为铜箱子或其任意锈蚀、涂蜡变种，此转变会同时影响大型铜箱子的两个部分。
+::*** {{nbt|bool|consume_on_use}}：（默认为<code>true</code>）决定是否应消耗物品，仅适用于可堆叠物品。
+::*** {{nbt|int|item_damage_per_use}}：（{{interval|left=0}}，默认为1）决定每次使用会消耗多少耐久度，仅适用于不可堆叠物品。
+::*** {{nbt|bool|update_from_neighbors}}：（默认为<code>true</code>）决定变换后的方块是否要根据临近的方块更新自身。
+</div>
+* 加入了<code>minecraft:compostable</code>。
+** 描述物品的[[堆肥]]行为。
+** 格式：具有以下字段的复合标签：
+*** <code>layers</code>：一个数值提供器的命名空间ID。
+* 加入了<code>minecraft:cooking_fuel</code>。
+** 描述物品作为[[熔炉]]、[[高炉]]和[[烟熏炉]]的燃料的行为。
+** 格式：具有以下字段的复合标签：
+*** <code>burn_time</code>：此燃料的燃烧时间，单位为游戏刻。需为一个数值提供器的命名空间ID。
+*** <code>speed_multiplier</code>：此燃料对烧炼速度的影响倍数。需为一个数值提供器的命名空间ID。
+* 加入了<code>minecraft:brewing_fuel</code>。
+** 描述物品作为[[酿造台]]的燃料的行为。
+** 格式：具有以下字段的复合标签：
+*** <code>uses</code>：此燃料可用于酿造的次数。需为一个数值提供器的命名空间ID。
+*** <code>speed_multiplier</code>：此燃料对酿造速度的影响倍数。需为一个数值提供器的命名空间ID。
+* 加入了{{cd|d=pretty|minecraft:sign_text_front|minecraft:sign_text_back}}。
+** 存储[[告示牌]]和[[悬挂式告示牌]]两面的文本。
+** 会在[[物品提示框]]中显示。
+** 格式：
+<div class="treeview">
+::* {{nbt|compound|minecraft:sign_text_front或minecraft:sign_text_back}}
+::** {{nbt|string|color}}：文字的[[染料#颜色|颜色]]。此项不存在或无效时游戏默认为<code>black</code>（黑色）。
+::** {{nbt|list|filtered_messages}}：被过滤的告示牌或悬挂式告示牌的文字，共含有四个元素，代表了被过滤文字的第一到第四行。当文本没有被过滤时此项不存在。如果存在，则必须和{{nbt|list|messages}}具有一样多的元素。
+::*** {{nbt|string}}{{nbt|compound}}{{nbt|list}}：（[[文本组件]]）告示牌或悬挂式告示牌内的一行文字。
+::** {{nbt|bool|has_glowing_text}}：表示文字是否发光。
+::** {{nbt|list|messages|required=1}}：告示牌或悬挂式告示牌的文字，共含有四个元素，代表了文字的第一到第四行。
+::*** {{nbt|string}}{{nbt|compound}}{{nbt|list}}：（[[文本组件]]）告示牌或悬挂式告示牌内的一行文字。
+</div>
+* 加入了<code>minecraft:waxed</code>。
+** 存储物品是否被[[涂蜡]]。
+** 格式：<code>{}</code>。
+* 加入了<code>minecraft:cushion/color</code>。
+** 存储[[坐垫]]的颜色。
+** 格式：<code>white</code>、<code>orange</code>、<code>magenta</code>、<code>light_blue</code>、<code>yellow</code>、<code>lime</code>、<code>pink</code>、<code>gray</code>、<code>light_gray</code>、<code>cyan</code>、<code>purple</code>、<code>blue</code>、<code>brown</code>、<code>green</code>、<code>red</code>或<code>black</code>其一。
+* 加入了<code>minecraft:villager_food</code>。
+** 描述物品作为[[村民]]的食物的行为。村民可以捡起具有此组件和具有<code>#villager_picks_up</code>标签的物品。
+** 格式：具有以下字段的复合标签：
+*** <code>nutrition</code>：正整数，表示此物品的食物点数。
+* 加入了<code>minecraft:mob_visibility</code>。
+** 描述物品被装备时对此实体的生物探测半径的范围的影响。
+** 格式：具有以下字段的复合标签：
+*** <code>targeting_entity</code>：受影响的生物。可以是单个实体类型ID、一个实体类型ID的列表或一个实体类型的标签。
+*** <code>visibility</code>：（{{interval|left=0.0|right=10.0}}）对装备了此物品的实体的生物探测半径的影响倍数。设为0.0时，生物只能在2格内探测到此实体；设为10.0时，生物可探测到此实体的范围会变成原来的10倍。最终的生物探测半径不会小于2格。
+**** 即使有多个物品同时具有此组件，最终<code>visibility</code>的值也不会超过10.0。
+* 加入了<code>interact_animation</code>组件。
+** 用于指定手持物品{{ctrl|交互}}时播放的摇晃动画。
+** 格式如下：
+<div class="treeview">
+::* {{nbt|compound|minecraft:interact_animation}}
+::** {{nbt|string|type}}：（默认为<code>whack</code>）动画ID，取值为<code>none</code>（切换物品时的垂直移动动画，玩家第三人称下为轻微水平摇摆）、<code>whack</code>（普通攻击动画）、<code>stab</code>（矛的戳刺动画）。
+::** {{nbt|int|duration}}：（默认为<code>6</code>）动画持续刻数。
+</div>
+
+'''[[环境属性]]'''
+* 加入了<code>minecraft:gameplay/straw_bed_rule</code>。
+** 格式与<code>minecraft:gameplay/bed_rule</code>相同，用于控制麦秆床的相关行为。
+* 加入了<code>minecraft:gameplay/natural_mob_spawns</code>。
+** 定义环境属性源的生物生成行为。
+** 在世界生成时，只有来自[[维度]]和[[生物群系]]的此属性才会被应用。
+** 接受{{cd|d=pretty|override|overlay}}修饰符。
+** 默认为空。
+** 格式：
+<div class="treeview">
+::* {{nbt|compound}}
+::** {{nbt|compound|spawns_by_category|required=1}}：（可以为空）生物生成设置。
+::*** {{nbt|list|<''生成类别''>}}：此项生成类别的生成，可用类别及意义见[[生成类别]]。
+::**** {{nbt|compound}}：此类别下的一项生成设置。
+::***** {{nbt|string|type|required=1}}：实体类型ID。若指定的实体的生成类别为“其他”，则游戏只会生成猪。
+::***** {{nbt|int}}{{nbt|compound|count|required=1}}：要生成的数量。
+::****** {{Nbt inherit/int provider}}
+::***** {{nbt|int|weight|required=1}}：该生物的生成权重。
+::** {{nbt|compound|spawn_costs|required=1}}：（可以为空）生成势，只有在此列出的生物使用。以一套类似于模拟真空中的点电荷系统的机制控制该生物群系内生成生物的数量与密度，详见[[生成势]]。
+::*** {{nbt|compound|<''实体ID''>}}
+::**** {{nbt|float|energy_budget|required=1}}：电势预算。生成此实体时能消耗最大能量。在宏观意义上看，此值越小生成的越少。
+::**** {{nbt|float|charge|required=1}}：此次生成放置的点电荷的电荷量。每次生成都在之前放置的点电荷的基础上试图将一个点电荷从无穷远处移动到目标点，计算电势能并比较以决定是否生成。在宏观意义上看，此值越大生成的越少。
+</div>
+* 加入了<code>minecraft:gameplay/creature_world_gen_spawn_probability</code>。
+** 设置在世界生成时执行一次动物（<code>creature</code>）类别的生物生成的概率。
+** 只有来自[[维度]]和[[生物群系]]的此属性才会被应用。
+** 仅接受<code>override</code>修饰符。{{verify|能使用浮点修饰符吗？}}
+** 格式：一个浮点数，{{interval|left=0|right_open=1}}。
+** 默认为0.1。
+* 加入了<code>overlay</code>修饰符。
+** 目前仅可用于<code>minecraft:gameplay/natural_mob_spawns</code>。
+** 对每种生成类别，游戏会用高层级定义的生成设置覆写低层级的生成设置，除非高层级未为此类别定义生成设置。
+** 游戏会合并所有层级的生成势配置。如果不同层级同时为某种生物定义了生成势配置，则高层级的配置会覆写低层级的配置。
+* 加入了<code>append</code>修饰符。
+** 目前仅可用于<code>minecraft:visual/ambient_particles</code>。
+** 该修饰符会把当前层级的内容与低层级的内容相接，而不是覆写低层级的内容。
+
+'''[[数值提供器]]'''
+* 加入了以下数值提供器：
+** <code>minecraft:compostable/low</code>
+*** 如果[[战利品上下文]]中的参数<code>block_state</code>存在且提供的是一个空[[堆肥桶]]，则返回1，否则有30%的概率返回1。
+** <code>minecraft:compostable/low_medium</code>
+*** 如果战利品上下文中的参数<code>block_state</code>存在且提供的是一个空堆肥桶，则返回1，否则有50%的概率返回1。
+** <code>minecraft:compostable/medium</code>
+*** 如果战利品上下文中的参数<code>block_state</code>存在且提供的是一个空堆肥桶，则返回1，否则有65%的概率返回1。
+** <code>minecraft:compostable/medium_high</code>
+*** 如果战利品上下文中的参数<code>block_state</code>存在且提供的是一个空堆肥桶，则返回1，否则有85%的概率返回1。
+** <code>minecraft:compostable/always_add_one</code>
+*** 必定返回1。
+** 上述数值提供器若未返回1，则会返回0。
+* 加入了<code>minecraft:number_dispatcher</code>数值提供器类型。
+** 逐一检查所列情形并使用第一个{{tr|匹配|相符}}的情形中的数值提供器，若无{{tr|匹配|相符}}情形则使用默认数值提供器。
+** 格式：
+<div class="treeview">
+::* {{nbt|compound}}数值提供器
+::** {{nbt|string|type}}：<code>number_dispatcher</code>
+::** {{nbt|list|cases|required=1}}：要检查的情形的列表。游戏会按定义顺序检查。
+::*** {{nbt|compound}}：一种情形。
+::**** {{nbt|compound}}{{nbt|list|condition|required=1}}：要检查的谓词。
+::***** 见[[谓词]]。
+::**** {{nbt|float}}{{nbt|compound|value|required=1}}：匹配此情形时要使用的数值提供器。
+::** {{nbt|float}}{{nbt|compound|default}}：默认使用的数值提供器。默认为0。
+</div>
+* 加入了<code>minecraft:conditional_value</code>数值提供器类型。
+** 检查一个条件是否为真并使用对应的数值提供器。
+** 格式：
+<div class="treeview">
+::* {{nbt|compound}}数值提供器
+::** {{nbt|compound}}{{nbt|list|predicate|required=1}}：要检查的谓词。
+::*** 见[[谓词]]。
+::** {{nbt|float}}{{nbt|compound|on_true|required=1}}：谓词为真时，要使用的数值提供器。
+::** {{nbt|float}}{{nbt|compound|on_false}}：谓词为假时，要使用的数值提供器。默认为0。
+</div>
+* 加入了<code>minecraft:weighted_list</code>数值提供器类型。
+** 按权重分布随机使用一个数值提供器。
+** 格式：
+<div class="treeview">
+::* {{nbt|compound}}数值提供器
+::** {{nbt|list|distribution|required=1}}：权重的分布。
+::*** {{nbt|compound}}：一个数值提供器及其权重。
+::**** {{nbt|float}}{{nbt|compound|data|required=1}}：一个数值提供器。
+::**** {{nbt|int|weight|required=1}}：此数值提供器的权重。必须是正整数。
+</div>
+* 加入了以下数值提供器：
+** <code>minecraft:cooking/time_bamboo</code>
+*** 返回[[竹子]]和[[脚手架]]的燃烧时间，单位为游戏刻。
+** <code>minecraft:cooking/time_blaze_rod</code>
+*** 返回[[烈焰棒]]的燃烧时间，单位为游戏刻。
+** <code>minecraft:cooking/time_boats</code>
+*** 返回[[船]]的燃烧时间，单位为游戏刻。
+** <code>minecraft:cooking/time_coal</code>
+*** 返回[[煤炭]]和[[木炭]]的燃烧时间，单位为游戏刻。
+** <code>minecraft:cooking/time_coal_block</code>
+*** 返回[[煤炭块]]的燃烧时间，单位为游戏刻。
+** <code>minecraft:cooking/time_dried_kelp_block</code>
+*** 返回[[干海带块]]的燃烧时间，单位为游戏刻。
+** <code>minecraft:cooking/time_dry_plants</code>
+*** 返回[[枯叶堆]]、[[矮枯草丛]]和[[高枯草丛]]的燃烧时间，单位为游戏刻。
+** <code>minecraft:cooking/time_hanging_signs</code>
+*** 返回[[悬挂式告示牌|悬挂式主世界木告示牌]]的燃烧时间，单位为游戏刻。
+** <code>minecraft:cooking/time_lava_bucket</code>
+*** 返回[[熔岩桶]]的燃烧时间，单位为游戏刻。
+** <code>minecraft:cooking/time_roots</code>
+*** 返回[[红树根]]的燃烧时间，单位为游戏刻。
+** <code>minecraft:cooking/time_wood_blocks</code>
+*** 返回木质方块的燃烧时间，单位为游戏刻。
+** <code>minecraft:cooking/time_wood_items_extra_small</code>
+*** 返回极小的木制品（如[[木按钮]]）的燃烧时间，单位为游戏刻。
+** <code>minecraft:cooking/time_wood_items_large</code>
+*** 返回较大的木制品（如[[木门]]）的燃烧时间，单位为游戏刻。
+** <code>minecraft:cooking/time_wood_items_small</code>
+*** 返回较小的木制品（如[[弓]]）的燃烧时间，单位为游戏刻。
+** <code>minecraft:cooking/time_wood_slabs</code>
+*** 返回[[木台阶]]的燃烧时间，单位为游戏刻。
+** <code>minecraft:cooking/time_wool</code>
+*** 返回大部分羊毛质方块的燃烧时间，单位为游戏刻。
+** <code>minecraft:cooking/time_wool_carpets</code>
+*** 返回[[地毯]]的燃烧时间，单位为游戏刻。
+** <code>minecraft:cooking/time_wool_slabs</code>
+*** 返回[[羊毛台阶]]和[[坐垫]]的燃烧时间，单位为游戏刻。
+** <code>minecraft:cooking/speed_default</code>
+*** 返回默认的[[烧炼]]速度倍数。
+** <code>minecraft:brewing/speed_default</code>
+*** 返回默认的[[酿造]]速度倍数。
+** <code>minecraft:brewing/uses_default</code>
+*** 返回默认的酿造燃料可用次数。
+* 加入了{{cd|d=pretty|minecraft:product|minecraft:minimum|minecraft:maximum|minecraft:average}}数值提供器类型。
+** 分别{{tr|返回|回傳|返回}}所有操作数的乘积、所有操作数中的最小值、所有操作数中的最大值和所有操作数的平均值。
+** 格式：<code>operands</code>，单个数值提供器ID、数值提供器的内联定义、数值提供器ID的列表、数值提供器的内联定义的列表或数值提供器标签。必须至少包含一个作为操作数的数值提供器。
+
+'''[[谓词]]'''
+* 加入了以下谓词：
+** <code>minecraft:tool/can_silk_touch</code>
+** <code>minecraft:tool/can_shear</code>
+** <code>minecraft:block/fast_cooking</code>
+* 加入了<code>minecraft:match_block</code>谓词类型。
+** 匹配方块、方块状态及方块实体（若存在）。
+** 若指定了{{cd|d=pretty|fd=或|nbt|components|predicates}}而传入的战利品表上下文中没有<code>block_entity</code>，则匹配失败。
+** 格式：
+<div class="treeview">
+::* {{nbt|compound}}
+::** {{nbt|string}}{{nbt|list|blocks}}：匹配的[[方块]]。可以为以<code>#</code>开头的方块[[Java版标签|标签]]、一个方块ID的字符串、或以多个方块ID组成的字符串列表。
+::** {{nbt|compound|components}}：检查[[数据组件#方块实体|方块实体的数据组件]]。当方块实体的组件内容与检测内容完全相同时测试成功。
+::*** {{nbt|any|<''数据组件ID''>}}：一项组件及检测内容。
+::** {{nbt|string}}{{nbt|compound|nbt}}：匹配方块实体的任意NBT数据。可以为复合标签或字符串包裹的SNBT，格式参见{{slink|NBT格式#测试NBT标签}}和{{slink|NBT格式|转换}}。
+::** {{nbt|compound|predicates}}：检查方块实体的某个组件是否满足某种条件。
+::*** {{nbt|any|<''数据组件谓词类型ID''>}}：一个组件的检查。具体格式详见[[数据组件谓词]]。
+::** {{nbt|compound|state}}：匹配[[方块状态]]。
+::*** {{nbt|string}}{{nbt|compound|<''方块属性''>}}：匹配指定方块属性。可以为精确匹配，也可以为范围匹配。为范围匹配时，若方块属性值为数字字符串，则直接比较数值；若为布尔值字符串，则<code>"true"</code>为较大值；其他方块属性值则按游戏内部顺序比较，例如拼图方块<code>orientation</code>方块属性的<code>"east_up"</code>大于<code>"up_north"</code>。
+::**** {{nbt|string|min}}：方块属性值的最小值。
+::**** {{nbt|string|max}}：方块属性值的最大值。
+</div>
+
+'''方块谓词'''
+* 加入了<code>minecraft:volume_match</code>方块谓词类型。
+** 检查一个区域内的所有方块是否都满足给定方块谓词。
+** 格式：
+*** <code>min</code>：3个在区间<code>[-16,16]</code>内的整数的列表，表示所有坐标轴上的坐标都最小的顶点相对于测试位置的偏移。
+*** <code>max</code>：3个在区间<code>[-16,16]</code>内的整数的列表，表示所有坐标轴上的坐标都最大的顶点相对于测试位置的偏移。
+*** <code>match</code>：要用于测试每个位置的方块谓词。
+
+'''[[配方]]'''
+* 加入了<code>minecraft:brewing</code>配方类型。
+** 用于定义[[药水酿造]]配方。
+** 格式：
+<div class="treeview">
+::* {{nbt|compound}}JSON文件根对象
+::** {{nbt|string|type|required=1}}：<code>brewing</code>。
+::** {{nbt|compound|input|required=1}}：此配方的原料物品。
+::*** {{nbt|string}}{{nbt|list|item|required=1}}：一个物品。可以为单个物品ID、物品ID的列表或一个物品标签。
+::*** {{nbt|compound|potion_contents}}：一个<code>minecraft:potion_contents</code>类型的数据组件谓词。
+::**** 见{{section link|数据组件谓词#potion_contents}}。
+::** {{nbt|compound|reagent|required=1}}：此配方的酿造材料。
+::*** {{nbt|string}}{{nbt|list|item|required=1}}：一个物品。可以为单个物品ID、物品ID的列表或一个物品标签。
+::*** {{nbt|compound|potion_contents}}：一个<code>minecraft:potion_contents</code>类型的数据组件谓词。
+::**** 见{{section link|数据组件谓词#potion_contents}}。
+::** {{nbt|string}}{{nbt|compound|output|required=1}}：此配方的输出物品。
+::*** {{Nbt inherit/item template}}
+</div>
+* [[羊毛台阶]]和[[羊毛楼梯]]配方添加了<code>group</code>字段。
+** 羊毛台阶：<code>woolen_slab</code>
+** 羊毛楼梯：<code>woolen_stairs</code>
+
+'''[[战利品表]]'''
+* 加入了<code>till/rooted_dirt</code>战利品表，用于控制[[缠根泥土]]被[[锄]]刨去根时的掉落物。
+
+'''[[战利品上下文]]'''
+* 加入了<code>command_slot_source</code>。
+** <code>container</code>：目标容器或物品栏。
+** <code>origin</code>：命令执行坐标。
+** <code>this_entity</code>：可能提供。命令执行者实体。
+* 加入了<code>minecraft:container_process</code>参数集。
+** <code>container</code>：目标容器。
+** <code>block_entity</code>：被补充燃料的方块实体。
+** <code>block_state</code>：目标方块的[[方块状态]]。
+** <code>origin</code>：目标方块的位置。
+* 加入了<code>command_compute_default</code>。
+** <code>origin</code>：命令的执行位置。
+** <code>this_entity</code>：可能提供。命令的执行实体。
+* 加入了<code>command_compute_block</code>。
+** <code>origin</code>：命令的执行位置。
+** <code>block_state</code>：命令选中的方块的[[方块状态]]。
+** <code>this_entity</code>：可能提供。命令的执行实体。
+** <code>block_entity</code>：可能提供。命令选中的方块的[[方块实体]]。
+* 加入了<code>command_compute_entity</code>。
+** <code>origin</code>：命令的执行位置。
+** <code>target_entity</code>：命令选中的实体。
+** <code>this_entity</code>：可能提供。命令的执行实体。
+
+'''[[已配置的地物]]'''
+* 加入了<code>minecraft:end_podium</code>地物类型。
+** 放置[[末地祭坛]]。
+** 以下两种地物使用此地物类型，依游戏内事件放置末地祭坛：
+*** <code>end_podium_active</code>
+*** <code>end_podium_inactive</code>
+** 具有以下字段：
+*** <code>active</code>：传送门是否已激活。
+* 加入了<code>shelf_mushroom</code>树木装饰器。
+** 以一定概率尝试放置层孔菇。
+** 具有以下字段：
+*** <code>probability</code>：（0.0≤值≤1.0）尝试放置此装饰的概率。
+* 加入了<code>poplar_foliage_placer</code>树叶放置器。
+** 沿着两种可能的方向之一菱形放置[[杨树]]的树叶。
+** 具有以下附加字段：
+*** <code>height</code>：（5≤值≤16）树叶的高度。
+*** <code>side_hole_chance</code>：（0.0≤值≤1.0）树叶边缘的树叶方块被移除的概率。
+* 加入了<code>poplar_trunk_placer</code>树干放置器。
+** 竖直放置杨树的树干，并在开始放置树叶处放置树枝。
+** 具有以下附加字段：
+*** <code>trunk_height_above_branches</code>：（0≤值≤8）树干在树枝之上部分的高度。
+*** <code>branch_amount</code>：（1≤值≤4）树枝的数量。
+* 加入了<code>minecraft:overlay</code>地物类型。
+** 在同一位置放置一组地物。注意与<code>minecraft:sequence</code>不同，所有的地物都会放置，不受单个地物放置的成败影响。
+** 格式：
+*** <code>features</code>：已放置的地物ID、含已放置的地物ID的非空列表或带<code>#</code>的已放置的地物标签，指定要放置的地物。
+* 加入了<code>minecraft:projected_random_patch_square</code>地物类型。
+** 生成一个正方形，其中每个方块的放置概率基于其与正方形中心的距离，且位于中心的方块相比边缘的方块更可能生成。若满足相应条件，每个已放置的方块可向下投影。
+** 格式：
+*** <code>block</code>：方块状态提供器，指定要放置的方块。
+*** <code>project_through</code>：方块谓词，指定投影时应忽略哪些方块而将其穿过。
+*** <code>size</code>：整数提供器（{{interval|left=1|right=16}}），决定正方形的大小，从中心到边缘测量。
+*** <code>max_projection_height</code>：非负整数，表示正方形中各方块相较原高度而言，在放置时的高度最大变化量。
+* 加入了<code>minecraft:randomly_selected</code>放置修饰器。
+** 从放置修饰器的列表中随机选择一个应用。
+** 格式：
+*** <code>placements</code>：放置修饰器的列表，不能为空。
+
+'''[[密度函数]]'''
+* 加入了<code>sub</code>密度函数类型。
+** 将两个密度函数值相减。
+** 格式：
+*** <code>left</code>：被减数密度函数。
+*** <code>right</code>：减数密度函数。
+* 加入了<code>div</code>密度函数类型。
+** 将两个密度函数值相除。
+** 格式：
+*** <code>left</code>：被除数密度函数。
+*** <code>right</code>：除数密度函数。
+* 加入了<code>negate</code>密度函数类型。
+** 取给定密度函数的相反数。
+** 格式：
+*** <code>input</code>：要取相反数的密度函数。
+* 加入了<code>lerp</code>密度函数类型。
+** 对给定的两个密度函数进行无钳制的插值。
+** 格式：
+*** <code>alpha</code>：插值因子。为0时，插值结果和<code>first</code>完全相同；为1时，插值结果和<code>second</code>完全相同。为一个密度函数。
+*** {{cd|d=pretty|first|second}}：待插值的密度函数。
+* 加入了{{cd|d=pretty|floor|round|ceil|truncate}}密度函数类型。
+** 分别对给定的密度函数向下舍入、四舍五入、向上舍入和向零舍入。
+** 格式：
+*** <code>input</code>：要取整的密度函数。
+*** <code>multiple</code>：可选。舍入结果将为此密度函数的整数倍。
+**** 默认为1，即取整。
+* 加入了<code>beardifier</code>密度函数类型。{{note|该函数在该版本更新前已经存在。}}
+** 输出结构“胡须化”密度。
+** 格式：<code>{}</code>
+* 加入了<code>pow</code>。
+** 将给定的值进行指数运算。
+** 格式：具有以下字段的对象：
+*** <code>base</code>：密度函数，计算的底数
+*** <code>exponent</code>：密度函数，计算的指数
+* 加入了<code>sqrt</code>。
+** 计算给定输入值的平方根。
+** 格式：具有以下字段的对象：
+*** <code>input</code>：密度函数，将要计算平方根的值
+* 加入了<code>log</code>。
+** 计算给定输入值的自然对数。
+** 格式：具有以下字段的对象：
+*** <code>input</code>：密度函数，将要计算自然对数的值
+* 加入了<code>sign</code>。
+** 计算输入值的符号：
+*** 如果输入是正数，则返回<code>1</code>
+*** 如果输入是<code>0</code>，则返回<code>0</code>
+*** 如果输入是负数，则返回<code>-1</code>
+** 格式：具有以下字段的对象：
+*** <code>input</code>：密度函数，将要计算符号的值
+* 加入了<code>distance_to_point</code>。
+** 使用指定的距离计算到某一固定点的距离。
+** 格式：具有以下字段的对象：
+*** <code>point</code>：3个整数组成的数组，格式为<code>[x, y, z]</code>，将要计算距离的目标
+*** <code>metric</code>：取值为以下之一：
+**** <code>euclidean</code>，即<code>sqrt(dx^2 + dy^2 + dz^2)</code>
+**** <code>euclidean_squared</code>，即<code>dx^2 + dy^2 + dz^2</code>
+**** <code>manhattan</code>，即<code>abs(dx) + abs(dy) + abs(dz)</code>
+**** <code>chebyshev</code>，即<code>max(abs(dx), abs(dy), abs(dz))</code>
+* 加入了<code>slice</code>。
+** 通过一个特定的坐标轴取一个“切片”，从输入定义域中删除一个维度。例如，<code>axis=y</code>且<code>coordinate=0</code>时，将沿XZ平面切片，所有值在<code>y=0</code>处采样。
+** 格式：具有以下字段的对象：
+*** <code>axis</code>：<code>x</code>、<code>y</code>或<code>z</code>，将要移除的轴
+*** <code>coordinate</code>：整数，传递给输入函数的固定坐标
+*** <code>input</code>：密度函数，作为输入函数
+
+'''[[噪声]]'''
+* 加入了<code>base_amplitude</code>字段。
+** 非负浮点数，应用于噪声输出的比例因子。
+** 如果未指定，默认为1.0。
+* 加入了<code>octave_count</code>字段。
+** 介于1和32之间的整数，要采样的倍频程数量。
+* 加入了<code>normalize</code>字段。
+** 用于控制输出幅度是否归一化。
+** 格式：布尔值或<code>legacy</code>：
+*** <code>true</code>：<code>base_amplitude</code>表示输出的期望幅度，即99.7%的样本位于<code>[-base_amplitude;base_amplitude]</code>。
+*** <code>false</code>：<code>base_amplitude</code>表示第一个倍频程的幅度。
+*** <code>legacy</code>：使用旧版噪声格式的归一化行为。
+** 如果未指定，默认为<code>true</code>。
+
+'''[[已放置的地物]]'''
+* 加入了<code>minecraft:cuboid</code>放置修饰器类型。
+** 在长方体内重复放置地物。
+** 具有如下附加字段：
+*** <code>xz_size</code>：长方体沿着X轴和Z轴的尺寸。
+*** <code>y_size</code>：长方体沿着Y轴的尺寸。
+*** <code>include_interior</code>：可选。决定是否要放置长方体内部的方块。默认为<code>true</code>。
+*** <code>include_edge</code>：可选。决定是否要放置长方体边缘的方块。默认为<code>true</code>。
+**** 设为<code>false</code>时将得到更“圆润”的长方体。
+* 加入了<code>minecraft:random_chance</code>放置修饰器类型。
+** 以一定概率放置地物。
+** 具有如下附加字段：
+*** <code>chance</code>：（0≤值≤1）放置地物的概率。
+
+'''[[结构集]]'''
+* 加入了<code>minecraft:dimension_origin</code>结构放置类型。
+** 在维度原点处放置相应结构的一个实例。
+*** 对于应用[[噪声设置]]的维度，维度原点定义为<code>spawn_target</code>字段所指定的值，否则定义为区块(0,0)。
+** 无附加字段。
+
+'''规则测试'''
+* 加入了<code>minecraft:height_match</code>。
+** 检查方块的Y轴坐标，仅当其在区间<code>[min_inclusive, max_inclusive]</code>中时返回<code>true</code>。
+** 具有以下附加字段：
+*** <code>min_inclusive</code>：所允许的最低Y坐标。
+*** <code>max_inclusive</code>：所允许的最高Y坐标。
+* 加入了<code>minecraft:all_of</code>
+** 当方块同时满足规则列表中的所有规则时返回<code>true</code>。
+** 具有以下附加字段：
+*** <code>rules</code>：要应用的规则列表。
+* 加入了<code>minecraft:any_of</code>。
+** 当方块满足规则列表中的任一规则时返回<code>true</code>。
+** 具有如下附加字段；
+*** <code>rules</code>：要应用的规则列表。
+* 加入了<code>minecraft:not</code>。
+** 对所给规则取反。
+** 具有如下附加字段；
+*** <code>rule</code>：要取反的规则。
+
+'''整数提供器'''
+* 加入了<code>minecraft:very_biased_to_bottom</code>整数提供器类型。
+** 在提供的范围内选择一个随机数，对最小值有二次偏向。
+** 格式：带有字段的对象：
+*** <code>min_inclusive</code>：整数，可被选择的最小值（闭区间）
+*** <code>max_inclusive</code>：整数，可被选择的最大值（闭区间）
+
+'''[[烘焙模型]]'''
+* 为模型元素加入了<code>shade_direction_override</code>可选字段。
+** 如果指定了此字段，在阴影渲染时会用此字段的值覆写此模型面的实际朝向来计算阴影。
+** 取值必须为{{cd|d=pretty|fd=或|down|up|north|south|east|weat}}之一。
+
+'''[[着色器]]与后处理管线'''
+* 加入了<code>minecraft:end_of_frame</code>后处理管线，可由资源包定义。
+** 该效果将在所有其他效果之前应用。
+** 只要加载了资源包，该效果就会一直启用，{{cmd|posteffect|link=none}}命令无法将其禁用。
+** 多个资源包均定义了此效果时，使用最后一个定义了此效果的资源包的定义。
+
+'''[[Java版标签|标签]]'''
+* 加入了{{cd|#dangerous_for_teleportation}}方块标签，包含[[火]]、[[灵魂火]]、[[营火]]、[[灵魂营火]]、[[装有熔岩的炼药锅]]、[[仙人掌]]、[[岩浆块]]、[[甜浆果丛]]、[[凋灵玫瑰]]、[[滴水石锥]]、[[细雪]]。
+* 加入了{{cd|#cat_does_not_teleport_to}}方块标签，包含{{cd|#dangerous_for_teleportation}}。
+** [[猫]]不会传送到此方块上方。
+* 加入了{{cd|#enderman_does_not_teleport_to}}方块标签，包含[[基岩]]和{{cd|#dangerous_for_teleportation}}。
+** [[末影人]]不会传送到此方块上方。
+* 加入了{{cd|#shulker_does_not_teleport_to}}方块标签，包含基岩。
+** [[潜影贝]]不会传送到此方块表面。
+* 加入了{{cd|#consumable_does_not_teleport_to}}方块标签，默认无内容。<!--缺失定义文件-->
+** 食用了[[紫颂果]]的生物不会传送到此方块上方。
+* 加入了{{cd|#uncarvable}}方块标签，包含基岩。
+** 无法被[[雕刻器定义格式|雕刻器]]更改的方块。
+* 加入了<code>#nether_portal_frame</code>方块标签，包含[[黑曜石]]。
+** 能够构成[[下界传送门]]的框架的方块。
+* 加入了<code>#conduit_effect_block</code>方块标签，包含[[海晶石]]、[[海晶石砖]]、[[暗海晶石]]和[[海晶石砖]]。
+** 能够激活[[潮涌核心]]的框架方块。
+* 加入了<code>#cannot_place_basalt_pillar_on</code>方块标签。
+* 加入了<code>#turns_into_dirt_path</code>方块标签，包含可以被[[锹]]转变为[[土径]]的方块。
+* 加入了<code>#turns_into_farmland</code>方块标签，包含可以被[[锄]]转变为[[耕地]]的方块。
+* 加入了<code>#cats_can_lie_on</code>方块标签，包含[[猫]]可以躺在上面的方块。
+* 加入了<code>#cats_can_sit_on</code>方块标签，包含猫可以坐在上面的方块。
+* 加入了<code>#villagers_can_sleep_on_bed</code>方块标签，包含[[村民]]可以睡在上面的方块。
+* 加入了<code>#villager_babies_can_jump_on_bed</code>方块标签，包含幼年村民可以在上面跳跃的方块。
+* 加入了<code>#speeds_up_zombie_villager_curing</code>方块标签，包含能够加速[[僵尸村民#治愈|治愈]][[僵尸村民]]的方块。
+* 加入了<code>#sculk_growth_inhibitors</code>方块标签，包含能够阻止[[幽匿块]]扩散的方块。
+* 加入了<code>#height_specific_ore_replaceables</code>方块标签，包含在Y=8以下时会被替换为深层变种的矿石。
+* 加入了<code>#cushion_uses_collision_shape</code>方块标签，包含[[炼药锅]]、[[漏斗]]和[[堆肥桶]]。
+** 尝试将坐垫放置到此标签内的方块上时，会使用[[碰撞箱]]而不是[[互动箱]]决定放置位置。
+* 加入了{{cd|#concrete_slabs}}方块和物品标签，包含16种混凝土台阶。
+* 加入了{{cd|#concrete_stairs}}方块和物品标签，包含16种混凝土楼梯。
+* 加入了{{cd|#brewing_potion_inputs}}物品标签，包含[[药水]]、[[喷溅药水]]、[[滞留药水]]、[[玻璃瓶]]。
+** 可以放入[[酿造台]]药水槽位的物品。
+* 加入了<code>#dowses_campfires</code>物品标签，包含可用于熄灭[[营火]]的物品。
+* 加入了<code>#cushions</code>物品标签，包含所有坐垫物品。
+* 加入了{{cd|#clonable_maps}}物品标签，包含地图和探险家地图。
+** 可被复制的地图类型。
+* 加入了{{cd|#extendable_maps}}物品标签，包含地图。
+** 可被缩放的地图类型。
+* 加入了<code>#axolotl_tries_to_find</code>{{note|更新日志中误作<code>axolotl_try_find_liquid</code>。}}流体标签，包含[[水源]]。
+** [[美西螈]]会尝试寻找的流体。
+* 加入了<code>#dolphin_tries_to_find</code>{{note|更新日志中误作<code>dolphin_try_find_liquid</code>。}}流体标签，包含水源。
+** [[海豚]]会尝试寻找的流体。
+* 加入了<code>#frog_tries_to_find_land_near</code>{{note|更新日志中误作<code>frog_try_find_land_near_liquid</code>。}}流体标签，包含水源。
+** [[青蛙]]会尝试在这些流体附近寻找陆地。
+* 加入了<code>#entity_floatable</code>流体标签，包含水源和流动的水。
+** 能使实体漂浮的流体。
+* 加入了{{cd|#douses_fire}}药水效果标签，包含[[水瓶]]药水效果。
+** 对应的喷溅和滞留药水能扑灭火、营火和灵魂营火。
+* 加入了{{cd|#hurts_water_sensitive_entities}}药水效果标签，包含水瓶药水效果。
+** 对应的喷溅和滞留药水能伤害[[烈焰人]]、[[末影人]]、[[雪傀儡]]和[[炽足兽]]。
+* 加入了{{cd|#extinguishes_entities}}药水效果标签，包含水瓶药水效果。
+** 对应的喷溅和滞留药水能为实体灭火。
+* 加入了{{cd|#rehydrates_axolotls}}药水效果标签，包含水瓶药水效果。
+** 对应的喷溅和滞留药水能为[[美西螈]]恢复[[氧气值]]。
+* 加入了<code>#abandoned_camp</code>结构标签，包含所有[[废弃营地]]变种。
+* 加入了12种结构标签，包含位于对应探险家地图上的结构。
+
+'''[[方块变换效果定义格式]]'''
+* 加入了以下方块变换效果：
+** <code>minecraft:shovel</code>
+*** [[锹]]的默认方块变换效果。
+** <code>minecraft:axe</code>
+*** [[斧]]的默认方块变换效果。
+** <code>minecraft:hoe</code>
+*** [[锄]]的默认方块变换效果。
+
+'''[[材料规则]]'''
+* 加入了<code>minecraft:ore_vein</code>材料规则类型。
+* 格式：
+** <code>ore_block</code>：要放置的矿石。需为一个方块状态提供器。
+** <code>raw_ore_block</code>：要放置的粗矿块。需为一个方块状态提供器。
+** <code>filler_block</code>：要放置的填充方块。需为一个方块状态提供器。
+** <code>raw_ore_chance</code>：（{{interval|left=0|right=1}}）粗矿块代替矿石生成的概率。
+** <code>density</code>：矿脉替换其他方块的概率。需为一个密度函数。
+*** 此密度函数小于0时矿脉不会在相应位置替换方块。
+** <code>richness</code>：矿脉的丰度。需为一个密度函数。
+*** 此密度函数小于0时矿脉将完全由填充方块组成；此密度函数大于1时矿脉将完全不包含填充方块指定的方块。
+** <code>filler_gap</code>：一个密度函数。如果此密度函数大于0，则总是会放置填充方块指定的方块，无论<code>richness</code>为何值。
+
+'''[[Realms]]'''
+* 现在Realms所有者可以创建邀请码，玩家可通过界面右上角按钮输入邀请码。
+** 每个Realms最多可拥有5个邀请码。
+** 邀请码可以设置有效状态和有效期，也可以删除。
+* 加入了一个简要说明Realms主要特色的页面。
+** 可点击“{{tr|添加Realm|新增 Realm}}”按钮查看。
+** 如果Realms试用可用，则会在进入Realms时自动显示。
+
+'''[[键控代码]]'''
+* 加入了以下按键的键控代码{{more info|snapshot-9中加入了什么设备的什么按键}}：
+:{| class="wikitable sortable" data-description="Keyboard key and multimedia button IDs" style="text-align:center"
+! ID
+! 游戏内名称
+! colspan="2" | 物理按键
+! 本地化键名
+|-
+! {{code|key.keyboard.keypad.plus.minus}}
+| 小键盘 ±
+| colspan="2" | {{key|Numpad ±}}
+| {{code|key.keyboard.keypad.plus.minus}}
+|-
+! {{code|key.keyboard.keypad.left.parenthesis}}
+| 小键盘 (
+| colspan="2" | {{key|Numpad (}}
+| {{code|key.keyboard.keypad.left.parenthesis}}
+|-
+! {{code|key.keyboard.keypad.right.parenthesis}}
+| 小键盘 )
+| colspan="2" | {{key|Numpad )}}
+| {{code|key.keyboard.keypad.right.parenthesis}}
+|-
+! {{code|key.keyboard.keypad.period}}
+| 小键盘 .
+| colspan="2" | {{key|Numpad .}}<ref>{{bug|MC-310826|||Invalid}}</ref>
+| {{code|key.keyboard.keypad.period}}
+|-
+! {{code|key.keyboard.keypad.comma}}
+| 小键盘 ,
+| colspan="2" | 无法分配<ref>{{bug|MC-310845|||Won't Fix}}</ref>
+| {{code|key.keyboard.keypad.comma}}
+|-
+! {{code|key.keyboard.application}}
+| Menu
+| colspan="2" | {{key|Menu}}
+| {{code|key.keyboard.application}}
+|-
+! {{code|key.keyboard.mute}}
+| Mute
+| colspan="2" | {{key|Mute}}
+| {{code|key.keyboard.mute}}
+|-
+! {{code|key.keyboard.volume.down}}
+| 音量减
+| colspan="2" | {{key|Volume Down}}
+| {{code|key.keyboard.volume.down}}
+|-
+! {{code|key.keyboard.volume.up}}
+| 音量加
+| colspan="2" | {{key|Volume Up}}
+| {{code|key.keyboard.volume.up}}
+|-
+! {{code|key.keyboard.media.play.pause}}
+| Play/Pause
+| colspan="2" | {{key|Play/Pause}}
+| {{code|key.keyboard.media.play.pause}}
+|-
+! {{code|key.keyboard.stop}}
+| Stop
+| colspan="2" | {{key|Stop}}
+| {{code|key.keyboard.stop}}
+|-
+! {{code|key.keyboard.cut}}
+| Cut
+| colspan="2" | {{key|Cut}}
+| {{code|key.keyboard.cut}}
+|-
+! {{code|key.keyboard.copy}}
+| Copy
+| colspan="2" | {{key|Copy}}
+| {{code|key.keyboard.copy}}
+|-
+! {{code|key.keyboard.paste}}
+| Paste
+| colspan="2" | {{key|Paste}}
+| {{code|key.keyboard.paste}}
+|-
+! {{code|key.keyboard.undo}}
+| Undo
+| colspan="2" | {{key|Undo}}
+| {{code|key.keyboard.undo}}
+|-
+! {{code|key.keyboard.again}}
+| Again
+| colspan="2" | {{key|Redo}}<ref>{{bug|MC-310863|||WAI}}</ref>
+| {{code|key.keyboard.again}}
+|-
+! {{code|key.keyboard.new}}
+| New
+| colspan="2" | {{key|New}}
+| {{code|key.keyboard.new}}
+|-
+! {{code|key.keyboard.save}}
+| Save
+| colspan="2" | {{key|Save}}
+| {{code|key.keyboard.save}}
+|-
+! {{code|key.keyboard.help}}
+| Help
+| colspan="2" | {{key|Help}}
+| {{code|key.keyboard.help}}
+|-
+! {{code|key.keyboard.find}}
+| Find
+| colspan="2" | {{key|Find}}
+| {{code|key.keyboard.find}}
+|}
+
+* 现在基于玩家的操作系统，{{code|key.keyboard.left.alt}}、{{code|key.keyboard.right.alt}}、{{code|key.keyboard.left.win}}和{{code|key.keyboard.right.win}} 具有不同的显示名称。
+
+== 更改 ==
+=== 生物 ===
+'''[[村民]]'''
+* 现在村民升级时解锁的新交易能在交易界面中刷新。
+
+'''[[末影人]]'''
+* 现在处于骑乘状态时会受到弹射物伤害。
+* 不再会传送到基岩上、危险的方块上和世界边界外。
+
+'''[[犰狳]]'''
+* 現在浸沒在流體中的犰狳不會再嘗試蜷縮。
+
+'''[[潜影贝]]'''
+* 不再会传送到基岩上。
+* 现在传送时会产生一条指向传送后位置的粒子效果拖尾。
+
+'''[[焦骸]]'''
+* 移除了纹理中的多余像素。
+
+=== 方块 ===
+'''[[云杉树叶]]'''
+* 现在不再会产生落叶粒子。
+
+'''[[烈性硫黄]]'''
+* 更改了部分间歇泉粒子的纹理。
+
+=== 物品 ===
+'''[[紫颂果]]'''
+* 食用紫颂果不再会传送到[[世界边界]]外。
+* 现在生物食用后传送时会产生一条指向传送后位置的粒子效果拖尾。
+
+'''[[谜之炖菜]]和[[蘑菇煲]]'''
+* 更改了合成配方，现在可任意搭配兩個[[红色蘑菇]]、[[棕色蘑菇]]或[[層孔菇]]合成。
+
+'''[[兔肉湯]]'''
+* 現在可以使用[[層孔菇]]合成兔肉湯。
+
+'''[[地图]]和[[探险家地图]]'''
+* 现在空地图和部分探险家地图可以在[[废弃营地]]的箱子或氧化的铜箱子中找到。
+* 更改了地图和已有探险家地图的物品纹理。
+* 更改了玩家指针的纹理，现在位于范围外的玩家指针也会指示方向。
+* 加入了5个新的地图图标。
+* 现在探险家地图各自使用独立的ID。
+* 重命名了以下探险家地图：
+** 海洋探险家地图 → 海底神殿地图
+** 沼泽探险家地图 → 沼泽小屋地图
+** 试炼探险家地图 → 埋藏的试炼密室地图
+** 林地探险家地图 → 林地府邸地图
+** 丛林探险家地图 → 丛林神庙地图
+* 现在探险家地图不再能缩放。
+
+===世界生成===
+'''[[末地]]'''
+* 地形不再会在以世界原点为中心的若干个环形区域中缺失。详见{{slink|距离现象/Java版/历史现象|末地地形缺失}}。
+
+=== 命令格式 ===
+'''{{cmd|data}}'''
+* 为{{cmd|link=none|data modify}}子命令添加了新的数据来源<code>compute</code>。
+* 类似{{cmd|link=none|compute}}，以一个数值提供器的求值结果作为数据来源。
+* 语法：{{cmd|link=none|data modify ... compute (default{{!}}block <computePos>{{!}}entity <computeTarget>) <provider> [integer]}}
+
+'''{{cmd|execute}}'''
+* 加入了<code>slots</code>条件子命令。
+** 检测方块或实体是否具有匹配给定[[槽位源]]的槽位。
+** 槽位源使用战利品上下文<code>minecraft:command_slot_source</code>解析。
+** 语法：
+*** {{cmd|(if{{!}}unless) slots block <pos> <slot_source> -> ''execute''|link=none|/=0}}
+*** {{cmd|(if{{!}}unless) slots entity <targets> <slot_source> -> ''execute''|link=none|/=0}}
+* <code>items</code>条件子命令改为接受槽位源。
+** 槽位源使用战利品上下文<code>minecraft:command_slot_source</code>解析。
+** 语法：
+*** {{cmd|(if{{!}}unless) items block <pos> <slot_source> <item_predicate> -> ''execute''|link=none|/=0}}
+*** {{cmd|(if{{!}}unless) items entity <targets> <slot_source> <item_predicate> -> ''execute''|link=none|/=0}}
+
+'''{{cmd|give}}'''
+* 当物品的数量超过上限时，命令现在会返回错误而不是打印错误信息并返回<code>0</code>。
+
+'''{{cmd|item}}'''
+* 之前接受[[槽位]]的参数改为接受槽位源。
+** 这些参数将使用新的[[战利品上下文]]<code>minecraft:command_slot_source</code>解析。
+** 可以引用一个槽位源，也可以内联指定。
+** 可以使用有多个目标的槽位源。
+** <code>replace</code>子命令现在有新语义：
+*** 目标槽位中的物品会逐一被来源物品替换，顺序和槽位源所指定的相同。
+*** 当目标槽位比来源物品多时，多余的槽位会被忽略。
+**** 例如，使用物品<code>(ABC)</code>替换槽位<code>[12345]</code>会得到<code>[ABC45]</code>。
+*** 当目标槽位比来源物品少时，多余的物品会被忽略。
+**** 例如，使用物品<code>(ABCDE)</code>替换槽位<code>[123]</code>会得到<code>[ABC]</code>。
+** 字符串形式的槽位范围写法<code>-{}-<''槽位类型''></code>或<code>-{}-<''槽位类型''>.<''槽位编号''></code>仍然有效。
+*** 可以是单一槽位，例如<code>armor.chest</code>。
+*** 可以是多个槽位，例如<code>container.*</code>。
+*** 这种写法将作为使用给定槽位范围的<code>minecraft:slot_range</code>类型的槽位源的简便写法。
+**** 例如，<code>hotbar.4</code>和<code>{type:"minecraft:slot_range",slots:"hotbar.4"}</code>相同。
+* <code>from entity</code>的物品来源实体参数现在接受选中多个实体的[[目标选择器]]。
+** 选中多个实体时，来自各个实体的槽位将会被串联。
+* 加入了<code>fill</code>和<code>override</code>子命令，语法和{{cmd|item replace|link=none}}相同。
+** {{cmd|item fill|link=none}}
+*** 将来源物品填充到目标槽位中。
+*** 当目标槽位比来源物品多时，来源物品序列会被重复直至填充所有目标槽位。
+**** 例如，使用物品<code>(ABC)</code>替换槽位<code>[12345]</code>会得到<code>[ABCAB]</code>。
+** {{cmd|item override|link=none}}
+*** 用来源物品覆写目标槽位中的物品。
+*** 当目标槽位比来源物品多时，多余的槽位内的物品会被清空。
+**** 例如，使用物品<code>(ABC)</code>替换槽位<code>[12345]</code>会得到<code>[ABC__]</code>，<code>_</code>表示空槽位。
+
+'''{{cmd|locate}}'''
+* 现在使用{{cmd|locate}}指令定位时，性能得到了提升。
+
+'''{{cmd|publish}}'''
+* 移除了<code>gamemode</code>参数。
+** 世界的默认游戏模式应使用{{cmd|defaultgamemode}}命令或“世界选项”屏幕中的“游戏模式”按钮来设置，而针对特定玩家的游戏模式应使用{{cmd|gamemode}}命令来设置。
+
+'''{{cmd|swing}}'''
+* 加入了新语法：
+** {{cmd|swing <targets> [mainhand<nowiki>|</nowiki>offhand] [<animation>] [<duration>]|link=none}}
+*** <code>animation</code>：挥臂的动画类型。<code>none</code>：无动画，<code>whack</code>：普通攻击动画，<code>stab</code>：矛的戳刺动画。如不指定则默认为<code>whack</code>。
+*** <code>duration</code>：动画持续时长，默认单位为刻。如不指定则默认为<code>6t</code>。
+* 现在令玩家挥臂时不再会重置其攻击力。
+
+'''{{cmd|team}}'''
+* {{cmd|team join|link=none}}和{{cmd|team leave|link=none}}子命令现在会输出实际受到影响的实体数目，不计入队伍未改变的实体。
+
+'''{{cmd|tellraw}}'''
+* [[文本组件]]中的NBT组件现在至多解析64000次。
+
+'''{{cmd|tick}}'''
+* 以下子命令现在会在失败时返回错误而不是打印错误信息并返回<code>0</code>。
+** {{cmd|tick step|link=none}}
+** {{cmd|tick step stop|link=none}}
+** {{cmd|tick sprint stop|link=none}}
+
+=== 游戏内容 ===
+'''[[进度]]'''
+* 达成进度“[[进度#advancements-anchor-adventure.adventuring_time|{{Advancement name|adventure.adventuring_time|zh|rev=1}}]]”现在还需要到访[[斑驳森林]]。
+
+* {{tr|zh-cn=将进度“{{Advancement name|story.iron_tools|zh|rev=2}}”（{{Advancement name|story.iron_tools|en|rev=1}}）重命名为“{{Advancement name|story.iron_tools|zh|rev=3}}”（{{Advancement name|story.iron_tools|en|rev=2}}）。|zh-tw=將進度「{{Advancement name|story.iron_tools|zh|rev=2}}」（{{Advancement name|story.iron_tools|en|rev=1}}）重新命名為「{{Advancement name|story.iron_tools|zh|rev=3}}」（{{Advancement name|story.iron_tools|en|rev=2}}）。|zh-hk=將進度「{{Advancement name|story.iron_tools|zh|rev=3}}」的英文名稱由「{{Advancement name|story.iron_tools|en|rev=1}}」更改為「{{Advancement name|story.iron_tools|en|rev=2}}」。}}
+
+'''[[魔咒]]'''
+* 现在当亡灵生物的装备因保护其免受阳光伤害而消耗耐久度时，装备上的魔咒能正常发挥作用。
+
+=== 常规 ===
+'''[[全景图]]'''
+* 更新了主菜单全景图以匹配[[奔赴荒野]]。
+
+'''[[旁观模式]]'''
+* 旁观模式下的玩家现在能{{ctrl|使用}}[[传送门]]以传送。
+
+'''[[选项]]'''
+* 将“改进透明显示”选项的实现方式更换为新的[[wikipedia:Order-independent transparency|顺序无关透明（OIT）]]算法，预计可以更好地解决透明渲染问题。
+* 移除了“原始输入”选项。
+** 游戏内的鼠标输入现在总是使用相对输入。
+* 键位绑定现在使用物理键位而不是与键盘布局有关的键位代-{}-码。
+* “独占全屏”选项现在默认关闭。
+* 切换“独占全屏”选项时不再需要重新启动游戏以使其生效。
+* “世界选项”选项移动至原“{{tr|对局域网开放|在區域網路上公開|開放至 LAN}}”选项的位置。
+* “世界选项”屏幕现在包含两部分：“常规”和“多人遊戲”。
+** “常规”部分包含与原“世界选项”屏幕相同的选项。
+** “多人遊戲”部分包含三个选项：
+*** {{tr|局域网|區域網路|LAN}}：更改世界的多人游戏范围。
+*** 指令使用權限：控制加入世界的玩家是否能使用命令。
+*** {{tr|端口号|連接埠號碼}}：将世界对局域网开放时使用的端口号。
+** 将“{{tr|游戏模式|遊戲模式|遊戲模式}}”选项重命名为“默认游戏模式”。
+** 加入了“个人游戏模式”选项，用于设置玩家自身的游戏模式。
+** 加入了“{{tr|强制游戏模式|鎖定遊戲模式}}”选项，用于决定是否强制将其他玩家的游戏模式设为世界的默认游戏模式。
+* “{{tr|在线选项…|線上狀態...|線上選項⋯⋯}}”按钮现在始终会显示在选项菜单中。
+* 现在选项界面的子标题均采用加粗带下划线的样式，与世界选项界面保持一致。
+
+'''用户界面'''
+* 现在，在macOS系统上，输入文本时长按按键会显示系统原生的变音符号和候选词弹窗。
+* 现在，在Linux系统上，如果Wayland可用，则游戏会优先使用它。
+* 现在窗口大小的最小值是320&times;240像素。
+
+'''[[调试屏幕]]'''
+* 现在<code>fps</code>调试信息还会显示屏幕刷新率。
+* 将游戏模式切换器中的冒险模式图标更改为[[藏宝图]]的物品纹理。
+
+'''[[隐藏式字幕]]'''
+* 隐藏式字幕现在会指向范围内最后发出相应声音的位置。
+
+'''渲染'''
+* 在支持MultiDrawIndirect的设备上，地形方块现在使用MultiDrawIndirect进行渲染。
+
+'''[[存档基础数据存储格式]]'''
+* 现在存档基础数据存储格式中会包含一项<code>version_history</code>来记录文件的先前数据版本。
+
+'''[[数据包]]'''
+<!--* 将数据包版本号更改为<code>x.x</code>。-->
+* 将注册表<code>configured_feature</code>重命名为<code>feature</code>。
+* 将注册表<code>worldgen/configured_carver</code>重命名为<code>worldgen/carver</code>。
+* 接受有单独注册表的战利品表相关类型的字段现在接受使用命名空间ID或者标签的引用。
+** 这意味着大部分此前接受单一这些类型值的字段现在接受单个命名空间ID或相应类型的内联定义，而接受这些类型值列表的字段现在接受单个命名空间ID、相应类型的内联定义、命名空间ID的列表、相应类型的内联定义的列表或一个相应类型的标签。
+** 以下类型受此影响：
+*** [[进度定义格式|进度]]
+*** [[物品修饰器]]
+*** [[战利品表]]
+*** [[数值提供器]]
+*** [[谓词]]
+*** [[配方]]
+*** [[槽位源]]
+* 能接受某种类型命名空间ID的列表和相应类型的内联定义的列表的字段现在能接受将二者混合的列表。
+** 例如，形如<code>[{type:set_count, ...}, "minecraft:some_modifier"]</code>的物品修饰器现在是有效的写法。<!--
+
+'''[[资源包]]'''
+* 将资源包版本号更改为<code>x.x</code>。-->
+
+'''[[服务端配置文件格式]]'''
+* 将<code>white-list</code>的默认值改为<code>true</code>。
+
+'''[[服务端管理协议]]'''
+* 将服务端管理协议版本号更改为<code>3.1.0</code>。
+* 加入了以下通知方法，在服务端进行完整世界升级时发出：
+** <code>minecraft:notification/world/upgrade_started</code>
+** <code>minecraft:notification/world/upgrade_progress</code>
+** <code>minecraft:notification/world/upgrade_finished</code>
+** <code>minecraft:notification/world/upgrade_failed</code>
+
+'''[[环境属性]]'''
+* 修改了<code>minecraft:gameplay/bed_rule</code>。
+** 将<code>explodes</code>字段重命名为<code>destroy_on_use</code>。
+** 加入了<code>destroy_on_leave</code>可选字段。
+*** 布尔值，如果为<code>true</code>，下床时会将床摧毁。
+*** 默认为<code>false</code>。
+* 修改了<code>minecraft:visual/ambient_particles</code>。
+** 现在允许在[[时间线]]关键帧之间插值。
+*** 概率会被交叉淡化处理。
+** 现在还可以使用<code>append</code>修饰符。
+
+'''[[数据组件]]'''
+* <code>minecraft:pot_decorations</code>
+** 现在接受一个复合标签，它具有如下可选字段：
+*** <code>back</code>
+*** <code>left</code>
+*** <code>right</code>
+*** <code>front</code>
+* 将<code>swing_animation</code>组件重命名为<code>attack_animation</code>。
+* 移除了<code>map_color</code>组件。
+* 修改了<code>minecraft:consumable</code>。
+** 为<code>teleport_randomly</code>消耗效果类型加入了可选布尔值字段<code>directional_particles</code>。
+*** 如果为<code>true</code>，传送时将会产生一条指向传送后位置的粒子效果拖尾。
+*** 默认为<code>true</code>。
+
+'''[[方块实体数据格式]]'''
+* 修改了{{cd|d=pretty|minecraft:sign|minecraft:hanging_sign}}。
+** 加入了以下字段：
+*** <code>allow_op_features</code>：可选。布尔值，控制告示牌和悬挂式告示牌上的文本组件是否会被解析及其中的点击事件能否被执行。
+*** 默认为<code>false</code>。
+**** 在此版本前保存的世界中具有存储了告示牌数据的<code>minecraft:block_entity_data</code>组件的告示牌和悬挂式告示牌在升级到此版本后会自动将此字段设为<code>true</code>。
+** {{cd|d=pretty|minecraft:sign_text_front|minecraft:sign_text_back|minecraft:waxed}}组件现在能被保存储到告示牌和悬挂式告示牌的方块实体中。
+* 修改了<code>minecraft:brewing_stand</code>。
+** 将{{cd|d=pretty|BrewTime|Fuel}}字段的数据类型从{{nbt|short|短整型}}改为{{nbt|int|整型}}。
+** 加入了以下字段：
+*** <code>total_brew_time</code>：整型，表示当前酿造过程的总耗时。
+*** <code>total_fuel</code>：整型，表示上次添加燃料的总燃料量。
+*** <code>speed_multiplier</code>：浮点型，表示下次酿造的速度倍数。
+* 修改了{{cd|d=pretty|minecraft:furnace|minecraft:smoker|minecraft:blast_furnace}}。
+** 将{{cd|d=pretty|cooking_time_spent|cooking_total_time|lit_time_remaining|lit_total_time}}字段的数据类型从{{nbt|short|短整型}}改为{{nbt|int|整型}}。
+** 加入了以下字段：
+*** <code>speed_multiplier</code>：浮点型，表示下次烧炼的速度倍数。
+* 修改了<code>minecraft:decorated_pot</code>
+** <code>sherds</code>字段现在接受一个复合标签，它具有如下可选字段：
+*** <code>back</code>
+*** <code>left</code>
+*** <code>right</code>
+*** <code>front</code>
+
+'''[[方块变换效果定义格式]]'''
+* 现在方块变换效果可以单独在数据包中定义。<!--格式不变故未列出-->
+
+'''[[实体数据格式]]'''
+* 加入了<code>invulnerable_time</code>标签，使实体在特定数量的游戏刻内暂时免疫伤害。
+
+'''[[进度定义格式]]'''
+* 可见的根进度（即包含<code>display</code>字段但不包含<code>parent</code>字段的进度）必须在<code>display</code>字段内包含<code>background</code>。
+* 除根进度外的进度不再允许在<code>display</code>字段内包含<code>background</code>。
+* <code>rewards</code>字段中的<code>loot</code>字段现在接受单个战利品表ID、战利品表的内联定义、战利品表ID的列表、战利品表的内联定义的列表或一个战利品表标签。
+* 除<code>minecraft:impossible</code>外的准则触发器中的<code>player</code>字段现在改为接受单个谓词ID或谓词的内联定义。
+* 修改了<code>minecraft:any_block_use</code>准则触发器。
+** <code>location</code>字段现在改为接受单个谓词ID或谓词的内联定义。
+* 修改了<code>minecraft:bee_nest_destroyed</code>准则触发器。
+** 将<code>block</code>字段重命名为<code>blocks</code>并改为接受单个方块ID、方块ID的列表或方块标签。
+** 加入了<code>state</code>字段，用于匹配方块状态。
+*** 格式和<code>minecraft:enter_block</code>准则触发器中的<code>state</code>字段相同。
+* 修改了<code>minecraft:bred_animals</code>准则触发器。
+** {{cd|d=pretty|child|parent|partner}}字段现在改为接受单个谓词ID或谓词的内联定义。
+* 修改了<code>minecraft:brewed_potion</code>准则触发器。
+** <code>potion</code>字段现在改为接受<code>minecraft:potion_contents</code>数据组件谓词。
+* 修改了<code>minecraft:cured_zombie_villager</code>准则触发器。
+** {{cd|d=pretty|villager|zombie}}字段现在改为接受单个谓词ID或谓词的内联定义。
+* 修改了<code>minecraft:default_block_use</code>准则触发器。
+** <code>location</code>字段现在改为接受单个谓词ID或谓词的内联定义。
+* 修改了<code>minecraft:effects_changed</code>准则触发器。
+** <code>source</code>字段现在改为接受单个谓词ID或谓词的内联定义。
+* 修改了<code>minecraft:enter_block</code>准则触发器。
+** 将<code>block</code>字段重命名为<code>blocks</code>并改为接受单个方块ID、方块ID的列表或方块标签。
+* 修改了<code>minecraft:fall_after_explosion</code>准则触发器。
+** <code>cause</code>字段现在改为接受单个谓词ID或谓词的内联定义。
+* 修改了<code>minecraft:fishing_rod_hooked</code>准则触发器。
+** <code>entity</code>字段现在改为接受单个谓词ID或谓词的内联定义。
+* 修改了<code>minecraft:placed_block</code>准则触发器。
+** <code>location</code>字段现在改为接受单个谓词ID或谓词的内联定义。
+* 修改了<code>minecraft:item_used_on_block</code>准则触发器。
+** <code>location</code>字段现在改为接受单个谓词ID或谓词的内联定义。
+* 修改了<code>minecraft:allay_drop_item_on_block</code>准则触发器。
+** <code>location</code>字段现在改为接受单个谓词ID或谓词的内联定义。
+* 修改了<code>minecraft:player_killed_entity</code>准则触发器。
+** <code>entity</code>字段现在改为接受单个谓词ID或谓词的内联定义。
+** <code>killing_blow.tags.id</code>字段现在改为接受单个伤害类型ID、伤害类型ID的列表或伤害类型标签。
+* 修改了<code>minecraft:entity_killed_player</code>准则触发器。
+** <code>entity</code>字段现在改为接受单个谓词ID或谓词的内联定义。
+** <code>killing_blow.tags.id</code>字段现在改为接受单个伤害类型ID、伤害类型ID的列表或伤害类型标签。
+* 修改了<code>minecraft:kill_mob_near_sculk_catalyst</code>准则触发器。
+** <code>entity</code>字段现在改为接受单个谓词ID或谓词的内联定义。
+** <code>killing_blow.tags.id</code>字段现在改为接受单个伤害类型ID、伤害类型ID的列表或伤害类型标签。
+* 修改了<code>minecraft:lightning_strike</code>准则触发器。
+** {{cd|d=pretty|bystander|lightning}}字段现在改为接受单个谓词ID或谓词的内联定义。
+* 修改了<code>minecraft:player_generates_container_loot</code>准则触发器。
+** 将<code>loot_table</code>字段重命名为<code>loot_tables</code>并改为接受单个战利品表ID、战利品表的内联定义、战利品表ID的列表、战利品表的内联定义的列表或战利品表标签。
+*** 如果使用列表或者标签，触发器将在生成任一战利品表时触发。
+* 修改了<code>minecraft:thrown_item_picked_up_by_player</code>准则触发器。
+** <code>entity</code>字段现在改为接受单个谓词ID或谓词的内联定义。
+* 修改了<code>minecraft:thrown_item_picked_up_by_entity</code>准则触发器。
+** <code>entity</code>字段现在改为接受单个谓词ID或谓词的内联定义。
+* 修改了<code>minecraft:player_hurt_entity</code>准则触发器。
+** <code>entity</code>字段现在改为接受单个谓词ID或谓词的内联定义。
+** <code>damage.type.tags.id</code>字段现在改为接受单个伤害类型ID、伤害类型ID的列表或伤害类型标签。
+* 修改了<code>minecraft:entity_hurt_player</code>准则触发器。
+** <code>damage.type.tags.id</code>字段现在改为接受单个伤害类型ID、伤害类型ID的列表或伤害类型标签。
+* 修改了<code>minecraft:player_interacted_with_entity</code>准则触发器。
+** <code>entity</code>字段现在改为接受单个谓词ID或谓词的内联定义。
+* 修改了<code>minecraft:player_sheared_equipment</code>准则触发器。
+** <code>entity</code>字段现在改为接受单个谓词ID或谓词的内联定义。
+* 修改了<code>minecraft:crafter_recipe_crafted</code>准则触发器。
+** 将<code>recipe_id</code>字段重命名为<code>recipes</code>并改为接受单个配方ID、配方ID的列表或配方标签。
+*** 如果使用列表或者标签，触发器将在使用任一配方时触发。
+* 修改了<code>minecraft:recipe_crafted</code>准则触发器。
+** 将<code>recipe_id</code>字段重命名为<code>recipes</code>并改为接受单个配方ID、配方ID的列表或配方标签。
+*** 如果使用列表或者标签，触发器将在使用任一配方时触发。
+* 修改了<code>minecraft:recipe_unlocked</code>准则触发器。
+** 将<code>recipe</code>字段重命名为<code>recipes</code>并改为接受单个配方ID、配方ID的列表或配方标签。
+*** 如果使用列表或者标签，触发器将在解锁任一配方时触发。
+* 修改了<code>minecraft:slide_down_block</code>准则触发器。
+** 将<code>block</code>字段重命名为<code>blocks</code>并改为接受单个方块ID、方块ID的列表或方块标签。
+* 修改了<code>minecraft:summoned_entity</code>准则触发器。
+** <code>entity</code>字段现在改为接受单个谓词ID或谓词的内联定义。
+* 修改了<code>minecraft:tame_animal</code>准则触发器。
+** <code>entity</code>字段现在改为接受单个谓词ID或谓词的内联定义。
+* 修改了<code>minecraft:target_hit</code>准则触发器。
+** <code>projectile</code>字段现在改为接受单个谓词ID或谓词的内联定义。
+* 修改了<code>minecraft:villager_trade</code>准则触发器。
+** <code>villager</code>字段现在改为接受单个谓词ID或谓词的内联定义。
+
+'''[[盔甲纹饰定义格式]]'''
+* 修改了盔甲纹饰材料的格式：
+** {{nbt|string|asset_name}}字段被替换为{{nbt|string|palette}}。
+*** 决定盔甲纹饰纹理要使用的调色板纹理ID。
+** 移除了{{nbt|object|override_armor_assets}}字段，其功能被资源包的盔甲纹理代替。
+
+'''[[山羊角乐器定义格式]]'''
+* 加入了{{nbt|int|durability_damage}}字段。
+** 非负整数，决定每次吹奏要消耗的物品耐久值。
+* {{nbt|float|use_duration}}字段的取值现在可以为<code>0</code>，以移除吹奏冷却。
+
+'''[[配方]]'''
+* 原版[[高炉]]和[[烟熏炉]]烧炼配方的<code>cookingtime</code>字段均改为和对应[[熔炉]]烧炼配方相同。
+** 高炉和烟熏炉的烧炼加速行为改由燃料的物品组件实现。
+
+'''[[村民交易定义格式]]'''
+* 将<code>given_item_modifiers</code>重命名为<code>given_item_modifier</code>。
+** 此字段仍不允许引用文件。
+
+'''[[战利品表]]'''
+* 原先内联检查工具是否具有[[精准采集]]或工具是否是[[剪刀]]的战利品表现在改用谓词。
+* {{cd|d=pretty|rolls|bonus_rolls}}字段现在改为接受单个数值提供器ID或数值提供器的内联定义。
+* 修改了以下抽取项共通字段：
+** 将<code>conditions</code>字段重命名为<code>condition</code>并改为接受单个谓词ID或谓词的内联定义。
+** 将<code>functions</code>字段重命名为<code>modifier</code>并改为接受单个物品修饰器ID或物品修饰器的内联定义。
+*** 为复合抽取项类型也添加了此字段。
+* 修改了<code>minecraft:tag</code>抽取项类型。
+** 将<code>name</code>字段重命名为<code>items</code>并改为接受单个物品ID、物品ID的列表或物品标签。
+* 修改了<code>minecraft:loot_table</code>抽取项类型。
+** <code>value</code>字段现在改为接受单个战利品表ID、战利品表的内联定义、战利品表ID的列表、战利品表的内联定义的列表或战利品表标签。
+** 加入了<code>expand</code>字段。
+*** 布尔值，若为<code>false</code>，则此抽取项是单一抽取项：若抽取到此项，视为抽取到了指定战利品表中所有抽取项；若为<code>true</code>，则此抽取项是复合抽取项：按战利品表中指定的权重展开为多个单一抽取项，每个抽取项作为外层随机池中的一个抽取项。
+
+'''[[战利品上下文]]'''
+* 修改了<code>minecraft:advancement_location</code>参数集。
+** 现在还可能会提供<code>block_entity</code>参数。
+* 更改了<code>minecraft:block_interact</code>。
+** <code>origin</code>现在在上下文中可用，作为被交互的方块的中心。
+
+'''[[谓词]]'''
+* 将<code>condition</code>字段重命名为<code>type</code>。
+* <code>type</code>字段现在是必需的。
+* 不再允许使用列表代替<code>minecraft:all_of</code>谓词类型。
+* 修改了<code>minecraft:all_of</code>谓词类型。
+** <code>terms</code>字段现在改为接受单个谓词ID、谓词的内联定义、谓词ID的列表、谓词的内联定义的列表或谓词标签。
+* 修改了<code>minecraft:any_of</code>谓词类型。
+** <code>terms</code>字段现在改为接受单个谓词ID、谓词的内联定义、谓词ID的列表、谓词的内联定义的列表或谓词标签。
+* 修改了<code>minecraft:inverted</code>谓词类型。
+** <code>term</code>字段现在改为接受单个谓词ID或谓词的内联定义。
+* 修改了<code>minecraft:random_chance</code>谓词类型。
+** <code>chance</code>字段现在改为接受单个数值提供器ID或数值提供器的内联定义。
+* 修改了<code>minecraft:value_check</code>谓词类型。
+** <code>value</code>字段现在改为接受单个数值提供器ID或数值提供器的内联定义。
+** <code>range</code>字段中的{{cd|d=pretty|min|max}}字段现在改为接受单个数值提供器ID或数值提供器的内联定义。
+* 修改了<code>minecraft:time_check</code>谓词类型。
+** <code>value</code>字段中的{{cd|d=pretty|min|max}}字段现在改为接受单个数值提供器ID或数值提供器的内联定义。
+* 修改了<code>minecraft:entity_scores</code>谓词类型。
+** <code>scores</code>字段中记分项字段中的{{cd|d=pretty|min|max}}字段现在改为接受单个数值提供器ID或数值提供器的内联定义。
+* 修改了<code>minecraft:damage_source_properties</code>谓词类型。
+** <code>predicate.tags.id</code>字段现在改为接受单个伤害类型ID、伤害类型ID的列表或伤害类型标签。
+* 移除了<code>minecraft:reference</code>谓词类型。
+* 移除了<code>minecraft:block_state_property</code>谓词类型。
+
+'''[[物品修饰器]]'''
+* 将<code>conditions</code>字段重命名为<code>condition</code>、允许其用于任意物品修饰器并改为接受单个谓词ID或谓词的内联定义。
+* 将<code>function</code>字段重命名为<code>type</code>。
+* 修改了<code>minecraft:sequence</code>物品修饰器类型。
+** <code>functions</code>字段现在改为接受单个物品修饰器ID、物品修饰器的内联定义、物品修饰器ID的列表、物品修饰器的内联定义的列表或物品修饰器标签。
+** 加入了<code>condition</code>可选字段，接受单个谓词ID或谓词的内联定义。
+** 相应修改了此物品修饰器类型的内联形式，所有接受内联定义的槽位源的字段均可使用。
+** 只能在顶级文件中使用内联定义。
+* 修改了<code>minecraft:modify_contents</code>物品修饰器类型。
+** <code>modifier</code>字段现在改为接受单个物品修饰器ID或物品修饰器的内联定义。
+* 修改了<code>minecraft:set_attributes</code>物品修饰器类型。
+** <code>modifier</code>字段中的列表元素中的<code>amount</code>字段现在改为接受单个数值提供器ID或数值提供器的内联定义。
+* 修改了<code>minecraft:enchanted_count_increase</code>物品修饰器类型。
+** <code>count</code>字段现在改为接受单个数值提供器ID或数值提供器的内联定义。
+* 修改了<code>minecraft:enchant_with_levels</code>物品修饰器类型。
+** <code>levels</code>字段现在改为接受单个数值提供器ID或数值提供器的内联定义。
+* 修改了<code>minecraft:set_custom_model_data</code>物品修饰器类型。
+** {{cd|d=pretty|floats|colors}}字段中的列表元素现在改为接受单个数值提供器ID或数值提供器的内联定义。
+* 修改了<code>minecraft:set_enchantments</code>物品修饰器类型。
+** <code>enchantments</code>字段中的字段现在改为接受单个数值提供器ID或数值提供器的内联定义。
+* 修改了<code>minecraft:set_count</code>物品修饰器类型。
+** <code>count</code>字段现在改为接受单个数值提供器ID或数值提供器的内联定义。
+* 修改了<code>minecraft:limit_count</code>物品修饰器类型。
+** <code>limit</code>字段中的{{cd|d=pretty|min|max}}字段现在改为接受单个数值提供器ID或数值提供器的内联定义。
+* 修改了<code>minecraft:set_damage</code>物品修饰器类型。
+** <code>count</code>字段现在改为接受单个数值提供器ID或数值提供器的内联定义。
+* 修改了<code>minecraft:set_ominous_bottle_amplifier</code>物品修饰器类型。
+** <code>amplifier</code>字段现在改为接受单个数值提供器ID或数值提供器的内联定义。
+* 修改了<code>minecraft:set_random_dyes</code>物品修饰器类型。
+** <code>number_of_dyes</code>字段现在改为接受单个数值提供器ID或数值提供器的内联定义。
+* 修改了<code>minecraft:set_stew_effect</code>物品修饰器类型。
+** <code>effects</code>字段中的列表元素中的<code>duration</code>字段现在改为接受单个数值提供器ID或数值提供器的内联定义。
+* 修改了<code>minecraft:set_loot_table</code>物品修饰器类型。
+** 移除了未使用的<code>type</code>字段。
+** 将<code>name</code>字段重命名为<code>loot_table_id</code>。
+* 修改了<code>minecraft:exploration_map</code>物品修饰器类型。
+** <code>destination</code>字段现在是必需的，并改为接受单个结构模板ID、结构模板的内联定义、结构模板ID的列表、结构模板的内联定义的列表或结构模板标签。
+** 现在无需将空地图<code>map</code>转变为地图<code>filled_map</code>，仅用于向地图添加数据。
+* 移除了<code>minecraft:reference</code>物品修饰器类型。
+
+'''[[数值提供器]]'''
+* <code>type</code>字段现在是必需的。
+* 修改了<code>minecraft:number_dispatcher</code>数值提供器类型。
+** <code>default</code>以及<code>cases</code>字段的列表元素中的<code>number_provider</code>字段现在改为接受单个数值提供器ID或数值提供器的内联定义。
+** <code>cases</code>字段的列表元素中的<code>condition</code>字段现在改为接受单个谓词ID或谓词的内联定义。
+* 修改了<code>minecraft:conditional</code>{{note|更新日志中作<code>minecraft:conditional_value</code>。}}数值提供器类型。
+** {{cd|d=pretty|on_true|on_false}}字段现在改为接受单个数值提供器ID或数值提供器的内联定义。
+** 将<code>predicate</code>字段重命名为<code>conditions</code>字段并改为接受单个谓词ID或谓词的内联定义。
+* 修改了<code>minecraft:weighted_list</code>数值提供器类型。
+** <code>distribution</code>字段的列表元素中的<code>data</code>字段现在改为接受单个数值提供器ID或数值提供器的内联定义。
+* 修改了<code>minecraft:uniform</code>数值提供器类型。
+** {{cd|d=pretty|min|max}}字段现在改为接受单个数值提供器ID或数值提供器的内联定义。
+* 修改了<code>minecraft:binominal</code>数值提供器类型。
+** {{cd|d=pretty|n|p}}字段现在改为接受单个数值提供器ID或数值提供器的内联定义。
+* 修改了<code>minecraft:sum</code>数值提供器类型。
+** 将<code>summands</code>字段重命名为<code>operands</code>。<!--snap5就已经改了可接受的类型了，并不像更新日志暗示的那样是此快照改的-->
+** <code>operands</code>字段现在至少需要包含一个作为操作数的数值提供器。
+** 用于整数上下文中时，所有作为操作数的数值提供器也会在整数上下文中求值。
+** <code>operands</code>字段现在改为接受单个数值提供器ID、数值提供器的内联定义、数值提供器ID的列表或数值提供器的内联定义的列表或数值提供器标签。
+
+'''[[数据组件谓词]]'''
+* 修改了<code>potion_contents</code>，现在具有以下格式：
+<div class="treeview">
+* {{nbt|compound|minecraft:potion_contents}}
+** {{nbt|string}}{{nbt|list|potions}}：要检查的药水效果。可以为单个药水效果ID、一个药水效果ID的列表或一个药水效果标签。若指定了多个药水效果，只需有其中一个药水效果存在即测试成功。
+** {{nbt|compound|effects}}：要检查的状态效果。
+*** {{nbt transclude|编码格式/CriterionPredicate|codec_collection_predicate|vname=状态效果|vtype=compound|vcondition={{Nbt inherit/mob effects predicate}}|indent=1}}
+</div>
+
+'''[[槽位源]]'''
+* 槽位源现在可以在数据包的<code>slot_source</code>文件夹中定义。
+** 可以用于有接受槽位源的命令参数的命令中。
+* <code>minecraft:contents</code>槽位源类型现在可以选中空槽位了。
+* 修改了<code>minecraft:slot_range</code>槽位源类型：
+** <code>source</code>字段新增取值<code>container</code>，从[[战利品上下文]]中获取一个容器或物品栏的槽位。
+** <code>source</code>现在是可选的了。
+*** 默认值为<code>container</code>。
+* 修改了<code>minecraft:group</code>槽位源类型。
+** <code>terms</code>字段现在改为接受单个槽位源ID、槽位源的内联定义、槽位源ID的列表、槽位源的内联定义的列表或槽位源标签。
+** 相应修改了此槽位源类型的内联形式，所有接受内联定义的槽位源的字段均可使用。
+** 只能在顶级文件中使用内联定义。
+* 修改了<code>minecraft:filtered</code>槽位源类型。
+** <code>slot_source</code>字段现在改为接受单个槽位源ID或槽位源的内联定义。
+* 修改了<code>minecraft:contents</code>槽位源类型。
+** <code>slot_source</code>字段现在改为接受单个槽位源ID或槽位源的内联定义。
+* 修改了<code>minecraft:limit_slots</code>槽位源类型。
+** <code>slot_source</code>字段现在改为接受单个槽位源ID或槽位源的内联定义。
+
+'''[[生物群系定义格式]]'''
+* 移除了{{cd|d=pretty|spawners|spawn_costs|creature_spawn_probability}}字段。
+
+'''[[已配置的地物]]'''
+* 移除了<code>minecraft:desert_well</code>地物类型。
+** 现在[[沙漠水井]]使用<code>minecraft:template</code>地物类型。
+* 修改了<code>minecraft:template</code>地物类型。
+** 加入了<code>processors</code>字段：一个处理器列表的命名空间ID或处理器列表的内联定义，表示要应用于模板的处理器列表。
+* 移除了<code>config</code>字段，地物配置相关字段改为直接在根标签内定义。
+* 将地物类型<code>minecraft:basalt_columns</code>重命名为<code>minecraft:stepped_column_cluster</code>，并暴露了更多对于地物功能的控制。
+** 加入了以下字段：
+*** <code>block</code>：方块状态提供器，指定要放置的方块。
+*** <code>can_replace</code>：方块谓词，指定哪些方块可被该柱替换。
+*** <code>continue_through</code>：方块谓词，指定哪些已有的方块可保留为该柱的一部分。
+*** <code>cannot_place_on</code>：方块ID、方块ID的列表或带<code>#</code>的方块标签ID，指定开始放置时要避开的方块。
+*** <code>column_count</code>：整数提供器（{{interval|left=1|right=150}}），要生成的柱的数量。
+*** <code>cluster_reach</code>：整数提供器（{{interval|left=1|right=13}}），尝试生成柱的正方形区域大小。
+**** 有效生成范围亦受<code>height</code>限制。
+** 将字段<code>reach</code>重命名为<code>column_reach</code>。
+* 将地物类型<code>minecraft:basalt_pillar</code>重命名为<code>minecraft:single_block_pillar</code>，并暴露了更多对于地物功能的控制。
+** 加入了以下字段：
+*** <code>block</code>：方块状态提供器，指定要放置的方块。
+*** <code>can_replace</code>：方块谓词，指定哪些方块可被替换。
+*** <code>direction</code>：该柱的竖直方向，取值为<code>up</code>（向上）或<code>down</code>（向下）。
+*** <code>chance_to_continue</code>：（可选，{{interval|left=0|right=1}}，默认为1）柱连接到另一方块的概率（假设<code>can_replace</code>匹配）。
+*** <code>cap_feature</code>：（可选）已放置的地物，会放置在柱的末端。
+* 将地物类型<code>minecraft:glowstone_blob</code>重命名为<code>minecraft:random_neighbor_spread</code>，并暴露了更多对于地物功能的控制。
+** 加入了以下字段：
+*** <code>block</code>：方块状态提供器，指定要放置的方块。
+*** <code>accepted_neighbors</code>：方块ID、方块ID的列表或带<code>#</code>的方块标签ID，指定哪些方块可视为有效的毗邻方块。
+*** <code>can_replace</code>：方块谓词，指定哪些方块可被替换。
+*** <code>attempts</code>：整数提供器（{{interval|left=1|right=3000}}），尝试放置的次数。
+*** <code>xz_offset</code>：整数提供器（{{interval|left=-16|right=16}}），沿X轴和Z轴的尝试偏移量。
+*** <code>y_offset</code>：整数提供器（{{interval|left=-16|right=16}}），沿Y轴的尝试偏移量。
+* 移除了以下地物类型：
+** <code>minecraft:coral_mushroom</code>
+** <code>minecraft:kelp</code>
+** <code>minecraft:seagrass</code>
+** <code>minecraft:sea_pickle</code>
+** <code>minecraft:nether_forest_vegetation</code>
+** <code>minecraft:twisting_vines</code>
+** <code>minecraft:weeping_vines</code>
+* 修改了<code>minecraft:coral_claw</code>和<code>minecraft:coral_tree</code>地物类型。
+** 加入了<code>feature</code>字段。
+*** 需为一个已放置的地物，该地物将会在每个预期要放置地物的位置被放置一次。
+* 修改了<code>minecraft:rotated_block_provider</code>方块状态提供器。
+** 现在对所有具有<code>axis</code>或<code>facing</code>[[方块属性]]的方块均有效。
+** 修改了<code>state</code>字段，改为接受一个方块状态提供器。
+** 加入了<code>direction</code>可选字段，描述方块的朝向。
+*** 如果省略此字段，会随机选择一个朝向。
+* 修改了<code>minecraft:sculk_patch</code>地物类型。
+** 移除了{{cd|d=pretty|extra_rare_growths|catalyst_chance}}字段。
+
+'''[[已放置的地物]]'''
+* 将放置修饰器<code>random_offset</code>重命名为<code>offset</code>。
+** 移除了<code>xz_spread</code>和<code>y_spread</code>字段。
+** 加入了{{cd|x|y|z|d=、}}字段：整数提供器（{{interval|left=-16|right=16}}），依轴指定偏移量。
+
+'''[[噪声]]'''
+* 噪声现在使用单精度浮点数计算，而不是双精度浮点数。
+** 此更改会影响最终结果以及所有中间步骤。
+* 更新了噪声的格式。
+** 噪声定义了分形布朗运动（fBm）配置，具有以下属性：
+*** 产生的输出值（大约）符合正态分布。
+*** 除非另有指定，输出幅度适配到<code>[-1;1]</code>范围内。
+*** 由于正态分布，实际上这意味着99.7%的样本将落在此范围内，但仍可能遇到超出此范围的值。
+*** 参数化为<code>persistence=0.5</code>，<code>lacunarity=2.0</code>，即在每个倍频程之间，幅度减半，频率加倍。
+*** 具有稳定的种子设定，因此可以增强、静音或添加一个倍频程，而不会影响其他倍频程。
+** 将<code>firstOctave</code>字段重命名为<code>base_octave</code>。
+** 将<code>amplitudes</code>字段重命名为<code>amplitude_modifiers</code>。
+
+'''[[噪声设置]]'''
+* 将<code>surface_rule</code>字段重命名为<code>material_rule</code>。
+* <code>spawn_target</code>字段已经更新为允许使用任何密度函数，而不是<code>noise_router</code>字段定义的子集。
+* 候选的出生点位置根据在n维空间中计算一组超立方体的欧几里得距离来确定。
+* 例如，一个轴可以是<code>temperature</code>，另一个轴可以是<code>erosion</code>，适用性由<code>temperature=0.1, erosion=0.2</code>和<code>temperature=0.3, erosion=0.5</code>之间的距离的平方决定。这将优先考虑这些范围内的候选生成，并惩罚远远超出此范围的候选生成。
+* 格式：一个目标超立方体的列表。
+** 目标格式：密度函数ID和轴范围的映射：
+*** 范围可以是这些格式：
+**** 浮点数，一个准确的数值
+**** 两个浮点数组成的数组，来自<code>[min, max]</code>的目标范围
+**** 一个带有字段的对象：
+***** <code>min</code>：浮点数，目标范围的最小值
+***** <code>max</code>：浮点数，目标范围的最大值
+* 修改了<code>noise_router</code>字段。
+**  将<code>preliminary_surface_level</code>字段重命名为<code>chunk_surface_level</code>。
+*** 该密度函数不再会在整个区块内被隐式地插值。
+** <code>final_density</code>字段不再会隐式加上<code>breadifier</code>密度函数的值。
+** 移除了{{cd|d=pretty|barrier|fluid_level_floodedness|fluid_level_spread|lava|vein_toggle|vein_ridged|vein_gap}}字段。它们的功能被{{cd|d=pretty|aquifers|ore_veins}}字段中的相应字段代替。
+* 将<code>aquifers_enabled</code>字段重命名为<code>aquifers</code>、改为可选字段并改为接受一个带有如下字段的对象：
+** {{cd|d=pretty|barrier|fluid_level_floodedness|fluid_level_spread|lava|surface_level}}：分别移动自<code>noise_router</code>字段中的{{cd|d=pretty|barrier|fluid_level_floodedness|fluid_level_spread|lava|preliminary_surface_level}}。
+** <code>exclusion</code>：一个密度函数，此密度函数大于0时不会在相应位置放置流体。
+* 移除了<code>ore_veins</code>{{note|在[[Java版26.3-snapshot-4]]中由<code>ore_veins_enabled</code>重命名而来。[[Java版26.3-snapshot-10]]更新日志中将新名称误作<code>ore_veins_enabled</code>。}}，该字段的功能由材料规则<code>minecraft:ore_vein</code>代替。
+* 移除了<code>noise</code>字段中的{{cd|d=pretty|size_horizontal|size_vertical}}字段，这些字段的功能由密度函数<code>interpolated</code>代替。
+* 加入了可选的<code>debug_functions</code>字段。
+** 要在<code>chunk_generation_stats</code>[[调试屏幕#调试屏幕文本|调试信息]]中显示的密度函数值。
+** 格式：带如下字段的对象的列表：
+*** <code>function</code>：一个要计算并显示的密度函数。
+*** <code>label</code>：此密度函数的标识符。
+
+'''[[密度函数]]'''
+* 密度函数现在使用单精度浮点数计算，而不是双精度浮点数。
+** 此更改会影响最终结果以及所有中间步骤。
+* 修改了<code>constant</code>密度函数类型。
+** 将<code>argument</code>字段重命名为<code>value</code>。
+* 修改了{{cd|d=pretty|add|mul|min|max}}密度函数类型。
+** 将{{cd|d=pretty|argument1|argument2}}字段分别重命名为{{cd|d=pretty|left|right}}。
+* 修改了{{cd|d=pretty|abs|square|cube|half_negative|quarter_negative|squeeze|blend_density}}密度函数类型。
+** 将<code>argument</code>字段重命名为<code>input</code>。
+* 将<code>cache_once</code>密度函数类型重命名为<code>cache</code>。
+** 将<code>argument</code>字段重命名为<code>input</code>。
+* 修改了<code>interpolated</code>密度函数类型。
+** 将<code>argument</code>字段重命名为<code>input</code>。
+** 加入了{{cd|d=pretty|cell_size_xz|cell_size_y}}字段。
+*** 正整数，分别表示插值元胞在X、Z轴方向上和Y轴方向上的大小，单位为方块。
+* 修改了{{cd|d=pretty|shift_a|shift_b|shift}}密度函数类型。
+** 将<code>argument</code>字段重命名为<code>noise</code>。
+* 将<code>invert</code>密度函数类型重命名为<code>reciprocal</code>。
+* 更改了<code>gradient</code>。
+** 从<code>y_clamped_gradient</code>重命名而来。
+*** <code>axis</code>：<code>x</code>、<code>y</code>或<code>z</code>，定义梯度的坐标轴。
+*** <code>tiling</code>：下列值之一：
+**** <code>clamp_to_edge</code>：超出梯度的部分将使用最接近的边界的值
+**** <code>repeat</code>：梯度会在边界外重复
+**** <code>mirrored_repeat</code>：梯度会在边界外重复，但奇数次重复会镜像，保证重复的连续性
+*** <code>from_coordinate</code>：整数，梯度的起始坐标
+*** <code>to_coordinate</code>：整数，梯度的终止坐标
+**** 不允许和<code>from_coordinate</code>相等。
+*** <code>from_value</code>：浮点数，梯度起始时的值
+*** <code>to_value</code>：浮点数，梯度终止时的值
+* 将密度函数类型<code>end_islands</code>重命名为<code>end_outer_islands</code>。
+** 不再计算主岛的密度。
+* 密度函数和[[噪声]]现在使用单精度浮点数计算，而不是双精度浮点数。
+** 此更改会影响最终结果以及所有中间步骤。
+* 修改了<code>noise</code>密度函数类型。
+** 加入了{{cd|d=pretty|shift_x|shift_y|shift_z}}可选字段。
+*** 密度函数，分别用于偏移X、Y和Z坐标。
+*** 默认值均为<code>0</code>。
+* 移除了{{cd|d=pretty|shifted_noise|cache_2d|cache_all_in_cell|flat_cache}}密度函数类型。
+
+'''[[已配置的雕刻器]]'''
+* 注册表<code>worldgen/configured_carver</code>被重命名为<code>carver</code>
+* 更改了<code>minecraft:cave</code>雕刻器类型：
+** 所有之前在<code>config</code>字段下的字段现在均被内联到顶层。
+** 加入了<code>count</code>字段：非负整数提供器，种子区块将要创建的洞穴隧道的数量。
+** 重命名<code>yScale</code>为<code>room_vertical_radius_multiplier</code>。
+** 加入了可选的<code>start_vertical_radius_multiplier</code>字段：浮点提供器，作为第一个洞穴隧道的竖直半径的缩放倍率。
+*** 如果未指定，默认为<code>1.0</code>。
+** 加入了<code>thickness</code>字段：非负浮点提供器，作为雕刻隧道的半径的缩放倍率。
+** 加入了可选字段<code>weird_thickness_bias</code>：布尔值
+*** 如果为<code>true</code>，厚度会有10%的概率乘上<code>random(0, 1) * random(0, 3) + 1 </code>。
+*** 如果未指定，默认为<code>false</code>。
+** 移除了<code>replaceable</code>字段，雕刻器现在会替换所有方块，除了地物的方块。
+** 移除了<code>lava_level</code>字段，流体现在总是由维度配置的<code>aquifer</code>或<code>sea_level</code>选择。
+** 移除了<code>debug_settings</code>字段。
+* 更改了<code>minecraft:canyon</code>雕刻器类型：
+** 所有之前在<code>config</code>字段下的字段现在均被内联到顶层。
+** 重命名<code>yScale</code>为<code>shape.y_scale</code>。
+** 移除了<code>replaceable</code>字段，雕刻器现在会替换所有方块，除了地物的方块。
+** 移除了<code>lava_level</code>字段，流体现在总是由维度配置的<code>aquifer</code>或<code>sea_level</code>选择。
+** 移除了<code>debug_settings</code>字段。
+* 移除了<code>minecraft:nether_cave</code>雕刻器类型：
+** 被<code>minecraft:cave</code>雕刻器类型替代。
+
+'''[[模板池]]'''
+* 更改了<code>minecraft:feature_pool_element</code>。
+** 现在可以链接任何目标名称的拼图方块，而不仅仅是<code>minecraft:bottom</code>。
+
+'''[[装备资产]]'''
+* 加入了新的可选字段<code>trim_overrides</code>，允许给定的装备资产在使用了指定的纹饰材料或图案时交换纹理或调色板。
+** 格式：一个覆盖项目的列表：
+*** <code>when</code>：一个对象，将要匹配的材料和/或图案。
+**** <code>material</code>：可选的纹饰材料ID，指定时将匹配材料。
+**** <code>pattern</code>：可选的纹饰图案ID，指定时将匹配图案。
+**** <code>material</code>和<code>pattern</code>必须至少指定一个。
+**** 如果同时指定，则必须同时匹配时才会使用。
+*** <code>texture</code>：可选的纹饰图案资产ID，如果此项匹配则使用的置换纹理。
+**** 纹理的指定格式和<code>asset_id</code>相同。
+**** 如果没有指定，则使用图案的默认纹理。
+*** <code>palette</code>：可选的调色板ID，如果此项匹配则使用的置换调色板。
+**** 如果没有指定，则不会有调色板重新映射到纹理上。
+*** 第一个匹配的项目总是被选中。
+*** <code>texture</code>和<code>palette</code>必须至少指定一个。
+
+'''[[着色器]]与后处理管线'''
+* 移除了{{cd|core/text_background.fsh|core/text_background.vsh|d=pretty}}核心着色器。
+* 移除了<code>OIT_FORCE_ZERO_DEPTH</code>定义项。
+* 加入了以下着色器，以支持顺序无关透明算法：
+** <code>core/oit_composite.fsh</code>
+** <code>core/oit_depth_bounds_cull.fsh</code>
+** <code>include/oit.glsl</code>
+** <code>include/oit_add_transmittance.glsl</code>
+** <code>include/oit_common.glsl</code>
+** <code>include/oit_depth_bounds.glsl</code>
+** <code>include/oit_depth_sample.glsl</code>
+** <code>include/oit_sample.glsl</code>
+* 将纹理采样逻辑从<code>core/terrain.fsh</code>提取至<code>include/texture_sampling.glsl</code>。
+* 重命名了以下核心着色器：
+** <code>core/rendertype_clouds.vsh</code> -> <code>core/clouds.vsh</code>
+** <code>core/rendertype_clouds.fsh</code> -> <code>core/clouds.fsh</code>
+** <code>core/rendertype_world_border.vsh</code> -> <code>core/world_border.vsh</code>
+** <code>core/rendertype_world_border.fsh</code> -> <code>core/world_border.fsh</code>
+** 引入了以下新定义项：
+*** <code>OIT</code>：布尔值，表示是否启用OIT。
+*** <code>OIT_ALWAYS_WRITE_DEPTH</code>>：布尔值，指示在深度边界阶段OIT算法是否应始终为当前正在执行的渲染管线写入深度值。
+*** <code>OIT_DEPTH_BOUNDS</code>：布尔值，表示是否正在执行深度边界通道。
+*** <code>OIT_TRANSMITTANCE</code>：布尔值，表示是否正在执行透射率通道。
+*** <code>OIT_ACCUMULATE</code>：布尔值，表示是否正在执行累积通道。
+*** <code>OIT_ALPHA_ONLY</code>：布尔值，表示是否正在执行深度边界或透射率通道。
+*** <code>OIT_ADDITIVE</code>：布尔值，表示OIT算法应对当前执行管线模拟加法混合。
+*** <code>OIT_OPAQUE_PARTS_THRESHOLD</code>：浮点数，用于确定片段在何种alpha阈值以上应被视为不透明而不经过OIT处理。
+*** <code>OIT_WAVELET_RANK</code>：OIT算法内部的整数。
+*** <code>OIT_COEFF_COUNT</code>：OIT算法内部的整数。
+*** <code>OIT_COEFF_ATTACHMENT_COUNT</code>：OIT算法内部的整数。
+*** <code>RENDERPEARL_IS_ZERO_TO_ONE</code>：布尔值，表示当前渲染后端是否使用[0, 1]深度范围，该定义独立于OIT设置，全局适用于所有着色器。
+*** 受影响的着色器：
+**** <code>core/block.fsh</code>
+**** <code>core/block.vsh</code>
+**** <code>core/clouds.fsh</code>
+**** <code>core/clouds.vsh</code>
+**** <code>core/entity.fsh</code>
+**** <code>core/entity.vsh</code>
+**** <code>core/item.fsh</code>
+**** <code>core/item.vsh</code>
+**** <code>core/particle.fsh</code>
+**** <code>core/position_color.fsh</code>
+**** <code>core/rendertype_beacon_beam.fsh</code>
+**** <code>core/rendertype_clouds.fsh</code>
+**** <code>core/rendertype_crumbling.fsh</code>
+**** <code>core/rendertype_entity_shadow.fsh</code>
+**** <code>core/rendertype_lightning.fsh</code>
+**** <code>core/rendertype_lines.fsh</code>
+**** <code>core/rendertype_world_border.fsh</code>
+**** <code>core/terrain.fsh</code>
+**** <code>core/terrain.vsh</code>
+**** <code>core/text.fsh</code>
+**** <code>core/world_border.fsh</code>
+**** <code>core/world_border.vsh</code>
+* 移除了旧的透明后处理链：
+** <code>post_effect/transparency.json</code>
+** <code>shaders/post/transparency.fsh</code>
+* 引入了<code>RENDERPEARL_INSTANCE_INDEX_INCLUDES_BASE_INSTANCE</code>定义项。
+** 布尔值，指示<code>gl_InstanceIndex</code>使用的是Vulkan还是OpenGL的语义。
+* 现在，即使使用OpenGL，着色器也会使用ShaderC进行编译。
+** 着色器包含现在由ShaderC使用<code>#include</code>而不是<code>#moj_import</code>处理。
+* 现在着色器的输入输出必须在源码中指明位置。
+** 顶点输入的名称仍必须与预期的名称匹配。
+** 顶点输出与片元输入的匹配现在仅依据位置，名称会被忽略。
+* <code>terrain.vsh</code>和<code>terrain.fsh</code>着色器被重构以支持multi-draw。
+* <code>Globals</code>和<code>DynamicTransforms</code>的部分成员会被打乱，以减少这些uniform块的内存使用。
+* 加入了新的定义：<code>RENDERPEARL_EXPLICIT_DEPTH_INVARIANCE</code>，如果存在，则表示OIT着色器应该显式输出深度值，因为运行它的设备会产生略有不同的隐式值。
+
+'''[[物品模型映射]]'''
+* 移除了<code>map_color</code>着色来源。
+
+'''[[烘焙模型]]'''
+* 移除了模型元素的<code>shade</code>字段。
+** 若要保持和之前<code>shade: false</code>相同的行为，需改用<code>shade_direction_override: "up"</code>。
+
+'''[[Java版标签|标签]]'''
+* 将<code>poplar_sapling</code>添加到<code>#saplings</code>方块和物品标签。
+* 将<code>#wool_slabs</code>和<code>#wool_stairs</code>添加到<code>#shears_major_breaking_speed</code>方块标签。
+* 将<code>bamboo_sapling</code>和<code>cobweb</code>添加到<code>#washed_away_by_fluids</code>方块标签。
+* 移除了<code>#overworld_carver_replaceables</code>和<code>#nether_carver_replaceables</code>方块标签。
+* 将<code>#convertable_to_mud</code>重命名为<code>#convertible_to_mud</code>。
+* 将<code>#dowses_campfires</code>重命名为<code>#douses_campfires</code>。
+* 向{{cd|#blocks_motion_no_leaves|#washed_away_by_fluids|d=pretty}}中加入了{{cd|straw_bed}}。
+* 从{{cd|#deepslate_ore_replaceables|#stone_ore_replaceables|d=pretty}}中移除了{{cd|tuff}}。
+* 移除了<code>#brewing_fuel</code>物品标签。
+** 现在使用<code>minecraft:brewing_fuel</code>数据组件来定义物品作为酿造台燃料的行为。
+* 向{{cd|#mineable/pickaxe}}方块标签中加入了16种混凝土台阶和混凝土楼梯。
+* 向{{cd|#slabs}}方块和物品标签中加入了混凝土台阶。
+* 向{{cd|#stairs}}方块和物品标签中加入了混凝土楼梯。
+* 向<code>#replaceable_by_trees</code>方块标签中加入了[[层孔菇]]。
+* 重命名了以下结构标签：
+** <code>#on_woodland_explorer_maps</code> → <code>#on_woodland_mansion_maps</code>
+** <code>#on_ocean_explorer_maps</code> → <code>#on_ocean_monument_maps</code>
+** <code>#on_jungle_explorer_maps</code> → <code>#on_jungle_pyramid_maps</code>
+** <code>#on_swamp_explorer_maps</code> → <code>#on_swamp_hut_maps</code>
+** <code>#on_trial_explorer_maps</code> → <code>#on_buried_trial_chambers_maps</code>{{note|更新日志中重命名前后的标签名中的<code>maps</code>均误作<code>map</code>。}}
+
+'''[[方块状态]]'''
+* 将[[编码格式/Worldgen#方块状态|方块状态编码格式]]中的{{cd|d=pretty|Name|Properties}}字段分别重命名为{{cd|d=pretty|id|properties}}。
+* 方块状态编码格式现在接受一个方块的命名空间ID来表示该方块的默认方块状态。
+
+'''[[数据生成器]]'''
+* 移除了方块报告<code>blocks.json</code>中的<code>definition</code>字段。
+
+'''[[Realms]]'''
+* 现在Realms世界可以更改渲染距离和[[模拟距离]]。
+** 将渲染距离上限提升至25区块。
+* 试用图标由青色改为紫色。
+
+'''其他'''
+* 游戏现在使用SDL3而不是GLFW来处理窗口管理、输入和平台集成。
+** 现在键盘输入使用SDL扫描码来表示物理按键位置，并使用SDL键码来处理与布局有关的文本编辑快捷键。
+
+== 修复 ==
+{{fixes|fixedin=26.3 Snapshot 1,26.3 Snapshot 2,26.3 Snapshot 3,26.3 Snapshot 4,26.3 Snapshot 5,26.3 Snapshot 6,26.3 Snapshot 7,26.3 Snapshot 8,26.3 Snapshot 9,26.3 Snapshot 10,26.3 Pre-Release 1,26.3 Pre-Release 2,26.3 Pre-Release 3,26.3 Release Candidate 1,26.3 Release Candidate 2,26.3 Release Candidate 3|showdesc=1
+|;26.3前正式版的漏洞
+|4|物品实体有时会在错误的位置出现。
+|2157|龙蛋在瞬移时产生的粒子没有指向正确的方向。
+|5269|在多人游戏菜单中修改服务器的地址不会更新其状态。
+|40597|Minecraft内置的全屏模式与macOS的全屏相互影响，可导致游戏窗口故障。
+|44654|一些实体被传送后在客户端上的位置没有更新。
+|46421|旁观模式下无法使用下界传送门、末地传送门和末地折跃门。
+|51859|所有悬浮提示框文本中，第一、二行间的距离都比其他行之间大。
+|57507|当召唤内部已有可烧炼物品和燃料的熔炉时，物品不会被烧炼。
+|58061|末影人可以传送至告示牌上方。
+|59810|在macOS上，无法在疾跑时破坏方块。
+|73162|创造模式下摧毁可被一击摧毁的实体时，有时会破坏它后面的方块。
+|90148|当玩家从船上下来时，另一名乘客的头部会保持侧向旋转状态。
+|91006|一些实体在被放置或破坏后会丢失其名称。
+|96365|船和筏在离开并再次进入后，会保留其旋转动量。
+|102732|箭可能会在视觉上被未穿戴盾牌的实体反弹。
+|102836|末影人和食用紫颂果的生物可能会传送到危险的地方。
+|102881|潜影贝传送时不发出任何粒子。
+|106416|末影人和食用紫颂果的生物可能会传送到世界边界外或细雪中。
+|110989|命令{{cmd|spreadplayers|link=none}}将告示牌视为有效的扩散位置。
+|112580|单人游戏下，打开结构方块的GUI不会暂停游戏。
+|112744|只有生物能存在{{cd|Team}} NBT标签。
+|113006|被钓鱼竿钩起的物品运动不平滑，而是像在传送。
+|116286|命令{{cmd|spreadplayers|link=none}}可以将实体扩散至结构空位上方。
+|119577|被激活的TNT看起来可能会移动进入或穿过方块。
+|121278|即使在使用其他键盘布局时，按键绑定（例如{{Keys|Ctrl+A}}）也会被映射到美式键盘布局。
+|121367|游戏不使用无边框全屏。
+|121375|在按键绑定屏幕中，macOS的{{key|Command}}键被显示为“Win”。
+|122477|在Linux上打开聊天时，有时会向消息中添加所按按键对应的字符。
+|122717|部分命令的成功消息包括了未被影响的实体，与命令结果不同。
+|122731|坐在船上转动视角时，相机运动会卡顿。
+|127939|若干键在键位绑定菜单中显示为<code>-{}-scancode.<''数字''></code>。
+|133407|使用非QWERTY键盘升级到1.13后按键绑定会改变。
+|148541|命令{{cmd|spreadplayers|link=none}}可以将玩家扩散至靠近水面的海草上方。
+|149058|使用快捷键将物品移入铁砧UI，会向新物品名称中添加所按按键对应的字符。
+|151857|影响多名玩家的{{cmd|give|link=none}}的成功消息使用错误的字符串。
+|154881|从快捷栏丢出物品的同时切换至另一个快捷栏会使第二个物品出现不同步。
+|159283|末地有多个不会生成地形的环形区域。
+|161885|很多视觉透明物体在史莱姆后面时不渲染。
+|161898|透明粒子会导致其他粒子不可见。
+|161926|挖掘冰或染色玻璃的方块破坏动画更透明。
+|162159|乘坐气泡柱上方的船会导致玩家向上移动2格。
+|166101|附魔光效会在每个纹理层上各应用一次到模型。
+|168446|可以对单个深色橡树树苗或苍白橡树树苗使用骨粉，尽管它们无法生长。
+|168653|生物、粒子、云、水和视觉透明方块在潜影弹的透明部分后面时不渲染。
+|174958|{{cd|/gamerule}}命令在值未改变时也会执行成功。
+|175180|{{cd|Silent}} NBT标签仍无法让某些实体完全静音。
+|181831|矿车音效不会在字幕中显示。
+|183446|末影人骑乘矿车或船时仍会躲避弹射物。
+|187669|启用“改进透明显示”选项时，世界边界会显得过暗。
+|189953|在按键绑定屏幕中，macOS的{{key|Super}}键被显示为“Win”。
+|190203|视觉透明和特殊渲染的方块、实体、云、水和粒子在风弹和闪电苦力怕、凋灵和旋风人的外层皮肤后面时不渲染。
+|194699|通过关闭容器界面丢出物品时不会播放摆手动画。
+|195155|手持装填好的弩进行攻击时，第三人称下手臂模型会瞬间渲染得过高。
+|202197|实体的名牌背景会在视觉透明物体后面渲染。
+|206356|下落的方块实体的运动在视觉上有卡顿。
+|206540|骑乘实体时，输入延迟会增加。
+|210117|幽匿感测体不会检测雪和冰的融化。
+|210584|水在默认没有半透明纹理的物品的半透明纹理后面时不渲染。
+|210734|半透明方块和其他实体无论位置如何，都会渲染在隐形蜘蛛眼睛的上方。
+|212671|类型为{{cd|tag}}且{{cd|expand}}设为{{cd|true}}的战利品表条目，不应用战利品表函数。
+|214113|末影人和潜影贝可以传送到下界基岩层上方。
+|218015|半透明方块和其他实体无论位置如何，都会渲染在隐形末影人眼睛的上方。
+|218156|沉船和海底废墟的战利品箱中可能生成空的藏宝图。
+|222559|方块碰撞箱和实体碰撞箱不会在半透明实体后方渲染。
+|222818|可以在冒险模式下点燃TNT。
+|223321|在出生点保护区域内，可以通过落在或站立在海龟蛋上摧毁它。
+|223323|在出生点保护区域内，可以踩踏耕地并使其退化。
+|223559|视觉透明方块、粒子和云在半透明的“标记”盔甲架后面时不渲染。
+|224528|两条闪烁标语使用了弯单引号（-{’}-）而非直撇号（'）。
+|227008|末影人在日光下骑乘载具时会持续尝试传送。
+|228273|山羊在远跳中受到引诱后，移动行为不正常。
+|229405|启用“改进透明显示”选项时，船的内部会阻止大部分半透明物体的渲染。
+|229831|附魔台GUI的右上角有3个不应存在的像素。
+|233888|按{{tr|{{key|空格}}|{{key|空白鍵}}}}和{{key|Enter}}键以与界面元素交互会导致相应键位绑定的操作也被执行。
+|236497|船的乘客的头的旋转角度在其他玩家那里显示不正确。
+|237053|其他玩家无法看见破坏方块的粒子效果。
+|237165|其他玩家无法听见破坏方块的音效。
+|237679|如果船的操控者左右移动时下船，乘客的头的旋转角度会被迫持续转向特定角度。
+|239401|{{cd|items/light.png}}从未出现在游戏中，却被其他游戏{{tr|资产|資源檔案}}无意义地引用。
+|245030|“{{tr|蜜蜂：嗡嗡|蜜蜂嗡嗡聲}}”隐藏式字幕只在蜜蜂首次发出嗡嗡声时出现。
+|247034|其他玩家无法看见实体成长时的粒子效果。
+|248600|其他玩家无法看见在细雪中移动时的粒子效果。
+|248666|龙蛋传送产生的粒子效果对其他玩家不可见。
+|249200|某些实体被传送后在客户端上看起来持续偏离它们的实际位置。
+|252369|数据包可能因游戏错误检测到不存在的地物循环而加载失败。
+|252934|放置带有物品展示框、画或坐垫的结构会导致日志输出{{cd|Block-attached entity at invalid position: [BlockPosition]}}。
+|253023|破坏画、物品展示框、荧光物品展示框不会触发幽匿尖啸体。
+|254353|分数被重置时，总会广播移除分数的{{tr|数据包|封包}}。
+|254370|{{cd|entity_scores}}谓词类型不会检查所有可能的分数。
+|254547|如果在村民的经验条填满后立即退出世界，村民不会升级。
+|254661|{{cd|/schedule clear}}的函数参数必须带有命名空间。
+|256073|{{cd|tab_inventory.png}}有颜色错误的像素。
+|256096|禁用同队攻击时，有的实体仍可伤害走到它们前面的队友。
+|256097|禁用同队攻击时，有的实体仍可在爆炸时伤害队友。
+|258347|末影人传送时不再会制造额外的粒子轨迹。
+|258579|骑乘实体时，玩家的头部在第三人称视角下旋转不平滑。
+|259512|骑乘时的相机水平旋转有延迟。
+|259583|使用1瓶龙息酿造不会返还玻璃瓶。
+|259812|方块展示实体、物品展示实体、床、云、告示牌、潜影盒和半透明方块、实体在文本展示实体后面时不渲染。
+|260780|潜影弹总是把火球向南推。
+|263100|洞穴生物群系会干扰探险家地图的地形显示。
+|263708|按键绑定屏幕将数字键盘上的按键渲染为与普通数字键相同。
+|264003|载有玩家的船在冰上滑行时有时会突然停下。
+|265423|村民获得足够升超过一级的经验时只会升一级。
+|265584|TNT位于正下方为灵魂沙的气泡柱中时，可能会在视觉上穿过上方的方块。
+|265743|实体、方块实体、云和半透明方块会在启用了{{cd|see_through}}的文本展示实体前面渲染。
+|266231|8以上的鼠标按键无法绑定键位。
+|266429|在macOS上使用鼠标滚动时，按住{{Keys|Shift}}键会导致快捷栏的滚轮滚动方向反转。
+|267902|{{cd|/random}}命令在指定范围过大时，失败消息中的最大值不正确。
+|268145|{{cd|cache_once}}密度函数不工作。
+|268155|特定情况下世界渲染会出现缝隙。
+|268521|游戏窗口没有限制最小宽度和高度。
+|269968|在macOS上按住{{Keys|Shift}}键时无法使用鼠标滚动（快捷栏除外）。
+|270706|尝试将不可合成的药水酿造成喷溅型或滞留型药水时，会消耗酿造材料，但药水物品本身完全不变。
+|270970|尝试走上上面有船的方块时，玩家的相机会抖动。
+|271069|未渲染的海豚捡起物品实体时，后者会在视觉上向玩家飞来。
+|271297|{{cd|/fillbiome}}在无实际更改时不会执行失败。
+|271723|半透明方块和其他实体无论位置如何，都会渲染在隐形幻翼眼睛的上方。
+|271724|半透明方块和其他实体无论位置如何，都会渲染在隐形旋风人眼睛的上方。
+|272801|在末影龙死亡动画期间，粒子、半透明物体等不会在后方渲染。
+|273327|{{cd|#convertable_to_mud}}方块标签误将“convertible”拼为“convertable”。
+|273708|骑乘实体的末影人受到环境伤害时会尝试传送。
+|274924|被激怒的末影人在船或矿车中窒息时可以从很远的地方攻击目标。
+|275111|引诱船内的两个动物时，它们会看着别的方向而不是玩家。
+|275532|缩写“fps”在各字符串中的大小写方式不统一。
+|276079|向客户端发送挥动手臂数据包会使其向服务端回传一个挥动手臂数据包。
+|276692|落在目标头上的滞留药水不会对目标施加效果。
+|277906|速度较高的末影珍珠会在错误的位置落地。
+|277984|装备鞘翅飞行时不会显示对应的字幕。
+|278336|玩家模型在极高速移动时仍然会闪烁。
+|278557|离开旋转中的船后再放入一个生物，会导致它的头部永久旋转。
+|278771|重定向命令使用错误的命令上下文提供命令建议。
+|279042|{{cd|commands.setworldspawn.failure.not_overworld}}字符串在单词“overworld”前缺少冠词。
+|279185|“{{cd|selectWorld.load_folder_access}}”字符串中，单词“folder”前缺少冠词。
+|279285|卡在方块内的经验球被玩家吸引时会迅速向地面加速。
+|279395|浮空的树可能会在废弃传送门上方生成。
+|279561|没有中心柱的树脂砖墙不是完整方块。
+|279586|当声音在更远处再次播放时，隐藏式字幕仍会继续淡出，导致叠加层出现视觉延迟。
+|279819|3级挖掘疲劳的挖掘速度乘数不符合其他等级的规律。
+|279822|附魔光效在复合物品模型的某些情况下会错误地发生深度冲突。
+|280250|弹射物被扔出或射出后，移动过程中有时会不同步。
+|293615|“物品&times;数量”的悬浮提示格式在各类物品中不统一。
+|293755|末影龙转向时，其颈部与尾巴会与其身体断开。
+|295678|穿过区块边界时，水上方的半透明方块会闪烁。
+|295756|活塞在客户端侧不同步，使得玩家被移动的方式与其他实体相比不同。
+|296006|船内的实体不会正确面向玩家。
+|296368|{{cd|entity.happy_ghast.riding}}声音事件不显示隐藏式字幕。
+|296773|在Gen7和Gen7.5架构的Intel显卡上截取的截图渲染为黑色图像。
+|297741|位于向上的气泡柱的受重力影响的方块可能会在客户端上穿过上方的方块。
+|298431|黏液块弹射船的行为不一致。
+|298659|半透明方块和部分实体会在启用了{{cd|see_through}}的文本展示实体前面渲染。
+|298762|幻翼反弹弓或弩射出的箭。
+|299019|骑乘可骑乘生物时使用床会导致玩家睡在地上或生物顶部。
+|299460|当坐在由快乐恶魂携带的船中的带鞍的猪上时，卸下胡萝卜钓竿可能导致不同步。
+|299582|对于{{cmd|recipe|link=none}}命令和{{cd|limited_crafting}}游戏规则，特殊合成配方的行为与其他配方类型不同。
+|300000|传送所有骑着快乐恶魂的玩家时，玩家会出现不同步。
+|300086|若鞍带有附魔，则马铠也会显示出附魔效果。
+|300831|命令{{cmd|test locate|link=none}}总是失败。
+|301804|单人游戏下，打开测试方块的GUI不会暂停游戏。
+|302221|移动的实体反弹箭。
+|302271|重新进入世界后，嗅探兽会停止嗅探。
+|302537|当尝试给予超过100组物品时，{{cmd|give|link=none}}命令成功，尽管有失败消息且未给予任何物品。
+|302661|手持矛时与方块交互会播放戳刺动画。
+|302687|手持矛时丢弃物品会播放戳刺动画。
+|302705|主手持矛时，会影响副手使用物品动画的速度。
+|302909|从展示架上拿取物品或替换物品时，手部动画不再播放。
+|303360|包含{{cd|cache_2d}}密度函数的{{cd|flat_cached}}密度函数仍会为不同Y坐标重新计算密度函数值。
+|303493|当与{{cd|tick}}或{{cd|location_changed}}进度触发器一起使用时，{{cd|apply_impulse}}实体效果不会应用冲量中导致受影响实体撞击固体方块的部分。
+|303626|启用“改进透明显示”选项时，方块轮廓箱、粒子、半透明方块和非方块物品会在实体判定箱后面渲染。
+|303789|抬头直视时，{{cd|apply_impulse}}魔咒实体效果的冲量在X轴和Z轴上的效果会被限制，只应用在这两条水平轴的其中一条上。
+|304195|焦骸的手臂覆盖层纹理存在未被模型使用的多余像素。
+|304213|僵尸、尸壳和溺尸在手持矛时会伸出另一只手。
+|304594|矛可以将交互实体从载具上击落。
+|304719|部分区块的<code>InhabitedTime</code>会在打开世界时被设为一个异常高的值。
+|304920|当左手为主手时，第三人称视角下的矛看起来不正确。
+|305214|被实体反弹的箭发生偏移。
+|305422|玩家有时会因为客户端处理路径点数据包失败而被踢出。
+|305535|玩家位于熔岩中时，单击跳跃键就能激活鞘翅。
+|305707|{{cd|/time}}在无实际更改时仍报告执行成功。
+|306012|位于模拟距离边缘时，犰狳能逃出栅栏围起的区域。
+|306127|半透明物品后面的方块轮廓箱不再可见。
+|306156|启用“改进透明显示”选项时，位于半透明方块或液体之间的旋风人、史莱姆和玩家视觉上位于前者的后面。
+|306231|启用“改进透明显示”选项时，半透明方块后面的船视觉上充满了水。
+|306318|启用“改进透明显示”选项时，半透明物品会穿过头上穿戴了半透明物品的玩家的头部渲染。
+|306619|在中文输入法下，无法在潜行时跳跃。
+|306778|在夜视效果下，夜晚天气改变时迷雾颜色不再平滑过渡。
+|306891|按下潜行键后打开聊天栏，会强制输入法切换到对应的CJK输入模式。
+|307122|用锄耕掘缠根泥土时掉落垂根的行为似乎是硬编码的。
+|307206|{{cd|Std140Builder}}对{{cd|vec3}}和{{cd|ivec3}}的填充不正确。
+|307285|硫方怪后面的半透明方块不会渲染。
+|307319|在Intel Arc GPU上使用Vulkan渲染后端时性能较低（尤其是在Linux系统下）。
+|307345|烈性硫黄产生的烟雾粒子不在染色玻璃后面渲染。
+|307376|CPU或GPU未被完全利用以获得更高帧率，帧率卡在25-35之间。
+|307384|在低帧率的全屏模式下使用Vulkan渲染后端时出现屏幕撕裂，即便启用了垂直同步。
+|307449|具有亮度限制的刷怪笼在夜间非露天环境下不再生成生物。
+|307452|在Vulkan下，26.2 Snapshot 1与Snapshot 2之间存在显著的性能退步。
+|307596|OpenGL渲染后端看起来延迟很高。
+|307616|{{cd|ActiveProfiler}}的日志消息有拼写错误：“aprox”。
+|307618|{{cd|SoundEngine}}的日志消息有拼写错误：“disapeared”。
+|307625|展示末地传送门或末地折跃门的方块展示实体的发光效果不可见。
+|307648|崩溃报告的系统详细信息部分误将“non-heap”拼成了“non-head”。
+|307660|{{cd|GameRenderer}}的日志消息有拼写错误：“coudln't”。
+|307709|向上合并的硫黄尖锥纹理最顶端有一个错误像素。
+|307890|间歇泉粒子的部分纹理在某些位置使用了错误的颜色。
+|307902|硫方怪内部的半透明方块没有正确渲染。
+|307918|幽匿斑块在世界生成时会在日志中报错。
+|307933|深层矿石可能会替代硫黄涌泉的凝灰岩并在地表生成。
+|307938|在AMD GPU上使用Vulkan渲染后端时性能低下。
+|307996|在缺失{{cd|fillModeNonSolid}}Vulkan功能的设备上，游戏无法使用硬件加速。
+|308008|{{cmd|tag|link=none}}的成功消息所报告的影响的实体比实际影响的多。
+|308009|{{cmd|scoreboard players enable|link=none}}的成功消息所报告的影响的玩家比实际影响的多。
+|308011|{{cmd|recipe|link=none}}的成功消息所报告的影响的玩家比实际影响的多。
+|308012|{{cmd|enchant|link=none}}的成功消息所报告的影响的实体比实际影响的多。
+|308013|{{cmd|effect|link=none}}的成功消息所报告的影响的实体比实际影响的多。
+|308014|{{cmd|clear|link=none}}的成功消息报告的影响的玩家数量比实际影响的多。
+|308125|鼠标滚轮倾斜或侧向滚动时，选中的快捷栏槽位会向错误方向移动。
+|308127|“好友屏幕”的按键绑定覆盖了使用相同按键的调试快捷键。
+|308222|世界生成高度图在区块保存/加载时无法正确持久化。
+|308254|死于吸收了岩浆块的硫方怪不会增加玩家的{{cd|killed_by:sulfur_cube}}统计。
+|308314|自定义的玩家的头位于硫方怪中时不会正确渲染纹理。
+|308344|使用Vulkan渲染后端编译包含进出数组或矩阵变量的着色器会导致验证错误。
+|308405|世界未开放时，{{cmd|unpublish|link=none}}会执行成功，尽管输出了失败消息。
+|308406|物品模型在锻造台页面中的盔甲架上渲染错误。
+|308460|野花簇和粉红色花簇的一些茎渲染得更亮。
+|308469|击中末影龙的头部判定箱不再导致末影龙受到更多伤害。
+|308490|“普通”硫方怪原型会产生石头音效，尽管其不再对应石头类方块。
+|308593|具有动画的方块（水和熔岩较明显）在部分显卡上渲染不正确。
+|308647|切换“字体设置”选项时，资源包界面可能会缓存错误的字形。
+|308694|在局域网世界中，使用{{cmd|defaultgamemode|link=none}}会将所有人的游戏模式改为“对其他玩家的设置”中的模式。
+|308699|切换主机的游戏模式后，新加入的局域网玩家会忽略强制设定的游戏模式。
+|308749|退出并重新加入同一局域网{{tr|会话|Session}}会重置游戏模式。
+|308752|在Intel Arc显卡上使用OpenGL渲染后端时，在无边框全屏模式下打开交互界面会导致帧展示<!-- Failing to look up a good acknowledged translation; feel free to replace -->严重卡顿。
+|308765|末影珍珠不会消除玩家的速度。
+|308789|可以在冒险模式下用三叉戟破坏滴水石锥或硫黄尖锥。
+|308798|海豚需要更长时间来捡起物品。
+|308804|在创建新的世界屏幕中，输入法不会切换到相应的CJK模式。
+|308809|全角空格现在在告示牌上占据了更多的空间。
+|308830|放置床时床尾位置的方块不会向临近方块发送方块更新。
+|308836|混淆文本不再保持一致的宽度。
+|308849|嘎枝能被击退。
+|308851|{{cd|chat_restriction.disabled_by_profile.action}}字符串大小写不正确。
+|308866|在世界中无法修改在线选项。
+|308914|发光的末影人手持末地传送门或末地折跃门时，不会为其绘制发光轮廓线。
+|308915|末地传送门或折跃门在被发光的矿车装载时，不会为其绘制发光轮廓线。
+|308916|渲染为末地传送门或末地折跃门的发光TNT不会为其绘制发光轮廓线。
+|308917|具有{{cd|end_cube}}特殊模型类型的物品不会在预期位置显示发光轮廓线。
+|308961|在世界选项屏幕中使用调试组合键更改游戏模式时，“游戏模式”按钮不会更新。
+|309081|能在冒险模式下用弹射物破坏饰纹陶罐和紫颂花。
+|309262|下落的方块落地时会短暂消失。
+|309298|“聊天延迟”选项设置为非零值时发送聊天消息可能导致玩家被踢出。
+|309479|在部分系统上，游戏在加载时崩溃，并提示“Failed to wait for frame completion”。
+|309501|展示架掉落物偏心旋转。
+|309565|打开“高对比度方块轮廓”选项时，方块轮廓被渲染在半透明部件后。
+|309609|即使“改进透明度”选项处于禁用状态，游戏在加载OIT着色器时仍可能崩溃。
+|309872|“独占全屏”选项启用时，按{{key|Windows}}键会导致系统冻结。
+|309875|“改进透明显示”选项的提示框新翻译文本被错误地回植到旧版本。
+|309891|{{cd|chat_restriction.disabled_by_launcher}}字符串缺少句号，而类似的字符串有句号。
+|309893|{{cd|gamerule.minecraft.fire_spread_radius_around_player.description}}字符串缺少句号，而类似的字符串有句号。
+|309897|{{cd|gui.report_to_server}}字符串首字母大小写不正确。
+|309898|{{cd|editGamerule.inGame.discardChanges.title}}字符串首字母大小写不正确。
+|309901|{{cd|structure_block.position.x}}字符串首字母大小写不正确。
+|309902|某些字符串包含紧邻换行符的无用空格。
+|309903|进度“{{tr|这不是铁镐么|莫非這是鐵鎬|呢把就係鐵鎬？}}”的英文名称缺少问号。
+|309907|{{cd|subtitles.block.bubble_column.upwards_inside}}字符串中的单词“whoosh”被拼写为了“woosh”。
+|309908|{{cd|subtitles.entity.copper_golem.no_item_get}}字符串在单词“item”前缺少冠词。
+|309911|{{cd|commands.worldborder.set.grow}}字符串英文中的“blocks”和“seconds”总是复数形式。
+|309914|{{cd|commands.op.failed}}字符串中副词位置奇怪且不一致，而类似的字符串并非如此。
+|309915|{{cd|commands.kick.owner.failed}}字符串在单词“server”和“LAN”之前缺少冠词。
+|309916|{{cd|/stopwatch}}的某些字符串在句中错误地将“Stopwatch”首字母大写，与其他命令不一致。
+|309918|{{cd|commands.perf.started}}字符串英文的“10”和“second”之间缺少连字符，且“10”前面缺少冠词。
+|309919|{{cd|mco.errorMessage.6002}}字符串首字母大小写不正确。
+|309920|{{cd|mco.configure.world.close.question.line1}}字符串首字母大小写不正确。
+|309921|{{cd|mco.snapshot.subscription.info}}字符串使用了介词“to”而非“with”。
+|309922|{{cd|advMode.trackOutput}}字符串首字母大小写不正确。
+|309923|{{cd|gamerule.minecraft.entity_drops.description}}字符串首字母大小写不正确。
+|309924|与其他所有命令不同，{{cd|argument.enum.invalid}}字符串在占位符前后使用了双引号而不是单引号。
+|309925|{{cd|mount.onboard}}字符串首字母大小写不正确。
+|309926|{{cd|selectWorld.edit.backupsize}}字符串首字母大小写不正确。
+|309927|{{cd|gui.friends.error.unauthorized}}字符串缺少句号，而类似的字符串有句号。
+|309928|{{cd|multiplayer.confirm_command.signature_required}}字符串缺少句号。
+|309937|{{cd|argument.pos.outofbounds}}字符串以句号结尾，而类似的字符串没有句号。
+|309938|{{cd|quickplay.error.invalid_identifier}}字符串在单词“world”之前缺少冠词。
+|309940|{{cd|datapackFailure.safeMode.failed.title}}字符串以句号结尾，而类似的标题字符串没有句号。
+|310041|在特定条件下，区块加载经常失效。
+|310057|通过游戏菜单打开进度界面后，按下“进度”按键会同时关闭进度界面和游戏菜单。
+|310062|犰狳不会跟随手持蜘蛛眼的玩家。
+|310076|生物有时会停在离玩家刚好足够远的位置，从而无法攻击玩家。
+|310182|一些描述性提示字符串缺少句号，与类似的字符串不同。
+|310184|{{cd|commands.bossbar.set.max.unchanged}}字符串英文将“maximum”简写为“max”，与类似的字符串不同。
+|310186|{{cd|options.languageWarning}}字符串缺少句号，与类似的字符串不同。
+|310187|{{cd|commands.bossbar.get.visible.visible}}字符串英文使用“shown”而不是“visible”，与类似的字符串不同。
+|310188|一些{{cmd|tag list|link=none}}的成功消息字符串英文总是使用复数形式“tags”。
+|310233|一些包含百分比的字符串英文中的百分号前面有空格，与类似的字符串不同。
+|310236|一些字符串英文使用&而不是“and”，与类似的字符串不同。
+|310289|实体走上方块时，完全位于其判定箱上方的实体碰撞被忽略。
+|310300|即使关闭了{{tr|独占全屏|獨占全螢幕|獨佔全螢幕}}选项，其他窗口仍不能显示在游戏窗口之上。
+|310337|游戏日志输出的{{filename|pack.mcmeta}}所需{{cd|pack_format}}字段的最低版本不正确。
+|310372|绊线取消激活时会破坏跨区块方块刻执行顺序。
+|310476|弹射物只在水下和世界边界发生碰撞。
+|310595|在按键绑定屏幕中，macOS的{{key|Option}}键被显示为“Alt”。
+|310676|{{cd|savanna_lamp_post_01}}村庄结构的拼图方块NBT中有一个多余的右方括号。
+|310684|当骆驼跟随手持仙人掌的玩家时，如果玩家退出游戏世界后再重新进入，骆驼将不再正常跟随。
+|310787|交易窗口关闭数秒后，村民才会升级。
+|310939|对着一个载有两个乘客的骆驼使用右键会优先判定为骑乘而不是使用手持物品。
+|310962|与被命令更改过交易的村民交互时，交易UI在打开后立即关闭。
+|311094|在关闭并重新打开交易窗口之前，村民的折扣不会生效。
+|311113|在Wayland上点击链接时，游戏不会失去焦点。
+|311186|玩家处于水下方块中时不会渲染水层和雾。
+|311235|升级使用1.21.11世界格式的世界可能会导致其他世界的数据被保存到该世界内。
+|311245|废弃传送门生成时会替换末地传送门框架。
+|311271|{{cd|generic}}战利品上下文缺少参数。
+|311272|当某些战利品表中未提供引用的战利品上下文参数时，游戏崩溃。
+|311323|定位结构时，会在未生成的地形中为每个候选区块创建一个空的区域文件。
+|311414|玩家可通过在骑乘猪时使用不同步的胡萝卜钓竿来传送任意距离。
+|311419|破坏两个叠起来的受重力影响方块中的下面的方块会导致上面的方块落地时短暂消失，并产生黑色的方块粒子。
+|311453|其他玩家无法看见给棕色哞菇喂花产生的粒子。
+|311454|下界中水蒸发的粒子渲染出错。
+|311579|玩家在雪中时能够透视方块。
+|311593|在同一时刻切换到矛并开始准备时，从其他玩家视角看矛的准备动画会出现抖动。
+|311722|在全屏模式下按{{keys|Windows+↓}}会错误地将游戏窗口恢复为无边框窗口状态。<!--以下漏洞情况特殊（参见快照6页面），仅发生于26.3的开发过程中，不作收录：
+|310115|除“英语（美国）”外的语言中，烟花火箭的提示文本包含一个格式化占位符。-->
+}}
+
+== 影片 ==
+由[[slicedlime]]製作的影片：
+{{yt|0g-oZTTl5bM}}
+
+== 注释 ==
+{{Notelist}}
+
+== 参考 ==
+{{Reflist}}
+
+== 导航 ==
+{{Navbox Java Edition versions|2026}}
+
+[[de:26.3]]
+[[en:Java Edition 26.3]]
+[[es:Java Edition 26.3]]
+[[fr:Édition Java 26.3]]
+[[he:Java Edition 26.3]]
+[[it:Java Edition 26.3]]
+[[ja:Java Edition 26.3]]
+[[lzh:爪哇版二六點三]]
+[[pt:Edição Java 26.3]]
+[[ru:26.3 (Java Edition)]]
+[[uk:26.3 (Java Edition)]]

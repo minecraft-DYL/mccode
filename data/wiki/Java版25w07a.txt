@@ -1,0 +1,314 @@
+{{Infobox version
+|title=25w07a
+|image=25w07a.png
+|image2=Java Edition 25w07a Simplified.png\Java Edition 25w07a Traditional.png\Java Edition 25w07a Traditional HK.png
+|edition=Java
+|type=Snapshot
+|date=2025年2月13日
+|jsonhash=ada7b4cd707744fd2ffbca6e5164eee1e0c963c0
+|clienthash=1077e46be47132c81e235d925c6f90881f319a0f
+|clientmap=54311498f219073dc8760b98ad4b5b7fef402855
+|serverhash=f264312044768694831ad285fdde1d55e2f16c92
+|servermap=b29591efa6c431f4d3c7c4926359fedff2b88b0c
+|parent=1.21.5
+|prevparent=1.21.4
+|prev=25w06a
+|next=25w08a
+|nextparent=1.21.6
+}}<onlyinclude>
+
+'''25w07a'''是[[Java版1.21.5]]的第6个快照，发布于2025年2月13日<ref>{{snap|25w07a|Feb 13, 2025}}</ref>，将“{{tr|村民交易的平衡性调整|重新平衡村民交易}}”的部分特性从[[实验性内容]]中移出，进一步调整了制图师和流浪商人的交易项，更改了绵羊的生成机制，并修复了一些漏洞。
+
+== 新内容 ==
+=== 常规 ===
+'''[[Java版标签|标签]]'''
+* 加入了方块标签{{cd|#camels_spawnable_on}}：{{cd|#sand}}。
+** 上方可以生成[[骆驼]]的方块。
+
+== 更改 ==
+=== 方块 ===
+'''[[灌木丛]]'''
+* 现在只会在被[[剪刀]]或附有[[精准采集]]魔咒的工具破坏时掉落。
+* 现在可以被方块直接替换。
+
+'''[[萤火虫灌木丛]]'''
+* 降低了[[斑块]]生成萤火虫灌木丛的概率。
+* 对其{{ctrl|使用}}[[骨粉]]时，现在会与灌木丛一样蔓延，而不是掉落自身物品。
+** 同样，如果无法蔓延，骨粉不会消耗。
+
+'''[[枯叶堆]]'''
+* 降低了其音效文件（破坏、在上方移动、放置）的音量。
+
+'''[[草丛]]'''
+* 降低了其音效文件（挖掘）的音量。
+
+'''[[沙子]]、[[红沙]]、所有[[陶瓦]]、[[枯萎的灌木]]、[[眼眸花]]、[[苍白垂须]]、[[矮枯草丛]]和[[高枯草丛]]'''
+* 产生的闲置音效分类现在由“方块”改为“环境”。
+
+'''[[移动的活塞]]'''
+* 方块实体数据中存储的{{nbt|compound|blockState}}不再允许指定为空对象。
+
+'''[[末地折跃门方块]]'''
+* 方块实体数据中的{{nbt|int-array|exit_portal}}不再在被移除时保留。
+
+'''[[熔炉]]、[[烟熏炉]]和[[高炉]]'''
+* 方块实体数据中的{{nbt|compound|RecipesUsed}}不再在被移除时保留。
+
+'''[[头颅]]'''
+* 方块实体数据中的{{nbt|string|note_block_sound}}不再在被移除时保留。
+
+=== 物品 ===
+'''[[收纳袋]]'''
+* 现在可以在[[村庄]]的战利品箱子中找到。具体位于：
+** 各生物群系村庄房屋
+** 村庄皮匠小屋
+** 村庄制图师小屋
+** 村庄武器匠小屋
+
+=== 生物 ===
+'''[[骆驼]]'''
+* 现在会在[[沙漠]]中自然生成。
+
+'''[[哞菇]]及其变种'''
+* 更新了模型。
+** 现在会渲染其鼻子。
+** 现在腿部模型是镜像的。
+
+'''[[绵羊]]'''
+* 绵羊的羊毛颜色现在取决于其生成所处的生物群系。
+: {| class="wikitable"
+! colspan=2 | 生物群系
+! {{CollapseH|寒冷生物群系}}{{BiomeLink|Snowy Plains}}及其变种<br>{{BiomeLink|Frozen Peaks}}<br>{{BiomeLink|Jagged Peaks}}<br>{{BiomeLink|Snowy Slopes}}<br>{{BiomeLink|Cold Ocean}}<br>{{BiomeLink|Deep Cold Ocean}}<br>{{BiomeLink|Frozen Ocean}}<br>{{BiomeLink|Deep Frozen Ocean}}<br>{{BiomeLink|Grove}}<br>{{BiomeLink|Deep dark}}<br>{{BiomeLink|Frozen River}}<br>{{BiomeLink|Old Growth Pine Taiga}}<br>{{BiomeLink|Old Growth Spruce Taiga}}<br>{{BiomeLink|Taiga}}<br>{{BiomeLink|Snowy Taiga}}<br>{{BiomeLink|Windswept Hills}}<br>{{BiomeLink|Windswept Gravelly Hills}}<br>{{BiomeLink|Windswept Forest}}<br>{{BiomeLink|Stony Peaks}}<br>{{BiomeLink|The End}}及其变种{{CollapseE}}
+! {{CollapseH|温暖生物群系}}{{BiomeLink|Desert}}<br>{{BiomeLink|Warm Ocean}}<br>{{BiomeLink|Mangrove Swamp}}<br>{{BiomeLink|Lukewarm Ocean}}<br>{{BiomeLink|Deep Lukewarm Ocean}}<br>{{BiomeLink|Savanna}}及其变种<br>{{BiomeLink|Jungle}}及其变种<br>{{BiomeLink|Nether}}及其变种<br>{{BiomeLink|Badlands}}及其变种{{CollapseE}}
+! 其他生物群系
+|-
+! rowspan=4 | 绵羊毛色
+! 常见（81.836%）
+| {{BlockSprite|Black Wool}} 黑色
+| {{BlockSprite|Brown Wool}} 棕色
+| {{BlockSprite|White Wool}} 白色
+|-
+! 少见（各占5%）
+| {{BlockSprite|Light Gray Wool}} 淡灰色<br>{{BlockSprite|Light Blue Wool}} 淡蓝色<br>{{BlockSprite|Blue Wool}} 蓝色
+| {{BlockSprite|Gray Wool}} 灰色<br>{{BlockSprite|Yellow Wool}} 黄色<br>{{BlockSprite|Orange Wool}} 橙色
+| {{BlockSprite|Black Wool}} 黑色<br>{{BlockSprite|Gray Wool}} 灰色<br>{{BlockSprite|Light Gray Wool}} 淡灰色
+|-
+! 少见（3%）
+| {{BlockSprite|Cyan Wool}} 青色
+| {{BlockSprite|Red Wool}} 红色
+| {{BlockSprite|Brown Wool}} 棕色
+|-
+! 稀有（0.164%）
+| colspan=3 style="text-align: center;" | {{BlockSprite|Pink Wool}} 粉红色
+|}
+
+'''[[村民]]'''
+* 调整了部分制图师交易的价格。
+* 制图师现在会根据生物群系着装出售不同颜色的[[旗帜]]。
+: {| class="wikitable"
+|+ 不同着装的制图师可能出售的旗帜对应颜色
+|-
+! 着装样式 !! 沙漠 !! 平原 !! 热带草原 !! 雪原 !! 针叶林 !! 丛林 !! 沼泽
+|-
+! 颜色
+| 绿色<br>黄绿色<br>青色<br>橙色<br>灰色 || 白色<br>黄色<br>棕色<br>粉红色 || 红色<br>绿色<br>橙色<br>品红色 || 蓝色<br>白色<br>红色<br>青色<br>淡蓝色 || 蓝色<br>黄绿色<br>紫色<br>粉红色  || 绿色<br>黄色<br>棕色 || 紫色<br>淡蓝色<br>黑色
+|}
+* 实体数据中的{{nbt|list|Gossips}}不再在移除时保留。
+
+'''[[流浪商人]]'''
+* 现在还会出售下列物品：
+** [[红树原木]]或[[苍白橡木原木]]
+** [[野花簇]]、[[高枯草丛]]或[[萤火虫灌木丛]]
+* 实体数据中的{{nbt|int-array|wander_target}}不再在移除时保留。
+
+'''[[悦灵]]'''
+* 移除了实体数据中冗余的{{nbt|bool|CanDuplicate}}字段。
+
+'''[[猫]]和[[狼]]'''
+* 实体数据中的{{nbt|byte|CollarColor}}字段现在默认为<code>14</code>（红色）而非<code>0</code>（白色）。
+
+'''[[海豚]]'''
+* 移除了实体数据中的{{nbt|int|TreasurePosX}}、{{nbt|int|TreasurePosY}}和{{nbt|int|TreasurePosZ}}字段。
+
+'''[[末影人]]'''
+* {{nbt|compound|carriedBlockState}}不再允许指定为空对象。
+
+'''[[狐狸]]'''
+* {{nbt|list|Trusted}}现在默认为空。
+* {{nbt|list|Trusted}}被{{cmd|data}}修改时，不再会与之前的状态合并。
+
+'''[[幻翼]]'''
+* 将{{nbt|int|Size}}字段重命名为{{nbt|int|size}}。
+* {{nbt|int|AX}}、{{nbt|int|AY}}和{{nbt|int|AZ}}字段现已合并为{{nbt|int-array|anchor_pos}}字段。
+
+'''[[海龟]]'''
+* {{nbt|int|HomePosX}}、{{nbt|int|HomePosY}}和{{nbt|int|HomePosZ}}字段现已合并为{{nbt|int-array|home_pos}}字段。
+* 移除了{{nbt|int|TravelPosX}}、{{nbt|int|TravelPosY}}和{{nbt|int|TravelPosZ}}字段。
+* 将{{nbt|bool|HasEgg}}字段重命名为{{nbt|bool|has_egg}}。
+
+'''[[恼鬼]]'''
+* 将{{nbt|int|LifeTicks}}字段重命名为{{nbt|int|life_ticks}}。
+* {{nbt|int|BoundX}}、{{nbt|int|BoundY}}和{{nbt|int|BoundZ}}字段现已合并为{{nbt|int-array|bound_pos}}字段。
+
+'''[[僵尸村民]]'''
+* {{nbt|list|Gossips}}字段不再在移除时保留。
+
+'''[[灾厄村民]]和[[劫掠兽]]'''
+* {{nbt|int-array|patrol_target}}字段不再在移除时保留。
+
+=== 非生物实体 ===
+'''[[下落的方块]]'''
+* 实体数据中的{{nbt|compound|BlockState}}字段现在可以为<code>air</code>，并会导致其立刻消失。
+* 现在{{nbt|compound|BlockState}}在未指定或无效时默认为<code>sand</code>。
+* {{nbt|compound|BlockState}}不再允许指定为空对象。
+
+'''[[物品展示实体]]'''
+* 现在{{cd|d=pretty|firstperson_lefthand|thirdperson_lefthand}}变换规则的渲染效果与手持时相同。
+
+'''[[物品实体]]'''
+* 在地面上时，模型大小现在会影响悬停运动。
+** 因此，模型大小不会使其卡进下方的方块中。
+* 物品堆叠在地面上悬停的位置现在取决于模型大小和模型类型。
+** 模型深度（Z轴）小于方块的{{frac|1|16}}时，物品显示为平面堆叠。
+** 否则，模型将渲染为一组从中心全方向偏移的物品。
+** 之前，平面堆叠只在使用{{cd|builtin/generated}}父级模型时渲染。
+* 实体数据{{nbt|int-array|Owner}}和{{nbt|int-array|Thrower}}字段不再在被移除时保留。
+
+'''[[被激活的TNT]]'''
+* 现在{{nbt|compound|block_state}}在未指定或无效时默认为<code>tnt</code>。
+* {{nbt|compound|block_state}}不再允许指定为空对象。
+
+'''[[潜影弹]]'''
+* {{nbt|int|Dir}}和{{nbt|int-array|Target}}不再在移除时保留。
+
+'''[[唤魔者尖牙]]、[[区域效果云]]和所有[[弹射物]]'''
+* 实体数据{{nbt|int-array|Owner}}字段不再在被移除时保留。
+
+'''[[物品展示框]]、[[荧光物品展示框]]、[[画]]和[[拴绳结]]'''
+* {{nbt|int|TileX}}、{{nbt|int|TileY}}和{{nbt|int|TileZ}}字段现已合并为{{nbt|int-array|block_pos}}字段。
+
+'''[[弹射物#箭类弹射物|箭类弹射物]]'''
+* {{nbt|compound|inBlockState}}和{{nbt|string|SoundEvent}}字段不再在被移除时保留。
+* {{nbt|compound|inBlockState}}不再允许指定为空对象。
+
+'''[[矿车]]及其变种'''
+* 移除了冗余的{{nbt|bool|CustomDisplayTile}}字段。
+* 已指定的{{nbt|compound|DisplayState}}现在会覆盖默认展示的方块状态。
+* {{nbt|compound|DisplayState}}不再允许指定为空对象。
+* 现在即使没有自定义展示方块状态设置，也可以指定{{nbt|int|DisplayOffset}}来覆盖默认偏移量。
+
+'''[[展示实体]]'''
+* {{nbt|int|glow_color_override}}字段不再在被移除时保留。
+* 方块展示实体的{{nbt|compound|block_state}}不再允许指定为空对象。
+
+=== 游戏内容 ===
+'''[[交易]]'''
+* 对制图师和[[流浪商人]]交易项的平衡性调整不再属于[[实验性内容]]。
+** 目前对[[图书管理员]]和[[盔甲匠]]交易项的平衡性调整仍然属于[[实验性内容]]。
+
+=== 常规 ===
+'''[[数据包]]'''
+* 将数据包版本号更改为{{cd|67}}。
+
+'''[[Java版标签|标签]]'''
+* 结构标签{{cd|d=pretty|#on_desert_village_maps|#on_jungle_explorer_maps|#on_plains_village_maps|#on_savanna_village_maps|#on_snowy_village_maps|#on_swamp_explorer_maps|#on_taiga_village_maps}}不再属于[[实验性内容]]“{{tr|村民交易的平衡性调整|重新平衡村民交易}}”。
+
+'''[[实体谓词]]'''
+* {{nbt|compound|stepping_on}}现在在目标实体不在地面上时恒返回False。
+
+'''[[实体数据格式]]'''
+* 项数不正确的{{nbt|list|Pos}}、{{nbt|list|Motion}}和{{nbt|list|Rotation}}（分别需要3、3、2项组件）现在会被完全弃用，而不再只选择已指定的组件。
+* 被移除的{{nbt|list|Tags}}字段不再保留。
+
+'''[[生物]]数据格式'''
+* {{nbt|int|SleepingX}}、{{nbt|int|SleepingY}}和{{nbt|int|SleepingZ}}字段现已合并为{{nbt|int-array|sleeping_pos}}字段。
+** 示例：<code>sleeping_pos: [I;1,2,3]</code>。
+
+'''[[玩家数据格式]]'''
+* {{nbt|int|SpawnX}}、{{nbt|int|SpawnY}}、{{nbt|int|SpawnZ}}、{{nbt|float|SpawnAngle}}、{{nbt|string|SpawnDimension}}和{{nbt|bool|SpawnForced}}字段现已合并为{{nbt|compound|respawn}}字段。
+** 格式：
+<div class="treeview">
+::* {{nbt|compound|respawn}}：玩家重生数据。
+::** {{nbt|int-array|pos}}：玩家重生点所处的方块位置。
+::** {{nbt|float|angle}}：（默认为<code>0.0</code>）玩家重生时的角度。
+::** {{nbt|string|dimension}}：（命名空间ID）玩家重生点所处的维度。
+::** {{nbt|bool|forced}}：（默认为<code>false</code>）由命令设置重生点时为<code>true</code>。
+</div>
+* 将{{nbt|compound|enteredNetherPosition}}更改为{{nbt|list|entered_nether_pos}}，为一个双精度浮点数列表。
+** 示例：<code>entered_nether_pos: [1.0, 2.0, 3.0]</code>。
+
+'''[[方块实体数据格式]]'''
+* {{nbt|string}}{{nbt|list}}{{nbt|compound|CustomName}}字段不再在被移除时保留。
+* {{nbt|string|LootTable}}字段不再在被移除时保留。
+
+'''[[地物数据格式]]'''
+* 现在树木装饰器<code>place_on_ground</code>的放置位置限制从[[草方块]]或[[泥土]]类方块扩大到任何[[判定箱#遮挡形状|完全固体渲染方块]]。
+
+'''[[资源包]]'''
+* 将资源包版本号更改为{{cd|52}}。
+
+'''[[着色器]]和后处理管线'''
+* 移除了核心着色器的着色器程序定义文件和后处理效果的JSON文件。
+** 着色器程序本身仍可用且可被覆写。
+** 后处理效果仍可用JSON文件配置。
+* 后处理渲染过程JSON格式中的{{nbt|string|program}}现被{{nbt|string|vertex_shader}}和{{nbt|string|fragment_shader}}取代。
+** <code>-{}-<''命名空间''>:<''路径''></code>会被解析为{{filepath|-{}-assets/<''命名空间''>/shaders/<''路径''>.<vsh{{!}}fsh>}}。
+* 每个Uniform定义的{{nbt|string|type}}字段现在是必选项。
+** 现在可选值包括{{cd|d=pretty|int|ivec3|float|vec2|vec3|vec4|matrix4}}。
+* 每个Uniform定义的{{nbt|list|values}}字段现在是可选项，但不建议不设置此项。
+** 不设置此项用于模糊效果的运行库配置。
+* 着色器将使用的每个Uniform都需要指定，否则会导致未定义的行为。
+
+== 修复 ==
+{{fixes|fixedin=25w07a|showdesc=1
+|;old
+|112253|非int类型的原始NBT列表需要类型后缀。
+|122840|“{{cmd|data remove|link=none}}”无法移除末地水晶的<code>beam_target</code>标签。
+|149050|加载1.14之前的存档时会记录{{cd|textBackgroundOpacity}}的警告。
+|152382|末地折跃门和末地传送门不会随渲染距离雾淡出。
+|153392|{{cmd|data remove|link=none}}无法移除村民言论。
+|199061|在最高建筑高度水平放置脚手架时，会显示高度上限提示信息。
+|220091|召唤<code>falling_block</code>实体时，设为任意空气方块（{{cd|d=pretty|air|cave_air|void_air}}）的<code>BlockState</code>NBT会被改为默认值<code>sand</code>。
+|230445|末地传送门和末地折跃门未在失明或黑暗效果下合适地渲染。
+|274047|将NBT中的某些字段设置为无效字符会导致记录异常，可能造成卡顿。
+|;1.21.4的漏洞
+|279196|无法用{{cmd|data remove|link=none}}移除方块战利品表。
+|279364|方块实体的<code>CustomName</code>无法移除。
+|279472|虚空看起来比之前更低、更淡了。
+|279572|末地传送门和末地折跃门不受水、熔岩或细雪雾影响。
+|;dev
+|279434|同时处于细雪和火中产生大量灭火噪音。
+|279598|运行{{cmd|test clearall|link=none}}后，部分测试结构偶尔仍然存在。
+|279637|{{cmd|test verify|link=none}}一个<code>max_attempts</code>大于1的测试实例时，游戏崩溃。
+|279711|关闭测试实例方块UI时，“{{tr|实体：|實體：}}”翻转。
+|279910|萤火虫灌木丛不可被替换。
+|279913|哞菇的鼻子与牛不再一致。
+|279921|即使玩家沉入细雪，“{{Advancement name|adventure.walk_on_powder_snow_with_leather_boots|zh|rev=1}}”进度也会赋予。
+|279934|{{cd|d=pretty|block.sand.idle|block.sand.wind}}不在<code>Ambient/Environment</code>声音分类中。
+|279936|使用{{cmd|test create...|link=none}}命令时出现<code>commands.test.success</code>源翻译键。
+|279948|寒带牛变种的双角不镜像。
+|279992|穿着皮革靴子从某特定高度跳下并落到细雪上会导致玩家在细雪中卡住。
+|280067|在脚手架里的玩家不再能放置脚手架。
+|280134|在潜行速度属性为0时潜行导致游戏崩溃。
+|;prev
+|280132|枯叶堆的生成被草方块以外的方块不一致地阻断。
+|280133|在世界边界旁移动时出现画质故障。
+|280167|用{{key|F3+L}}处理数据会在日志中输出许多错误。
+|280187|萤火虫灌木丛只会生成在相邻的水方块旁。
+}}</onlyinclude>
+
+== 参考 ==
+{{Reflist}}
+
+== 导航 ==
+{{Navbox Java Edition versions|1.21}}
+
+[[de:25w07a]]
+[[en:Java Edition 25w07a]]
+[[es:Java Edition 25w07a]]
+[[fr:Édition Java 25w07a]]
+[[ja:Java Edition 25w07a]]
+[[lzh:爪哇版二五週〇七甲]]
+[[pt:Edição Java 25w07a]]
+[[ru:25w07a (Java Edition)]]
+[[uk:25w07a (Java Edition)]]

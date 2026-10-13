@@ -1,0 +1,444 @@
+{{Infobox version
+|title=25w02a
+|image=25w02a.png
+|image2=Java Edition 25w02a Simplified.png\Java Edition 25w02a Traditional.png\Java Edition 25w02a Traditional HK.png
+|edition=Java
+|type=Snapshot
+|date=2025年1月8日
+|jsonhash=02a2ae8e2c54cfc39402997bae1bbb2ccc956c84
+|clienthash=5dc770c10d3769f9f3437a2bd7029b10b9c0d780
+|clientmap=2a5d0ba89d8a9293c37821e4d9c192571a98ceda
+|serverhash=d9bf4ff75df54a19c19cb4fbc37f020a734904e5
+|servermap=fea3bf04f0775c6413e0283e4398c09c38d752fa
+|parent=1.21.5
+|prevparent=1.21.4
+|prev=
+|next=25w03a
+|nextparent=1.21.6
+}}<onlyinclude>
+
+'''25w02a'''是[[Java版1.21.5]]的首个快照，发布于2025年1月8日<ref>{{snap|25w02a|Jan 8, 2025}}</ref>，加入了[[猪]]的新变种、[[野花簇]]和[[枯叶堆]]，更改了[[磁石]]的合成配方，并修复了一些漏洞。
+
+== 新内容 ==
+=== 方块 ===
+'''[[野花簇]]'''
+* 一种花，自然生成于[[桦木森林]]、[[原始桦木森林]]和[[草甸]]。
+* 类似于[[粉红色花簇]]，同一格空间内最多可以容纳4株野花簇。
+* 对野花簇{{ctrl|使用}}[[骨粉]]会掉落1个新的野花簇。
+* 有4种方向。
+* 可以放入[[堆肥桶]]中堆肥。
+* 可以用于合成[[黄色染料]]。
+* 能用于引诱、喂食[[蜜蜂]]。
+
+'''[[枯叶堆]]'''
+* 一种装饰性方块，自然生成于[[森林]]、[[黑森林]]和[[疏林恶地]]。
+* 类似于粉红色花簇，同一格空间内最多可以容纳4个枯叶堆。
+* 有4种方向。
+* 有独特方块音效。
+* 可由烧炼[[树叶]]获得，也可以作为燃料用于[[烧炼]]。
+** 每个枯叶堆可烧炼0.5个物品。
+
+'''[[结构方块]]'''
+* <code>load</code>模式下的结构方块现在具有新选项<code>Strict Placement</code>。
+** 新选项为<code>true</code>时，被放置的结构中的方块将不会触发方块更新、方块实体副效果或形状更新。
+
+=== 生物 ===
+'''[[猪]]'''
+* 加入了猪的变种。与狼一样，其变种由生成所处的生物群系决定。
+** 由玩家繁殖的幼年猪的变种从其双亲的变种中随机选择。
+: 
+{| class="wikitable"
+! 猪的变种
+! {{EntityLink|Cold Pig}}
+! {{EntityLink|Warm Pig}}
+! {{EntityLink|Temperate Pig}}
+|-
+! 生物群系
+| {{BiomeLink|Old Growth Pine Taiga}}<br>{{BiomeLink|Old Growth Spruce Taiga}}<br>{{BiomeLink|Taiga}}<br>{{BiomeLink|Snowy Taiga}}<br>{{BiomeLink|Windswept Hills}}<br>{{BiomeLink|Windswept Gravelly Hills}}<br>{{BiomeLink|Windswept Forest}}
+| {{BiomeLink|Savanna}}<br>{{BiomeLink|Savanna Plateau}}<br>{{BiomeLink|Windswept Hills}}<ref>{{bug|MC-279280|||Fixed}}</ref><br>{{BiomeLink|Jungle}}<br>{{BiomeLink|Sparse Jungle}}<br>{{BiomeLink|Bamboo Jungle}}<br>{{BiomeLink|Eroded Badlands}}<br>{{BiomeLink|Wooded Badlands}}<br>{{BiomeLink|Badlands}}
+| 其他生物群系
+|}
+
+=== 世界生成 ===
+'''[[地物]]'''
+* 加入了{{cd|d=pretty|birch_bees_0002_leaf_litter|birch_leaf_litter|dark_oak_leaf_litter|fancy_oak_bees_0002_leaf_litter|fancy_oak_leaf_litter|oak_bees_0002_leaf_litter|oak_leaf_litter|trees_birch_and_oak_leaf_litter|wildflowers_birch_forest|wildflowers_meadow}}地物。
+
+'''[[随机斑块]]'''
+* 加入了{{cd|d=pretty|patch_grass_meadow|patch_leaf_litter}}斑块。
+
+'''[[地物数据格式]]'''
+* 加入了<code>place_on_ground</code>树木装饰器。附加参数如下：
+<div class="treeview">
+:** {{nbt|int|tries}}：（默认为128，{{interval|left_open=0}}）尝试生成的次数。
+:** {{nbt|int|radius}}：（默认为2，{{interval|left=0}}）尝试生成位置与树的根部的最大水平距离。
+:** {{nbt|int|height}}：（默认为1，{{interval|left=0}}）尝试生成位置与树的根部的最大垂直距离。
+:** {{nbt|compound|block_state_provider}}：作为装饰物的方块。如果生成位置为空气或<code>#replaceable_by_trees</code>标签内的方块，或生成位置为下方与泥土或草方块相接的[[藤蔓]]，这个方块就能被放置。
+</div>
+
+=== 游戏内容 ===
+'''[[粒子]]'''
+* 加入了{{cd|tinted_leaves}}粒子。
+
+=== 常规 ===
+'''[[数据包]]'''
+* 加入了子文件夹{{filename|pig_variant}}。
+
+'''[[猪变种定义格式]]'''
+* 猪的变种可通过{{filepath|-{}-data/<''命名空间''>/pig_variant/<''id''>.json}}来添加。
+* 文件格式如下：
+<div class="treeview">
+:* {{nbt|compound}} 父标签
+:** {{nbt|string|texture|required=1}}：猪变种的纹理，会被解析为{{filepath|-{}-assets/<''命名空间''>/textures/<''路径''>.png}}。
+:** {{nbt|string|model}}：（默认为<code>normal</code>）需为{{cd|d=pretty|normal|cold}}之一。
+:** {{nbt|string}}{{nbt|list|biomes}}：此变种自然生成的生物群系，需为单一生物群系、生物群系列表或生物群系标签。未指定时，只会在未找到其他符合生成位置的变种时使用此变种。
+</div>
+* 这项特性属于实验性功能。
+
+'''[[实体子谓词]]'''
+* 加入了<code>pig</code>实体子谓词以用于匹配猪变种。
+
+'''[[物品堆叠组件]]'''
+* 加入了新组件{{nbt|compound|weapon}}。
+** 存在时，物品使用次数统计信息会在用此物品{{ctrl|攻击}}时增加。
+** 附加字段如下：
+<div class="treeview">
+::* {{nbt|compound|weapon}} 物品堆叠组件
+::** {{nbt|int|damage_per_attack}}：（默认为1，{{interval|left=0}}）每次攻击对此物品造成的损伤值，即损耗的[[耐久度]]。
+::** {{nbt|bool|can_disable_blocking}}：（默认为<code>false</code>）攻击成功时能否禁用目标的[[盾牌]]。
+</div>
+:* 示例：<code>weapon{{=}}{damage_per_attack:2}</code>
+* 加入了新组件{{nbt|float|potion_duration_scale}}，{{interval|left=0}}。
+** 存在时，具有{{cd|potion_contents}}组件的物品所储存效果的持续时长将随此组件所提供的倍率缩放。
+** 未指定此组件时，持续时长倍率默认为<code>1.0</code>。
+** 示例：<code>potion_duration_scale{{=}}0.25</code>
+* 向{{nbt|compound|tool}}组件中加入了可选字段{{nbt|bool|can_destroy_blocks_in_creative}}，表示[[创造模式]]玩家能否使用此物品破坏方块，默认为<code>true</code>。
+
+'''[[注册表]]'''
+* 加入了<code>ticket_type</code>固有注册表。
+* 加入了<code>pig_variant</code>可写注册表。
+
+'''[[Java版标签|标签]]'''
+* 加入了下列方块标签：
+** <code>#replaceable_by_mushrooms</code>：{{cd|d=pretty|#leaves|#small_flowers|pale_moss_carpet|short_grass|fern|dead_bush|vine|glow_lichen|sunflower|lilac|rose_bush|peony|tall_grass|large_fern|hanging_roots|pitcher_plant|water|seagrass|tall_seagrass|brown_mushroom|red_mushroom|brown_mushroom_block|red_mushroom_block|warped_roots|nether_sprouts|crimson_roots}}。
+*** 蘑菇被放置或生长时可替换的方块。
+** <code>#sword_instantly_mines</code>：{{cd|d=pretty|bamboo|bamboo_sapling}}。
+*** 能被剑瞬间破坏的可破坏方块。
+* 加入了下列物品标签：
+** <code>#book_cloning_target</code>：{{cd|writable_book}}。
+*** 可通过与成书合成来复制的物品。
+* 加入了下列生物群系标签：
+** <code>#spawns_cold_variant_farm_animals</code>：{{cd|d=pretty|snowy_taiga|taiga|old_growth_pine_taiga|old_growth_spruce_taiga|windswept_hills|windswept_gravelly_hills|windswept_forest}}。
+*** 可生成寒带变种的绵羊、猪、鸡、牛（统称为家畜）的生物群系。
+** <code>#spawns_warm_variant_farm_animals</code>：{{cd|d=pretty|savanna|savanna_plateau|windswept_hills|jungle|sparse_jungle|bamboo_jungle|eroded_badlands|wooded_badlands|badlands}}。
+*** 可生成热带变种的绵羊、猪、鸡、牛的生物群系。
+
+== 更改 ==
+=== 方块 ===
+'''[[大型垂滴叶]]'''
+* 不再能放置于[[苍白苔藓块]]上。
+
+'''[[气泡柱]]'''
+* 现在不受其影响的实体，在里面产生的粒子和音效更少。
+
+'''[[嘎枝之心]]'''
+* 为在合理结构中但由于白天而处于休眠状态的嘎枝之心加入了新纹理。
+** 休眠状态的嘎枝之心不能生成嘎枝，也不能生成[[树脂团]]。
+* 现在激活与休眠状态的转换取决于固定的时间，而不再受天气和维度亮度影响。
+* 方块状态<code>active</code>现在被<code>creaking_heart_state</code>取代。
+** 可能的值为{{cd|d=、|fd=或|uprooted|dormant|awake}}。
+** <code>dormant</code>状态具有独特的新纹理。
+
+'''[[眼眸花]]'''
+* 现在状态的转换取决于固定的时间，而不再受天气和维度亮度影响。
+
+'''[[铁块]]、[[铁栏杆]]、[[铁活板门]]、[[铁门]]和[[重质测重压力板]]'''
+* 加入了新的破坏、放置、在上方移动、摔落和打击音效。
+
+'''[[橡树树叶]]、[[丛林树叶]]、[[金合欢树叶]]、[[深色橡树树叶]]、[[云杉树叶]]、[[红树树叶]]、[[白桦树叶]]、[[杜鹃树叶]]和[[盛开的杜鹃树叶]]'''
+* 现在有概率产生对应颜色的落叶粒子。
+
+'''[[苍白橡树树苗]]和[[苍白橡树树叶]]'''
+* 地图基色由{{color|#FFFCF5}}更改为{{color|#A7A7A7}}。
+
+'''[[磁石]]'''
+* 更改了配方，现在需要1个[[铁锭]]和8个[[雕纹石砖]]合成。
+** 此配方现在会在玩家获得铁锭或磁石时解锁。
+* 现在可以在主世界和下界的[[废弃传送门]]的战利品箱子中找到{{range|1|2}}个磁石。
+
+'''[[树脂砖台阶]]'''
+* <code>type</code>状态为<code>double</code>的树脂砖台阶现在会正常掉落2个树脂砖台阶而非1个。
+
+'''[[粉红色花簇]]'''
+* 现在对其使用骨粉时不再增加花的数量，而直接掉落1个粉红色花簇。<ref>{{bug|MC-279345|||Fixed}}</ref>
+
+'''[[方块更新]]'''
+* 调用被替代方块状态的破坏行为时，现在对被替代方块实体的破坏一般会早于被替代方块状态发出的余留方块更新。
+* 部分破坏行为不再产生余留方块更新。
+** 比如，[[活塞]]将可推动方块转变为[[移动的活塞]]时，被推动方块不再产生余留更新。这一更改在被活塞推动的[[侦测器]]的行为变化上尤为明显。<ref>{{bug|MC-279326|||Fixed}}</ref>
+
+=== 生物 ===
+'''[[嘎枝]]'''
+* 现在与嘎枝之心绑定的嘎枝也能被[[命名牌]]命名。
+** 被命名的嘎枝不会因为白天而消失。
+
+'''[[僵尸猪灵]]'''
+* 现在只会在被玩家杀死时掉落玩家独有战利品。
+
+'''可驯服的生物'''
+* <code>Owner</code>字段不再必须调用玩家。
+
+'''实体数据'''
+* {{cd|d=pretty|ArmorDropChances|HandDropChances|body_armor_drop_chance}}字段现在已合并为{{nbt|compound|drop_chances}}字段。
+** 格式为装备槽位类型与概率值的映射，有效的装备槽位包括{{cd|d=pretty|head|chest|legs|feet|mainhand|offhand|body}}。
+** 如果此字段未指定或被移除，则掉落概率为默认值<code>0.085f</code>。
+** 值默认的掉落概率字段不再被存储；如果{{nbt|compound|drop_chances}}内所有字段均为默认值，则此字段会被移除。
+** 示例：<code>drop_chances:{chest:0.1,feet:1.0}</code>
+
+=== 非生物实体 ===
+'''[[区域效果云]]'''
+* 为区域效果云实体数据加入了新字段{{nbt|float|potion_duration_scale}}，默认为<code>1.0</code>。
+** 表示其中药水效果持续时间的缩放系数。
+** [[滞留药水]]生成的区域效果云的缩放系数为<code>0.25</code>。
+
+=== 世界生成 ===
+'''[[恶地]]'''
+* 现在[[绵羊]]、猪、[[鸡]]和[[牛]]会在恶地及其生物群系变种自然生成。
+
+'''[[末地祭坛]]'''
+* 在[[末地]]中，如果(0,0)处没有方块，现在末地祭坛会在比维度最低位置高1格处生成，而非在最低点生成。
+
+'''[[巨型蘑菇]]'''
+* 放置蘑菇方块时，现在只能取代空气及<code>#replaceable_by_mushrooms</code>方块标签内的方块。
+
+'''[[草甸]]'''
+* 现在[[矮草丛]]的生成更加稀疏。
+
+'''[[苍白之园]]'''
+* 更改了生成，现在会更多地取代黑森林的生成空间。
+
+'''[[林地府邸]]'''
+* 现在能在苍白之园中生成。
+
+=== 游戏内容 ===
+'''[[魔咒]]'''
+* 现在[[荆棘]]造成伤害时会正常播放<code>player_hurt</code>音效事件。
+
+=== 命令格式 ===
+'''{{cmd|place template}}'''
+* 现在接受新选项<code>strict</code>，以在放置方块时不触发方块更新和形状更新。
+** 新语法：<code>place template <template> [<pos> [<rotation> [<mirror> [<integrity> [<seed> [strict]?]?]?]?]?]?</code>
+
+'''{{cmd|clone}}'''
+* 现在接受新选项<code>strict</code>，以在放置方块时不触发方块更新和形状更新。
+** 新语法：<code>clone [from <sourceDimension>]? <begin> <end> [to <targetDimension>]? <destination> [strict]? [[replace|masked|filtered <filter>] [force|move|normal]?]?</code>
+
+'''{{cmd|fill}}'''
+* 处理方块实体数据的方式发生了如下更改：
+** 如果未指定方块实体数据且当前目标方块有数据，则方块实体数据会被保留。
+** 如果指定了方块实体数据，则将目标方块实体数据设置为指定值。
+*** 若要清除方块实体数据，现在必须指定<code>{}</code>。
+** 如果方块状态或方块实体数据发生了改变，则操作视为成功。
+* 现在接受新选项<code>strict</code>，以在放置方块时不触发方块更新和形状更新。
+* {{cmd|fill|link=none}}命令中的<code>replace</code>选项现在可以在后面附加额外选项。
+* 新语法：
+** <code>fill <from> <to> <block> keep</code>
+** <code>fill <from> <to> <block> [replace <filter>]? [strict|destroy|hollow|outline]?</code>
+
+'''{{cmd|setblock}}'''
+* 处理方块实体数据的方式发生了如下更改：
+** 如果未指定方块实体数据且当前目标方块有数据，则方块实体数据会被保留。
+** 如果指定了方块实体数据，则将目标方块实体数据设置为指定值。
+*** 若要清除方块实体数据，现在必须指定<code>{}</code>。
+** 如果方块状态或方块实体数据发生了改变，则操作视为成功。
+* 现在接受新选项<code>strict</code>，以在放置方块时不触发方块更新和形状更新。
+* 新语法：<code>setblock <pos> <block> [destroy|keep|replace|strict]?</code>
+
+'''{{cmd|scoreboard}}'''
+* 指定<code>styled</code>数字格式时的文本格式现在也需为SNBT而非JSON格式。
+
+=== 常规 ===
+'''[[数据包]]'''
+* 将数据包版本号更改为{{cd|62}}。
+
+'''[[文本组件]]'''
+* 文本组件现在不再存储为JSON字符串。
+** 现在文本组件数据格式可以直接内联到外部结构中。
+*** 示例：<code>minecraft:custom_name{{=}}"{\"text\":\"Renamed item\"}"</code>会变为<code>minecraft:custom_name{{=}}{text:'Renamed item'}</code>。
+** 诸如{{cmd|tellraw}}和{{cmd|title}}这些命令的参数也随之变化，如：{{cmd|tellraw @s {"text":"Hello world"}|link=none}}会变为{{cmd|tellraw @s {text:'Hello world'}|link=none}}。
+** 注：文本组件嵌入NBT时，布尔值会被视为数字。若要将布尔值参数传递到翻译，则需要使用字符串形式。
+** <code>nbt</code>类型和<code>interpret</code>设置为<code>true</code>的文本组件，将直接按给定的nbt解析文本组件，而非先转换为字符串再解析为JSON。
+* 更新了悬停事件格式：
+** <code>hoverEvent</code>字段现在重命名为<code>hover_event</code>。
+** （曾由已渲染的文本组件解析而来的）遗留的<code>value</code>字段不再受支持。
+** {{nbt|string|action}}为<code>show_text</code>时：
+*** <code>contents</code>字段已被重命名为<code>text</code>。
+**** 示例：<code>{action:'show_text',contents:'Hello world'}</code>变为了<code>{action:'show_text',text:'Hello world'}</code>。
+** {{nbt|string|action}}为<code>show_item</code>时：
+*** 移除了<code>contents</code>字段。其中字段现在已内联。
+**** 示例：<code>{action:'show_item',contents:{id:'minecraft:stick',count:2}}</code>变为了<code>{action:'show_item',id:'minecraft:stick',count:2}</code>。
+*** 如果<code>contents</code>仅指定了物品ID，则现在会被内联替换为完整格式。
+**** 示例：<code>{action:'show_item',contents:'minecraft:stick'}</code>变为了<code>{action:'show_item',id:'minecraft:stick'}</code>。
+** {{nbt|string|action}}为<code>show_entity</code>时：
+*** 移除了<code>contents</code>字段。其中字段现在已内联。
+*** <code>id</code>字段已被重命名为<code>uuid</code>。
+*** <code>type</code>字段已被重命名为<code>id</code>。
+**** 示例：<code>{action:'show_entity',contents:{id:[I;0,0,0,0],type:'minecraft:pig'}}</code>变为了<code>{action:'show_entity',uuid:[I;0,0,0,0],id:'minecraft:pig'}</code>。
+* 更新了点击事件格式：
+** <code>clickEvent</code>字段现在重命名为<code>click_event</code>。
+** {{nbt|string|action}}为<code>open_url</code>时：
+*** 现在<code>value</code>字段已被重命名为<code>url</code>。
+**** 如果URL值并非带有<code>https://</code>或<code>http://</code>方案的有效URI，则点击事件将不再解析而非仅失效。
+*** 示例：<code>{action:'open_url',value:'https:/<nowiki/>/minecraft.net'}</code>变为了<code>{action:'open_url',url:'https:/<nowiki/>/minecraft.net'}</code>。
+** {{nbt|string|action}}为<code>run_command</code>时：
+*** 现在<code>value</code>字段已被重命名为<code>command</code>。
+**** 如果命令中包含被禁止的字符，则点击事件将不再解析而非仅失效。
+**** 命令不再总是需要<code>/</code>前缀。
+*** 示例：<code>{action:'run_command',value:'/say Hi'}</code>变为了<code>{action:'run_command',command:'/say Hi'}</code>。
+** {{nbt|string|action}}为<code>suggest_command</code>时：
+*** 现在<code>value</code>字段已被重命名为<code>command</code>。
+**** 如果命令中包含被禁止的字符，则点击事件将不再解析而非仅失效。
+*** 示例：<code>{action:'suggest_command',value:'/help'}</code>变为了<code>{action:'suggest_command',command:'/help'}</code>。
+** {{nbt|string|action}}为<code>change_page</code>时：
+*** 现在<code>value</code>字段已被重命名为<code>page</code>。
+**** <code>page</code>字段现在需要正整数而非字符串。
+*** 示例：<code>{action:'change_page',value:'1'}</code>变为了<code>{action:'change_page',page:1}</code>。
+
+'''[[配方]]'''
+* 对<code>crafting_transmute</code>配方类型作出如下更改：
+** <code>result</code>现在支持对输出物品指定数量和修订组件。
+*** <code>result</code>的新格式如下：
+<div class="treeview">
+:::* {{nbt|string}}{{nbt|compound|result|required=1}}：物品的命名空间ID或一组结果物品对象。
+:::** {{nbt|string|id|required=1}}：物品的命名空间ID。
+:::** {{nbt|int|count}}：（默认为<code>1</code>，{{interval|left_open=0}}）物品数量。
+:::** {{nbt|compound|components}}：（默认为空）要修订的组件。
+</div>
+::* 示例：<code>"result": {"id": "minecraft:stick", "count": 3, "components": {"!minecraft:damage": {}, "minecraft:enchantment_glint_override": {}}}</code>
+
+'''[[复述功能]]'''
+* 音量现在受“{{tr|音乐和声音选项|音樂和音效選項|音樂和音效選項}}”分类下“{{tr|声音/语音|聲音／語音|聲音／語音}}”选项的影响。
+
+'''[[资源包]]'''
+* 将资源包版本号更改为{{cd|47}}。
+* 更改了<code>pig</code>纹理的尺寸。
+
+'''[[Realms]]'''
+* 将世界上传到Realms现在会默认启用命令方块。
+* 现在能将极限模式单人游戏世界上传到Realms。
+
+'''区块加载'''
+* 由传送门加载的区块现在会在重新打开世界时重新加载。
+
+'''常规'''
+* 如果游戏检测到上次启动未正常完成，则会重置全屏选项。
+
+== 修复 ==
+{{fixes|fixedin=25w02a|showdesc=1
+|;old
+|7697|射过熔岩的三叉戟或箭有时不会引火。
+|55800|成功的{{cmd|fill air destroy|link=none}}命令产生错误信息且在获取结果或是否成功时返回0。
+|56653|处于发怒状态的僵尸猪灵被任何因素杀死都会掉落经验和稀有掉落物。
+|90212|用鞘翅滑行时不能悬挂到可攀爬方块上。
+|93185|末地祭坛在(0,0)的最高方块处生成，导致其可能生成得不完整。
+|96880|进入床后，主手有时会渲染不正确。
+|97244|<code>minecraft:enchant.thorns.hit</code>声音事件不在非玩家实体被荆棘魔咒伤害时播放。
+|113878|应用于胸甲槽位的属性修饰符描述存在误导：“When on body”而非“When on chest”。<!-- 保持原文，译文暂未更改 -->
+|117574|使用{{cmd|setblock|link=none}}和{{cmd|fill|link=none}}替换方块实体且未指定NBT时，旧NBT会被保留；即使命令执行失败，容器物品栏也会被清空。<!--
+|118053|<code>Owner</code>为非玩家实体的狼生来坐着。Do nothing-->
+|118092|仅解锁一个配方时，合成配方解锁弹窗也称“New Recipes Unlocked!”。<!-- 保持原文，英文单复数问题 -->
+|118470|音量为“关”时，复述以满音量播放。
+|128079|{{ctrl|使用}}剪刀的统计信息不会在挖掘特定方块时增加。
+|135192|如果水面上存在一根线，船就会立刻下沉。
+|141297|不能用{{cmd|setblock|link=none}}、调试棒和<code>BlockStateTag</code>将红石火把的<code>lit</code>状态设置为相反值。
+|143952|如果最近的{{cmd|forceload|link=none}}命令失败，{{cd|data/chunks.dat}}不会被保存。
+|150759|火不再能放置在漏斗上。
+|160304|冰上潜行能使移动方向与X/Z轴平行。
+|165421|气泡柱的效果对三叉戟和风弹相反。<!--只修了三叉戟，Reopened-->
+|167125|摔落伤害被错误地取整。
+|183329|玩家带有反胃状态效果时，下界传送门传送遮罩不会出现。
+|183623|选择世界菜单中的极限模式世界的红色感叹号后存在逗号。
+|184530|玩家低速移动时的移动方向会偏向基本方向。
+|184681|20w21a后，自定义的世界仍称作“{{tr|自定义自选世界|自訂自助式世界|自訂自助式世界}}”。
+|193404|用调试棒或{{cmd|setblock|link=none}}不能修改动力或激活铁轨的充能状态。
+|202226|{{cmd|recipe [give&vert;take]|link=none}}单个配方也称作“recipes”。
+|220672|自定义世界预设标题源字符串存在不一致的单复数拼写。
+|222876|“Buffet world customization”<!-- 保持原文 -->存在错误的大小写。
+|226772|潜影盒的开启/关闭字幕显示“Shulker”。<!-- 保持原文，译文无此问题 -->
+|231331|进度被撤销后，其获取弹窗仍继续出现。
+|239705|面向特定角度时向前疾跑会使玩家向左或向右偏转。
+|241951|玩家在X和Z轴上的动量分别在其数值较低时被取消。
+|248099|行走的生物意外落水后，其寻路损坏了。
+|253721|执行{{cmd|op @a|link=none}}时出现错误日志。
+|256230|大型Boss栏文本无法保存到{{cd|level.dat}}，重新登录时会导致崩溃。
+|260440|正在用鞘翅飞行的玩家不再能在水中激活游泳模式。
+|261385|气泡柱表面的行为受非空气方块影响而存在差异。
+|262928|<code>minecraft:entity.player.hurt</code>不再在玩家受到来自守卫者或远古守卫者的荆棘伤害时播放。
+|262939|在反胃状态效果生效期间切换维度或重生会显示下界传送门遮罩。
+|265514|在1.20.2更新中，头相关转移函数仍在定向音频被设为“关”时启用。
+|267221|<code>change_page</code>点击事件Json中的<code>value</code>需要一个字符串而非整数。
+|267323|物品的旧JSON文本式的布尔型字段会在世界更新时被清除。
+|268942|在用鞘翅滑翔的同时游泳时，游泳动画不再显示。
+|270220|赋予所有进度产生持续很久的嘈乱音频。<!--
+|272790|末地祭坛中的潜影盒和其他方块不在传送门改变状态时作为物品掉落。Do nothing-->
+|273338|用线和上升气泡柱能产生飞行船故障。
+|274187|禁用PVP时，来自附有火焰附加的剑的横扫攻击能使其他玩家着火。
+|275994|在窗口不聚焦时开着饼图会频繁产生日志。
+|277403|燃烧的箭和三叉戟仍不会因放置于同处的水而灭火。
+|277537|苍白覆地苔藓偶尔生成得脱节。
+|277780|即使上次打过补丁，Minecraft也会在每次自动保存时重新保存所有地图。
+|277807|传送玩家的坐骑会导致不同步，但之前不会这样。
+|277865|{{filename|level.dat}}中的<code>Time</code>大于某特定值时，气泡柱中的船的动画损坏。
+|277922|在一格高下行气泡柱中的船会继续来回摆动。
+|278096|“{{tr|极佳！|極致！|極佳！}}”画质和被禁用的云导致所有粒子在帧缓冲区中停留一帧。
+|278215|如果处于雷暴天气，嘎枝可以在白天被召唤并存活。
+|278249|经验球的位置严重不同步，然后突然自我修正。
+|278375|给羊驼或行商羊驼疯狂喂食小麦或干草捆导致物品堆叠失去同步。
+|278376|箭和三叉戟在一格深的气泡柱中出现怪异行为。
+|278417|插在地上的箭和三叉戟上的火不能被雨熄灭。
+|278455|旁观模式下，向非接近45°的倍数的角度侧向移动错误。
+|278493|已驯服的狼对嘎枝的敌对状态在这个嘎枝消失后仍然维持。
+|278502|垂泪藤或缠怨藤出现断开问题。
+|278615|即使一击杀死了召唤支-{}-援的僵尸猪灵，其支-{}-援者仍与你敌对。
+|;1.21.4的漏洞
+|278040|沉底的嘎枝的游泳寻路损坏了。
+|278140|{{cmd|fill|link=none}}在放置相邻的有方向性状态的方块时运行不正常。
+|278164|点击设置按钮且接下来的屏幕中的鼠标处存在滚动条时，点击音效播放两次。
+|278204|烈焰人火球现在会导致TNT矿车立刻爆炸。
+|278422|在用{{cmd|data remove|link=none}}移除一只坐着且已驯服的狼的<code>Owner</code>标签后重载世界会导致这只狼坐着移动。
+|278552|从高处下落时，<code>minecraft:entity.player.big_fall</code>不再播放音效。
+|278585|摔落到细雪边缘的玩家会卡住。
+|278591|对末影龙实体使用{{ctrl|选取方块}}时不再给予末影龙刷怪蛋。
+|278621|落地前放置细雪导致客户端/服务端不同步。
+|278627|穿着皮革靴子摔落到细雪边缘的玩家会受到摔落伤害。
+|278634|尝试对发光地衣、树脂团、幽匿脉络等方块{{cmd|setblock|link=none}}“<code>waterlogged{{=}}true</code>”状态会报错。
+|278639|绊线钩不会被潜影弹触发。
+|278659|攻击被玩家观察的嘎枝不会触发幽匿感测体。
+|278683|由刷怪笼或{{cmd|summon|link=none}}生成的生物永不掉落其装备。
+|278687|苍白苔藓块可以支撑大型垂滴叶，但不可以支撑小型垂滴叶。
+|278708|在骑乘状态中投掷末影珍珠只会脱离坐骑，而不会传送。
+|278728|<code>smithing_transform</code>配方不能把物品的组件改回默认值。
+|278733|破坏一个树脂砖双层台阶方块只会返回一个台阶。
+|278734|绵羊向上/下看时，其头部动作卡顿。
+|278755|骑乘实体时远程传送会导致游戏软锁。
+|278801|闭合的眼眸花合成为灰色染料的配方未与其他灰色染料配方共组。
+|278841|细雪不再减速从高处下落的玩家。
+|279145|潜影弹不再受气泡柱影响。
+|279152|潜影弹不能通过下界/末地传送门和末地折跃门传送。
+}}</onlyinclude>
+
+== 参考 ==
+{{Reflist}}
+
+== 导航 ==
+{{Navbox Java Edition versions|1.21}}
+
+[[de:25w02a]]
+[[en:Java Edition 25w02a]]
+[[es:Java Edition 25w02a]]
+[[fr:Édition Java 25w02a]]
+[[ja:Java Edition 25w02a]]
+[[ko:Java Edition 25w02a]]
+[[lzh:爪哇版二五週〇二甲]]
+[[pt:Edição Java 25w02a]]
+[[ru:25w02a (Java Edition)]]
+[[uk:25w02a (Java Edition)]]

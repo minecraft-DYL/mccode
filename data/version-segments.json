@@ -1,0 +1,747 @@
+{
+  "provenance": "全部条目取自 zh.minecraft.wiki 对应页面的 wikitext（通过该 wiki 自身的 api.php?action=parse&prop=wikitext 读取），版本号、快照号与日期逐条与该 wiki 一致；未在 wiki 上取到的字段一律标注“未取到，待核实”，不做推断。",
+  "segments": [
+    {
+      "id": "seg-0.0.16a",
+      "title": "聊天框内命令系统加入",
+      "anchorVersion": "Classic 0.0.16a",
+      "anchorType": "release",
+      "anchorLabel": "Java版Classic 0.0.16a",
+      "date": "2009-06-07",
+      "change": "Classic 0.0.16a 在聊天框内加入命令系统，玩家首次能在聊天栏输入以斜杠开头的指令；聊天系统本身在 Classic 0.0.15a 加入。",
+      "effects": [
+        {"capability": "chatchat", "from": "unsupported", "to": "ok", "note": "聊天栏成为手动输入指令的唯一入口"},
+        {"capability": "command", "from": "unsupported", "to": "partial", "note": "命令此前只能由服务端控制台执行；0.0.16a 起客户端聊天栏可用"}
+      ],
+      "subVersions": [
+        {"version": "Classic 0.0.15a", "label": "Java版Classic 0.0.15a", "date": "2009-05-31", "note": "加入聊天系统（聊天页面另记为 0.0.15a 的 06031950 版本）"},
+        {"version": "Classic 0.0.16a", "label": "Java版Classic 0.0.16a", "date": "2009-06-07", "note": "加入命令系统"}
+      ],
+      "sources": [
+        "https://zh.minecraft.wiki/w/聊天",
+        "https://zh.minecraft.wiki/w/Java版Classic_0.0.16a",
+        "https://zh.minecraft.wiki/w/Java版Classic_0.0.15a"
+      ]
+    },
+    {
+      "id": "seg-1.3.1",
+      "title": "单人游戏开放命令输入",
+      "anchorVersion": "1.3.1",
+      "anchorType": "release",
+      "anchorLabel": "12w16a / Java版1.3.1",
+      "date": "2012-08-01",
+      "change": "12w16a 加入作弊模式，单人游戏中首次可以聊天并输入命令，/gamemode、/give、/time、/toggledownfall、/xp 等命令进入游戏内；12w17a 加入 /help，12w18a 起输入命令时游戏不再暂停。",
+      "effects": [
+        {"capability": "command", "from": "partial", "to": "ok", "note": "12w16a（2012-04-19）加入作弊模式后，单人世界也能直接编辑并执行命令"},
+        {"capability": "chatchat", "from": "ok", "to": "ok", "note": "12w16a 起单人游戏同样可在聊天框输入命令，不再仅限多人服务器"}
+      ],
+      "subVersions": [
+        {"version": "12w16a", "label": "12w16a", "date": "2012-04-19", "note": "加入作弊模式与第一批单人命令"},
+        {"version": "1.3.1", "label": "1.3.1", "date": "2012-08-01", "note": "正式版（预发布版 2012-07-30）"}
+      ],
+      "sources": [
+        "https://zh.minecraft.wiki/w/命令",
+        "https://zh.minecraft.wiki/w/聊天",
+        "https://zh.minecraft.wiki/w/Java版1.3.1"
+      ]
+    },
+    {
+      "id": "seg-1.4.2",
+      "title": "命令方块加入",
+      "anchorVersion": "1.4.2",
+      "anchorType": "release",
+      "anchorLabel": "12w32a / Java版1.4.2",
+      "date": "2012-10-25",
+      "change": "12w32a 加入命令方块（当时仅有脉冲型），命令方块成为地图作者保存与触发命令的容器；同快照加入 /difficulty、/gamerule、/spawnpoint、/weather。",
+      "effects": [
+        {"capability": "commandblock", "from": "unsupported", "to": "ok", "note": "命令方块可直接编辑其中的命令，是当时唯一的游戏内命令容器"},
+        {"capability": "command", "from": "ok", "to": "ok", "note": "12w32a 新增 /difficulty、/gamerule、/spawnpoint、/weather，12w37a 加入 /clear"}
+      ],
+      "subVersions": [
+        {"version": "12w32a", "label": "12w32a", "date": "2012-08-09", "note": "加入命令方块"},
+        {"version": "1.4.2", "label": "1.4.2", "date": "2012-10-25", "note": "正式版（预发布版 2012-10-24）"}
+      ],
+      "sources": [
+        "https://zh.minecraft.wiki/w/命令方块",
+        "https://zh.minecraft.wiki/w/命令",
+        "https://zh.minecraft.wiki/w/Java版1.4.2"
+      ]
+    },
+    {
+      "id": "seg-1.7.2",
+      "title": "命令中首次可写物品 NBT",
+      "anchorVersion": "1.7.2",
+      "anchorType": "release",
+      "anchorLabel": "13w36a / Java版1.7.2",
+      "date": "2013-10-25",
+      "change": "13w36a 为 /give 加入 dataTag 参数，命令中首次能写入物品 NBT 标签；13w37a 起物品参数也接受名称 ID。",
+      "effects": [
+        {"capability": "nbt", "from": "unsupported", "to": "partial", "note": "只有 /give 能写物品 NBT；实体与方块 NBT 仍无法通过命令读写，也没有读取命令"}
+      ],
+      "subVersions": [
+        {"version": "13w36a", "label": "13w36a", "date": "2013-09-05", "note": "为 /give 加入 dataTag 参数"},
+        {"version": "1.7.2", "label": "1.7.2", "date": "2013-10-25", "note": "正式版"}
+      ],
+      "sources": [
+        "https://zh.minecraft.wiki/w/命令/give",
+        "https://zh.minecraft.wiki/w/命令",
+        "https://zh.minecraft.wiki/w/Java版1.7.2"
+      ]
+    },
+    {
+      "id": "seg-1.8",
+      "title": "/blockdata 与 /entitydata：命令可读写方块与实体 NBT",
+      "anchorVersion": "1.8",
+      "anchorType": "release",
+      "anchorLabel": "14w02a / 14w32b / Java版1.8",
+      "date": "2014-09-02",
+      "change": "1.8 加入 /blockdata（14w02a）与 /entitydata（14w32b），命令首次可以直接把数据标签合并进指定方块或实体；14w03b 起物品参数不再接受数字 ID，命令中的 NBT 也能用方块/物品名称代替数字 ID。",
+      "effects": [
+        {"capability": "nbt", "from": "partial", "to": "ok", "note": "方块 NBT 与实体 NBT 均可通过命令读写，配合 /give 的 dataTag 覆盖物品 NBT"},
+        {"capability": "commandblock", "from": "ok", "to": "ok", "note": "可用 /blockdata 直接改写命令方块的 Command、TrackOutput、SuccessCount 等 NBT"},
+        {"capability": "command", "from": "ok", "to": "ok", "note": "14w03b（2014-01-16）起物品参数不再接受数字 ID；14w32b 起物品参数无法突破堆叠限制"}
+      ],
+      "subVersions": [
+        {"version": "14w02a", "label": "14w02a", "date": "2014-01-09", "note": "加入 /blockdata"},
+        {"version": "14w03b", "label": "14w03b", "date": "2014-01-16", "note": "物品参数不再接受数字 ID"},
+        {"version": "14w32b", "label": "14w32b", "date": "2014-08-07", "note": "加入 /entitydata"},
+        {"version": "1.8", "label": "1.8", "date": "2014-09-02", "note": "正式版"}
+      ],
+      "sources": [
+        "https://zh.minecraft.wiki/w/Java版1.8",
+        "https://zh.minecraft.wiki/w/命令",
+        "https://zh.minecraft.wiki/w/Java版14w02a",
+        "https://zh.minecraft.wiki/w/Java版14w03b",
+        "https://zh.minecraft.wiki/w/Java版14w32b",
+        "https://zh.minecraft.wiki/w/命令/give"
+      ]
+    },
+    {
+      "id": "seg-1.9",
+      "title": "命令方块类型扩展为链条与循环",
+      "anchorVersion": "1.9",
+      "anchorType": "release",
+      "anchorLabel": "15w34a / Java版1.9",
+      "date": "2016-02-29",
+      "change": "15w34a 加入连锁型与循环型命令方块，15w34b 加入条件制约模式，命令方块的类型字段与方块实体 NBT 随之扩展。",
+      "effects": [
+        {"capability": "commandblock", "from": "ok", "to": "ok", "note": "命令方块由单一脉冲型扩展为脉冲/连锁/循环三种类型，并加入条件制约与自动模式"},
+        {"capability": "nbt", "from": "ok", "to": "ok", "note": "方块实体 NBT 需要处理新的类型与模式字段"}
+      ],
+      "subVersions": [
+        {"version": "15w34a", "label": "15w34a", "date": "2015-08-19", "note": "加入连锁型与循环型命令方块"},
+        {"version": "1.9", "label": "1.9", "date": "2016-02-29", "note": "正式版"}
+      ],
+      "sources": [
+        "https://zh.minecraft.wiki/w/命令方块",
+        "https://zh.minecraft.wiki/w/Java版1.9"
+      ]
+    },
+    {
+      "id": "seg-1.11",
+      "title": "实体 ID 蛇形命名化与命名空间前缀",
+      "anchorVersion": "1.11",
+      "anchorType": "release",
+      "anchorLabel": "16w32a / Java版1.11",
+      "date": "2016-11-14",
+      "change": "16w32a 对实体 ID 做重大改动：实体 ID 改为蛇形小写并可选使用 minecraft: 前缀，马的实体 ID 拆分为 horse/donkey/mule/skeleton_horse/zombie_horse，骷髅、僵尸、守卫者同样拆分；方块实体 ID Control 改为 command_block；资源包要求文件名全部小写。",
+      "effects": [
+        {"capability": "entityPicker", "from": "partial", "to": "degraded", "note": "旧 camelCase 实体 ID 全部失效（Mob、Monster 存档 ID 被移除），编辑器必须重建 ID 表"},
+        {"capability": "commandblock", "from": "ok", "to": "degraded", "note": "方块实体 ID 由 Control 改为 command_block，按旧 ID 寻址的编辑器会失效"}
+      ],
+      "subVersions": [
+        {"version": "16w32a", "label": "16w32a", "date": "2016-08-10", "note": "实体 ID 与方块实体 ID 改名"},
+        {"version": "1.11", "label": "1.11", "date": "2016-11-14", "note": "正式版"}
+      ],
+      "sources": [
+        "https://zh.minecraft.wiki/w/Java版1.11",
+        "https://zh.minecraft.wiki/w/命令方块",
+        "https://zh.minecraft.wiki/w/资源包"
+      ]
+    },
+    {
+      "id": "seg-1.12",
+      "title": "函数（.mcfunction）与 /function 加入",
+      "anchorVersion": "1.12",
+      "anchorType": "release",
+      "anchorLabel": "Java版1.12（pre1 / pre3）",
+      "date": "2017-06-07",
+      "change": "1.12 预览版加入函数系统：函数先以 data/<命名空间>/<文件名>.txt 存放（pre1），pre3 把扩展名改为 .mcfunction 并禁止行首斜杠、只允许 # 注释；同版本加入 /function、/reload、/recipe、/advancement 与 gameLoopFunction 游戏规则。",
+      "effects": [
+        {"capability": "mcfunction", "from": "unsupported", "to": "ok", "note": "多行命令首次可以写成文本文件复用；pre3 起扩展名为 .mcfunction，行内命令不能带前导斜杠"},
+        {"capability": "command", "from": "ok", "to": "ok", "note": "17w13a（2017-03-30）加入 /recipe 与 /advancement，17w18a 加入 /reload，pre1 加入 /function"}
+      ],
+      "subVersions": [
+        {"version": "17w13a", "label": "17w13a", "date": "2017-03-30", "note": "加入 /recipe、/advancement（函数本身在 1.12 pre1 加入，未取到 pre1 的日期）"},
+        {"version": "1.12", "label": "1.12", "date": "2017-06-07", "note": "正式版"}
+      ],
+      "sources": [
+        "https://zh.minecraft.wiki/w/Java版函数",
+        "https://zh.minecraft.wiki/w/命令",
+        "https://zh.minecraft.wiki/w/Java版1.12",
+        "https://zh.minecraft.wiki/w/Java版17w13a"
+      ]
+    },
+    {
+      "id": "seg-1.13",
+      "title": "数据包、/data、Brigadier 命令重写与扁平化",
+      "anchorVersion": "1.13",
+      "anchorType": "release",
+      "anchorLabel": "17w43a / 17w45a / 17w45b / 17w47a / Java版1.13",
+      "date": "2018-07-18",
+      "change": "1.13 引入数据包（17w43a）把函数、进度、战利品表、配方、结构、标签移入 data/<命名空间>/ 目录；17w45a 用 Brigadier 重写命令解析；17w45b 加入 /data 并移除 /entitydata，17w47a 移除 /blockdata；17w47a 完成扁平化，方块/物品/实体/粒子 ID 全部改为命名空间 ID，数字 ID 与 metadata 取消。",
+      "effects": [
+        {"capability": "nbt", "from": "ok", "to": "ok", "note": "/data 取代 /blockdata 与 /entitydata，NBT 读写能力保留但命令名与路径语法改变"},
+        {"capability": "command", "from": "ok", "to": "degraded", "note": "17w45a 命令解析器重写：大部分命令不再允许大写字母，部分命令语法与报错方式改变，/enchant、/stats、/testfor、/testforblock、/testforblocks、/toggledownfall 被移除，/execute 被重写，/tp 变为 /teleport 的缩写"},
+        {"capability": "mcfunction", "from": "ok", "to": "degraded", "note": "函数移入数据包 data/<命名空间>/functions/（复数）；17w45a 起加载时完全解析并缓存，17w49b 起支持函数标签与 #tick，18w01a 加入 #load"},
+        {"capability": "itemPicker", "from": "partial", "to": "ok", "note": "扁平化后物品/方块全部为命名空间 ID，数字 ID 与 metadata 限制“已经完全消失”，可完整枚举"},
+        {"capability": "entityPicker", "from": "degraded", "to": "ok", "note": "实体 ID 统一为命名空间 ID（如 xp_orb→experience_orb），ID 表稳定可枚举"},
+        {"capability": "particlePicker", "from": "partial", "to": "ok", "note": "17w47a 粒子 ID 改为命名空间+小写，32 种被重命名，blockcrack/blockdust 合并为 block、explode/snowshovel 合并为 poof"},
+        {"capability": "commandblock", "from": "ok", "to": "ok", "note": "命令方块/循环型/连锁型的数字 ID 137/210/211 取消，改用命名空间 ID"}
+      ],
+      "subVersions": [
+        {"version": "17w43a", "label": "17w43a", "date": "2017-10-25", "note": "加入数据包，自定义函数移入数据包"},
+        {"version": "17w45a", "label": "17w45a", "date": "2017-11-08", "note": "命令解析重写；加入 /tag、/team；重写 /execute"},
+        {"version": "17w45b", "label": "17w45b", "date": "2017-11-10", "note": "加入 /data，移除 /entitydata"},
+        {"version": "17w47a", "label": "17w47a", "date": "2017-11-22", "note": "移除 /blockdata；扁平化，粒子 ID 命名空间化"},
+        {"version": "17w49b", "label": "17w49b", "date": "2017-12-07", "note": "函数标签与 minecraft:tick"},
+        {"version": "18w01a", "label": "18w01a", "date": "2018-01-03", "note": "minecraft:load 标签"},
+        {"version": "1.13", "label": "1.13", "date": "2018-07-18", "note": "正式版"}
+      ],
+      "sources": [
+        "https://zh.minecraft.wiki/w/Java版1.13",
+        "https://zh.minecraft.wiki/w/命令",
+        "https://zh.minecraft.wiki/w/Java版1.13/扁平化",
+        "https://zh.minecraft.wiki/w/Java版粒子",
+        "https://zh.minecraft.wiki/w/Java版函数",
+        "https://zh.minecraft.wiki/w/数据包"
+      ]
+    },
+    {
+      "id": "seg-1.14",
+      "title": "粒子纹理资源包化、/data modify 与 /schedule",
+      "anchorVersion": "1.14",
+      "anchorType": "release",
+      "anchorLabel": "18w43a / 19w09a / Java版1.14",
+      "date": "2019-04-23",
+      "change": "1.14 把粒子纹理映射交给资源包：19w06a 把粒子拆成逐帧单独纹理文件（取代 particles.png 等），19w09a 起 assets/minecraft/particles/<粒子类型ID>.json 可定义该粒子类型可用的纹理；命令侧 18w43a 加入 /schedule 与 /data modify。",
+      "effects": [
+        {"capability": "particlePicker", "from": "ok", "to": "ok", "note": "粒子纹理可由资源包修改，但资源包不能新增粒子类型，粒子 ID 列表本身始终硬编码"},
+        {"capability": "nbt", "from": "ok", "to": "ok", "note": "18w43a 加入 /data modify，可对 NBT 路径做修改而非整体替换"},
+        {"capability": "command", "from": "degraded", "to": "ok", "note": "18w43a 加入 /schedule 与 /drop，18w45a 把 /drop 重写为 /loot"}
+      ],
+      "subVersions": [
+        {"version": "18w43a", "label": "18w43a", "date": "2018-10-24", "note": "加入 /schedule 与 /data modify"},
+        {"version": "19w06a", "label": "19w06a", "date": "2019-02-06", "note": "粒子纹理拆分为逐帧文件"},
+        {"version": "19w09a", "label": "19w09a", "date": "2019-02-27", "note": "粒子使用的纹理可由资源包修改"},
+        {"version": "1.14", "label": "1.14", "date": "2019-04-23", "note": "正式版"}
+      ],
+      "sources": [
+        "https://zh.minecraft.wiki/w/Java版1.14",
+        "https://zh.minecraft.wiki/w/资源包",
+        "https://zh.minecraft.wiki/w/命令",
+        "https://zh.minecraft.wiki/w/命令/data",
+        "https://zh.minecraft.wiki/w/Java版粒子"
+      ]
+    },
+    {
+      "id": "seg-1.15",
+      "title": "命令存储 storage",
+      "anchorVersion": "1.15",
+      "anchorType": "release",
+      "anchorLabel": "19w38a / Java版1.15",
+      "date": "2019-12-10",
+      "change": "19w38a 加入命令存储，/data 可以在 storage <命名空间ID> 上读写与实体、方块无关的 NBT；同快照数据包加入 predicates 文件夹。",
+      "effects": [
+        {"capability": "nbt", "from": "ok", "to": "ok", "note": "新增 storage 数据源/目标，NBT 可脱离实体与方块持久保存"},
+        {"capability": "command", "from": "ok", "to": "ok", "note": "/schedule 扩展为可多次对同一函数操作"}
+      ],
+      "subVersions": [
+        {"version": "19w38a", "label": "19w38a", "date": "2019-09-18", "note": "加入命令存储与 predicates 文件夹"},
+        {"version": "1.15", "label": "1.15", "date": "2019-12-10", "note": "正式版"}
+      ],
+      "sources": [
+        "https://zh.minecraft.wiki/w/命令/data",
+        "https://zh.minecraft.wiki/w/数据包",
+        "https://zh.minecraft.wiki/w/Java版1.15"
+      ]
+    },
+    {
+      "id": "seg-1.16",
+      "title": "命令集扩充与数据包加载机制改变",
+      "anchorVersion": "1.16",
+      "anchorType": "release",
+      "anchorLabel": "20w22a / Java版1.16",
+      "date": "2020-06-23",
+      "change": "1.16 继续扩充命令：20w06a 加入 /locatebiome，20w17a 加入 /attribute；数据包在 20w22a 改用失败即回退的加载机制（加载失败不套用修改、加入 --safeMode），pre1 起可在创建世界前加载数据包并支持自定义维度，20w28a 起可配置自定义世界生成。",
+      "effects": [
+        {"capability": "command", "from": "ok", "to": "ok", "note": "加入 /locatebiome 与 /attribute"},
+        {"capability": "nbt", "from": "ok", "to": "ok", "note": "/attribute 引入属性修饰符，命令读写的 NBT 结构继续扩展"}
+      ],
+      "subVersions": [
+        {"version": "20w06a", "label": "20w06a", "date": "2020-02-05", "note": "加入 /locatebiome"},
+        {"version": "20w17a", "label": "20w17a", "date": "2020-04-22", "note": "加入 /attribute"},
+        {"version": "20w22a", "label": "20w22a", "date": "2020-05-29", "note": "数据包加载失败回退机制"},
+        {"version": "1.16", "label": "1.16", "date": "2020-06-23", "note": "正式版"}
+      ],
+      "sources": [
+        "https://zh.minecraft.wiki/w/命令",
+        "https://zh.minecraft.wiki/w/数据包",
+        "https://zh.minecraft.wiki/w/Java版1.16"
+      ]
+    },
+    {
+      "id": "seg-1.19",
+      "title": "聊天消息签名加密与子命令重组",
+      "anchorVersion": "1.19",
+      "anchorType": "release",
+      "anchorLabel": "22w11a / 22w17a / Java版1.19",
+      "date": "2022-06-07",
+      "change": "22w17a 起聊天消息加密签名（通过 /say、/msg、/teammsg、/me 发出的聊天信息同样加密），22w19a 起服务器可启用聊天预览；数据包 22w11a 在 pack.mcmeta 加入 filter 字段并把数据包版本提到 10、22w18a 加入 chat_type 文件夹；命令侧 22w18a 移除 /placefeature 由 /place feature 继承，22w19a 把 /locatebiome 并入 /locate biome。",
+      "effects": [
+        {"capability": "chatchat", "from": "ok", "to": "degraded", "note": "聊天与指令链路加入签名/预览（1.19.1 又加入聊天举报），外部程序直接向聊天栏注入指令不再等价于客户端正常输入"},
+        {"capability": "command", "from": "ok", "to": "ok", "note": "子命令重组：/placefeature→/place feature、/locatebiome→/locate biome，旧命令名被移除"},
+        {"capability": "nbt", "from": "ok", "to": "ok", "note": "NBT 编辑命令本身未变；数据包元数据新增 filter 字段"}
+      ],
+      "subVersions": [
+        {"version": "22w11a", "label": "22w11a", "date": "2022-03-16", "note": "pack.mcmeta 加入 filter，数据包版本 10"},
+        {"version": "22w17a", "label": "22w17a", "date": "2022-04-27", "note": "聊天信息加密"},
+        {"version": "1.19", "label": "1.19", "date": "2022-06-07", "note": "正式版"}
+      ],
+      "sources": [
+        "https://zh.minecraft.wiki/w/聊天",
+        "https://zh.minecraft.wiki/w/命令",
+        "https://zh.minecraft.wiki/w/数据包",
+        "https://zh.minecraft.wiki/w/Java版1.19"
+      ]
+    },
+    {
+      "id": "seg-1.19.4",
+      "title": "/ride、/damage 与 /data 的 string 数据源",
+      "anchorVersion": "1.19.4",
+      "anchorType": "release",
+      "anchorLabel": "23w03a / 23w06a / Java版1.19.4",
+      "date": "2023-03-14",
+      "change": "23w03a 加入 /ride 并为 /data 加入 string 数据源（可按字符区间取子串），23w06a 加入 /damage；数据包 23w06a 加入 damage_type 文件夹。",
+      "effects": [
+        {"capability": "nbt", "from": "ok", "to": "ok", "note": "/data 增加 string 数据源，可对字符串型 NBT 做区间读写"},
+        {"capability": "command", "from": "ok", "to": "ok", "note": "加入 /ride 与 /damage"}
+      ],
+      "subVersions": [
+        {"version": "23w03a", "label": "23w03a", "date": "2023-01-18", "note": "加入 /ride 与 /data 的 string 数据源"},
+        {"version": "23w06a", "label": "23w06a", "date": "2023-02-08", "note": "加入 /damage 与 damage_type 文件夹"},
+        {"version": "1.19.4", "label": "1.19.4", "date": "2023-03-14", "note": "正式版"}
+      ],
+      "sources": [
+        "https://zh.minecraft.wiki/w/命令",
+        "https://zh.minecraft.wiki/w/命令/data",
+        "https://zh.minecraft.wiki/w/数据包",
+        "https://zh.minecraft.wiki/w/Java版1.19.4"
+      ]
+    },
+    {
+      "id": "seg-1.20.2",
+      "title": "函数宏与数据包叠加目录",
+      "anchorVersion": "1.20.2",
+      "anchorType": "release",
+      "anchorLabel": "23w31a / Java版1.20.2",
+      "date": "2023-09-21",
+      "change": "23w31a 为函数加入宏：以 $ 开头的宏行可在运行时用 $(键) 替换，调用时通过 /function <name> with ... 传参，成为宏函数；同快照为数据包与资源包加入 overlays 叠加目录与多版本兼容（supported_formats），并加入 /random。",
+      "effects": [
+        {"capability": "mcfunction", "from": "ok", "to": "ok", "note": "加入宏与反斜杠续行；宏行在每次调用时才解析，运行开销高于预解析函数"},
+        {"capability": "command", "from": "ok", "to": "ok", "note": "加入 /random，/function 扩展出 with/实参语法"},
+        {"capability": "nbt", "from": "ok", "to": "ok", "note": "pack.mcmeta 增加 supported_formats/overlays，包元数据结构改变"}
+      ],
+      "subVersions": [
+        {"version": "23w31a", "label": "23w31a", "date": "2023-08-02", "note": "加入函数宏、/random、叠加目录支持"},
+        {"version": "1.20.2", "label": "1.20.2", "date": "2023-09-21", "note": "正式版"}
+      ],
+      "sources": [
+        "https://zh.minecraft.wiki/w/Java版函数",
+        "https://zh.minecraft.wiki/w/Java版1.20.2",
+        "https://zh.minecraft.wiki/w/数据包",
+        "https://zh.minecraft.wiki/w/命令"
+      ]
+    },
+    {
+      "id": "seg-1.20.3",
+      "title": "函数返回值语义重定义",
+      "anchorVersion": "1.20.3",
+      "anchorType": "release",
+      "anchorLabel": "23w41a / Java版1.20.3",
+      "date": "2023-12-05",
+      "change": "23w41a 让函数与 /function 命令适配新的 /return：函数只有在执行了 /return 时才有返回值，取消了 execute store ... run <函数名> 会把函数内所有命令都做存储的行为，并把 maxCommandChainLength 的计数改成按“操作数”计、加入 maxCommandForkCount 游戏规则；同版本重新加入 (if|unless) function；23w43a 加入 /tick。",
+      "effects": [
+        {"capability": "mcfunction", "from": "ok", "to": "degraded", "note": "返回值与存储语义改变，依赖旧“函数执行即返回命令数”行为的函数失效"},
+        {"capability": "command", "from": "ok", "to": "ok", "note": "加入 /tick，重新加入 (if|unless) function"}
+      ],
+      "subVersions": [
+        {"version": "23w41a", "label": "23w41a", "date": "2023-10-11", "note": "函数与 /function 适配 /return"},
+        {"version": "23w43a", "label": "23w43a", "date": "2023-10-25", "note": "加入 /tick"},
+        {"version": "1.20.3", "label": "1.20.3", "date": "2023-12-05", "note": "正式版（数据包版本 26）"}
+      ],
+      "sources": [
+        "https://zh.minecraft.wiki/w/Java版1.20.3",
+        "https://zh.minecraft.wiki/w/Java版函数",
+        "https://zh.minecraft.wiki/w/命令",
+        "https://zh.minecraft.wiki/w/数据包"
+      ]
+    },
+    {
+      "id": "seg-1.20.5",
+      "title": "物品组件取代物品 NBT 标签",
+      "anchorVersion": "1.20.5",
+      "anchorType": "release",
+      "anchorLabel": "24w09a / Java版1.20.5",
+      "date": "2024-04-23",
+      "change": "物品堆叠组件（数据组件）取代物品的 NBT 数据：命令中物品参数由 物品ID{NBT} 改为 物品ID[组件=值,...]，旧 {} 语法被 minecraft:custom_data 组件取代；/clear 的物品谓词改为按组件精确匹配并要求目标存在对应组件；实体槽位 item 被 contents 包含，实体子谓词 any 被删除，物品谓词改用 predicates 字段。",
+      "effects": [
+        {"capability": "nbt", "from": "ok", "to": "degraded", "note": "物品 NBT 标签被组件取代，旧数据只能放进 minecraft:custom_data 组件；方块与实体 NBT 仍由 /data 编辑"},
+        {"capability": "components", "from": "unsupported", "to": "ok", "note": "24w09a 加入数据组件，命令可写 id[component=value]，组件类型可由命令行自动补全"},
+        {"capability": "command", "from": "ok", "to": "degraded", "note": "/give、/item、/loot、/clear 语法更新，移除了物品的 {} NBT 语法；/execute 加入 items 条件子命令；/attribute 的 operation 取值改名（add→add_value 等）"},
+        {"capability": "mcfunction", "from": "ok", "to": "ok", "note": "24w06a（2024-02-07）起函数中命令的最大长度（含宏展开）不能超过 2,000,000 字符"}
+      ],
+      "subVersions": [
+        {"version": "24w06a", "label": "24w06a", "date": "2024-02-07", "note": "函数命令长度上限 2,000,000 字符"},
+        {"version": "24w09a", "label": "24w09a", "date": "2024-02-28", "note": "加入数据组件，物品参数改用方括号"},
+        {"version": "1.20.5", "label": "1.20.5", "date": "2024-04-23", "note": "正式版（数据包版本 41，资源包 32）"}
+      ],
+      "sources": [
+        "https://zh.minecraft.wiki/w/Java版1.20.5",
+        "https://zh.minecraft.wiki/w/数据组件",
+        "https://zh.minecraft.wiki/w/命令/give",
+        "https://zh.minecraft.wiki/w/Java版函数",
+        "https://zh.minecraft.wiki/w/Java版24w09a"
+      ]
+    },
+    {
+      "id": "seg-1.21",
+      "title": "数据包子文件夹统一改为单数",
+      "anchorVersion": "1.21",
+      "anchorType": "release",
+      "anchorLabel": "24w21a / Java版1.21",
+      "date": "2024-06-13",
+      "change": "24w21a 把数据包子文件夹重命名为单数形式：structures→structure、advancements→advancement、recipes→recipe、loot_tables→loot_table、predicates→predicate、item_modifiers→item_modifier、functions→function，函数标签目录 tags/functions 同步改为 tags/function，并加入 jukebox_song 文件夹；24w18a 加入 enchantment、enchantment_provider、painting_variant 文件夹；24w19a 起 custom_data 组件可用 SNBT 字符串描述类型。",
+      "effects": [
+        {"capability": "mcfunction", "from": "ok", "to": "degraded", "note": "函数目录由 data/<命名空间>/functions/ 改为 data/<命名空间>/function/，旧数据包必须改写路径"},
+        {"capability": "nbt", "from": "ok", "to": "ok", "note": "custom_data 组件、set_custom_data 战利品表函数与组件谓词 custom_data 可用 SNBT 字符串在 JSON 中保存参数类型信息"},
+        {"capability": "components", "from": "ok", "to": "ok", "note": "24w21a 加入 jukebox_playable 组件"}
+      ],
+      "subVersions": [
+        {"version": "24w18a", "label": "24w18a", "date": "2024-05-03", "note": "加入 enchantment 等文件夹"},
+        {"version": "24w19a", "label": "24w19a", "date": "2024-05-10", "note": "custom_data 支持 SNBT 字符串"},
+        {"version": "24w21a", "label": "24w21a", "date": "2024-05-22", "note": "数据包子文件夹改为单数"},
+        {"version": "1.21", "label": "1.21", "date": "2024-06-13", "note": "正式版（数据包版本 48，资源包 34）"}
+      ],
+      "sources": [
+        "https://zh.minecraft.wiki/w/Java版函数",
+        "https://zh.minecraft.wiki/w/数据包",
+        "https://zh.minecraft.wiki/w/数据组件",
+        "https://zh.minecraft.wiki/w/Java版1.21"
+      ]
+    },
+    {
+      "id": "seg-1.21.2",
+      "title": "item_model 组件与 /rotate",
+      "anchorVersion": "1.21.2",
+      "anchorType": "release",
+      "anchorLabel": "24w33a / 24w40a / Java版1.21.2",
+      "date": "2024-10-22",
+      "change": "24w33a 加入 item_model 物品堆叠组件（指向 assets/<命名空间>/models/item/<id> 的模型，是所有物品的默认组件之一）以及 enchantable、repairable 组件与 instrument 文件夹，24w34a 加入 consumable、use_cooldown、use_remainder，24w36a 加入 equippable、item_model、tooltip_style 等组件；24w40a 加入 /rotate 命令与 block_crumble、trail 粒子。",
+      "effects": [
+        {"capability": "components", "from": "ok", "to": "ok", "note": "item_model 等大批组件加入，物品行为进一步由组件描述；装备模型定义位于 assets/<命名空间>/models/equipment/"},
+        {"capability": "command", "from": "ok", "to": "ok", "note": "24w40a 加入 /rotate"},
+        {"capability": "particlePicker", "from": "ok", "to": "ok", "note": "加入 block_crumble、trail 粒子；粒子选项中的颜色字段在 pre1 起标准化为浮点向量或整数"}
+      ],
+      "subVersions": [
+        {"version": "24w33a", "label": "24w33a", "date": "2024-08-15", "note": "加入 item_model、enchantable、repairable 组件"},
+        {"version": "24w40a", "label": "24w40a", "date": "2024-10-02", "note": "加入 /rotate 与新粒子"},
+        {"version": "1.21.2", "label": "1.21.2", "date": "2024-10-22", "note": "正式版（数据包版本 57，资源包 42）"}
+      ],
+      "sources": [
+        "https://zh.minecraft.wiki/w/Java版1.21.2",
+        "https://zh.minecraft.wiki/w/数据组件",
+        "https://zh.minecraft.wiki/w/命令",
+        "https://zh.minecraft.wiki/w/Java版粒子",
+        "https://zh.minecraft.wiki/w/粒子数据格式"
+      ]
+    },
+    {
+      "id": "seg-1.21.4",
+      "title": "物品模型定义改为 assets/<ns>/items/*.json",
+      "anchorVersion": "1.21.4",
+      "anchorType": "release",
+      "anchorLabel": "24w45a / Java版1.21.4",
+      "date": "2024-12-03",
+      "change": "24w45a 引入新的物品模型定义格式：选用的物品模型基于 item_model 物品堆叠组件（如 item_model=foo:bar 存于 assets/foo/items/bar.json），models 文件夹不再受硬编码路径约束，只被 items 或 blockstates 中的定义调用；新增 condition、select、range_dispatch 等模型类型，其中 range_dispatch 取代旧方块模型的 overrides 段落；同快照把 custom_model_data 组件扩展为带 colors/flags/strings/floats 列表的结构。",
+      "effects": [
+        {"capability": "components", "from": "ok", "to": "degraded", "note": "custom_model_data 组件格式重写为结构化列表，旧格式失效；set_custom_model_data 修饰器字段同步变化"},
+        {"capability": "itemPicker", "from": "ok", "to": "ok", "note": "物品的视觉定义成为资源包中的数据驱动文件（assets/<命名空间>/items/<id>.json），编辑器需同时理解注册表 ID 与模型映射"},
+        {"capability": "commandblock", "from": "ok", "to": "ok", "note": "24w44a 加入命令方块的安全保护提示"}
+      ],
+      "subVersions": [
+        {"version": "24w44a", "label": "24w44a", "date": "2024-10-30", "note": "加入命令方块安全保护提示与 pale_oak_leaves 粒子"},
+        {"version": "24w45a", "label": "24w45a", "date": "2024-11-06", "note": "引入物品模型定义格式，改写 custom_model_data"},
+        {"version": "1.21.4", "label": "1.21.4", "date": "2024-12-03", "note": "正式版（数据包版本 61，资源包 46）"}
+      ],
+      "sources": [
+        "https://zh.minecraft.wiki/w/Java版1.21.4",
+        "https://zh.minecraft.wiki/w/Java版24w45a",
+        "https://zh.minecraft.wiki/w/数据组件"
+      ]
+    },
+    {
+      "id": "seg-1.21.5",
+      "title": "SNBT 语法大改与组件扩充",
+      "anchorVersion": "1.21.5",
+      "anchorType": "release",
+      "anchorLabel": "25w04a / 25w09a / 25w10a / Java版1.21.5",
+      "date": "2025-03-25",
+      "change": "SNBT 语法在 1.21.5 期间大幅扩展：25w04a 起列表接受类型不同的元素（异构列表），25w09a 起整型可指定有符号/无符号、加入 0x/0b 前缀与下划线分隔符，25w10a 加入 bool()、uuid() 操作语法并扩展转义（反斜杠 x、u、U、N{名称} 等）；游戏中所有带 NBT 数据的接口（SNBT 表示、/data）同步支持异构列表，数组仍严格限制；25w02a 起 tool 组件加入 can_destroy_blocks_in_creative。",
+      "effects": [
+        {"capability": "nbt", "from": "ok", "to": "ok", "note": "SNBT 解析规则扩展且更严格：整数不再允许以 0 开头（避免误读八进制），浮点支持 E 计数法，溢出到无穷的浮点被拒绝"},
+        {"capability": "components", "from": "ok", "to": "ok", "note": "25w02a tool 组件新字段、25w03a weapon.damage_per_attack 改名、25w04a disable_blocking_for_seconds 等"},
+        {"capability": "command", "from": "ok", "to": "ok", "note": "25w03a 起 /test 命令在游戏内可用"}
+      ],
+      "subVersions": [
+        {"version": "25w02a", "label": "25w02a", "date": "2025-01-08", "note": "tool 组件新字段；数据包版本 62"},
+        {"version": "25w03a", "label": "25w03a", "date": "2025-01-15", "note": "/test 命令在游戏内可用"},
+        {"version": "25w04a", "label": "25w04a", "date": "2025-01-22", "note": "SNBT 列表接受不同类型元素"},
+        {"version": "25w09a", "label": "25w09a", "date": "2025-02-26", "note": "整型可指定有符号/无符号"},
+        {"version": "25w10a", "label": "25w10a", "date": "2025-03-05", "note": "加入 bool()、uuid() 操作语法"},
+        {"version": "1.21.5", "label": "1.21.5", "date": "2025-03-25", "note": "正式版（数据包版本 71，资源包 55）"}
+      ],
+      "sources": [
+        "https://zh.minecraft.wiki/w/Java版1.21.5",
+        "https://zh.minecraft.wiki/w/SNBT格式",
+        "https://zh.minecraft.wiki/w/数据组件",
+        "https://zh.minecraft.wiki/w/命令"
+      ]
+    },
+    {
+      "id": "seg-1.21.6",
+      "title": "/version、/dialog 与 dialog 文件夹",
+      "anchorVersion": "1.21.6",
+      "anchorType": "release",
+      "anchorLabel": "25w15a / 25w20a / Java版1.21.6",
+      "date": "2025-06-17",
+      "change": "25w15a 加入 /version 命令与实验性 /waypoint（25w17a 起不再属于实验性内容），25w20a 加入 /dialog 命令与数据包 dialog 文件夹；同版本资源包把部分生物声音文件由 entity 移到 mob 文件夹。",
+      "effects": [
+        {"capability": "command", "from": "ok", "to": "ok", "note": "加入 /version、/dialog、/waypoint"},
+        {"capability": "components", "from": "ok", "to": "ok", "note": "25w15a 为 attribute_modifiers 的属性修饰符加入 display 字段，25w20a 为 equippable 加入 can_be_sheared/shearing_sound"},
+        {"capability": "nbt", "from": "ok", "to": "ok", "note": "数据包版本升到 80；对话框成为新的数据驱动文件类型"}
+      ],
+      "subVersions": [
+        {"version": "25w15a", "label": "25w15a", "date": "2025-04-08", "note": "加入 /version 与 /waypoint"},
+        {"version": "25w20a", "label": "25w20a", "date": "2025-05-13", "note": "加入 /dialog 与 dialog 文件夹"},
+        {"version": "1.21.6", "label": "1.21.6", "date": "2025-06-17", "note": "正式版（数据包版本 80，资源包 63）"}
+      ],
+      "sources": [
+        "https://zh.minecraft.wiki/w/命令",
+        "https://zh.minecraft.wiki/w/数据包",
+        "https://zh.minecraft.wiki/w/数据组件",
+        "https://zh.minecraft.wiki/w/Java版1.21.6",
+        "https://zh.minecraft.wiki/w/资源包"
+      ]
+    },
+    {
+      "id": "seg-1.21.9",
+      "title": "pack.mcmeta 重做、包版本引入次要版本号",
+      "anchorVersion": "1.21.9",
+      "anchorType": "release",
+      "anchorLabel": "25w31a / Java版1.21.9",
+      "date": "2025-09-30",
+      "change": "25w31a 为数据包与资源包版本号引入次要版本概念（如数据包 82.0、资源包 65.0）并重做 pack.mcmeta：移除 supported_formats，pack_format 变为可选，改用具必选的 min_format/max_format（标准写法为两整数数组，如 [74, 1]），overlays 中的 formats 同样被 entries 内的 min_format/max_format 取代；同快照起 entity_data 与 block_entity_data 组件不再支持字符串格式定义（25w45a 又恢复支持）。",
+      "effects": [
+        {"capability": "nbt", "from": "ok", "to": "ok", "note": "包元数据不再是单个 pack_format 整数，编辑器读写 pack.mcmeta 时需要新的版本字段模型"},
+        {"capability": "components", "from": "ok", "to": "degraded", "note": "entity_data/block_entity_data 组件的字符串写法在 25w31a 失效，25w45a 起恢复"},
+        {"capability": "command", "from": "ok", "to": "ok", "note": "25w34a 加入 /fetchprofile"},
+        {"capability": "commandblock", "from": "ok", "to": "partial", "note": "25w35a 加入游戏规则 enableCommandBlocks，可整体禁用命令方块执行"},
+        {"capability": "particlePicker", "from": "ok", "to": "ok", "note": "25w36a 起 dragon_breath、instant_effect、effect 可选择带粒子选项"}
+      ],
+      "subVersions": [
+        {"version": "25w31a", "label": "25w31a", "date": "2025-07-29", "note": "包版本引入次要版本，pack.mcmeta 格式重做"},
+        {"version": "25w33a", "label": "25w33a", "date": "2025-08-12", "note": "可在下界传送门中打开聊天；加入 copper_fire_flame 粒子"},
+        {"version": "25w34a", "label": "25w34a", "date": "2025-08-19", "note": "加入 /fetchprofile；profile 组件解析行为改变"},
+        {"version": "25w35a", "label": "25w35a", "date": "2025-08-26", "note": "加入游戏规则 enableCommandBlocks"},
+        {"version": "25w36a", "label": "25w36a", "date": "2025-09-02", "note": "粒子选项与纹理调整"},
+        {"version": "1.21.9", "label": "1.21.9", "date": "2025-09-30", "note": "正式版（数据包版本 88.0，资源包 69.0）"}
+      ],
+      "sources": [
+        "https://zh.minecraft.wiki/w/Java版1.21.9",
+        "https://zh.minecraft.wiki/w/Java版25w31a",
+        "https://zh.minecraft.wiki/w/数据组件",
+        "https://zh.minecraft.wiki/w/命令",
+        "https://zh.minecraft.wiki/w/命令方块",
+        "https://zh.minecraft.wiki/w/数据包",
+        "https://zh.minecraft.wiki/w/资源包",
+        "https://zh.minecraft.wiki/w/聊天"
+      ]
+    },
+    {
+      "id": "seg-26.1",
+      "title": "新版本号体系（26.x）首个正式版",
+      "anchorVersion": "26.1",
+      "anchorType": "release",
+      "anchorLabel": "26.1-snapshot-1 / Java版26.1",
+      "date": "2026-03-24",
+      "change": "26.1 是首个采用新版本格式（26.1 / 26.2 / 26.3 …，于 2025-12-02 公布）的正式版，并彻底移除代码混淆，最低 Java 版本提高到 25；数据包版本号改为 101.1、资源包 84.0；数据包新增 villager_trade、trade_set（snapshot-1）与 world_clock（snapshot-3）文件夹，并加入 /swing（snapshot-1）。",
+      "effects": [
+        {"capability": "command", "from": "ok", "to": "ok", "note": "snapshot-1 加入 /swing；snapshot-5 起 /give 指定无效物品改为命令执行失败而非无法解析"},
+        {"capability": "components", "from": "ok", "to": "ok", "note": "snapshot-1 加入 additional_trade_cost，snapshot-3 放宽容器类组件的物品字符串写法，snapshot-5 加入 dye，snapshot-7 加入 cat/chicken/cow/pig 的 sound_variant 组件"},
+        {"capability": "chatchat", "from": "degraded", "to": "ok", "note": "snapshot-7 起即使聊天被聊天设置限制也可随时打开聊天屏幕（发送/接收与发送命令仍受限制）"},
+        {"capability": "nbt", "from": "ok", "to": "ok", "note": "snapshot-5 起由 nbt 类型文本组件输出的 SNBT 也可进行语法高亮"}
+      ],
+      "subVersions": [
+        {"version": "26.1-snapshot-1", "label": "26.1-snapshot-1", "date": "2025-12-16", "note": "加入 /swing 与 villager_trade、trade_set 文件夹"},
+        {"version": "26.1-snapshot-3", "label": "26.1-snapshot-3", "date": "2026-01-13", "note": "加入 world_clock 文件夹；物品粒子选项接受物品数量"},
+        {"version": "26.1-snapshot-7", "label": "26.1-snapshot-7", "date": "2026-02-11", "note": "聊天屏幕可随时打开；声音变体文件夹"},
+        {"version": "26.1-snapshot-10", "label": "26.1-snapshot-10", "date": "2026-02-24", "note": "加入 pause_mob_growth、reset_mob_growth 粒子"},
+        {"version": "26.1", "label": "26.1", "date": "2026-03-24", "note": "正式版（数据包版本 101.1，资源包 84.0）"}
+      ],
+      "sources": [
+        "https://zh.minecraft.wiki/w/Java版26.1",
+        "https://zh.minecraft.wiki/w/命令",
+        "https://zh.minecraft.wiki/w/数据组件",
+        "https://zh.minecraft.wiki/w/数据包",
+        "https://zh.minecraft.wiki/w/聊天",
+        "https://zh.minecraft.wiki/w/Java版粒子",
+        "https://zh.minecraft.wiki/w/命令/give",
+        "https://zh.minecraft.wiki/w/SNBT格式"
+      ]
+    },
+    {
+      "id": "seg-26.2",
+      "title": "26.2 技术性更改",
+      "anchorVersion": "26.2",
+      "anchorType": "release",
+      "anchorLabel": "26.2-snapshot-1 / Java版26.2",
+      "date": "2026-06-16",
+      "change": "26.2 数据包版本号改为 107.1、资源包 88.0；snapshot-1 加入 sulfur_cube_content 组件与 sulfur_cube_archetype 文件夹，以及 sulfur_cube_goo、sulfur_bubbles、noxious_gas、noxious_gas_cloud 粒子；snapshot-5 加入 geyser 系列粒子；snapshot-8 加入 /unpublish 命令。",
+      "effects": [
+        {"capability": "components", "from": "ok", "to": "ok", "note": "snapshot-1 加入 sulfur_cube_content；pre-3/pre-4 调整 charged_projectiles 的物品上限（64→1024）"},
+        {"capability": "command", "from": "ok", "to": "ok", "note": "snapshot-8 加入 /unpublish"},
+        {"capability": "particlePicker", "from": "ok", "to": "ok", "note": "snapshot-1 与 snapshot-5 加入硫黄与间歇泉系列粒子"}
+      ],
+      "subVersions": [
+        {"version": "26.2-snapshot-1", "label": "26.2-snapshot-1", "date": "2026-04-07", "note": "sulfur_cube_content 组件与硫黄粒子"},
+        {"version": "26.2-snapshot-5", "label": "26.2-snapshot-5", "date": "2026-04-28", "note": "geyser 系列粒子"},
+        {"version": "26.2-snapshot-8", "label": "26.2-snapshot-8", "date": "2026-05-19", "note": "加入 /unpublish"},
+        {"version": "26.2", "label": "26.2", "date": "2026-06-16", "note": "正式版（数据包版本 107.1，资源包 88.0）"}
+      ],
+      "sources": [
+        "https://zh.minecraft.wiki/w/Java版26.2",
+        "https://zh.minecraft.wiki/w/数据组件",
+        "https://zh.minecraft.wiki/w/命令",
+        "https://zh.minecraft.wiki/w/Java版粒子",
+        "https://zh.minecraft.wiki/w/数据包",
+        "https://zh.minecraft.wiki/w/粒子数据格式"
+      ]
+    },
+    {
+      "id": "seg-26.3",
+      "title": "槽位源重构与 /compute",
+      "anchorVersion": "26.3",
+      "anchorType": "release",
+      "anchorLabel": "26.3-snapshot-1 / Java版26.3",
+      "date": "2026-09-15",
+      "change": "26.3 把命令中的“槽位”参数重构为槽位源（slot_source，用战利品上下文 minecraft:command_slot_source 解析），/item 的 replace 语义改写并新增 fill/override 子命令，/execute 加入 slots 条件子命令；snapshot-3 加入 /posteffect，snapshot-10 加入 /compute 并为 /data modify 加入 compute 数据源（pre-1 又移除其中表示整数上下文的 integer 字面量）；数据包把 worldgen/configured_feature 改名为 worldgen/feature、worldgen/configured_carver 改名为 worldgen/carver。",
+      "effects": [
+        {"capability": "command", "from": "ok", "to": "degraded", "note": "槽位参数改为槽位源，/item 的 replace 语义改变并新增 fill/override；旧字符串槽位写法仍作为 minecraft:slot_range 的简写保留"},
+        {"capability": "nbt", "from": "ok", "to": "ok", "note": "/data modify 新增 compute 数据源，可用数值提供器的求值结果写入 NBT"},
+        {"capability": "components", "from": "ok", "to": "ok", "note": "snapshot-1 加入 provides_pottery_pattern，snapshot-2 加入 block_transformer，snapshot-3 加入 compostable，snapshot-4 加入 brewing_fuel、cooking_fuel、waxed 等"}
+      ],
+      "subVersions": [
+        {"version": "26.3-snapshot-1", "label": "26.3-snapshot-1", "date": "2026-06-23", "note": "槽位源重构；注册表文件夹改名"},
+        {"version": "26.3-snapshot-3", "label": "26.3-snapshot-3", "date": "2026-07-07", "note": "加入 /posteffect 与 number_provider 文件夹"},
+        {"version": "26.3-snapshot-10", "label": "26.3-snapshot-10", "date": "2026-08-25", "note": "加入 /compute 与 /data modify 的 compute 数据源"},
+        {"version": "26.3", "label": "26.3", "date": "2026-09-15", "note": "正式版（该版本页面未给出包版本号变更）"}
+      ],
+      "sources": [
+        "https://zh.minecraft.wiki/w/Java版26.3",
+        "https://zh.minecraft.wiki/w/命令",
+        "https://zh.minecraft.wiki/w/命令/data",
+        "https://zh.minecraft.wiki/w/数据包",
+        "https://zh.minecraft.wiki/w/数据组件"
+      ]
+    },
+    {
+      "id": "seg-26.4-snapshot-1",
+      "title": "26.4 首个快照的技术性更改",
+      "anchorVersion": "26.4-snapshot-1",
+      "anchorType": "snapshot",
+      "anchorLabel": "Java版26.4-snapshot-1",
+      "date": "2026-09-22",
+      "change": "26.4-snapshot-1 进行了一些技术性更改并把 Vulkan 重新设为默认图形 API：数据包版本号改为 122.0、资源包 98.0；NBT 格式中浮点数类型的字段向整数类型转换时改为总是向下取整；同时调整了多个世界生成定义（地物放置器、放置修饰器、噪声设置、材料条件）与着色器定义。",
+      "effects": [
+        {"capability": "nbt", "from": "ok", "to": "ok", "note": "浮点→整数转换改为总是向下取整，编辑器做类型转换时需对齐"},
+        {"capability": "particlePicker", "from": "ok", "to": "ok", "note": "26.4-snapshot-3 加入 freezing 粒子"}
+      ],
+      "subVersions": [
+        {"version": "26.4-snapshot-1", "label": "26.4-snapshot-1", "date": "2026-09-22", "note": "26.4 首个快照；数据包 122.0、资源包 98.0"},
+        {"version": "26.4-snapshot-3", "label": "26.4-snapshot-3", "date": "2026-10-06", "note": "加入 freezing 粒子"}
+      ],
+      "sources": [
+        "https://zh.minecraft.wiki/w/Java版26.4-snapshot-1",
+        "https://zh.minecraft.wiki/w/Java版26.4-snapshot-3",
+        "https://zh.minecraft.wiki/w/Java版粒子"
+      ]
+    }
+  ],
+  "capabilities": [
+    {
+      "key": "nbt",
+      "name": "编辑NBT",
+      "since": "1.7.2",
+      "note": "分三步：13w36a（2013-09-05）为 /give 加入 dataTag，命令中首次能写物品 NBT（仅物品）；1.8 的 /blockdata（14w02a，2014-01-09）与 /entitydata（14w32b，2014-08-07）补齐方块与实体 NBT；1.13 用 /data 取代两者（17w45b 加入 /data、移除 /entitydata，17w47a 移除 /blockdata），1.14 加入 /data modify、1.15 加入 storage、1.19.4 加入 string 数据源。1.20.5 是最大断点：物品 NBT 标签被物品堆叠组件取代，旧数据只能放进 minecraft:custom_data 组件；1.21.5 又重做了 SNBT 解析规则。"
+    },
+    {
+      "key": "components",
+      "name": "编辑物品组件",
+      "since": "1.20.5",
+      "note": "24w09a（2024-02-28）加入数据组件并在命令中用 物品ID[组件=值,...] 取代 {NBT}；1.21 起 custom_data 可用 SNBT 字符串、加入 jukebox_playable；1.21.2 加入 item_model 等大批组件；1.21.4 的 24w45a 重写 custom_model_data；1.21.9 的 25w31a 起 entity_data/block_entity_data 不再接受字符串（25w45a 恢复）；26.x 持续新增组件。"
+    },
+    {
+      "key": "command",
+      "name": "编辑命令",
+      "since": "1.3.1",
+      "note": "服务端控制台命令自 Classic 服务器起即存在，单人游戏要到 12w16a（2012-04-19，1.3.1）加入作弊模式后才能输入；此后 1.13 的 17w45a（2017-11-08）用 Brigadier 重写命令解析（大小写规则、语法、报错、/execute 全面改变，多个命令被移除）是最大断点；1.20.5 改动物品参数语法，26.3 把槽位参数重构为槽位源。"
+    },
+    {
+      "key": "mcfunction",
+      "name": "编辑.mcfunction",
+      "since": "1.12",
+      "note": "1.12 pre1 加入函数（先为 data/<命名空间>/<文件名>.txt），pre3 改扩展名为 .mcfunction 并禁止行首斜杠、只允许 # 注释，pre1 加入 /function；1.13 的 17w43a（2017-10-25）移入数据包 data/<命名空间>/functions/（复数），17w45a 起加载时完全解析缓存，17w49b 起支持函数标签与 #tick；1.20.2 的 23w31a 加入宏；1.20.3 的 23w41a 重定义返回值语义；1.21 的 24w21a（2024-05-22）把 functions 目录改名为单数 function（tags/functions→tags/function）。注意：data/<ns>/function/ 是 1.21 之后的路径，1.13–1.20.4 使用复数 functions。"
+    },
+    {
+      "key": "commandblock",
+      "name": "编辑命令方块",
+      "since": "1.4.2",
+      "note": "12w32a（2012-08-09，1.4.2）加入命令方块；1.9 的 15w34a（2015-08-19）加入连锁型与循环型，15w34b 加入条件制约模式；1.11 的 16w32a（2016-08-10）把方块实体 ID 由 Control 改为 command_block；1.13 扁平化取消 137/210/211 数字 ID；1.19.3 的 22w44a 起所有种类均可从创造模式物品栏获取；1.21.9 的 25w35a 加入 enableCommandBlocks 游戏规则。"
+    },
+    {
+      "key": "chatchat",
+      "name": "编辑聊天框指令",
+      "since": "Classic 0.0.16a",
+      "note": "聊天系统在 Classic 0.0.15a（2009-05-31）加入，命令系统在 Classic 0.0.16a（2009-06-07）加入，聊天框成为输入指令的入口；12w16a（2012-04-19，1.3.1）起单人游戏也能聊天与输入命令；1.19 的 22w17a（2022-04-27）起聊天消息加密签名，1.19.1 加入聊天举报，外部注入不再等价于客户端正常输入；26.1 的 snapshot-7 起可随时打开聊天屏幕。"
+    },
+    {
+      "key": "itemPicker",
+      "name": "物品选择器",
+      "since": "1.13",
+      "note": "1.13 扁平化（17w47a，2017-11-22）后方块与物品全部改用命名空间 ID，数字 ID 与 metadata 限制“已经完全消失”，可完整枚举；此前（1.8 的 14w03b 起物品参数不再接受数字 ID）只能靠名称 ID 加数据值拼装。1.20.5 起物品行为由组件描述、1.21.4 起物品视觉由 assets/<命名空间>/items/<id>.json 数据驱动，选择器需同时呈现注册表 ID 与模型映射。"
+    },
+    {
+      "key": "entityPicker",
+      "name": "实体选择器",
+      "since": "1.13",
+      "note": "1.11 的 16w32a（2016-08-10）先把实体 ID 改为蛇形小写并允许 minecraft: 前缀，同时拆分 horse/skeleton/zombie/guardian 等 ID（旧 camelCase ID 失效，是第一个断点）；1.13 扁平化起实体 ID 统一为命名空间 ID 且表结构稳定，可完整枚举。"
+    },
+    {
+      "key": "particlePicker",
+      "name": "粒子选择器",
+      "since": "1.13",
+      "note": "1.13 的 17w47a（2017-11-22）把粒子 ID 改为命名空间+小写，32 种被重命名，blockcrack/blockdust 合并为 block、explode/snowshovel 合并为 poof；1.14 的 19w06a（2019-02-06）把粒子纹理拆成逐帧文件、19w09a（2019-02-27）起资源包可用 assets/minecraft/particles/<粒子类型ID>.json 定义该粒子类型可用的纹理。关键限制：资源包只能改纹理，不能新增粒子类型，粒子 ID 列表本身始终硬编码于游戏内，并非数据驱动注册表。"
+    }
+  ]
+}

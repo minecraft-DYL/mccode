@@ -1,0 +1,11 @@
+{{Development versions}}
+
+[[de:Versionen/Vollversion 26/Entwicklung]]
+[[en:Java Edition 26.1/Development versions]]
+[[es:Java Edition 26.1/Versiones de desarrollo]]
+[[fr:Édition Java 26.1/Versions de développement]]
+[[it:Java Edition 26.1/Versioni di sviluppo]]
+[[ja:Java Edition 26.1/開発版]]
+[[lzh:爪哇版二六點一/開發版]]
+[[pt:Edição Java 26.1/Versões de desenvolvimento]]
+[[ru:26.1 (Java Edition)/Предварительные сборки]]

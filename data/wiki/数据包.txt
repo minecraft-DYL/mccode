@@ -1,0 +1,263 @@
+{{redirect|datapack|控制数据包的加载和卸载的命令|命令/datapack}}
+{{exclusive|java}}
+{{relevant tutorial|制作数据包|安装数据包}}
+'''数据包（Data Pack）'''为玩家自定义Minecraft的游戏内容提供了更多新方法，包括但不限于配置[[进度]]、[[配方]]、[[战利品表]]、[[魔咒]]、[[伤害类型]]、生物变种和[[世界生成]]等<!--避免无限列举-->。对数据包的修改并不等于修改了包含相同逻辑部分的游戏代码。
+
+== 使用数据包 ==
+数据包是可被添加到{{filepath|<''[[Java版存档格式|存档根目录]]''>/datapacks/}}目录下的文件夹或[[wzh:ZIP格式|<code>.zip</code>压缩包]]。
+
+在“创建新世界”页面中选择数据包将会缓存至{{filepath|[https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/File.html#createTempFile(java.lang.String,java.lang.String,java.io.File) ''Java临时文件目录'']/mcworld-[19~20位数字]}}目录下。
+
+=== 添加数据包 ===
+{{filetr|NewWorld More.png|thumb|在创建新世界界面中添加数据包}}
+{{Filetr|Datapack selection.png|thumb|默认的数据包配置}}
+在创建世界前，玩家可以在[[创建新的世界]]屏幕的“更多”选项卡中配置数据包。与配置[[资源包]]的界面类似，玩家可以自由选择数据包的加载顺序和启用情况，并可以搜索数据包。
+
+=== 加载数据包 ===
+玩家每次加载存档时游戏都会尝试加载一次数据包。
+
+在正在运行的游戏存档中，可以使用命令{{cmd|reload}}来重新加载数据包。
+* 数据包中的进度、配方、函数、战利品表、标签、结构模板、槽位源、数值提供器、谓词和物品修饰器目录的文件会被重新加载。
+* 对于剩余数据包目录的文件，例如世界生成、魔咒、盔甲纹饰和唱片机曲目等，游戏仅会在服务端启动时加载一次，也即必须重新进入存档时游戏才会重新加载这些文件，命令{{cmd|reload|link=none}}无法重新加载。<ref>{{bug|MC-187938|||Invalid}}</ref><ref>{{bug|MC-260446|||Invalid}}</ref><ref>{{bug|MC-260452|||Invalid}}</ref><ref>{{bug|MC-272540|||WAI}}</ref><ref>{{bug|MC-273807|||Invalid}}</ref>
+
+不论是哪种加载方式，只有有效的数据包才会被加载。这要求数据包：
+* [[#pack.mcmeta|数据包元数据]]被游戏正确识别。
+* 数据包中的任何JSON文件均无语法错误且可通过有效性判断。
+** 若有无法解析的JSON文件，则会在进入存档时出现“安全错误”提醒，或在{{cmd|reload|link=none}}时中断重载并使用原有数据。想要继续必须移除数据包或修复错误。
+** 有语法错误或无法解析的[[Java版函数|函数]]或[[结构模板]]文件不会导致数据包失效，但出错的文件将不会出现。
+
+'''加载顺序'''
+
+在创建存档之前，配置数据包的界面中的数据包顺序就是游戏加载存档时使用的顺序。
+
+在存档被创建后，玩家可以使用命令{{cmd|datapack}}来获取或调整数据包的加载顺序。数据包加载顺序存储在存档的{{filename|[[level.dat]]}}的{{nbt|compound|DataPacks}}标签内。
+
+'''禁用数据包'''
+* 在已经载入的世界中，玩家可以使用命令{{cmd|datapack disable}}来手动禁用一个数据包。执行成功后，游戏会自动重新加载一次数据包。
+
+'''启用数据包'''
+* 在已经载入的世界中，玩家可以使用命令{{cmd|datapack enable}}来手动启用一个已经被禁用了的数据包。执行成功后，游戏会自动重新加载一次数据包。
+
+=== 实验性设置 ===
+{{filetr|World Selection Experimental Warning.png|thumb|实验性设置警告屏幕}}
+{{Distinguish|实验性内容|section=1}}
+一些数据包内容被游戏标记为实验性，如果存档启用了这些数据包，则玩家在尝试加载存档时会弹出实验性设置警告屏幕。
+
+目前会触发实验性设置的数据包内容都是不可热重载的内容，即必须通过重新加载存档来加载的内容。只要客户端接收到的数据包内容和原版数据包内容不同，就会触发实验性设置屏幕。
+
+== 目录结构 ==
+<div class="treeview">
+* {{File|archive}}/{{File|directory|<''数据包名称''>}}：根目录。
+** {{File|file|pack.mcmeta}}：[[#数据包元数据|数据包元数据]]。
+** {{File|file|pack.png}}：[[#数据包图标|数据包图标]]。
+** {{File|directory|data}}
+*** {{File|directory|<''命名空间''>}}
+**** {{File|directory|datapacks}}：[[实验性内容]]的内置数据包目录，仅限于游戏内部使用，无法由自定义数据包提供。
+**** {{File|directory|function}}：[[Java版函数|函数]]文件目录。
+**** {{File|directory|structure}}：[[结构模板]]文件目录。
+**** {{nbt condition|以下所有文件均为JSON文件：}}
+**** {{File|directory|advancement}}：[[进度定义格式|进度]]文件目录。
+**** {{File|directory|banner_pattern}}：[[旗帜图案定义格式|旗帜图案]]文件目录。
+**** {{File|directory|block_sound_set}}{{upcoming|je 26.4}}：[[方块音效集定义格式|方块音效集]]文件目录。
+**** {{File|directory|block_transformer}}：[[方块变换效果定义格式|方块变换效果]]文件目录。
+**** {{File|directory|cat_sound_variant}}：[[猫音效变种定义格式|猫音效变种]]文件目录。
+**** {{File|directory|cat_variant}}：[[猫变种定义格式|猫变种]]文件目录。
+**** {{File|directory|chat_type}}：[[聊天类型]]文件目录。
+**** {{File|directory|chicken_sound_variant}}：[[鸡音效变种定义格式|鸡音效变种]]文件目录。
+**** {{File|directory|chicken_variant}}：[[鸡变种定义格式|鸡变种]]文件目录。
+**** {{File|directory|context_float_provider}}：[[数值提供器|浮点数数值提供器]]文件目录。
+**** {{File|directory|context_int_provider}}：[[数值提供器|整数数值提供器]]文件目录。
+**** {{File|directory|cow_sound_variant}}：[[牛音效变种定义格式|牛音效变种]]文件目录。
+**** {{File|directory|cow_variant}}：[[牛变种定义格式|牛变种]]文件目录。
+**** {{File|directory|damage_type}}：[[伤害类型定义格式|伤害类型]]文件目录。
+**** {{File|directory|decorated_pot_pattern}}：[[饰纹陶罐图案定义格式|饰纹陶罐图案]]文件目录。
+**** {{File|directory|dialog}}：[[对话框]]文件目录。
+**** {{File|directory|dimension}}：[[维度定义格式|维度]]文件目录。
+**** {{File|directory|dimension_type}}：[[维度类型]]文件目录。
+**** {{File|directory|enchantment}}：[[魔咒定义格式|魔咒]]文件目录。
+**** {{File|directory|enchantment_provider}}：[[魔咒提供器]]文件目录。
+**** {{File|directory|frog_variant}}：[[青蛙变种定义格式|青蛙变种]]文件目录。
+**** {{File|directory|instrument}}：[[山羊角乐器]]文件目录。
+**** {{File|directory|item_modifier}}：[[物品修饰器]]文件目录。
+**** {{File|directory|jukebox_song}}：[[唱片机曲目]]文件目录。
+**** {{File|directory|loot_table}}：[[战利品表]]文件目录。
+**** {{File|directory|painting_variant}}：[[画变种定义格式|画变种]]文件目录。
+**** {{File|directory|pig_sound_variant}}：[[猪音效变种定义格式|猪音效变种]]文件目录。
+**** {{File|directory|pig_variant}}：[[猪变种定义格式|猪变种]]文件目录。
+**** {{File|directory|predicate}}：[[谓词]]文件目录。
+**** {{File|directory|recipe}}：[[配方]]文件目录。
+**** {{File|directory|slot_source}}：[[槽位源]]文件目录。
+**** {{file|directory|sulfur_cube_archetype}}：[[硫方怪原型定义格式|硫方怪原型]]文件目录。
+**** {{File|directory|tags}}：[[Java版标签|数据包标签]]根目录。
+***** {{File|directory|function}}：[[函数标签]]目录。
+***** {{File|directory|<''注册名''>}}：此注册项的标签目录。所有的注册项都可以定义标签。
+**** {{File|directory|test_environment}}：[[测试环境]]文件目录。
+**** {{File|directory|test_instance}}：[[测试实例]]文件目录。
+**** {{File|directory|timeline}}：[[时间线]]文件目录。
+**** {{File|directory|trade_set}}：[[交易集定义格式|交易集]]文件目录。
+**** {{File|directory|trial_spawner}}：[[试炼刷怪笼配置定义格式|试炼刷怪笼配置]]文件目录。
+**** {{File|directory|trim_material}}：[[盔甲纹饰定义格式#盔甲纹饰材料|纹饰材料]]文件目录。
+**** {{File|directory|trim_pattern}}：[[盔甲纹饰定义格式#盔甲纹饰图案|纹饰图案]]文件目录。
+**** {{File|directory|villager_trade}}：[[村民交易定义格式|村民交易]]文件目录。
+**** {{File|directory|wolf_sound_variant}}：[[狼音效变种定义格式|狼音效变种]]文件目录。
+**** {{File|directory|wolf_variant}}：[[狼变种定义格式|狼变种]]文件目录。
+**** {{File|directory|world_clock}}：[[世界时钟]]文件目录。
+**** {{File|directory|worldgen}}：[[自定义世界生成|世界生成]]根目录。
+***** {{File|directory|biome}}：[[生物群系定义格式|生物群系]]文件目录。
+***** {{File|directory|block_state_provider}}：[[方块状态提供器]]文件目录。
+***** {{File|directory|carver}}：[[雕刻器定义格式|雕刻器]]文件目录。
+***** {{File|directory|density_function}}：[[密度函数]]文件目录。
+***** {{File|directory|feature}}：[[地物定义格式|地物]]文件目录。
+***** {{File|directory|flat_level_generator_preset}}：[[超平坦世界生成预设]]文件目录。
+***** {{File|directory|material_condition}}：[[表面规则]]文件目录。
+***** {{File|directory|material_rule}}：[[材料条件]]文件目录。
+***** {{File|directory|multi_noise_biome_source_parameter_list}}：[[多噪声参数列表|多噪声生物群系源参数列表]]文件目录。
+***** {{File|directory|noise}}：[[噪声]]文件目录。
+***** {{File|directory|noise_settings}}：[[噪声设置]]文件目录。
+***** {{File|directory|placed_feature}}：[[已放置的地物]]文件目录。
+***** {{File|directory|processor_list}}：[[处理器列表]]文件目录。
+***** {{File|directory|structure}}：[[结构定义格式|结构]]文件目录。
+***** {{File|directory|structure_set}}：[[结构集]]文件目录。
+***** {{File|directory|template_pool}}：[[模板池]]文件目录。
+***** {{File|directory|world_preset}}：[[世界预设定义格式|世界预设]]文件目录。
+**** {{File|directory|zombie_nautilus_variant}}：[[僵尸鹦鹉螺变种定义格式|僵尸鹦鹉螺变种]]文件目录。
+</div>
+
+== 数据包基础结构 ==
+=== 数据包元数据{{anchor|pack.mcmeta}} ===
+{{main|pack.mcmeta}}
+数据包需要指定元数据才能被游戏识别为一个数据包。数据包元数据位于数据包根目录，其名称为{{filename|pack.mcmeta}}，使用JSON格式，内部元素如下：
+
+<div class="treeview">
+{{#lst:pack.mcmeta|data}}
+</div>
+
+==== 示例 ====
+以下为{{filename|pack.mcmeta}}的编写示例：
+{{tabber|1=
+支持1.21~1.21.8版本 =
+{{pack.mcmeta|"示例数据包"|48|81|type=old}}
+{{!}}-{{!}} 支持1.21.9~26.2版本 =
+{{pack.mcmeta|"示例数据包"|88.0|107.1|type=new}}
+{{!}}-{{!}} 支持1.21~26.2版本 =
+{{pack.mcmeta|"示例数据包，同时支持旧版与新版格式"|48|107.1}}
+}}
+
+=== 数据包图标 ===
+[[File:Unknown pack.png|thumb|默认数据包纹理]]
+数据包根目录下可以添加一个{{filename|pack.png}}作为数据包的图标，这个图标会在创建新的世界屏幕中的数据包列表中渲染。
+
+如果数据包没有图标，或图标加载错误，游戏会使用默认资源包纹理{{filepath|assets/minecraft/textures/misc/unknown_pack.png}}作为此数据包的图标。
+
+== 数据包内容{{anchor|data}} ==
+数据包的具体内容详见{{slink||目录结构}}，以下介绍内容的加载。
+
+数据包的{{filename|data}}下包含了不同的命名空间目录，每个命名空间目录下的每个文件夹都对应了一个注册项，以存储不同的数据包内容。在加载数据包时：
+
+* 每个位于数据包{{filepath|data/<''命名空间''>/<''注册名''>/<''路径''>.json}}的文件会在对应的注册项下注册ID为<code>-{}-<''命名空间''>:<''路径''></code>的内容。
+** 尽管函数和结构模板不属于注册项，但加载过程类似。
+* 每个位于数据包{{filepath|data/<''命名空间''>/tags/<''注册名''>/<''路径''>.json}}的文件会在对应的注册项下注册ID为<code>-{}-<''命名空间''>:<''路径''></code>的标签。引用标签时通常会带上<code>#</code>前缀，即<code>-{}-#<''命名空间''>:<''路径''></code>。
+** 结构模板、进度和配方不具有标签。
+
+如果加载了多个数据包，且不同的数据包对同一个文件进行了定义，则上层数据包的文件优先级高于下层数据包的文件。
+
+如果数据包具有叠加目录，则叠加目录的内容会覆盖数据包本体的对应内容。此覆盖是完全覆盖，即使对应文件的加载行为是默认合并，此数据包也只会加载最后一个叠加数据包的数据。
+
+== 数据包版本 ==
+{{distinguish|数据版本|section=1}}
+下表粗略描述了各正式版的数据包版本编号及其数据包内容的变化：
+{{Data pack format|release}}
+
+== 历史 ==
+{{for|数据包版本历史|数据包/版本}}
+{{HistoryTable
+|{{HistoryLine|java}}
+|{{HistoryLine||1.13|dev=17w43a|加入了数据包。}}
+|{{HistoryLine|||dev=17w46a|加入了{{cmd|datapack}}命令，用于控制加载的数据包。}}
+|{{HistoryLine|||dev=17w48a|现在数据包可读取自定义配方。}}
+|{{HistoryLine|||dev=18w01a|崩溃报告中现在会列出启用的数据包。}}
+|{{HistoryLine||1.15|dev=19w38a|加入了{{cd|predicates}}文件夹，可以在此处定义战利品表谓词。}}
+|{{HistoryLine|||dev=pre1|数据包版本号更改为{{cd|5}}。}}
+|{{HistoryLine||1.16|dev=20w22a|稍微修改了数据包的加载机制，防止数据包带来的崩溃。
+|游戏将会检测严重的数据包问题，比如关键标签的缺失，将会阻止世界的加载。
+|如果数据包加载失败，那么修改将不会被套用，游戏将会使用旧的数据包。
+|数据包列表仅在数据包成功加载后才会更改。
+|服务器添加了{{cd|--safeMode}}选项让游戏只加载原版数据包。}}
+|{{HistoryLine|||dev=pre1|现在可以在创建世界之前加载数据包。
+|数据包现在可以添加和修改[[维度]]。}}
+|{{HistoryLine||1.16.2|dev=20w28a|现在数据包可配置自定义世界生成。}}
+|{{HistoryLine|||dev=rc1|数据包版本号更改为{{cd|6}}。}}
+|{{HistoryLine||1.17|dev=20w45a|{{cd|pack_version}}被拆分，数据包和资源包现在使用相互独立的版本数字。}}
+|{{HistoryLine|||dev=20w46a|由于{{bug|MC-204861}}，数据包版本号更改为{{cd|7}}。
+|加入了{{cd|item_modifiers}}子文件夹。}}
+|{{HistoryLine||1.18|dev=21w37a|由于加入了一系列实验性快照中世界生成的新特性，数据包版本号更改为{{cd|8}}。}}
+|{{HistoryLine||1.18.2|dev=pre1|现在可在实验性数据包中添加自定义结构，即游戏现在可生成并存储由数据驱动的配置的结构。
+|现在可通过数据包对一些洞穴生成机制进行配置。
+|由于对数据包加入了以上新功能，数据包版本号更改为{{cd|9}}。}}
+|{{HistoryLine||1.19|dev=22w11a|在{{filename|pack.mcmeta}}中加入了{{cd|filter}}字段，用于按命名空间和正则表达式忽略低优先级数据包中的匹配内容。
+|由于对数据包加入了以上新功能，数据包版本号更改为{{cd|10}}。}}
+|{{HistoryLine|||dev=22w18a|加入了<code>chat_type</code>子文件夹。}}
+|{{HistoryLine||1.19.3|dev=22w42a|加入了<code>datapacks</code>子文件夹，包含用于启用特定功能的原版数据包（功能数据包）。
+|原版世界生成数据包现在在游戏的jar文件中可见。故诸如<code>dimension_type</code>、<code>worldgen</code>之类的内容都可见。}}
+|{{HistoryLine||1.19.4|dev=23w06a|加入了<code>damage_type</code>子文件夹。}}
+|{{HistoryLine||1.20.2|dev=23w31a|现在数据包可以与多个游戏版本兼容。
+|加入了对叠加目录的支持，允许同一数据包在不同的游戏版本中加载不同的资源，并需要{{filename|pack.mcmeta}}中的<code>overlays</code>部分来定义。}}
+|{{HistoryLine||1.20.5|dev=24w05a|物品或实体中的状态效果实例数据不再编码默认值。}}
+|{{HistoryLine|||dev=24w10a|加入了{{cd|d=pretty|banner_pattern|wolf_variant}}子文件夹。}}
+|{{HistoryLine||1.21|dev=24w18a|加入了{{cd|d=pretty|enchantment|enchantment_provider|painting_variant}}子文件夹。}}
+|{{HistoryLine|||dev=24w21a|将{{cd|d=pretty|structures|advancements|recipes|loot_tables|predicates|item_modifiers|functions}}文件夹重命名为对应的单数形式。
+|加入了<code>jukebox_song</code>子文件夹。}}
+|{{HistoryLine||1.21.2|dev=24w33a|加入了{{cd|instrument}}子文件夹。}}
+|{{HistoryLine|||dev=24w35a|加入了{{cd|trial_spawner}}子文件夹。}}
+|{{HistoryLine||1.21.5|dev=25w02a|加入了{{cd|pig_variant}}子文件夹。}}
+|{{HistoryLine|||dev=25w03a|加入了{{cd|test_environment}}和{{cd|test_instance}}子文件夹。}}
+|{{HistoryLine|||dev=25w04a|加入了{{cd|cat_variant}}和{{cd|frog_variant}}子文件夹。}}
+|{{HistoryLine|||dev=25w05a|加入了{{cd|cow_variant}}子文件夹。}}
+|{{HistoryLine|||dev=25w06a|加入了{{cd|chicken_variant}}子文件夹。}}
+|{{HistoryLine|||dev=25w08a|加入了{{cd|wolf_sound_variant}}子文件夹。}}
+|{{HistoryLine||1.21.6|dev=25w20a|加入了{{cd|dialog}}子文件夹。}}
+|{{HistoryLine||1.21.9|dev=25w31a|为数据包版本号引入了次要版本的概念，一并修改了{{filepath|pack.mcmeta}}的格式。}}
+|{{HistoryLine||1.21.11|dev=25w45a|加入了{{cd|zombie_nautilus_variant}}和{{cd|timeline}}子文件夹。}}
+|{{HistoryLine||26.1|dev=snapshot-1|加入了{{cd|villager_trade}}和{{cd|trade_set}}子文件夹。}}
+|{{HistoryLine|||dev=snapshot-3|加入了{{cd|world_clock}}子文件夹。}}
+|{{HistoryLine|||dev=snapshot-7|加入了{{cd|d=pretty|pig_sound_variant|cat_sound_variant|cow_sound_variant|chicken_sound_variant}}子文件夹。}}
+|{{HistoryLine||26.2|dev=snapshot-1|加入了{{cd|sulfur_cube_archetype}}子文件夹。}}
+|{{HistoryLine||26.3|dev=snapshot-1|加入了{{cd|d=pretty|decorated_pot_pattern|slot_source|worldgen/material_condition|worldgen/material_rule}}子文件夹。
+|将{{cd|d=pretty|worldgen/configured_feature}}子文件夹重命名为{{cd|d=pretty|worldgen/feature}}。}}
+|{{HistoryLine|||dev=snapshot-2|将{{cd|d=pretty|worldgen/configured_carver}}子文件夹重命名为{{cd|d=pretty|worldgen/carver}}。}}
+|{{HistoryLine|||dev=snapshot-3|加入了{{cd|number_provider}}子文件夹。}}
+|{{HistoryLine|||dev=pre-1|将{{cd|number_provider}}子文件夹拆分为{{cd|d=pretty|context_float_provider|context_int_provider}}子文件夹。
+|加入了{{cd|worldgen/block_state_provider}}子文件夹。}}
+|{{HistoryLine||26.4|dev=snapshot-3|加入了{{cd|block_sound_set}}子文件夹。}}
+}}
+
+== 参见 ==
+* [[附加包]]
+* [[资源包]]
+* [[Tutorial:制作数据包]]
+* [[Tutorial:优化数据包]]
+
+== 外部链接 ==
+* [https://misode.github.io/ misode.github.io]，一个数据包生成器。
+* [https://misode.github.io/pack-mcmeta/ Pack.mcmeta Generator on misode.github.io]，pack.mcmeta生成器。
+
+== 参考 ==
+{{reflist}}
+
+== 导航 ==
+{{Navbox Java customizable}}
+{{Navbox Java Edition}}
+
+[[Category:数据包|*]]
+[[Category:游戏文件]]
+
+[[de:Datenpaket]]
+[[en:Data pack]]
+[[es:Paquete de datos]]
+[[fr:Pack de données]]
+[[ja:データパック]]
+[[ko:데이터 팩]]
+[[pl:Paczki danych]]
+[[pt:Pacote de dados]]
+[[ru:Набор данных]]
+[[th:ดาต้าแพ็ก]]

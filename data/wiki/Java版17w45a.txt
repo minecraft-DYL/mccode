@@ -1,0 +1,339 @@
+{{Infobox version
+|title=17w45a
+|image=17w45a.png
+|image2=Java Edition 17w45a Simplified.png\Java Edition 17w45a Traditional.png
+|edition=Java
+|type=Snapshot
+|date=2017年11月8日
+|jsonhash=c3a0cc0ba68d054095dc52010b7b71a35b9ab17f
+|clienthash=42c93d04a82371094d9a4a844c932b8db45d3a40
+|serverhash=471b2dfa12e4df234057159ce5ee8320da3c84c1
+|parent=1.13
+|prevparent=1.12.2
+|prev=17w43b
+|next=17w45b
+|nextparent=1.13.1
+}}<onlyinclude>
+
+'''17w45a'''是[[Java版1.13]]的第3个快照，发布于2017年11月8日<ref>{{snap|17w45a|November 8, 2017}}</ref>，修复了一些漏洞。
+
+== 新内容 ==
+=== 命令格式 ===
+'''常规'''
+* 聊天中的命令界面，输入[[命令]]时出现。
+** 命令的各种部分以不同颜色呈现。
+** 无需运行命令就会以红色呈现错误。
+* 目标选择器中的新<code>nbt</code>参数。
+* 新的命令解析库名为Brigadier（-{准}-将）。
+
+== 更改 ==
+=== 生物 ===
+'''[[马]]'''
+* 修改成风格更相似于其他生物的模型。
+
+=== 命令格式 ===
+'''常规'''
+* 更快更高效的命令与函数系统。
+* 大部分命令现在对大小写敏感。可能的话小写是最好的。
+** 举例来说，这是不再被允许的：{{cmd|scoreboard ObJeCtIvEs ...}} 。
+* 命令方块的信号输出原本是其“成功统计”，现在是“结果”。
+
+'''{{cmd|advancement}}'''
+* 移除了{{cmd|advancement test}}的用法，以应对实体选择器的修改。
+
+'''{{cmd|clear}}'''
+* {{cmd|clear}}的语法被修改了。
+** {{cmd|clear [<目标>] [<物品>] [<数据>] [<数量>] [<nbt>]}}改为{{cmd|clear [<目标>] [<物品>] [<数量>]}}。
+** 详请参阅下方的物品参数段落。
+** <code>-{}-[<数据>]</code>被移除，为[[扁平化]]做铺垫，物品数据将不复存在而物品损害值将被整合入NBT。
+
+'''{{cmd|clone}}'''
+* {{cmd|clone}}的语法被修改了。
+** {{cmd|clone <第一框选点> <第二框选点> <目标区域> filtered [force{{!}}move{{!}}normal] [指定方块名称] [数据值]}}修改为{{cmd|clone <第一框选点> <第二框选点> <目标区域> filtered [指定方块] [force{{!}}move{{!}}normal]}}
+** {{cmd|clone <第一框选点> <第二框选点> <目标区域> [replace{{!}}masked] [force{{!}}move{{!}}normal] [指定方块名称] [数据值]}}修改为{{cmd|clone <第一框选点> <第二框选点> <目标区域> [replace{{!}}masked] [force{{!}}move{{!}}normal]}}
+
+'''{{cmd|defaultgamemode}}与{{cmd|gamemode}}'''
+* 现在只接受字符串ID，缩写与数字不再接受。
+** {{cmd|gamemode 2}}改为{{cmd|gamemode adventure}}。
+** {{cmd|defaultgamemode sp}}改为{{cmd|defaultgamemode spectator}}。
+
+'''{{cmd|difficulty}}'''
+* {{cmd|difficulty [<value>]}}现在只接受字符串ID，缩写与数字不再接受。
+** {{cmd|difficulty 2}}会改为{{cmd|difficulty normal}}。
+** {{cmd|difficulty p}}会改为{{cmd|difficulty peaceful}}。
+* 现在可以用{{cmd|difficulty}}不带其他参数查询难度。
+
+'''{{cmd|effect}}'''
+* {{cmd|effect}}的语法被拆分，以避免歧义。
+** {{cmd|effect <实体> <效果>}}会改为{{cmd|effect give <实体> <效果>}}。
+** {{cmd|effect <实体> clear}}会改为{{cmd|effect clear <实体> [<效果>]}}。
+* 给予效果时未引起变化则会输出失败。
+** 有些生物免疫效果（例如[[末影龙]]）。
+** 更强的现有效果排斥了要替代的较弱效果。
+
+'''{{cmd|enchant}}'''
+* 已移除，并计划用{{cmd|modifyitem|link=none}}替代。
+
+'''{{cmd|execute}}'''
+* {{cmd|execute}}的语法被拆分。
+** 修饰子命令会改变命令的执行方式：
+*** {{cmd|execute as <目标实体> <命令连锁>}}以<code>-{}-<目标实体></code>执行命令（不改变执行位置）。
+*** {{cmd|execute at <目标实体> <命令连锁>}}以<code>-{}-<目标实体></code>的位置来执行命令（不改变执行者）。
+*** {{cmd|execute offset <目标位置> <命令连锁>}}从<code>-{}-<目标位置></code>的位置来执行命令。
+*** {{cmd|execute align <回归轴> <命令连锁>}}执行命令时会先把执行位置依照回归轴转换为方块位置（向下取整），<code>-{}-<回归轴></code>的写法就是{{cd|x|y|z|d=pretty}}的任意组合（例子：{{cd|x|xz|zyx|yz|d=pretty}}）。
+**** 使用示例：
+***** 当<code>x=-1.8,y=2.3,z=5.9</code>使用<code>x</code>将变为<code>x=-2,y=2.3,z=5.9</code>
+***** 当<code>x=2.4,y=-1.1,z=3.8</code>使用<code>yxz</code>将变为<code>x=2,y=-2,z=3</code>
+** 条件子命令会避免在特定情况运行命令：
+*** {{cmd|execute (if{{!}}unless) block <指定位置> <指定方块> <命令连锁>}}如果{{cd|-{}-<指定位置>|<指定方块>|d=pretty}}相符（不符）就执行命令。
+*** {{cmd|execute (if{{!}}unless) blocks <第一框选点> <第二框选点> <对照区域> (all{{!}}masked) <命令连锁>}}如果{{cd|-{}-<第一框选点>|<第二框选点>|d=pretty}}之间的区域与<code>-{}-<对照区域></code>相符（不符）就执行命令。
+*** {{cmd|execute (if{{!}}unless) entity <指定实体> <命令连锁>}} 如果<code>-{}-<指定实体></code>至少存在一个（不存在）就执行命令。
+*** {{cmd|execute (if{{!}}unless) score <指定目标> <指定判据> ( < {{!}} <{{=}} {{!}} {{=}} {{!}} >{{=}} {{!}} > ) <对照目标> <对照判据> <命令连锁>}} 如果<code>-{}-<指定目标></code>的分数与<code>-{}-<对照目标></code>的分数符合（不符合）指定的不等号就执行命令。
+** 作为{{cmd|stats}}的替代，新的<code>store</code>子命令允许将命令结果储存于某处：
+*** {{cmd|execute store (result{{!}}success) score <目标名称> <目标判据> <命令连锁>}}
+*** <code>result</code>将会选择命令的结果来输出，用于取代过去的这些统计：{{cd|AffectedBlocks|AffectedEntities|AffectedItems|QueryResult}}。
+*** <code>success</code>将会记录这个命令到底执行的成功次数为何。虽然这数值通常会是{{cd|0|1|d=或}}但是一旦命令被分开执行（像是<code>as @a</code>）则其成功数也就大于<code>1</code>了。这取代了<code>SuccessCount</code>。
+*** 回传值会被储存在<code>-{}-<目标名称></code>的<code>-{}-<目标判据></code>里。
+*** <code>-{}-目标判据</code>必须存在，但相对于{{cmd|stats}}，无需为<code>-{}-<目标名称></code>设定起始值。
+*** 回传值会在整个命令被完整执行后回传。
+*** 如果命令没有成功（像<code>success</code>是<code>0</code>时），<code>result</code>也会被设为<code>0</code>。
+** 可以将所有子命令串连在一起。
+*** 用法：将一个子命令直接连接到下一个子命令。
+*** 完成命令连锁之后，写上<code>run</code>来继续写下需要执行的原本命令。
+**** 无需为该命令起始添加<code>/</code>。
+*** 示例：{{cmd|execute as somebody at somebody run say hi}}
+** 旧命令转换式示例:
+*** {{cmd|execute @e ~ ~ ~ detect ~ ~ ~ stone 0 say Stone!}}现在为{{cmd|execute as @e at @s if block ~ ~ ~ stone run say Stone!}}
+*** {{cmd|execute @e ~ ~ ~ detect ~ ~ ~ grass 0 summon pig}}现在为{{cmd|execute at @e if block ~ ~ ~ grass run summon pig}}
+*** {{cmd|execute @e ~ ~ ~ say Hello!}}现在为{{cmd|execute as @e run say Hello!}}
+
+'''{{cmd|experience}}'''
+* {{cmd|xp}}现在为{{cmd|experience}}的简写。
+* 拆分为3个不同的子命令。
+** {{cmd|experience add <玩家> <数量> [points{{!}}levels]}}
+*** 为目标<code><玩家></code>添加<code>-{}-<数量></code>点或级经验（默认为点）。
+*** 与以前一样，添加点数也能让玩家升级。
+*** 负值可接受，会减去经验值。
+*** 扣除经验值也能使玩家降级。
+** {{cmd|experience set <玩家> <数量> [points{{!}}levels]}}
+*** 将目标<code><玩家></code>的经验设为<code>-{}-<数量></code>点或级（默认为点）。
+*** 无法设定超出本级上限的经验数量。
+*** 等级变动时，经验点数会维持同样的比例。
+** {{cmd|experience query <玩家> (points{{!}}levels)}}
+*** 返回目标<code><玩家></code>的经验点或级数。
+
+'''{{cmd|fill}}'''
+* {{cmd|fill}}的语法被修改了。
+** {{cmd|fill <x y z> <xt yt zt> <方块> <数据> replace [<replaceBlock>] [<replaceData>]}}会改为{{cmd|fill <x y z> <xt yt zt> <方块> replace [<filter>]}}。
+** {{cmd|fill <x y z> <xt yt zt> <方块> [<数据>] [destroy{{!}}hollow{{!}}keep{{!}}outline{{!}}replace] [<nbt>]}} 会改为 {{cmd|fill <x y z> <xt yt zt> <方块> [destroy{{!}}hollow{{!}}keep{{!}}outline{{!}}replace]}}。
+
+'''{{cmd|function}}'''
+* {{cmd|function}}不再接受<code>-{}-[if|unless] <实体></code>变量。
+** 这些功能已整合入{{cmd|execute}}。
+** {{cmd|function foo if @e}}会改为{{cmd|execute if entity @e run function foo}}。
+
+'''{{cmd|gamerule}}'''
+* {{cmd|gamerule}}不再接受未知（“自定义”）的规则名。
+** 这些功能完全可以用[[Java版函数|函数]]或[[记分板]]替代。
+** 现有自定义规则会无法被访问，只能接触内置的规则。
+* 向{{cmd|gamerule}}输入的参数现在检查类型（向需要整数的地方输入字符串显然错误）。
+
+'''{{cmd|give}}'''
+* {{cmd|give}}的语法已修改。
+** {{cmd|give <玩家> <物品> [<数量>] [<数据值>] [<nbt>]}}会改为{{cmd|give <玩家> <物品> [<数量>]}}。
+** 详请参阅下方的物品参数段落。
+** <code>-{}-[<nowiki><数据></nowiki>]</code>已被移除，为[[扁平化]]做铺垫，物品数据将不复存在而物品损害值将被整合入NBT。
+
+'''{{cmd|kill}}'''
+* <code>-{}-<目标></code>现为必要项。
+
+'''{{cmd|locate}}'''
+* Y坐标现在返回<code>64</code>，而非<code>?</code>。
+* 命令的<code>result</code>，由{{cmd|execute store}}采用时会取与结构的绝对距离。
+
+'''{{cmd|particle}}'''
+* <code>-{}-<额外参数></code>变量已移除，粒子的<code>blockcrack</code>等参数可以直接在<code>-{}-<名称></code>后的新变量方块处指定。
+** 例如，{{cmd|particle blockcrack stone <nowiki>[variant=smooth_granite]</nowiki> ~ ~ ~ 0 0 0 0 1}}。
+
+'''{{cmd|replaceitem}}'''
+* {{cmd|replaceitem}}的语法已修改。
+** {{cmd|replaceitem block <x y z> <槽位> <物品> [<数量>] [<数据>] [<nbt>]}}会改为{{cmd|replaceitem block <x y z> <槽位> <物品> [<数量>]}}。
+** {{cmd|replaceitem entity <目标> <槽位> <物品> [<数量>] [<数据>] [<nbt>]}}会改为{{cmd|replaceitem entity <目标> <槽位> <物品> [<数量>]}}。
+** 详请参阅下方的物品参数段落。
+** <code>-{}-[<nowiki><数据></nowiki>]</code>已被移除，为[[扁平化]]做铺垫，物品数据将不复存在而物品损害值将被整合入NBT。
+* <code>-{}-槽位</code>变量不再需要<code>slot.</code>前缀。
+** 例如，<code>slot.hotbar.1</code>会改为<code>hotbar.1</code>。
+
+'''{{cmd|scoreboard}}'''
+* {{cmd|scoreboard}}中带有的<code>-{}-[<NBT标签>]</code>将被移除，以对应实体选择器中的<code>nbt</code>。
+* {{cmd|scoreboard players tag}}与{{cmd|scoreboard teams}}已移除。分别被{{cmd|tag}}与{{cmd|team}}替代。
+* {{cmd|scoreboard players test}}已移除，以对应{{cmd|execute (if{{!}}unless) score}}、实体选择器以及{{cmd|scoreboard players get <target> <objective>}}。
+
+'''{{cmd|setblock}}'''
+* {{cmd|setblock}}的语法已修改。
+** {{cmd|setblock <x y z> <方块> [<数据>] [<模式>] [<nbt>]}}会改为{{cmd|setblock <x y z> <方块> [<模式>]}}。
+** 详请参阅下方的物品参数段落。
+
+'''{{cmd|stats}}'''
+* 已移除，整合入{{cmd|execute}}。
+* 新的{{cmd|execute}}并非直接替换，其行为有变动：
+** 现在分命令统计，而不分实体或方块。
+** 只有<code>result</code>与<code>success</code>，覆盖全部旧的统计项类型。
+
+'''{{cmd|stopsound}}'''
+* <code>*</code>可以作为<code>source</code>来停止特定名称的所有声音，无论来源。
+
+'''{{cmd|tag}}'''
+* 替代{{cmd|scoreboard players tag}}。
+* 语法保持不变。
+** {{cmd|tag <玩家> add <标签>}}为<code><玩家></code>添加<code>-{}-<标签></code>。
+** {{cmd|tag <玩家> remove <标签>}}从<code><玩家></code>移除<code>-{}-<标签></code>。
+** {{cmd|tag <玩家> list}}列出<code><玩家></code>的全部标签。
+
+'''{{cmd|team}}'''
+* 替代{{cmd|scoreboard teams}}。
+* 语法保持不变。
+** {{cmd|team add <队伍> [<显示名>]}}
+** {{cmd|team empty <队伍>}}
+** {{cmd|team join <队伍> [<成员>]}}
+** {{cmd|team leave [<成员>]}}
+** {{cmd|team list [<队伍>]}}
+** {{cmd|team option <队伍> <选项> <值>}}
+
+'''{{cmd|testfor}}、{{cmd|testforblock}}与{{cmd|testforblocks}}'''
+* 已移除，整合入{{cmd|execute}}。
+
+'''{{cmd|toggledownfall}}'''
+* 已移除，整合入{{cmd|weather}}。
+
+'''{{cmd|tp}}与{{cmd|teleport}}'''
+* {{cmd|tp}}现在是{{cmd|teleport}}的缩写（类似{{cmd|w}}、{{cmd|msg}}和{{cmd|tell}}）。
+* 坐标现在为相对于执行者的值，类同其他命令。
+* {{cmd|tp}}的语法保留，但行为改为{{cmd|teleport}}的。
+
+'''{{cmd|trigger}}'''
+* 新语法{{cmd|trigger <目标>}}，是{{cmd|trigger <目标> add 1}}的缩写。
+
+'''{{cmd|weather}}'''
+* 若未指定时间，则默认为5分钟（本为随机值）。
+
+'''变量类型'''
+
+'''[[目标选择器]]'''
+* 引入更多错误处理机制。
+** 诸如<code>limit=0</code>、<code>level=-10</code>、<code>gamemode=purple</code>等不再允许。
+* 支持范围指定，取代{{cd|min}}或{{cd|max}}的单独值。
+** <code>level=10</code>为10级。
+** <code>level=10..12</code>为10、11或12级。
+** <code>level=5..</code>为5级或其以上。
+** <code>level=..15</code>为15级或其以下。
+* 晦涩的简写会被展开。
+** <code>m</code>改为<code>gamemode</code>
+** <code>l</code>及<code>lm</code>改为<code>level</code>。
+** <code>r</code>及<code>rm</code>改为<code>distance</code>。
+** <code>rx</code>及<code>rxm</code>改为<code>x_rotation</code>。
+** <code>ry</code>及<code>rym</code>改为<code>y_rotation</code>。
+** <code>c</code>改为<code>limit</code>。
+* <code>x</code>、<code>y</code>、<code>z</code>、<code>distance</code>、<code>x_rotation</code>、<code>y_rotation</code>现在为双精度浮点，支持类似<code>12.34</code>的值。
+** <code>x</code>与<code>z</code>不再向方块中心修正。
+*** 这意味着<code>x=0</code>与<code>x=0.5</code>不再等价。
+* <code>gamemode</code>（前称<code>m</code>）不再接受缩写或数字。
+* <code>limit</code>（前称<code>c</code>）不再接受负值。
+** 改为<code>sort=furthest</code>。
+* <code>name</code>变量支持空格（需要用引号括起）。
+* 目标选择器内同一变量指定多个值现在可能。
+** <code>tag=foo,tag=bar,tag=!baz</code>会选择有<code>foo</code>、<code>bar</code>而没有<code>baz</code>标签的东西。
+** <code>type=!cow,type=!chicken</code>会选择既不是牛也不是鸡的东西。
+** <code>type=cow,type=chicken</code>不接受，因为没有既是牛又是鸡的东西。
+* 现在可以指定顺序。
+** <code>sort=nearest</code>是原先的默认值，按照距离从小到大（<code>@p</code>的默认）。
+** <code>sort=furthest</code>与上述相反（本需用<code>c=-5</code>实现）。
+** <code>sort=random</code>为乱序排列（<code>@r</code>的默认）。
+** <code>sort=arbitrary</code>为新选项，不对结果进行排序（<code>@e</code>、<code>@a</code>的默认）。
+* 指定分数现在形如<code>scores={foo=1,bar=1..5}</code>。
+* 检测进度为<code>advancements={foo=true,bar=false,custom:something={criterion=true}}</code>。
+** <code>true</code>代表“他们已完成那成就”，<code>false</code>为“他们尚未完成那成就”。
+** 或者检测特定准则（<code>true</code>、<code>false</code>类同上述）。
+
+'''[[方块]]'''
+* 在<code>-{}-<方块></code>，曾都出现<code>-{}-<nowiki>[<数据>]</nowiki></code>以及<code>[<nbt>]</code>作可选项，现改为单个<code>-{}-<方块></code>变量，即：
+** <code>stone</code>；
+** <code>minecraft:redstone_wire[power=15,north=up,south=side]</code>；
+** <code>minecraft:jukebox{RecordItem:{...}}</code>；
+** <code>minecraft:furnace[facing=north]{BurnTime:200}</code>。
+* 方块名称为必要的，若命名空间未设定则取默认的<code>minecraft:</code>)。
+* 状态写在方括号（<code>[]</code>）内，用逗号分隔属性与值必须对方块有效。可选项。
+** <code>minecraft:stone[doesntexist=purpleberry]</code>有语法错误，因为<code>stone</code>没有<code>doesntexist</code>。
+** <code>minecraft:redstone_wire[power=tuesday]</code>有语法错误，因为<code>redstone_wire</code>的<code>power</code>是0-15间的数。
+* NBT标签写在花括号（<code>{}</code>）内，与普通用法无区别。可选项。
+* 在检测方块或“条件”时，仅检测指定的方块状态。
+** 若欲测试<code>redstone_wire[power=15]</code>，仅测试{{cd|power}}值而忽视其他状态，比如<code>north</code>。
+* 在设定方块值时，仅设定指定的所有状态，其余皆根据方块情况保持默认。
+** 若欲设定<code>redstone_wire[power=15]</code>，会将<code>power</code>设为15，而<code>north</code>会为默认值（此处为<code>none</code>）。
+* 在1.13中不再有方块数据值。这些若非不同方块即是一种状态。
+
+'''[[物品]]'''
+* 在<code><物品></code>出现的地方，曾都出现<code>-{}-<nowiki>[<数据>]</nowiki></code>以及<code>[<nbt>]</code>作可选项，现改为单个<code><物品></code>变量，即：
+** <code>stone</code>；
+** <code>minecraft:stick{display:{Name:"Stick of Untruths"}}</code>。
+* 物品名称为必要的，若命名空间未设定则取默认的<code>minecraft:</code>。
+* NBT标签写在花括号（<code>{}</code>）内，与普通用法无区别。可选项。
+** 任何其他信息若非另外的物品即是NBT中的一项属性。
+
+== 修复 ==
+{{fixes|fixedin=17w45a|prefix=Minecraft|showdesc=1
+|;old
+|32972|{{cmd|summon|link=none}}命令会接受本应被忽略的参数。
+|59511|使用{{cmd|tellraw|link=none}}命令时，当要显示的关键确定文本（Key determining text）缺失时，返回的错误信息不完整。
+|69042|{{cmd|summon|link=none}}命令中坐标的语法应该不一样。
+|80856|命令语法不一致。
+|80893|当发送者（Sender）并不是离指定的x/y/z原点最近的实体时，发送者偏差（c{{=}}1）会被应用。
+|80928|玩家骑乘骷髅马、僵尸马、驴和骡时，坐的位置过前。
+|85394|生成<code>speed</code>大于100的“暴击”粒子时，游戏会发生严重卡顿。
+|87365|{{cmd|scoreboard player tag|link=none}}命令的语法不正确。
+|87559|游戏规则缺失受影响游戏规则的指示器。
+|91459|在Y{{=}}256上时，{{cmd|setblock|link=none}}命令执行返回的信息与其他在世界外使用此命令的信息不一致/执行高度高于256的{{cmd|setblock|link=none}}命令，显示的错误信息是“最大建筑高度为256”。
+|101113|{{cmd|playsound|link=none}}命令未正确验证参数。
+|101135|使用数字过高的相对坐标时，产生了令人无法理解的错误信息。
+|102682|马蹄铁和马腿分开。
+|115957|进度、战利品表、资源包和世界文件夹不要求小写。
+|116045|{{cmd|banlist|link=none}}命令会把所有非IP的参数当成玩家来处理。
+|118308|在某些文本框中输入文字时，会切换复述功能。
+|118565|只能选择到一个实体的含有四个负号的选择器会被解析为UUID，导致命令执行失败。
+|119142|不能在一个选择器中使用多个标签。
+|121281|不能使用鼠标操作创造模式物品栏和服务器菜单中的滚动条。
+|128561|<code>CommandBase.commandListener</code>保留了旧的服务器引用，阻止了垃圾回收。
+|;dev
+|121283|缺失水下迷雾和熔岩迷雾。
+|121284|打开资源包文件夹和世界文件夹的按钮不能正常工作。
+|121288|电影视角不能正常工作。
+|121302|“直接连接”按钮会在错误的时候被启用或被禁用。
+|121314|视频设置中的全屏分辨率文本不适合按钮大小。
+|121328|GUI大小不正确。
+|121329|按{{Ctrl|聊天}}键不再能选中创造模式物品栏或配方书中的搜索栏。
+|121334|在创造模式物品栏搜索选项卡中使用1-9数字键时，会发送额外的按键事件到搜索栏中。
+|121396|WASD键的顺序很奇怪。
+|121418|尝试粘贴含有非字符串的剪贴板内容时崩溃。
+|121419|聊天栏中的点击和悬浮事件有偏移。
+|121421|在创建世界界面中的名称或种子文本框内按{{key|Enter}}键不能再直接创建世界。
+|121456|从窗口模式切到全屏模式时，区块会消失。
+|121468|统计信息不再能通过点击图标排序。
+|;previous
+|121517|全屏键不能让游戏全屏。
+|121587|{{cmd|reload|link=none}}命令的回显说它重载了战利品表、进度和函数，而不是仅说重载了数据包。
+}}</onlyinclude>
+
+== 参考 ==
+{{reflist}}
+
+== 导航 ==
+{{Navbox Java Edition versions|1.13}}
+
+[[de:17w45a]]
+[[en:Java Edition 17w45a]]
+[[es:Java Edition 17w45a]]
+[[fr:Édition Java 17w45a]]
+[[ja:Java Edition 17w45a]]
+[[nl:17w45a]]
+[[pt:Edição Java 17w45a]]
+[[ru:17w45a (Java Edition)]]

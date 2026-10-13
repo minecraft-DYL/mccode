@@ -1,0 +1,1850 @@
+{{tr|mode=H|过滤器|篩選器}}{{tr|mode=H|宏|巨集}}
+{{Dangerous version|行商羊驼物品栏内的物品可能会在存档升级中丢失。<ref>{{bug|MC-271109|||Fixed}}</ref>}}
+{{Infobox version
+|title=1.20.5
+|name=[[犰甲狼兵]]
+|image= 1.20.5.png
+|image2= Java Edition 1.20.5 Simplified.png\Java Edition 1.20.5 Traditional.png\Java Edition 1.20.5 Traditional HK.png
+|edition=Java
+|date=2024年4月23日
+|jsonhash=156d304036b9aa7de4c0789cce7bf1095fda8d10
+|clienthash=c6b92b2374a629f20802bb284f98a4ee790e950a
+|clientmap=65b1468c44fbf34382716416b5c1a16d2949217a
+|serverhash=79493072f65e17243fd36a699c9a96b4381feb91
+|servermap=14be97974a77b09eb8bca88ed9268445f0fde3e7
+|prevparent=1.20.3
+|prev=1.20.4
+|next=1.20.6
+|nextparent=1.21
+}}{{Relevant guide|Java版指南/犰甲狼兵}}
+
+'''1.20.5'''是'''[[犰甲狼兵]]'''的首个正式版，也是{{el|je}}的一次[[小更新]]，发布于2024年4月23日<ref>{{article|minecraft-java-edition-1-20-5|Minecraft Java Edition 1.20.5|April 23, 2024}}</ref>，加入了[[犰狳]]、[[犰狳鳞甲]]、[[狼铠]]、[[狼]]的变种、4个[[进度]]、{{cmd|transfer}}命令和新的[[战利品表函数]]，改进了狼的生命值相关机制与检测、更改实体[[物品栏]]的命令，重新设计了[[背景图]]，用[[物品堆叠组件]]代替了物品的NBT数据，使[[配方]]支持物品堆叠组件，在内置实验性数据包中加入了更多[[Java版1.21|1.21]]的内容，并修复了一些漏洞。此版本不兼容1.20到1.20.4的服务端。
+
+== 新内容 ==
+=== 物品 ===
+'''[[犰狳鳞甲]]'''
+* 由[[犰狳]]自然掉落或{{ctrl|使用}}[[刷子]]刷扫成年犰狳掉落，可用于合成和修复狼铠。
+
+'''[[刷怪蛋]]'''
+* 加入了[[犰狳]]刷怪蛋。
+
+'''[[狼铠]]'''
+* 对已驯服的成年[[狼]]{{ctrl|使用}}狼铠可为其穿戴，{{ctrl|使用}}[[剪刀]]可卸下狼铠。
+** 仅可由狼的主人为其装备和卸下。
+* 可以像[[皮革盔甲]]一样染色。
+* 可为狼提供{{armor|11}}点护甲值，也能以自身耐久度为狼抵挡不具有伤害类型标签{{TagLink|damage_type|bypasses_wolf_armor}}的伤害。
+* 具有64点耐久度，且会根据剩余耐久度呈现不同程度的开裂纹理。
+** 狼的主人可以对坐下的狼{{ctrl|使用}}[[犰狳鳞甲]]修复其装备的狼铠。
+** 可以在[[铁砧]]上用犰狳鳞甲修复狼铠。
+
+=== 生物 ===
+'''[[犰狳]]'''
+* [[Minecraft Live 2023]]生物投票的获胜生物，属于友好生物。
+* 自然生成于[[热带草原]]及其变种、[[恶地]]及其变种生物群系。
+* 有{{hp|12}}生命值。
+* 可以使用[[蜘蛛眼]]来繁殖或加速成长。
+* 被玩家或驯服的[[狼]]杀死后会掉落{{xp|1|3}}。
+** 幼年犰狳死亡时不会掉落任何物品和经验。
+* 每隔5-10分钟掉落一个犰狳鳞甲。
+* 使用[[刷子]]刷扫成年犰狳则会立即掉落一个犰狳鳞甲，同时消耗刷子16点耐久度。
+*在满足以下条件时，犰狳会蜷缩成方块状：
+** 3秒内受到下列惊吓之一
+*** 受到来自生物的伤害
+*** 半径7格内有[[亡灵生物]]、正在疾跑的[[玩家]]、[[骑乘]]在实体上的玩家或是5秒内攻击过它的生物
+** 未受到来自非生物的伤害
+** 未与[[水]]接触
+** 未被[[拴绳]]拴着
+* 犰狳蜷缩时不会移动、进食或被食物吸引，并且此时受到的伤害会被调整为<code>-{}-(修正前伤害 - 1) / 2</code>。
+* 犰狳蜷缩时会隐藏自己的头和脚，期间会探出头窥视以检查蜷缩条件是否满足。
+** 如果满足，犰狳左右张望后再次缩进壳内；如果不满足，犰狳立即起身。
+
+'''[[狼]]'''
+* 加入了狼的多个变种，生成的变种取决于其自然生成时所处的[[生物群系]]，或是[[繁殖]]生成时其双亲所属的变种。
+** {{EntityLink|Pale Wolf}}，即使用先前纹理的狼，在[[针叶林]]中以4只为一群生成。
+** {{EntityLink|Woods Wolf}}，在[[森林]]中以4只为一群生成。
+** {{EntityLink|Ashen Wolf}}，在[[积雪针叶林]]中以4只为一群生成。
+** {{EntityLink|Black Wolf}}，在[[原始松木针叶林]]中以2-4只为一群生成。
+** {{EntityLink|Chestnut Wolf}}，在[[原始云杉针叶林]]中以2-4只为一群生成。
+** {{EntityLink|Rusty Wolf}}，在[[稀疏丛林]]中以2-4只为一群生成，或在[[丛林]]和[[竹林]]中被刷怪蛋或{{cmd|summon}}所召唤。
+** {{EntityLink|Spotted Wolf}}，在[[热带高原]]中以4-8只为一群生成，或在[[热带草原]]和[[风袭热带草原]]中被刷怪蛋或{{cmd|link=none|summon}}所召唤。
+** {{EntityLink|Striped Wolf}}，在[[疏林恶地]]中以4-8只为一群生成，或在[[恶地]]和[[风蚀恶地]]中被刷怪蛋或{{cmd|link=none|summon}}所召唤。
+** {{EntityLink|Snowy Wolf}}，在[[雪林]]中罕见地生成一只。
+* 在除以上的其他生物群系使用[[刷怪蛋]]及[[命令]]生成的狼均为{{EntityLink|Pale Wolf}}。
+
+=== 游戏内容 ===
+'''[[进度]]'''
+* 加入了4个新进度。
+** [[进度#advancements-anchor-adventure.brush_armadillo|{{Advancement name|adventure.brush_armadillo|zh|rev=1}}]]
+*** {{tr|用刷子从犰狳身上获得犰狳鳞甲|使用刷子從犰狳身上取得犰狳鱗甲|用毛刷喺犰狳身上攞到犰狳鱗甲}}
+** [[进度#advancements-anchor-husbandry.remove_wolf_armor|{{Advancement name|husbandry.remove_wolf_armor|zh|rev=3}}]]
+*** {{tr|用剪刀移除狼身上的狼铠|使用剪刀移除狼身上的狼鎧|用鉸剪移除狼身上嘅狼甲}}
+** [[进度#advancements-anchor-husbandry.repair_wolf_armor|{{Advancement name|husbandry.repair_wolf_armor|zh|rev=1}}]]
+*** {{tr|用犰狳鳞甲修复损坏的狼铠|使用犰狳鱗甲修復耗損的狼鎧|用犰狳鱗甲修復耗損咗嘅狼甲}}
+** [[进度#advancements-anchor-husbandry.whole_pack|{{Advancement name|husbandry.whole_pack|zh|rev=1}}]]
+*** {{tr|驯服所有种类的狼|馴服所有種類的狼|馴服所有種類嘅狼}}
+
+'''[[魔咒]]'''
+* 加入了[[致密]]魔咒。
+** 仅可通过命令获取对应[[附魔书]]和带有此魔咒的物品。
+** 最大等级为V。
+* 加入了[[破甲]]魔咒。
+** 仅可通过命令获取对应附魔书和带有此魔咒的物品。
+** 最大等级为IV。
+* 加入了[[风爆]]魔咒。
+** 仅可通过命令获取对应附魔书和带有此魔咒的物品。
+** 最大等级为III。
+** 附有此魔咒的[[剑]]、[[镐]]、[[斧]]、[[锹]]、[[锄]]和[[三叉戟]]击中生物后会产生[[爆炸#风爆|风爆]]，将攻击者向上弹起。
+*** 尽管此魔咒会在这些物品上生效，但它们不是此魔咒的适用物品。
+* 这些魔咒不可由{{cmd|enchant}}附魔。
+
+'''[[状态效果]]'''
+* 加入了[[蓄风]]效果。
+** 拥有此效果的实体完全死亡后<ref name="MC-269951">{{bug|MC-269951|||Fixed}}</ref><ref name="MC-269956">{{bug|MC-269956|||WAI}}</ref>会产生[[爆炸#风爆|风爆]]。
+* 加入了[[盘丝]]效果。
+** 拥有此效果的实体完全死亡后<ref name="MC-269951"/><ref name="MC-269956"/>会生成2-3个[[蜘蛛网]]。
+*** 蜘蛛网可以替代具有{{TagLink|blocks|replaceable}}标签的方块生成。
+*** 是否生成蜘蛛网受<code>mobGriefing</code>[[游戏规则]]影响。
+** 拥有此效果且会被蜘蛛网减速的实体能以50%速度穿过蜘蛛网。
+* 加入了[[渗浆]]效果。
+** 拥有此效果的实体完全死亡后<ref name="MC-269951"/><ref name="MC-269956"/>会在周围5×5×5的区域生成两个中型[[史莱姆]]，直到达到[[实体挤压上限]]。
+* 加入了[[寄生]]效果。
+** 拥有此效果的实体在受到伤害时有10%的概率在实体[[边界箱]]中心生成1-2个[[蠹虫]]，并将它们按实体面朝方向抛出。
+* 加入了[[袭击之兆]]效果。
+** 拥有此效果的玩家会被不祥的<code>raid_omen</code>粒子包围。
+* 加入了[[试炼之兆]]效果。
+** 拥有此效果的玩家会被不祥的<code>trial_omen</code>粒子包围。
+* 这些状态效果不可由{{cmd|effect}}给予。
+
+'''[[粒子]]'''
+* 加入了{{cd|d=pretty|vault_connection|infested|item_cobweb|small_gust|ominous_spawning|raid_omen|trial_omen|trial_spawner_detection_ominous}}粒子。
+
+'''[[音效]]'''
+* 加入了{{cd|d=pretty|block.cobweb.break|block.cobweb.step|block.cobweb.place|block.cobweb.hit|block.cobweb.fall|block.trial_spawner.about_to_spawn_item|block.trial_spawner.spawn_item|block.trial_spawner.spawn_item_begin|block.trial_spawner.charge_activate|block.trial_spawner.ambient_charged|item.ominous_bottle.dispose|event.mob_effect.bad_omen|event.mob_effect.trial_omen|event.mob_effect.raid_omen}}音效事件。
+
+=== 命令格式 ===
+'''{{cmd|transfer}}'''
+* 仅存在于专用服务器中，用于将玩家转移到另一个服务器。
+* 语法：{{cmd|link=none|transfer <hostname> [<port>] [<players>]}}
+* 参数：
+** {{cd|hostname}}：字符串，要连接到的服务器的主机名。
+** {{cd|port}}：整数，要连接到的服务器的端口编号，若省略则为{{cd|25565}}。
+** {{cd|players}}：要转移的玩家，若省略则为{{cd|@s}}。
+
+=== 常规 ===
+'''[[属性]]'''
+* 加入了{{cd|generic.scale}}，用于控制生物的尺寸。
+* 加入了{{cd|player.block_interaction_range}}，用于限制玩家可以与方块交互的最大距离。
+* 加入了{{cd|player.entity_interaction_range}}，用于限制玩家可以与实体交互的最大距离。
+* 加入了{{cd|generic.step_height}}，用于限制生物不跳跃就能走上的最大高度和玩家潜行时不会走下方块的最小高度差。
+* 加入了{{cd|generic.gravity}}，用于控制生物的重力加速度，值域为-1~1。
+* 加入了{{cd|generic.safe_fall_distance}}，用于控制生物不受摔落伤害的最大高度，值域为-1024~1024。
+* 加入了{{cd|generic.fall_damage_multiplier}}，用于控制生物总摔落伤害的倍率，值域为0~100。
+* 加入了{{cd|player.block_break_speed}}，用于控制玩家破坏方块速度的倍率，值域为0~1024。
+
+'''[[游戏规则]]'''
+* 加入了<code>spawnChunkRadius</code>游戏规则，用于控制出生点区块的大小。
+** 默认值为<code>2</code>，取值为<code>0</code>至<code>32</code>。
+*** 设置为<code>0</code>表示完全禁用出生点区块，设置为<code>10</code>可以与之前版本的出生点区块大小保持一致。
+
+'''协议'''
+* 加入了转移{{tr|数据包|封包}}。
+** 自定义服务器现在可以请求客户端使用转移{{tr|数据包|封包}}连接到另一个服务器。
+** 客户端转移时，将使用新的转移意图（ID<code>3</code>）连接到目标服务器，且可以使用新标志跳过身份验证。
+** 默认情况下，[[服务器]]不会接受转移，并会断开与客户端的连接，但可以通过将配置文件<code>server.properties</code>中的<code>accepts-transfers</code>设置为<code>true</code>来启用此功能。
+** 转移过程中维持资源包。
+* 加入了Cookie{{tr|数据包|封包}}。
+** Cookie{{tr|数据包|封包}}允许自定义服务器在客户端请求和存储数据。在登录、配置和游戏阶段可能请求Cookie，但只有在配置和游戏阶段可以存储数据。
+** Cookie只会在玩家在线时被服务器持续传输。
+** 每个Cookie大小可达5KiB。
+** 这允许服务器将诸如身份验证或自定义游戏数据之类的信息传递给新服务器。
+
+'''<samp>[[server.properties]]</samp>'''
+* 加入了<code>accepts-transfers</code>，默认为<code>false</code>，用于设置服务端是否接受转移数据包作为登录请求。
+* 加入了<code>region-file-compression</code>专用服务器启动配置参数，用于更改压缩算法，但不会自动重新压缩世界。
+** 若更改此参数，新区块或更新的区块使用新的压缩算法，而旧区块仍使用旧压缩算法。
+** 有三个枚举值：
+*** <code>deflate</code>，使用旧算法的默认值。
+*** <code>lz4</code>，使用LZ4算法，减少压缩和解压缩使用CPU的时间，但占用更多磁盘空间。
+*** <code>none</code>，不压缩数据。尽管CPU占用量较少，这会消耗更多的空间，并且需要大量的时间进行读写。与文件系统配合压缩存档文件更有意义。
+* 加入了<code>recreateRegionFiles</code>专用服务器启动配置参数。
+** 这将使用与<code>forceUpgrade</code>类似的优化世界方案，创建新的碎片化的区域文件，但会重写所有区块。
+** 在更改<code>region-file-compression</code>服务器参数后将以新格式重新压缩所有区域文件。
+
+'''[[区域文件]]'''
+* 为第三方服务器添加了保留压缩ID，用于自定义压缩实现方式。
+** 压缩ID<code>127</code>现在可以用于自定义区域文件压缩实现。
+** 使用版本ID时，必须后接带有命名空间的字符串，表示所使用的自定义算法。
+
+'''[[数据包]]'''
+* 加入了子文件夹<code>banner_pattern</code>和<code>wolf_variant</code>。
+
+'''[[Java版标签|标签]]'''
+* 加入了以下方块标签：
+** {{cd|#armadillo_spawnable_on}}：{{cd|d=pretty|#animals_spawnable_on|#badlands_terracotta|red_sand|coarse_dirt}}。
+*** [[犰狳]]可以在这些方块上生成。
+** {{cd|#badlands_terracotta}}：{{cd|d=pretty|terracotta|white_terracotta|yellow_terracotta|orange_terracotta|red_terracotta|brown_terracotta|light_gray_terracotta}}。
+*** 犰狳可以在这些陶瓦上生成。
+** {{cd|#does_not_block_hoppers}}：{{cd|#beehives}}。
+*** 不会阻止[[漏斗]]检测物品实体的方块。
+** {{cd|d=pretty|#incorrect_for_wooden_tool|#incorrect_for_gold_tool|#incorrect_for_stone_tool|#incorrect_for_iron_tool|#incorrect_for_diamond_tool|#incorrect_for_netherite_tool}}
+*** 适合破坏工具'''不'''是对应[[品质]]工具的方块，结合了现有的{{cd|d=pretty|#needs_diamond_tool|#needs_iron_tool|#needs_stone_tool}}标签。
+* 加入了以下物品标签：
+** {{cd|#chest_armor}}：{{cd|d=pretty|leather_chestplate|chainmail_chestplate|golden_chestplate|iron_chestplate|diamond_chestplate|netherite_chestplate}}。
+*** 属于胸部[[盔甲]]（[[胸甲]]）的物品。
+** {{cd|#foot_armor}}：{{cd|d=pretty|leather_boots|chainmail_boots|golden_boots|iron_boots|diamond_boots|netherite_boots}}。
+*** 属于脚部盔甲（[[靴子]]）的物品。
+** {{cd|#head_armor}}：{{cd|d=pretty|leather_helmet|chainmail_helmet|golden_helmet|iron_helmet|
+diamond_helmet|netherite_helmet|turtle_helmet}}。
+*** 属于头部盔甲（[[头盔]]）的物品。
+** {{cd|#leg_armor}}：{{cd|d=pretty|leather_leggings|chainmail_leggings|golden_leggings|iron_leggings|diamond_leggings|netherite_leggings}}。
+*** 属于腿部盔甲（[[护腿]]）的物品。
+** {{cd|#skulls}}：{{cd|d=pretty|player_head|creeper_head|zombie_head|skeleton_skull|wither_skeleton_skull|dragon_head|piglin_head}}。
+*** 属于[[生物头颅]]的物品。
+** {{cd|#enchantable/armor}}：{{cd|d=pretty|#foot_armor|#leg_armor|#chest_armor|#head_armor}}。
+*** 可以附上适用于盔甲的[[魔咒]]的物品。
+** {{cd|#enchantable/bow}}：{{cd|bow}}。
+*** 可以附上适用于[[弓]]的魔咒的物品。
+** {{cd|#enchantable/chest_armor}}：{{cd|#chest_armor}}。
+*** 可以附上适用于胸甲的魔咒的物品。
+** {{cd|#enchantable/crossbow}}：{{cd|crossbow}}。
+*** 可以附上适用于[[弩]]的魔咒的物品。
+** {{cd|#enchantable/durability}}：{{cd|d=pretty|#foot_armor|#leg_armor|#chest_armor|#head_armor|elytra|shield|#swords|#axes|#pickaxes|#shovels|#hoes|bow|crossbow|trident|flint_and_steel|shears|brush|fishing_rod|carrot_on_a_stick|warped_fungus_on_a_stick}}。
+*** 可以附上影响[[耐久度]]的魔咒的物品。
+** {{cd|#enchantable/equippable}}：{{cd|d=pretty|#foot_armor|#leg_armor|#chest_armor|#head_armor|elytra|#skulls|carved_pumpkin}}。
+*** 可以附上可装备（Equippable）魔咒的物品。<!-- Curse of Binding -->
+** {{cd|#enchantable/fishing}}：{{cd|fishing_rod}}。
+*** 可以附上适用于[[钓鱼竿]]的魔咒的物品。
+** {{cd|#enchantable/foot_armor}}：{{cd|#foot_armor}}。
+*** 可以附上适用于靴子的魔咒的物品。
+** {{cd|#enchantable/head_armor}}：{{cd|#head_armor}}。
+*** 可以附上适用于头盔的魔咒的物品。
+** {{cd|#enchantable/leg_armor}}：{{cd|#leg_armor}}。
+*** 可以附上适用于护腿的魔咒的物品。
+** {{cd|#enchantable/mining}}：{{cd|d=pretty|#axes|#pickaxes|#shovels|#hoes|shears}}。
+*** 可以附上影响挖掘速度的魔咒的物品。<!-- Efficiency -->
+** {{cd|#enchantable/mining_loot}}：{{cd|d=pretty|#axes|#pickaxes|#shovels|#hoes}}。
+*** 可以附上影响挖掘[[掉落物]]的魔咒的物品。<!-- Silk Touch -->
+** {{cd|#enchantable/sword}}：{{cd|swords}}。
+*** 可以附上适用于[[剑]]的魔咒的物品。
+** {{cd|#enchantable/trident}}：{{cd|trident}}。
+*** 可以附上适用于[[三叉戟]]的魔咒的物品。
+** {{cd|#enchantable/vanishing}}：{{cd|d=pretty|#enchantable/durability|compass|carved_pumpkinskulls}}。
+*** 可以附上可使[[物品]]消失的魔咒的物品。<!-- Curse of Vanishing -->
+** {{cd|#enchantable/weapon}}：{{cd|d=pretty|#swords|#axes}}。
+*** 可以附上适用于武器的魔咒的物品。
+** {{cd|#enchantable/fire_aspect}}：{{cd|#enchantable/sword}}。
+*** 可以附上[[火焰附加]]魔咒的物品。
+** {{cd|#enchantable/sharp_weapon}}：{{cd|d=pretty|#enchantable/sword|#enchantable/axe}}。
+*** 可以附上[[锋利]]魔咒的物品。
+** {{cd|#dyeable}}：{{cd|d=pretty|leather_helmet|leather_chestplate|leather_leggings|leather_boots|leather_horse_armor|wolf_armor}}。
+*** 可以被染色的防具。
+** {{cd|#meat}}：{{cd|d=pretty|beef|chicken|cooked_beef|cooked_chicken|cooked_mutton|cooked_porkchop|cooked_rabbit|mutton|porkchop|rabbit|rotten_flesh}}
+*** 肉类物品。未被游戏直接使用，但可能包含于其他标签中。
+** {{cd|d=pretty|#piglin_food|#fox_food|#cow_food|#goat_food|#sheep_food|#wolf_food|#cat_food|#horse_food|#horse_tempt_items|#camel_food|#armadillo_food|#bee_food|#chicken_food|#frog_food|#hoglin_food|#llama_food|#llama_tempt_items|#ocelot_food|#panda_food|#pig_food|#rabbit_food|#strider_food|#strider_tempt_items|#turtle_food|#parrot_food|#parrot_poisonous_food}}
+*** 可以用于喂食或引诱对应生物的物品。
+* 加入了以下实体类型标签：
+** {{cd|#aquatic}}：{{cd|d=pretty|turtle|axolotl|guardian|elder_guardian|cod|pufferfish|salmon|tropical_fish|dolphin|squid|glow_squid|tadpole}}。
+*** 被视为[[水生生物]]的实体。
+** {{cd|#arthropod}}：{{cd|d=pretty|bee|endermite|silverfish|spider|cave_spider}}。
+*** 被视为[[节肢生物]]的实体。
+** {{cd|#ignores_poison_and_regen}}：{{cd|#undead}}。
+*** 免疫[[中毒]]和[[生命恢复]]效果的实体。
+** {{cd|#illager}}：{{cd|d=pretty|evoker|illusioner|pillager|vindicator}}。
+*** 被视为[[灾厄村民]]的实体。
+** {{cd|#illager_friends}}：{{cd|#illager}}。
+*** 被灾厄村民视为盟友的实体（不包括在其他队伍中的）。
+** {{cd|#inverted_healing_and_harm}}：{{cd|#undead}}。
+*** [[瞬间治疗]]和[[瞬间伤害]]会对其产生相反效果的实体。
+** {{cd|#not_scary_for_pufferfish}}：{{cd|d=pretty|turtle|guardian|elder_guardian|cod|pufferfish|salmon|tropical_fish|dolphin|squid|glow_squid|tadpole}}。
+*** 不会使[[河豚]]膨胀的实体。
+** {{cd|#sensitive_to_bane_of_arthropods}}：{{cd|#arthropod}}。
+*** [[节肢杀手]]魔咒会对其产生额外伤害的实体。
+** {{cd|#sensitive_to_impaling}}：{{cd|#aquatic}}。
+*** [[穿刺]]魔咒会对其产生额外伤害的实体。
+** {{cd|#sensitive_to_smite}}：{{cd|#undead}}
+*** [[亡灵杀手]]魔咒会对其产生额外伤害的实体。
+** {{cd|#wither_friends}}：{{cd|#undead}}。
+*** 不被[[凋灵]]视为目标，也不会对凋灵造成伤害的实体。
+** {{cd|#redirectable_projectile}}：{{cd|fireball}}。
+*** 能被玩家攻击和[[弹射物]]击中且会随玩家视角方向或弹射物方向偏转的弹射物实体。
+* 加入了以下伤害类型标签：
+** {{cd|#bypasses_wolf_armor}}：{{cd|d=pretty|#bypasses_invulnerability|cramming|drown|dry_out|freeze|in_wall|indirect_magic|magic|outside_border|starve|thorns|wither}}。
+*** 不被狼铠抵消的伤害类型。
+** {{cd|#is_player_attack}}：{{cd|player_attack}}。
+*** 由玩家造成的攻击伤害类型。
+* 加入了以下[[魔咒]]标签：
+** {{cd|#tooltip_order}}：{{cd|d=pretty|binding_curse|vanishing_curse|riptide|channeling|frost_walker|sharpness|smite|bane_of_arthropods|impaling|power|piercing|sweeping_edge|multishot|fire_aspect|flame|knockback|punch|protection|blast_protection|fire_protection|projectile_protection|feather_falling|fortune|looting|silk_touch|luck_of_the_sea|efficiency|quick_charge|lure|respiration|aqua_affinity|soul_speed|swift_sneak|depth_strider|thorns|loyalty|unbreaking|infinity|mending}}。
+*** 控制在物品[[提示框]]中所显示魔咒的顺序。
+
+'''[[进度触发器]]'''
+* 加入了进度触发器<code>crafter_recipe_crafted</code>，当[[合成器]]将物品喷出时触发。
+** <code><player></code>，实体谓词，用于匹配附近玩家。
+** <code><recipe_id></code>，配方ID，用于匹配一个合成配方。
+** <code><ingredients></code>，匹配合成所用的配方成分列表，子项均为物品谓词。
+* 加入了进度触发器<code>fall_after_explosion</code>，在玩家被[[爆炸]]或风弹爆裂击飞后摔落时触发。
+**<code><player></code>，匹配正在摔落的玩家的实体谓词。
+**<code><start_position></code>，匹配玩家受到爆炸坐标的位置谓词。
+**<code><distance></code>，匹配玩家从<code>start_position</code>起摔落高度的距离谓词。
+**<code><cause></code>，匹配造成爆炸的实体谓词。
+
+'''[[选项]]'''
+* 在“辅助功能设置”屏幕中加入了“菜单背景模糊程度”滚动条。
+* 在“语言”屏幕中加入了“字体设置”。
+** 将“{{tr|强制使用Unicode字体|強制使用 Unicode 字型}}”选项移入其中。
+** 加入了“{{tr|日本字形变体|日文字形變體|日本字形變體}}”选项。
+*** 用于控制是否在默认字体中为CJK字符使用日本字形。
+*** 默认值基于系统语言环境设置。
+
+'''[[语言]]'''
+* 加入了Viossa。
+
+'''[[字体]]'''
+* 加入了字体变体过滤器。
+** 现在字形提供器可以基于特定的变体集来启用或禁用字体变体。
+** 过滤器在<code>filter</code>节中定义，可用于每个字形提供器。
+*** 只有当过滤器中的值与键中变体的实际值匹配时，才会包含该字形提供器。
+** 可用的变体目前是硬编码的，并由字体选项菜单控制。
+*** <code>uniform</code>，连接到“{{tr|强制使用Unicode字体|強制使用 Unicode 字型}}”选项。
+*** <code>jp</code>，连接到“{{tr|日本字形变体|日文字形變體|日本字形變體}}”选项。
+
+'''[[自定义结构#已配置的结构地物|结构地物的地形调整方式]]'''
+* 加入了<code>encapsulate</code>。
+** 结构周围每一部分的密度都会增加。
+** 用于需要完全埋藏在地下的理想结构。
+
+'''[[战利品表]]'''
+* 战利品表抽取项<code>loot_table</code>（从提供的嵌套战利品表返回所有物品）现在有以下语法：
+** <code>value</code>可以是：
+*** 一个命名空间ID，指对另一个战利品表的引用。
+*** 完整的战利品表，格式与独立文件的战利品表相同。
+* 加入了<code>storage</code>数值提供器。此提供器能获取命令存储中数据标签所提供的数值。
+** 如果选择的存储不存在、路径选择的标签不为数字或标签不存在，则返回<code>0</code>。
+** 格式：
+*** <code>storage</code>：命令存储的命名空间ID。
+*** <code>path</code>：NBT路径。
+
+'''[[战利品上下文#参数集|战利品上下文参数集类型]]'''
+* 加入了<code>equipment</code>类型。
+** 需要的参数：
+*** <code>this_entity</code>：将获得装备的生物。
+*** <code>origin</code>：生物的位置。
+
+'''[[战利品表函数]]'''
+*; <code>set_components</code>：用于在输入物品上添加或替换给定组件的新函数。
+<div class="treeview">
+:** {{nbt|list|conditions}}：（默认为<code>[]</code>）一个[[战利品表谓词]]列表。当其中的条件全部符合时才会应用此物品修饰器。
+:** {{nbt|compound|components}}：所添加或替换的组件列表。
+:*** {{nbt|any|<（!）'物品堆叠组件'>}} ：一个物品堆叠组件ID到组件值的映射，格式因ID而异。带有“!”前缀的组件将导致该组件被删除。
+</div>
+:* 现在在原版数据包中使用它来代替{{cd|set_nbt}}函数。
+*; <code>copy_components</code>：用于将组件从指定源复制到物品组件中的新函数。
+<div class="treeview">
+:** {{nbt|list|conditions}}：（默认为<code>[]</code>）一个战利品表谓词列表。当其中的条件全部符合时才会应用此物品修饰器。
+:** {{nbt|list|include}}：（可选）可从源复制的数据组件列表。省略时包含所有存在的组件。
+:*** {{nbt|string|<'物品堆叠组件'>}} ：一个物品堆叠组件ID。
+:** {{nbt|list|exclude}}：（可选）禁用复制的数据组件列表。省略时为空。
+:*** {{nbt|string|<'物品堆叠组件'>}} ：一个物品堆叠组件ID。
+:** {{nbt|string|source}}：被提取组件的资源类型，当前必须为<code>block_entity</code>。
+</div>
+:* 现在在原版数据包中使用它来代替{{cd|d=pretty|copy_name|copy_nbt}}函数。
+*; <code>set_fireworks</code>：设置<code>minecraft:fireworks</code>组件详细内容的新函数。
+<div class="treeview">
+:** {{nbt|list|conditions}}：（默认为<code>[]</code>）一个战利品表谓词列表。当其中的条件全部符合时才会应用此物品修饰器。
+:** {{nbt|int|flight_duration}}：（可选，不小于0且不大于255）火药的数量，用于衡量飞行时长。如果忽略此值，则物品飞行时长不改变；如果应用此物品修饰器前对应组件不存在，则使用<code>0</code>。
+:** {{nbt|compound|explosions}}：（可选）爆裂数据。
+:*** {{nbt|list|values}}：<code>firework_explosion</code>数据的列表，与<code>minecraft:fireworks</code>组件中的<code>explosion</code>格式相同。
+:*** {{nbt|string|mode}}：决定爆裂列表数据的模式的枚举值。
+:***; 若{{nbt|string|mode}}为{{cd|replace_all}}，则用此物品修饰器定义的爆裂列表替换整个爆裂列表数据，没有附加标签。
+:***; 若{{nbt|string|mode}}为{{cd|replace_section}}，则用此物品修饰器定义的爆裂列表替换爆裂列表中的一个区间内元素的数据，并带有下列附加标签：
+:*** {{nbt|int|offset}}：（可选，不小于0）替换列表的起始下标。如果被省略，则为<code>0</code>。
+:*** {{nbt|int|size}}：（可选，不小于0）替代列表的长度。如果被省略，则使用{{nbt|list|values}}列表的长度。
+:***; 若{{nbt|string|mode}}为{{cd|append}}，则将此物品修饰器定义的爆裂列表附加到原烟花火箭爆裂列表后，没有附加标签。
+:***; 若{{nbt|string|mode}}为{{cd|insert}}，则将此物品修饰器定义的爆裂列表插入到原爆裂列表内，并带有下列附加标签：
+:*** {{nbt|int|offset}}：（可选，不小于0）列表的插入位置下标。如果被省略，则为<code>0</code>（即在第一个爆裂数据前）。
+</div>
+*; <code>set_firework_explosion</code>：设置<code>minecraft:firework_explosion</code>组件详细内容的新函数。
+<div class="treeview">
+:** {{nbt|list|conditions}}：（默认为<code>[]</code>）一个战利品表谓词列表。当其中的条件全部符合时才会应用此物品修饰器。
+:** {{nbt|string|shape}}：（可选）爆炸形状。如果忽略此值，则原来的形状不改变；如果应用此物品修饰器前对应组件不存在，则使用<code>small_ball</code>。
+:** {{nbt|int-array|colors}}：（可选，RGB值）替代目标爆炸数据的初始粒子颜色的数组。如果忽略此值，则原来的颜色不改变；如果应用此物品修饰器前对应组件不存在，则使用<code>[]</code>。
+:** {{nbt|int-array|fade_colors}}：（可选，RGB值）替代目标爆炸数据的淡出粒子颜色的数组。如果忽略此值，则原来的颜色不改变；如果应用此物品修饰器前对应组件不存在，则使用<code>[]</code>。
+:** {{nbt|bool|trail}}：（可选）设置爆炸是否带有拖尾。如果忽略此值，则原来的<code>has_trail</code>不改变；如果应用此物品修饰器前对应组件不存在，则使用<code>false</code>。
+:** {{nbt|bool|twinkle}}：（可选）设置爆炸是否闪烁。如果忽略此值，则原来的<code>has_twinkle</code>不改变；如果应用此物品修饰器前对应组件不存在，则使用<code>false</code>。
+</div>
+*; <code>set_book_cover</code>：覆盖<code>minecraft:written_book_content</code>组件详细内容的新函数，不会更改[[成书]]的任何一页。
+<div class="treeview">
+:** {{nbt|list|conditions}}：（默认为<code>[]</code>）一个战利品表谓词列表。当其中的条件全部符合时才会应用此物品修饰器。
+:** {{nbt|string|title}}：（可选，可过滤文本）设置成书的标题，与<code>minecraft:written_book_content</code>组件中的<code>title</code>格式相同。如果忽略此值，则原标题不改变；如果应用此物品修饰器前对应组件不存在，则使用空字符串。
+:** {{nbt|string|author}}：（可选）设置成书的作者。如果忽略此值，则原标题不改变；如果应用此物品修饰器前对应组件不存在，则使用空字符串。
+:** {{nbt|int|generation}}：（可选，不小于0且不大于3）设置成书的复制次数。如果忽略此值，则原值不改变；如果应用此物品修饰器前对应组件不存在，则使用<code>0</code>。
+</div>
+*; <code>set_writable_book_pages</code>：设置<code>minecraft:writable_book_content</code>组件页面的新函数。
+<div class="treeview">
+:** {{nbt|list|conditions}}：（默认为<code>[]</code>）一个战利品表谓词列表。当其中的条件全部符合时才会应用此物品修饰器。
+:** {{nbt|list|pages}}：页面列表，与<code>minecraft:writable_book_content</code>组件中的<code>pages</code>格式相同。
+:** {{nbt|string|mode}}：决定[[书与笔]]页面数据的模式的枚举值。
+:**; 若{{nbt|string|mode}}为{{cd|replace_all}}，则用此物品修饰器定义的页面列表替换整个书页列表数据，没有附加标签。
+:**; 若{{nbt|string|mode}}为{{cd|replace_section}}，则用此物品修饰器定义的页面列表替换书页列表中的一个区间内元素的数据，并带有下列附加标签：
+:** {{nbt|int|offset}}：（可选，不小于0）替换列表的起始下标。如果被省略，则为<code>0</code>。
+:** {{nbt|int|size}}：（可选，不小于0）替代列表的长度。如果被省略，则使用{{nbt|list|pages}}列表的长度。
+:**; 若{{nbt|string|mode}}为{{cd|append}}，则将此物品修饰器定义的书页列表附加到原书与笔书页列表后，没有附加标签。
+:**; 若{{nbt|string|mode}}为{{cd|insert}}，则将此物品修饰器定义的书页列表插入到原书与笔书页列表内，并带有下列附加标签：
+:** {{nbt|int|offset}}：（可选，不小于0）列表的插入位置下标。如果被省略，则为<code>0</code>（即在第一页前）。
+</div>
+*; <code>set_written_book_pages</code>：设置<code>minecraft:written_book_content</code>组件页面的新函数，不会更改封面数据。这些页面文本组件将在玩家下次打开成书时解析。
+<div class="treeview">
+:** {{nbt|list|conditions}}：（默认为<code>[]</code>）一个战利品表谓词列表。当其中的条件全部符合时才会应用此物品修饰器。
+:** {{nbt|list|pages}}：书页列表，必须为可过滤的[[文本组件格式]]。
+:** {{nbt|string|mode}}：决定成书书页数据的模式的枚举值。
+:**; 若{{nbt|string|mode}}为{{cd|replace_all}}，则用此物品修饰器定义的书页列表替换整个书页列表数据，没有附加标签。
+:**; 若{{nbt|string|mode}}为{{cd|replace_section}}，则用此物品修饰器定义的书页列表替换书页列表中的一个区间内元素的数据，并带有下列附加标签：
+:** {{nbt|int|offset}}：（可选，不小于0）替换列表的起始下标。如果被省略，则为<code>0</code>。
+:** {{nbt|int|size}}：（可选，不小于0）替代列表的长度。如果被省略，则使用{{nbt|list|pages}}列表的长度。
+:**; 若{{nbt|string|mode}}为{{cd|append}}，则将此物品修饰器定义的书页列表附加到原成书书页列表后，没有附加标签。
+:**; 若{{nbt|string|mode}}为{{cd|insert}}，则将此物品修饰器定义的书页列表插入到原成书书页列表内，并带有下列附加标签：
+:** {{nbt|int|offset}}：（可选，不小于0）列表的插入位置下标。如果被省略，则为<code>0</code>（即在第一页前）。
+</div>
+*; <code>toggle_tooltips</code>：修改物品组件提示框的可见性的新函数，可设置{{nbt|bool|show_in_tooltip}}等字段而不更改其他值。
+<div class="treeview">
+:** {{nbt|compound|toggles}}：支持的物品组件类型与布尔值的键值对。
+:*** {{nbt|bool|''<一个物品组件ID>''}}：控制此组件是否在提示框中可见。受支持的组件包含：{{cd|d=pretty|trim|dyed_color|enchantments|stored_enchantments|unbreakable|can_break|can_place_on|attribute_modifiers}}。
+</div>
+:* 示例：<code>{function:"toggle_tooltips","toggles":{"enchantments":false}}</code>将会隐藏魔咒提示框。
+*; <code>set_ominous_bottle_amplifier</code>：新函数，用于将目标物品的<code>ominous_bottle_amplifier</code>组件设置为数值提供器提供的值。
+<div class="treeview">
+:** {{nbt|list|conditions}}：（默认为<code>[]</code>）一个战利品表谓词列表。当其中的条件全部符合时才会应用此物品修饰器。
+:** {{nbt|compound|amplifier}}：一个[[数值提供器]]。用于生成<code>ominous_bottle_amplifier</code>组件。
+</div>
+*; <code>set_name</code>
+** 加入了{{nbt|string|target}}可选字段来指定设置哪种名称。
+*** <code>custom_name</code>：（默认）设置<code>custom_name</code>组件。
+*** <code>item_name</code>：设置<code>item_name</code>组件。
+*; <code>modify_contents</code>：对容器类组件中的每个物品应用<code>modifier</code>中函数的新函数。
+<div class="treeview">
+:** {{nbt|list|conditions}}：（默认为<code>[]</code>）一个战利品表谓词列表。当其中的条件全部符合时才会应用此物品修饰器。
+:** {{nbt|string|component}}：目标组件，值可以为：{{cd|d=pretty|container|bundle_contents|charged_projectiles}}。
+:** {{nbt|compound|modifier}}：应用于目标组件中所有物品的战利品表函数。
+</div>
+:* 如果组件不存在，此函数不生效。
+*; <code>set_item</code>：不更改数量和组件即可替换物品堆叠类型的新函数。
+<div class="treeview">
+:** {{nbt|list|conditions}}：（默认为<code>[]</code>）一个战利品表谓词列表。当其中的条件全部符合时才会应用此物品修饰器。
+:** {{nbt|string|item}}：新物品ID。
+</div>
+*; <code>filtered</code>：仅对符合物品谓词的物品应用<code>modifier</code>中函数的新函数。
+<div class="treeview">
+:** {{nbt|list|conditions}}：（默认为<code>[]</code>）一个战利品表谓词列表。当其中的条件全部符合时才会应用此物品修饰器。
+:** {{nbt|compound|item_filter}}：用于匹配物品的物品谓词。
+:** {{nbt|compound|modifier}}：应用于物品的战利品表函数。
+</div>
+*; <code>set_custom_model_data</code>：设置<code>custom_model_data</code>组件的新函数。
+<div class="treeview">
+:** {{nbt|list|conditions}}：（默认为<code>[]</code>）一个战利品表谓词列表。当其中的条件全部符合时才会应用此物品修饰器。
+:** {{nbt|int}}{{nbt|compound|value}}：一个整型数值提供器。
+</div>
+
+'''实体谓词'''
+* 加入了实体子谓词<code>slots</code>，用于比较任何实体的单个或多个槽位。
+** 比较时，槽位区间中的任意槽位符合条件即视为整项通过。
+** 格式：槽位名称与物品谓词的键值对。
+** 示例：
+:: <syntaxhighlight lang="json">{
+    "condition": "minecraft:entity_properties",
+    "entity": "this",
+    "predicate": {
+        "slots": {
+            "container.*": {
+                "items": "dirt"
+            }
+        }
+    }
+}</syntaxhighlight>
+* 在实体子谓词<code>equipment</code>中加入了<code>body</code>选项，以匹配实体身体盔甲槽中的物品。
+* 为匹配<code>raidersFields</code>字段，加入了实体子谓词<code>raider</code>。
+** <code>has_raid</code>——匹配袭击者是否处于正在进行的袭击中。
+** <code>is_captain</code>——匹配袭击者是否为袭击队长。
+
+'''[[物品栏]]'''
+* 加入了下列新的槽位名称：
+** <code>container.*</code>：包含<code>container.0</code>到<code>container.53</code>。
+** <code>hotbar.*</code>：包含<code>hotbar.0</code>到<code>hotbar.8</code>。
+** <code>inventory.*</code>：包含<code>inventory.0</code>到<code>inventory.26</code>。
+** <code>enderchest.*</code>：包含<code>enderchest.0</code>到<code>enderchest.26</code>。
+** <code>villager.*</code>：包含<code>villager.0</code>到<code>villager.7</code>。
+** <code>horse.*</code>：包含<code>horse.0</code>到<code>horse.14</code>。
+** <code>weapon.*</code>：包含{{cd|d=pretty|weapon.mainhand|weapon.offhand}}。
+** <code>armor.*</code>：包含{{cd|d=pretty|armor.head|armor.chest|armor.legs|armor.feed|armor.body}}。
+** <code>player.cursor</code>：玩家鼠标持有的物品。在[[创造模式物品栏]]中，此槽位不会被读取。
+** {{cd|d=pretty|player.crafting.0|player.crafting.1|player.crafting.2|player.crafting.3|player.crafting.*}}：玩家物品栏中的合成栏。
+* 除非另有说明，现有的命令仍仅支持单个槽位。
+
+'''[[物品堆叠组件]]'''
+* 物品堆相关的非结构化NBT数据（{{nbt|compound|tag}}）被结构化的“组件”（{{nbt|compound|components}}）取代。
+** 这些数据将在物品被加载时进行解析和验证。
+** 这将提升在某些应用场景下的程序性能（如[[盔甲纹饰]]的渲染），常见于物品被频繁地比较或请求和解析数据时。
+** 可将自定义物品数据存储在<code>minecraft:custom_data</code>组件中。
+* 物品类型（比如，<code>minecraft:stick</code>）控制物品所拥有的默认组件，个别物品堆可以进行覆盖。
+* 在数据包中，序列化物品格式和物品格式变得更加一致，以支持物品堆叠组件。
+* 当高级提示框开启时（{{key|F3+H}}），将显示物品的组件数量而非其NBT标签数量。
+* 在<code>reports</code>目录内的<code>items.json</code>文件中加入了物品默认组件的值。
+* 在<code>blocks.json</code>报告中加入了方块定义，但尚未使用。
+* 可以使用组件的简化形式，但它们在物品数据中总是以完整形式存储。
+* 加入了以下物品堆叠组件（均省略命名空间<code>minecraft:</code>）：
+<div class="treeview"> 
+::*; {{nbt|compound|custom_data}}：可用于存储物品的自定义数据。
+::** {{nbt|string}}：一个包含任意字段的对象。
+</div>
+::* 在{{cmd|give}}等命令中，可在物品名后使用<code>{…}</code>来表示，与之前表示物品{{nbt|compound|tag}}的语法一致。
+::* 在命令的谓词判断中（比如{{cmd|clear}}），将与当前被判断物品的<code>custom_data</code>进行匹配，仅当其中的所有数据都相同时才返回“成功”，否则返回“失败”。
+::* 升级世界时，旧的物品标签{{nbt|compound|tag}}中的任何非游戏数据都会移动到该组件中。
+::* 示例：<code>custom_data={some:'data'}</code>。
+::; {{nbt|int|damage}}：（不小于0）物品损耗的耐久度。对于可损坏的物品，此值默认为0。若移除此组件，物品将变得不可损坏。
+::* 替代了标签{{nbt|int|Damage}}。
+::* 示例：<code>damage=12</code>。
+::; {{nbt|int|repair_cost}}：（默认为0，不小于0）在铁砧中修改物品后所消耗的额外经验。
+::* 替代了标签{{nbt|int|RepairCost}}。
+::* 示例：<code>repair_cost=12</code>。
+<div class="treeview"> 
+::*; {{nbt|compound|unbreakable}}：若挂载该组件，则物品将不会消耗耐久度。
+::** {{nbt|bool|show_in_tooltip}}：（默认为<code>true</code>）若为<code>true</code>，则在物品提示框中将显示“无法破坏”文本。替代了标签{{nbt|int|HideFlags}}的第3个二进制位。
+</div>
+::* 替代了标签{{nbt|bool|Unbreakable}}。
+::* 示例：<code>unbreakable={}</code>、<code>unbreakable={show_in_tooltip:false}</code>。
+<div class="treeview"> 
+::*; {{nbt|compound|enchantments}}：（默认为<code>{levels:{}}</code>）存储物品的魔咒及其等级。可为等同于{{nbt|compound|levels}}的简化形式。
+::** {{nbt|compound|levels}}：（允许多个项）。
+::*** {{nbt|int|<''魔咒命名空间ID''>}}：（可选，默认为1，不小于0且不大于255）物品的一个魔咒及其等级。
+::** {{nbt|bool|show_in_tooltip}}：（默认为<code>true</code>）表示物品提示框中是否显示魔咒。用于替代标签{{nbt|int|HideFlags}}的第1个二进制位。
+</div>
+::* 替代了标签{{nbt|list|Enchantments}}。
+::* 示例：<code>enchantments={levels:{'minecraft:protection':2},show_in_tooltip:false}</code>或<code>enchantments={sharpness:1}</code>。
+<div class="treeview"> 
+::*; {{nbt|compound|stored_enchantments}}：（附魔书默认为<code>{levels:{}}</code>）存储[[附魔书]]上的魔咒及其等级，但魔咒的实际效果不会因为此组件的挂载而生效。可为等同于{{nbt|compound|levels}}的简化形式。
+::** {{nbt|compound|levels}}：（允许多个项）。
+::*** {{nbt|int|<''魔咒命名空间ID''>}}：（可选，默认为1，不小于0且不大于255）物品的一个魔咒及其等级。
+::** {{nbt|bool|show_in_tooltip}}：（可选，默认为<code>true</code>）表示物品提示框中是否显示魔咒。用于替代标签{{nbt|int|HideFlags}}的第6个二进制位。
+</div>
+::* 替代了附魔书标签{{nbt|list|StoredEnchantments}}。
+::; {{nbt|string|custom_name}}：（JSON聊天组件字符串）覆盖物品原名称的自定义名称。
+::* 替代了标签{{nbt|string|display.Name}}。
+::* 示例：<code>-{}-custom_name='{"text": "此物品被重命名过了！", "color": "red"}'</code>。
+<div class="treeview"> 
+::*; {{nbt|list|lore}}：（默认为<code>[]</code>，最多包含256个项）物品提示框中附加的描述性信息列表。
+::** {{nbt|string}}：一个JSON聊天组件字符串，表示一行文本。
+</div>
+::* 替代了标签{{nbt|list|display.Lore}}。
+::* 示例：<code>-{}-lore=['{"text": "蛋糕是个谎言！"}']</code>。
+<div class="treeview"> 
+::*; {{nbt|compound|can_break}}：控制冒险模式玩家可以用此物品破坏哪些方块。
+::** {{nbt|list|predicates}}：（可选）代替原来字符串的方块谓词列表。
+::*** {{nbt|compound}}：一个方块谓词。
+::**** {{nbt|string}}{{nbt|list|blocks}}：可以为单个方块、方块列表或带哈希前缀（<code>#</code>）的方块标签。
+::**** {{nbt|string|nbt}}：（可选）可解析的方块实体NBT。
+::**** {{nbt|compound|state}}：（可选）一个表示方块状态的映射表（map），映射键为方块状态的属性名，映射值为该方块状态对应的可用值。
+::** {{nbt|string}}{{nbt|list|blocks}}：（可选）单个方块谓词，如<code>can_break={blocks:'minecraft:stone'}</code>。
+::** {{nbt|bool|show_in_tooltip}}：（可选，默认为<code>true</code>）表示物品提示框中是否显示该物品可破坏的方块。用于替代标签{{nbt|int|HideFlags}}的第4个二进制位。
+</div>
+::* 替代了标签{{nbt|list|CanDestroy}}。
+::* 示例：<code>can_break={predicates:{blocks:'minecraft:furnace',state:{facing:'north'}}</code>。
+<div class="treeview"> 
+::*; {{nbt|compound|can_place_on}}：控制冒险模式玩家可以把此物品放在哪些方块上。
+::** {{nbt|list|predicates}}：（可选）代替原来字符串的方块谓词列表。
+::*** {{nbt|compound}}：一个方块谓词。
+::**** {{nbt|string}}{{nbt|list|blocks}}：可以为单个方块、方块列表或带哈希前缀（<code>#</code>）的方块标签。
+::**** {{nbt|string|nbt}}：（可选）可解析的方块实体NBT。
+::**** {{nbt|compound|state}}：（可选）一个表示方块状态的映射表（map），映射键为方块状态的属性名，映射值为该方块状态对应的可用值。
+::** {{nbt|string}}{{nbt|list|blocks}}：（可选）单个方块谓词，如<code>can_place_on={blocks:'minecraft:stone'}</code>。
+::** {{nbt|bool|show_in_tooltip}}：（可选，默认为<code>true</code>）表示物品提示框中是否显示该物品可破坏的方块。用于替代标签{{nbt|int|HideFlags}}的第5个二进制位。
+</div>
+::* 替代了标签{{nbt|list|CanPlaceOn}}。
+::* 示例：<code>can_place_on={predicates:{blocks:'minecraft:furnace',state:{facing:'north'}}</code>。
+<div class="treeview"> 
+::*; {{nbt|int}}{{nbt|compound|dyed_color}}：表示应用于可染色物品（拥有物品标签<code>#dyeable</code>的物品）的颜色。若使用{{nbt|int}}，则等同于{{nbt|int|rgb}}。
+::** {{nbt|int|rgb}}：RGB值。
+::** {{nbt|bool|show_in_tooltip}}：（可选，默认为<code>true</code>）表示物品提示框中是否显示“已染色”。用于替代标签{{nbt|int|HideFlags}}的第7个二进制位。
+</div>
+::* 替代了标签{{nbt|int|display.color}}。
+::* 示例：<code>dyed_color={rgb:16711680}</code>或<code>dyed_color=16711680</code>。
+<div class="treeview"> 
+::*; {{nbt|list}}{{nbt|compound|attribute_modifiers}}：（默认值为该物品类型的属性，一般物品默认为<code>{modifiers:[]}</code>）控制在物品上应用的属性修饰符。若使用{{nbt|list}}，等同于{{nbt|list|modifiers}}。
+::** {{nbt|list|modifiers}}：属性修饰符列表。
+::*** {{nbt|compound}}：一个属性修饰符。
+::**** {{nbt|string|type}}：一个属性修饰符ID，代替了{{nbt|string|AttributeName}}。
+::**** {{nbt|string|slot}}：只有当装备在指定的槽位时，修饰符才会生效。代替了{{nbt|string|Slot}}。值可以为<code>any</code>（默认）、<code>hand</code>（新增，无论主手或副手）、<code>armor</code>（新增，任意盔甲槽）、<code>body</code>（新增，用于马铠和狼铠）、<code>mainhand</code>、<code>offhand</code>、<code>head</code>、<code>chest</code>、<code>legs</code>和<code>feet</code>。
+::**** {{nbt|int-array|uuid}}：同一个id只能存在一个修饰符。代替了{{nbt|int-array|UUID}}。
+::**** {{nbt|string|name}}：可读的属性文本，代替了{{nbt|string|Name}}。
+::**** {{nbt|double|amount}}：计算中调整修饰符的数值，代替了{{nbt|double|Amount}}。
+::**** {{nbt|string|operation}}：定义修饰符对属性的基础值的[[属性#运算模式|运算方法]]。代替了{{nbt|int|Operation}}。值可以为<code>add_value</code>（加法，曾为<code>0</code>）、<code>add_multiplied_base</code>（与基值相乘，曾为<code>1</code>）和<code>add_multiplied_total</code>（与总值相乘，曾为<code>2</code>）。
+::** {{nbt|bool|show_in_tooltip}}：（可选，默认为<code>true</code>）表示物品提示框中是否显示属性。用于替代标签{{nbt|int|HideFlags}}的第2个二进制位。
+</div>
+::* 替代了标签{{nbt|list|AttributeModifiers}}。
+::* 示例：<code>attribute_modifiers={modifiers:[{type:'minecraft:generic.scale',uuid:[1,2,3,4],name:'大！',amount:1.0,operation:'add_multiplied_base'}]}</code>或<code>attribute_modifiers=[{type:'generic.scale',uuid:[1,2,3,4],name:'大！',amount:1.0,operation:'add_multiplied_base'}]</code>。
+<div class="treeview"> 
+::*; {{nbt|list|charged_projectiles}}：包含所有装入弩中的弹射物。如果不存在，则弩未蓄力。
+::** {{nbt|compound}}：一个物品堆。现在不再限制弩中的物品堆数。
+</div>
+::* 替代了标签{{nbt|bool|Charged}}和{{nbt|list|ChargedProjectiles}}。
+::* 示例：<code>charged_projectiles=[{id:'minecraft:arrow'}]</code>。
+::; {{nbt|compound|intangible_projectile}}：一个空组件，用于标记发射时不显示在弓弩且将只能被创造模式玩家捡起的弹射物物品。这个物品应被弩的组件{{nbt|list|charged_projectiles}}包含。
+::* 示例：<code>intangible_projectile={}</code>。
+::; {{nbt|list|bundle_contents}}：（收纳袋默认为<code>[]</code>）存储[[收纳袋]]中的物品。如果被移除，则收纳袋不能收纳物品。
+::* 替代了标签{{nbt|compound|Items}}。
+::; {{nbt|int|map_color}}：（地图的默认值为<code>4603950</code>）表示[[地图]]物品上装饰物的色调。为RGB值，如<code>map_color=16711680</code>。
+::* 替代了标签{{nbt|int|display.MapColor}}。
+<div class="treeview"> 
+::*; {{nbt|compound|map_decorations}}：（地图默认为<code>{}</code>）包含地图上的[[地图#地图图标|图标]]列表，用于[[探险家地图]]。
+::** {{nbt|compound|<''地图图标名称''>}}：一个地图图标。
+::*** {{nbt|string|type}}：地图图标种类。值可以为<code>player</code>（曾为<code>0</code>）、<code>frame</code>（曾为<code>1</code>）、<code>red_marker</code>（曾为<code>2</code>）、<code>blue_marker</code>（曾为<code>3</code>）、<code>target_x</code>（曾为<code>4</code>）、<code>target_point</code>（曾为<code>5</code>）、<code>player_off_map</code>（曾为<code>6</code>）、<code>player_off_limits</code>（曾为<code>7</code>）、<code>mansion</code>（曾为<code>8</code>）、<code>monument</code>（曾为<code>9</code>）、<code>banner_white</code>（曾为<code>10</code>）、<code>banner_orange</code>（曾为<code>11</code>）、<code>banner_magenta</code>（曾为<code>12</code>）、<code>banner_light_blue</code>（曾为<code>13</code>）、<code>banner_yellow</code>（曾为<code>14</code>）、<code>banner_lime</code>（曾为<code>15</code>）、<code>banner_pink</code>（曾为<code>16</code>）、<code>banner_gray</code>（曾为<code>17</code>）、<code>banner_light_gray</code>（曾为<code>18</code>）、<code>banner_cyan</code>（曾为<code>19</code>）、<code>banner_purple</code>（曾为<code>20</code>）、<code>banner_blue</code>（曾为<code>21</code>）、<code>banner_brown</code>（曾为<code>22</code>）、<code>banner_green</code>（曾为<code>23</code>）、<code>banner_red</code>（曾为<code>24</code>）、<code>banner_black</code>（曾为<code>25</code>）、<code>red_x</code>（曾为<code>26</code>）、<code>village_desert</code>（曾为<code>27</code>）、<code>village_plains</code>（曾为<code>28</code>）、<code>village_savanna</code>（曾为<code>29</code>）、<code>village_snowy</code>（曾为<code>30</code>）、<code>village_taiga</code>（曾为<code>31</code>）、<code>jungle_temple</code>（曾为<code>32</code>）、<code>swamp_hut</code>（曾为<code>33</code>）和<code>trial_chambers</code>。
+::*** {{nbt|double|x}}：世界坐标。
+::*** {{nbt|double|z}}：世界坐标。
+::*** {{nbt|float|rotation}}：以度为单位从北方顺时针旋转。代替了先前的{{nbt|double|rot}}。
+</div>
+::* 示例：<code>map_decorations={'Some marker':{type:'target_x',x:123.0,z:-45.0,rotation:0.0f}}</code>。
+::; {{nbt|int|map_id}}：用于引用持有地图内容和图标的共享映射档案。
+::* 替代了标签{{nbt|int|map}}。
+::* 示例：<code>map_id=1</code>。
+::; {{nbt|int|custom_model_data}}：用于替换自定义物品模型。
+::* 示例：<code>custom_model_data=43</code>。
+<div class="treeview">
+::*; {{nbt|string}}{{nbt|compound|potion_contents}}：（药水和药箭物品有默认值<code>{}</code>）控制药水、喷溅药水和滞留药水的效果以及附着于物品上的药水效果。若使用{{nbt|string}}，则等同于{{nbt|string|potion}}。
+::** {{nbt|string|potion}}：（可选）[[药水效果]]，影响物品的名称，在{{nbt|list|custom_effects}}不存在时决定状态效果。
+::** {{nbt|int|custom_color}}：（可选）物品渲染中，药水部分使用的颜色。只使用后24位，每个颜色通道占用8位，按RGB依次存储。
+::** {{nbt|list|custom_effects}}：（可选，默认为<code>[]</code>）额外对物品附加的自定义状态效果列表，其显示可与现有药水种类不同。
+::*** {{nbt|compound}}：一项状态效果。
+::**** {{nbt inherit/effect}}
+</div>
+::* 替代了标签{{nbt|string|Potion}}、{{nbt|int|CustomPotionColor}}和{{nbt|list|custom_potion_effects}}。
+::* 示例：<code>potion_contents={potion:'minecraft:invisibility',custom_color:16711680}</code>或<code>potion_contents="invisibility"</code>。
+<div class="treeview">
+::*; {{nbt|compound|writable_book_contents}}：（书与笔有默认值<code>{pages:[]}</code>）存储[[书与笔]]的内容。
+::** {{nbt|list|pages}}：（可选，最多100个元素）书与笔内存储的页信息，必须为以下格式之一。
+::*** {{nbt|string}}：（长度不超过1024）书与笔内一页的文本信息。如果开启过滤，则代表文本信息与原信息一致。
+::*** {{nbt|compound}}：书与笔内一页的信息。
+::**** {{nbt|string|filtered}}：（可能不存在，长度不超过1024）已过滤的文本信息。在开启过滤时，此字符串优先级高于{{nbt|string|raw}}。
+::**** {{nbt|string|raw}}：（长度不超过1024）未过滤的文本原始信息。
+</div>
+::* 替代了标签{{nbt|list|pages}}和{{nbt|compound|filtered_pages}}。
+::* 示例：<code>writable_book_contents={pages:[{raw:'你好，世界！'}]}</code>。
+<div class="treeview">
+::*; {{nbt|compound|written_book_contents}}：存储[[成书]]的内容和元数据。
+::** {{nbt|list|pages}}：（可选）成书内存储的页信息，文本必须使用以下格式之一。
+::*** {{nbt|string}}：成书内一页的JSON文本信息。如果开启过滤，则代表过滤后文本信息与原信息一致。
+::*** {{nbt|compound}}：成书内一页的信息。
+::**** {{nbt|string|filtered}}：（可能不存在）已过滤的JSON文本信息。在开启过滤时，此字符串优先级高于{{nbt|string|raw}}。
+::**** {{nbt|string|raw}}：未过滤的JSON文本原始信息。
+::** {{nbt|string}}{{nbt|compound|title}}：（长度不超过32）成书的标题信息。为{{nbt|string}}时，如果开启过滤，则代表此标题过滤后与原标题一致。
+::*** {{nbt|string|filtered}}：（可能不存在，长度不超过32）已过滤的标题信息。在开启过滤时，此字符串优先级高于{{nbt|string|raw}}。
+::*** {{nbt|string|raw}}：（长度不超过32）未过滤的标题原始信息。
+::** {{nbt|string|author}}：作者名。
+::** {{nbt|int|generation}}：（不小于0，不大于2，默认为<code>0</code>（原作））成书被复制的次数。可以为<code>0</code>（{{tr|原稿|原始版本}}），<code>1</code>（{{tr|原稿的副本|複本}}），<code>2</code>（{{tr|副本的副本|複本的複本}}），<code>3</code>（{{tr|破烂不堪|破舊的}}）。
+::** {{nbt|bool|resolved}}：本书中的聊天组件是否已解析。如果为<code>false</code>，将在打开这本书时解析。
+</div>
+::* 替代了标签{{nbt|list|pages}}、{{nbt|compound|filtered_pages}}、{{nbt|string|title}}、{{nbt|string|filtered_title}}、{{nbt|string|author}}、{{nbt|int|generation}}和{{nbt|bool|resolved}}。
+::* 示例：<code>-{}-written_book_contents={pages:[{raw:'你好，世界！'}],title:{raw:'一次愉快的阅读'},author:'Herobrine',generation:1,resolved:true}</code>。
+<div class="treeview">
+::*; {{nbt|compound|trim}}：存储物品的纹饰。
+::** {{nbt|string|pattern}}：图案ID或内联的图案。
+::** {{nbt|string|material}}：材料ID或内联的材料。
+::** {{nbt|bool|show_in_tooltip}}：（可选，默认为<code>true</code>）表示物品提示框中是否显示纹饰信息。用于替代标签{{nbt|int|HideFlags}}的第8个二进制位。
+</div>
+::* 替代了相同格式的标签{{nbt|compound|Trim}}。
+::* 此组件的存在不再受物品标签<code>#trimmable_armor</code>的限制。
+::* 示例：<code>trim={pattern:'minecraft:silence',material:'minecraft:redstone'}</code>。
+<div class="treeview">
+::*; {{nbt|list|suspicious_stew_effects}}：（谜之炖菜默认为<code>[]</code>）控制食用[[谜之炖菜]]获得的状态效果。
+::** {{nbt|compound}}：一个状态效果。
+::*** {{nbt|string|id}}：状态效果ID。
+::*** {{nbt|int|duration}}：（默认值为{{convert|160}}）状态效果持续刻数。
+::** {{nbt|bool|show_in_tooltip}}：（可选，默认为<code>true</code>）表示物品提示框中是否显示纹饰信息。用于替代标签{{nbt|int|HideFlags}}的第8个二进制位。
+</div>
+::* 替代了相同格式的标签{{nbt|list|effects}}。
+::* 示例：<code>suspicious_stew_effects=[{id:'minecraft:poison'}]</code>。
+::; {{nbt|compound|hide_additional_tooltip}}：空组件，表示禁用物品提示框中附加的物品类型信息。
+::* 替代了标签{{nbt|int|HideFlags}}的第6个二进制位。
+::* 示例：<code>hide_additional_tooltip={}</code>。
+<div class="treeview">
+::*; {{nbt|compound|debug_stick_state}}：（调试棒默认为<code>{}</code>）存储[[调试棒]]使用的选定方块状态档案。
+::** {{nbt|string|<''方块命名空间ID''>}}：一个对应的方块状态档案。
+</div>
+::* 替代了标签{{nbt|compound|DebugProperty}}。
+::* 示例：<code>debug_stick_state={'minecraft:turtle_egg':'eggs','minecraft:furnace':'facing'}</code>。
+<div class="treeview"> 
+::*; {{nbt|compound|entity_data}}：存储非结构化的NBT数据以便在使用生成实体的物品时应用于实体，如[[刷怪蛋]]或[[盔甲架]]。
+::** {{nbt|string|id}}：（必填）一个实体ID。
+::** 其他在生成实体时与其数据合并的实体标签。
+</div>
+::* 替代了标签{{nbt|compound|EntityTag}}。
+::* 示例：<code>entity_data={id:'minecraft:pig',Health:1.0f}</code>。
+<div class="treeview">
+::*; {{nbt|compound|bucket_entity_data}}：（桶装生物物品默认为<code>{}</code>）存储非结构化的NBT数据以便在将实体从桶中放出时应用于实体。
+::** {{nbt|bool|NoAI}}
+::** {{nbt|bool|Silent}}
+::** {{nbt|bool|NoGravity}}
+::** {{nbt|bool|Glowing}}
+::** {{nbt|bool|Invulnerable}}
+::** {{nbt|float|Health}}
+::** {{nbt|int|Age}}
+::** {{nbt|int|Variant}}
+::** {{nbt|long|HuntingCooldown}}
+::** {{nbt|int|BucketVariantTag}}
+</div>
+::* 替代了标签{{nbt|bool|NoAI}}、{{nbt|bool|Silent}}、{{nbt|bool|NoGravity}}、{{nbt|bool|Glowing}}、{{nbt|bool|Invulnerable}}、{{nbt|float|Health}}、{{nbt|int|Age}}、{{nbt|int|Variant}}、{{nbt|long|HuntingCooldown}}和{{nbt|int|BucketVariantTag}}。
+::* 示例：<code>bucket_entity_data={NoAI:1,Age:43}</code>。
+::; {{nbt|string|instrument}}：[[山羊角]]使用的乐器ID。
+::* 替代了相同格式的标签{{nbt|string|instrument}}。
+::* 示例：<code>instrument='minecraft:ponder_goat_horn'</code>。
+::; {{nbt|list|recipes}}：（知识之书默认为<code>[]</code>）使用[[知识之书]]后应获得的配方ID列表。
+::* 替代了相同格式的标签{{nbt|list|Recipes}}。
+::* 示例：<code>recipes=['minecraft:acacia_boat','minecraft:anvil']</code>。
+<div class="treeview">
+::*; {{nbt|compound|lodestone_tracker}}：存储指南针指向的绑定磁石。
+::** {{nbt|compound|target}}:（可选）一个绑定磁石。如果不存在，则指南针旋转。
+::*** {{nbt|int-array|pos}}：<code>-{}-绑定磁石的['x','y','z']</code>。
+::*** {{nbt|string|dimension}}：绑定磁石所在的维度ID。
+::** {{nbt|bool|tracked}}：（默认为<code>true</code>）是否追踪绑定磁石的方块状态。为<code>true</code>时，该组件会随目标位置的磁石被破坏而移除。
+</div>
+::* 替代了标签{{nbt|compound|LodestonePos}}、{{nbt|string|LodestoneDimension}}和{{nbt|byte|LodestoneTracked}}。
+::* 示例：<code>lodestone_tracker={pos:[13,64,-43],dimension:'minecraft:the_nether'}</code>。
+<div class="treeview">
+::*; {{nbt|compound|firework_explosion}}：（可选，最多包含256个元素）存储[[烟火之星]]的爆炸效果。
+::** {{nbt|string|shape}}：爆炸的形状。值可以为<code>small_ball</code>（曾为<code>0</code>）、<code>large_ball</code>（曾为<code>1</code>）、<code>star</code>（曾为<code>2</code>）、<code>creeper</code>（曾为<code>3</code>）和<code>burst</code>（曾为<code>4</code>）
+::** {{nbt|list|color}}：（默认为<code>[]</code>）初始的粒子颜色列表，实际显示颜色从中随机选择。
+::*** {{nbt|int-array}}一个RGB值
+::** {{nbt|list|fade_colors}}：（默认为<code>[]</code>）淡化时的粒子颜色列表，实际显示颜色从中随机选择。
+::*** {{nbt|int-array}}一个RGB值
+::** {{nbt|bool|has_trail}}：（默认为<code>false</code>）是否有踪迹效果。
+::** {{nbt|bool|has_twinkle}}：（默认为<code>false</code>）是否有闪烁效果。
+</div>
+::* 替代了标签{{nbt|byte|Explosion.Type}}、{{nbt|int-array|Explosion.Colors}}、{{nbt|int-array|Explosion.FadeColors}}、{{nbt|bool|Explosion.Trail}}和{{nbt|bool|Explosion.Flicker}}。
+::* 示例：<code>firework_explosion={shape:'large_ball',colors:[16711680],has_trail:true}</code>。
+<div class="treeview">
+::*; {{nbt|compound|fireworks}}：存储[[烟花火箭]]的所有爆炸效果和飞行时间。
+::** {{nbt|list|explosions}}：（可选，最多包含256个元素）爆炸列表。
+::*** {{nbt|compound}}：一个烟火之星的数据。
+::**** {{nbt|string|shape}}：爆炸的形状。值可以为<code>small_ball</code>（曾为<code>0</code>）、<code>large_ball</code>（曾为<code>1</code>）、<code>star</code>（曾为<code>2</code>）、<code>creeper</code>（曾为<code>3</code>）和<code>burst</code>（曾为<code>4</code>）
+::**** {{nbt|list|color}}：（默认为<code>[]</code>）初始的粒子颜色列表，实际显示颜色从中随机选择。
+::***** {{nbt|int-array}}：一个RGB值。
+::**** {{nbt|list|fade_colors}}：（默认为<code>[]</code>）淡化时的粒子颜色列表，实际显示颜色从中随机选择。
+::***** {{nbt|int-array}}：一个RGB值。
+::**** {{nbt|bool|has_trail}}：（默认为<code>false</code>）是否有踪迹效果。
+::**** {{nbt|bool|has_twinkle}}：（默认为<code>false</code>）是否有闪烁效果。
+::** {{nbt|byte|flight_duration}}：（可选，无符号8位整数，默认为0）飞行时间，为该烟花火箭中[[火药]]的数量。
+</div>
+::* 替代了标签{{nbt|list|Fireworks.Explosions}}、{{nbt|byte|Fireworks.Flight}}。
+::* 示例：<code>{explosions:[],flight_duration:1}</code>。
+<div class="treeview">
+::*; {{nbt|string}}{{nbt|compound|profile}}：控制[[玩家的头]]显示的皮肤，此数据在放下物品后复制到“玩家的头”方块中。若使用{{nbt|string}}，则等同于{{nbt|string|name}}。
+::** {{nbt|string|name}}：（可选，长度不超过16，不能有空格或特殊字符<ref>{{bug|MC-268898|||WAI}}</ref>）玩家名称。如果仅指定了{{nbt|string|name}}，会解析为相应的玩家UUID和皮肤数据。
+::** {{nbt|int-array|id}}：（可选）玩家的UUID。如果仅指定了{{nbt|int-array|id}}，会解析为相应的玩家名称和皮肤数据。
+::** {{nbt|list}}{{nbt|compound|properties}}：（可选）档案列表。
+::***; 如果使用{{nbt|list|列表}}形式，则游戏档案属性数据可以具有签名，且内部标签如下：
+::*** {{nbt|compound}}：一项游戏档案属性。
+::**** {{nbt|string|name}}：游戏档案属性的名称。
+::**** {{nbt|string|value}}：游戏档案属性的数据，是使用Base64编码的JSON数据。
+::**** {{nbt|string|signature}}：（可能不存在）游戏档案属性的签名。
+::***; 如果使用{{nbt|compound|复合标签}}形式，则游戏档案属性数据不具有签名，且内部标签如下：
+::*** {{nbt|list|<''游戏档案属性名称''>}}：游戏档案属性，可以保存多个不同数据但具有相同属性名称的游戏档案属性。
+::**** {{nbt|string}}：游戏档案属性的数据，是使用Base64编码的JSON数据。
+</div>
+::* 替代了标签{{nbt|compound|SkullOwner}}。
+::* 示例：<code>profile={name:'MHF_Sheep'}</code>或<code>profile="jeb_"</code>。
+::; {{nbt|string|note_block_sound}}：音效事件ID。控制玩家的头放置在[[音符盒]]上时音符盒播放的音效，此数据在放下物品后复制到“玩家的头”方块中。
+::* 替代了标签{{nbt|string|BlockEntityTag.note_block_sound}}。
+::; {{nbt|string|base_color}}：存储旗帜和盾的基础颜色。值可以为<code>white</code>（曾为<code>0</code>）、<code>orange</code>（曾为<code>1</code>）、<code>magenta</code>（曾为<code>2</code>）、<code>light_blue</code>（曾为<code>3</code>）、<code>yellow</code>（曾为<code>4</code>）、<code>lime</code>（曾为<code>5</code>）、<code>pink</code>（曾为<code>6</code>）、<code>gray</code>（曾为<code>7</code>）、<code>light_gray</code>（曾为<code>8</code>）、<code>cyan</code>（曾为<code>9</code>）、<code>purple</code>（曾为<code>10</code>）、<code>blue</code>（曾为<code>11</code>）、<code>brown</code>（曾为<code>12</code>）、<code>green</code>（曾为<code>13</code>）、<code>red</code>（曾为<code>14</code>）和<code>black</code>（曾为<code>15</code>）
+::* 替代了标签{{nbt|int|BlockEntityTag.Base}}。
+<div class="treeview">
+::*; {{nbt|list|banner_patterns}}：（旗帜和盾默认为<code>[]</code>）列表，存储对旗帜和盾生效的图案，放置时数据复制到旗帜方块中。
+::** {{nbt|compound}}：一个旗帜图案。
+::*** {{nbt|string|pattern}}：图案的注册ID。
+::*** {{nbt|string|color}}：图案的染料颜色。
+</div>
+::* 替代了标签{{nbt|list|BlockEntityTag.Patterns}}。
+::* 示例：<code>banner_patterns=[{pattern:'minecraft:stripe_top',color:'red'}]</code>。
+<div class="treeview"> 
+::*; {{nbt|list|pot_decorations}}：（饰纹陶罐默认为<code>['minecraft:brick','minecraft:brick','minecraft:brick','minecraft:brick']</code>）存储[[饰纹陶罐]]每侧的陶片，放置时复制到方块数据中。
+::** {{nbt|string|<''一个物品命名空间ID''>}}
+</div>
+::* 替代了相同格式的标签{{nbt|list|BlockEntityTag.sherds}}。
+::* 示例：<code>['arms_up_pottery_sherd','angler_pottery_sherd','danger_pottery_sherd','shelter_pottery_sherd']</code>。
+<div class="treeview"> 
+::*; {{nbt|list|container}}：（容器默认为<code>[]</code>）表示[[容器]]（物品形式）中的各个槽位。当容器被放置时，将复制该组件中的数据。
+::** {{nbt|int|slot}}：（不小于0，不大于255）容器中的槽位。
+::** {{nbt|compound|item}}：一个物品堆。
+</div>
+::* 替代了标签{{nbt|list|BlockEntityTag.Items}}。
+::* 示例：<code>container=[{slot:7,item:{id:'diamond_pickaxe',components:{'minecraft:unbreakable':{}}}}]</code>。
+<div class="treeview"> 
+::*; {{nbt|list|bees}}：（蜂巢和蜂箱默认为<code>[]</code>）用于控制[[蜂巢（方块）|蜂巢]]或[[蜂箱]]中的[[蜜蜂]]数据。当[[蜂巢（方块）|蜂巢]]或[[蜂箱]]被放置时，将复制该组件的数据。
+::** {{nbt|compound}}：一个蜜蜂实体。
+::*** {{nbt|compound|entity_data}}：该实体的数据。
+::**** {{nbt|string|id}}：实体的命名空间ID。
+::***; 其余的标签将在蜜蜂生成时被合并到其数据中。
+::*** {{nbt|int|ticks_in_hive}}
+::*** {{nbt|int|min_ticks_in_hive}}
+</div>
+::* 替代了标签{{nbt|list|BlockEntityTag.Bees}}。
+::* 示例：<code>bees=[{entity_data:{id='minecraft:bee'},ticks_in_hive:3,min_ticks_in_hive:10}]</code>。
+::; {{nbt|string|lock}}：表示类容器方块和信标的“锁”。只有玩家使用与之匹配的“钥匙”才能打开该容器，“钥匙”即为自定义名称与“锁”名称相同的物品。当容器方块或信标被放置时将复制该组件中的数据。
+::* 替代了标签{{nbt|string|BlockEntityTag.Lock}}。
+::* 示例：<code>lock='hunter2'</code>。
+<div class="treeview"> 
+::*; {{nbt|compound|container_loot}}：存储处于未解析状态的战利品表和类容器方块的种子。放置容器方块时，该组件中的数据将被复制到方块数据中。
+::** {{nbt|string|loot_table}}：战利品表ID。
+::** {{nbt|long|seed}}：（可选）伪随机种子，将参与到战利品表的解析过程中。若未设定此值或此值为0，则将在战利品表被计算时随机选取一个种子。
+</div>
+::* 替代了标签{{nbt|string|BlockEntityTag.LootTable}}和{{nbt|long|BlockEntityTag.LootTableSeed}}。
+::* 示例：<code>container_loot={loot_table:'minecraft:chests/buried_treasure',seed:123}</code>。
+<div class="treeview"> 
+::*; {{nbt|compound|block_entity_data}}：存储应用于方块实体的非结构化NBT数据，放置诸如箱子和熔炉方块时将加载该组件的数据。方块实体数据被移动到专用的物品组件中时会被删除。当方块被放置时，其任何附加字段都将被合并到该组件中。
+::** {{nbt|string|id}}：（必填）方块实体类型。
+::** 其他在放置方块实体时与其数据合并的方块实体标签。
+</div>
+::* 如果玩家是管理员，则此标签仅对[[命令方块]]、[[讲台]]、[[告示牌]]和[[刷怪笼]]生效。
+::* 替代了先前具有相同行为的{{nbt|compound|BlockEntityTag}}标签。
+::* 示例：<code>block_entity_data={id:'minecraft:chest',Items:[{Slot:1,item:'minecraft:diamond'}]}</code>。
+::; {{nbt|compound|block_state}}：控制方块被放置时要应用的方块状态。
+::* 格式：一个键值对映射表，映射键为方块状态的属性名，映射值为该属性的允许值。
+::* 替代了标签{{nbt|compound|BlockStateTag}}。
+::* 示例：<code>block_state={eggs:'10'}</code>。
+::; {{nbt|bool|enchantment_glint_override}}：为物品覆上附魔光效。之前可通过在{{nbt|list|Enchantments}}中添加无效的魔咒标签以使得物品像是被添加了附魔光效。
+::* 若为<code>true</code>，没有附魔光效的物品将获得光效并开始闪烁（不论是否来自魔咒或物品的内在属性）。
+::* 若为<code>false</code>，有附魔光效的物品将不显示光效也不闪烁。
+::* 示例：<code>enchantment_glint_override=true</code>。
+:*; {{nbt|compound|food}}：（[[食物]]隐含与其类型对应的默认值）控制物品是否可以作为食物吃掉。
+<div class="treeview">
+::** {{nbt|int|nutrition}}：（不小于<code>0</code>）食用该物品后增加的[[饥饿值]]。
+::** {{nbt|float|saturation}}：食用物品后增加的[[饱和度]]的精确值。
+::** {{nbt|bool|can_always_eat}}：（可选，默认为<code>false</code>）此物品能否无视当前饥饿值而食用。
+::** {{nbt|float|eat_seconds}}：（可选，默认为<code>1.6</code>）食用该物品消耗的秒数。
+::** {{nbt|list|effects}}：（可选，默认为<code>[]</code>）该物品被食用后施加的[[状态效果]]列表。
+::*** {{nbt|compound|effect}}：一项状态效果，与{{nbt|compound|minecraft:potion_contents}}组件中的{{nbt|list|custom_effects}}中的复合标签格式相同。
+::*** {{nbt|float|probability}}：（可选，不大于1且不小于0，默认为<code>1</code>）施加此状态效果的概率。
+</div>
+::* 示例：<code>food={nutrition:4,saturation_modifier:0.8}</code>。
+:*; {{nbt|int|max_stack_size}}：（大于<code>0</code>且小于<code>100</code>；各物品所隐含的默认值通常为<code>64</code>）控制物品的最大堆叠数。
+:** 与{{nbt|int|max_damage}}冲突。
+:** 示例：<code>max_stack_size=4</code>。
+:*; {{nbt|int|max_damage}}：（大于<code>0</code>，可损伤物品隐含对应默认值）控制物品可受的最大损伤值。
+:** 与{{nbt|int|max_stack_size}}冲突。
+:** 示例：<code>max_damage=123</code>。
+:** 如果此组件不存在，则物品不能被损伤。
+:*; {{nbt|compound|fire_resistant}}：（空对象，[[下界合金]]等抗火物品隐含默认值）控制物品是否不会在火焰中燃烧。
+:** 示例：<code>fire_resistant={}</code>。
+:*; {{nbt|string|rarity}}：（大多数物品默认为<code>common</code>，[[金苹果]]等特殊物品隐含对应的默认值）[[稀有度]]，控制物品名称的颜色。
+:** 枚举值可以为：
+:*** <code>common</code>（常见）：白色，附魔后为青色。
+:*** <code>uncommon</code>（少见）：黄色，附魔后为青色。
+:*** <code>rare</code>（稀有）：青色，附魔后为亮紫色。
+:*** <code>epic</code>（史诗）：亮紫色。
+:** 示例：<code>rarity=rare</code>。
+:*; {{nbt|compound|tool}}：（原版[[工具]]隐含与其[[品质]]和类型对应的默认值）控制物品的工具性。
+<div class="treeview">
+::** {{nbt|list|rules}}：规则列表。
+::*** {{nbt|compound}}：一项规则。
+::**** {{nbt|string}}{{nbt|list|blocks}}：可交互的单一方块、带哈希前缀（<code>#</code>）的方块标签或方块列表。
+::**** {{nbt|float|speed}}：（可选）覆盖对可交互方块的[[挖掘]]速度。
+::**** {{nbt|bool|correct_for_drops}}：（可选）覆盖此物品是否为破坏此类方块的合适工具。如果为<code>true</code>此工具将最效率地破坏对应方块且允许它（们）掉落。
+::*** {{nbt|float|default_mining_speed}}：（默认为<code>1.0</code>）如果没有规则匹配时用以覆盖的挖掘速度。
+::*** {{nbt|int|damage_per_block}}：（可选，大于等于<code>0</code>）此工具每破坏一个此类方块所消耗的[[耐久度]]。
+</div>
+::* 示例：<code>tool={rules:[{blocks:"#mineable/pickaxe",speed:4.0,correct_for_drops:true}]}</code>
+:*; {{nbt|compound|hide_tooltip}}：（空对象）控制是否隐藏物品包括物品名称在内的整个提示框。
+:** 在[[创造模式]]中仍然可见且可被搜索。
+:*; {{nbt|string|item_name}}：使用[[文本组件格式]]覆盖物品的默认名称，格式与{{nbt|string|custom_name}}相同。
+:** 不同在于：
+:*** {{nbt|string|item_name}}不会被[[铁砧]]修改或移除。
+:*** {{nbt|string|item_name}}不会显示为斜体。
+:*** {{nbt|string|item_name}}在某些地方（如旗帜[[标记]]、[[物品展示框]]中物品名称）不显示名称标签。
+:*; {{nbt|int|ominous_bottle_amplifier}}：（不小于0，不大于4）控制[[不祥之瓶]]的[[不祥之兆]]状态效果放大倍率。
+:** 示例：<code>ominous_bottle_amplifier=3</code>。
+
+'''其他'''
+* 加入了JFR（Java Flight Recorder）事件，用于对单区块的读取（<code>minecraft.ChunkRegionRead</code>）和写入（<code>minecraft.ChunkRegionWrite</code>）。
+
+== 更改 ==
+=== 方块 ===
+'''[[漏斗]]'''
+* 现在在其上方有[[蜂巢（方块）|蜂巢]]或[[蜂箱]]以外的[[判定箱#碰撞箱|碰撞箱]]完整的方块时，不再尝试吸取[[物品实体]]。
+
+'''[[砂轮]]'''
+* 现在不接受具有{{nbt|compound|unbreakable}}组件但没有魔咒的物品。
+** 如果上方物品允许存在耐久度，则可使用下方附魔的无法破坏物品为其修复，输出的物品不会继承{{nbt|compound|unbreakable}}组件；如果交换物品顺序，则既不可祛魔也不可修复；如果只存在附魔的无法破坏物品，则仅祛魔而保留{{nbt|compound|unbreakable}}组件。
+* 现在不可同时为两本附魔书祛魔。
+
+'''[[玩家的头]]'''
+* 现在于<code>custom_name</code>标签中存储物品名称。
+* NBT标签{{cd|d=pretty|SkullOwner|ExtraType}}被<code>profile</code>替代以与物品形式的组件格式统一。
+
+'''[[蜘蛛网]]'''
+* 加入了独有音效，不再使用[[石头]]的音效。
+
+'''[[刷怪笼]]'''
+* 在<code>SpawnPotentials</code>生成数据中加入了可选的{{nbt|compound|equipment}}字段，用于将指定战利品表内的物品随机选取装备到生成的生物身上。
+** {{nbt|compound|equipment}}
+<div class="treeview">
+::** {{nbt|string|loot_table}}：一个用于生成装备的战利品表。
+::** {{nbt|float}}{{nbt|list|slot_drop_chances}}：（可选）为浮点型时，表示对所有槽位生效的掉落概率。为列表时，表示每个槽位装备的掉落概率列表。
+::*** {{nbt|float|<''槽位ID''>}}：一个装备槽位与指定掉落概率的键值对。
+</div>
+::* 示例：<code>equipment: {loot_table: "minecraft:equipment/trial_chamber", slot_drop_chances: {"head": 0.0f, "chest": 0.25f, "legs": 1.0f, "feet": 0.25f}}</code>。
+
+'''常规'''
+* 方块位置现在存储为一个由3个整数组成的数组（<code>[I;''x'',''y'',''z'']</code>），而不是一个包含X、Y、Z的复合元素（<code>{X:''x'',Y:''y'',Z:''z''}</code>）。
+* [[蜂巢（方块）|蜂巢]]的NBT标签<code>FlowerPos</code>重命名为<code>flower_pos</code>。
+* [[末地折跃门（方块）]]的NBT标签<code>ExitPortal</code>重命名为<code>exit_portal</code>。
+
+=== 物品 ===
+'''[[鳞甲]]'''
+* 被重命名为“海龟鳞甲”（Turtle Scute）。
+
+'''[[马铠]]'''
+* 现在物品[[提示框]]中包含[[护甲值]]及[[盔甲韧性]]信息。
+
+'''[[灾厄旗帜]]'''
+* 现在默认名称存储于<code>item_name</code>组件中。
+* 现在带有<code>hide_additional_tooltip</code>组件。
+
+'''[[探险家地图]]'''
+* 现在默认名称存储于<code>item_name</code>组件中。
+
+'''[[药水]]'''
+* 加入了蓄风药水。
+** 只能通过[[命令]]获取。
+** 可制作对应的[[喷溅药水]]、[[滞留药水]]和[[药箭]]。
+** 给予[[蓄风]]效果。
+* 加入了盘丝药水。
+** 只能通过命令获取。
+** 可制作对应的喷溅药水、滞留药水和药箭。
+** 给予[[盘丝]]效果。
+* 加入了渗浆药水。
+** 只能通过命令获取。
+** 可制作对应的喷溅药水、滞留药水和药箭。
+** 给予[[渗浆]]效果。
+* 加入了虫蚀药水。
+** 只能通过命令获取。
+** 可制作对应的喷溅药水、滞留药水和药箭。
+** 给予[[寄生]]效果。
+
+=== 生物 ===
+'''[[盔甲架]]'''
+* 不再会被[[羊驼唾沫]]和[[潜影弹]]摧毁。
+
+'''[[蜜蜂]]和[[鹦鹉]]'''
+* 优化了飞行AI，现在上下飞行幅度不会太大。
+
+'''[[蜘蛛]]和[[洞穴蜘蛛]]'''
+* 现在会远离未蜷缩的犰狳。
+
+'''[[狼]]'''
+* 现在可以在[[砂土]]和[[灰化土]]上生成。
+* 现在[[狼]]会生成于[[稀疏丛林]]、[[热带高原]]和[[疏林恶地]]生物群系中。
+* 更改了狼身上的项圈的纹理。
+* 驯服的狼生命值由{{hp|20}}改为{{hp|40}}。
+* 喂食恢复的生命值翻倍。
+* 所受来源非箭或玩家的伤害不再被调整为<code>-{}-(修正前伤害 + 1) / 2</code>。
+* 不再会攻击盔甲架。
+
+'''常规'''
+* 对已有<code>HandItems</code>和<code>ArmorItems</code>NBT标签的所有实体新增了<code>body_armor_item</code>和<code>body_armor_drop_chance</code>参数，处理效果与<code>HandItems</code>和<code>ArmorItems</code>相同。
+* 马的<code>ArmorItem</code>、羊驼的<code>DecorItem</code>和狼的<code>armor</code>现改为使用<code>body_armor_item</code>和<code>body_armor_drop_chance</code>参数。
+* 移除了<code>horse.armor</code>槽位参数，以适用于所有生物的<code>armor.body</code>槽位参数替代。
+* [[蜜蜂]]的NBT标签<code>FlowerPos</code>和<code>HivePos</code>分别重命名为<code>flower_pos</code>和<code>hive_pos</code>。
+* [[袭击]]生物的NBT标签<code>PatrolTarget</code>重命名为<code>patrol_target</code>。
+* [[流浪商人]]的NBT标签<code>WanderTarget</code>重命名为<code>wander_target</code>。
+* 可被[[拴绳]]拴住的实体的NBT标签<code>Leash</code>重命名为<code>leash</code>。
+
+=== 非生物实体 ===
+'''[[羊驼唾沫]]'''
+* 现在使用新的[[伤害类型]]{{cd|spit}}，而不是{{cd|mob_projectile}}。
+
+'''[[末地水晶]]'''
+* NBT标签<code>BeamTarget</code>重命名为<code>beam_target</code>。
+
+'''[[箭]]'''
+* 不再存储附着的[[状态效果]]，而是从在<code>item</code>中存储的物品形式获取。
+** 现在药箭的状态效果在其生效期过后消失。
+
+'''[[区域效果云]]'''
+* 现在使用<code>potion_contents</code>字段中的<code>minecraft:potion_contents</code>组件存储格式相同的[[药水效果]]。
+
+=== 世界生成 ===
+'''[[雪林]]'''
+* 不再生成[[鸡]]、[[猪]]、[[牛]]和[[绵羊]]，现在生成于雪林的友好生物仅有[[兔子]]、[[狐狸]]和[[狼]]。
+
+=== 游戏内容 ===
+'''[[创造模式]]'''
+* 现在使用{{key|Ctrl}}和[[选取方块|{{ctrl|选取方块}}]]键选取一个有自定义名称的方块（如箱子）后，也会得到一个同名的对应物品。
+
+'''[[附魔（物品修饰）|附魔]]'''
+* 现在[[斧]]可以通过附魔获得[[锋利]]、[[亡灵杀手]]、[[节肢杀手]]。
+
+'''[[魔咒]]'''
+* 现在魔咒存储为键值对而不再是复合元素列表，因此不再能存储魔咒的顺序（通常是魔咒被添加到物品上的顺序）。
+** 物品被重新加载后，其魔咒会被按照{{TagLink|enchantment|tooltip_order}}标签重新排序。<ref>{{bug|MC-268896|||WAI}}</ref>
+* 现在[[力量（魔咒）|{{tr|力量|強力}}]]、[[冲击]]、[[火矢]]和[[无限]]会在[[弩]]上产生效果。
+* 现在[[穿透]]和[[多重射击]]会在玩家的[[弓]]上产生效果。
+* 更改了[[效率]]、[[火焰附加]]、[[时运]]、[[击退]]、[[抢夺]]、[[海之眷顾]]、[[饵钓]]、[[精准采集]]、[[引雷]]和[[耐久]]魔咒的修正附魔等级范围。<ref>[[Special:Diff/847331/883993|24w13a的修正附魔等级范围具体更改]]</ref>
+
+'''[[交易]]'''
+* 村民交易的<code>ignoreTags</code>字段被移除，取而代之的是基于损伤值的组件谓词。
+** 现在只有指定<code>'minecraft:damage': 0</code>时村民才会收购无耐久损耗的物品。
+** 现在在默认不指定组件的情况下，村民可以收购任意物品。
+
+'''[[药水效果]]'''
+* 移除了<code>minecraft:empty</code>，现在仅在不指定<code>potion</code>数据时使用“不可合成的药水”效果。
+* 带有跳跃药水效果物品的物品提示框中现在会显示此药水效果对属性修饰符的影响。
+* 将不可合成的药水效果由品红色更改为蓝色。<ref>{{bug|MC-270589|||Won't Fix}}</ref>
+
+'''[[状态效果]]'''
+* 跳跃提升、飘浮和挖掘疲劳放大倍率超过127的行为已被新的属性所取代。
+* 状态效果粒子不再混合为一种颜色，现在多个状态效果的粒子会分别渲染。
+* 降低了实体发出状态效果粒子的频率。
+
+'''[[粒子]]'''
+* 现在，命令中的粒子选项，以及[[区域效果云]]中诸如<code>Particles</code>的字段的表示格式与{{filepath|worldgen/biome}}中文件的[[自定义生物群系|相应属性]]一致（与生物群系环境粒子设置类似）。
+** 例如，命令{{cmd|particle minecraft:dust 1.0 0.0 0.0 2.0 ...}}变为了{{cmd|link=none|particle minecraft:dust{color:[1.0, 0.0, 0.0], scale:2.0} ...}}。
+** 没有额外选项的粒子（如<code>minecraft:villager</code>）的语法依旧不变。
+* 对方块粒子（{{cd|d=pretty|block|block_marker|falling_dust|dust_pillar}}）选项做出了以下更改：
+** 将<code>value</code>字段重命名为<code>block_state</code>。
+*** 该<code>block_state</code>字段可接受一个普通方块ID，以表示某方块的默认[[方块状态]]。
+**** 以下为旧格式到新格式的转换示例：
+**** <code>minecraft:block minecraft:redstone_lamp[lit=true]</code>变为<code>minecraft:block{block_state: {Name: "minecraft:redstone_lamp", Properties: {lit: "true"}}}</code>，<code>minecraft:block minecraft:diamond_block</code>变为<code>minecraft:block{block_state: "minecraft:diamond_block"}</code>。
+* 对<code>minecraft:item</code>选项的更改：
+** 将<code>value</code>字段重命名为<code>item</code>。
+*** <code>item</code>字段可接受一个普通的物品ID，以表示某带有默认物品堆叠组件的物品堆叠。
+**** 如<code>minecraft:item minecraft:dirt</code>可转换为<code>minecraft:item{item: {id: "minecraft:dirt"}}</code>，<code>minecraft:item minecraft:dirt</code>可转换为<code>minecraft:item{item: "minecraft:dirt"}</code>。
+* 对<code>dust_color_transition</code>选项的更改：
+** 将<code>fromColor</code>重命名为<code>from_color</code>。
+** 将<code>toColor</code>重命名为<code>to_color</code>。
+** 新旧格式转换示例：
+*** <code>dust_color_transition 1.0 0.0 0.0 0.5 0.0 1.0 0.5</code>变为<code>dust_color_transition{from_color: [1.0f, 0.0f, 0.0f], scale: 0.5f, to_color: [0.0f, 1.0f, 0.5f]}</code>
+* 对<code>entity_effect</code>选项的更改：
+** 将<code>value</code>字段重命名为<code>color</code>。
+*** <code>color</code>现在也接受一个浮点数列表，以表示一个RGBA颜色。
+
+=== 命令格式 ===
+'''{{cmd|attribute}}'''
+* 重命名了以下修饰符<code>operation</code>值：
+** <code>add</code> → <code>add_value</code>
+** <code>multiply_base</code> → <code>add_multiplied_base</code>
+** <code>multiply</code> → <code>add_multiplied_total</code>
+
+'''{{cmd|execute}}'''
+* 条件子命令现在可用新类型<code>items</code>以比较物品或为物品计数。
+** <code><nowiki>execute if|unless items <source> <slots> <item_predicate></nowiki></code>
+*** <code><nowiki><source></nowiki></code>：用法与{{cmd|item}}中相同。
+**** 示例：<code>block <x> <y> <z></code>或<code>entity <target></code>（可返回多个实体）。
+*** <code><slots></code>：可以为单个槽位（如<code>container.0</code>）或槽位区间（如<code>container.*</code>）
+*** <code><item_predicate></code>：用法与{{cmd|clear}}中的物品谓词相同。
+** 如果单独使用，则会返回符合条件的物品堆中物品的总数。
+* 现在接受内联战利品定义。
+* {{cmd|link=none|execute if predicate}}的SNBT值现在具有与匹配的JSON文件相同的结构，但它仍是硬编码的。
+** 示例：<code>execute if predicate {condition:weather_check, raining:true}</code>。
+
+'''{{cmd|give}}、{{cmd|item}}、{{cmd|loot}}和{{cmd|clear}}'''
+* 更新了语法。
+** 现在可以在物品ID后使用方括号指定组件。
+*** 组件之间用逗号分隔。
+**** 如<code>netherite_hoe[damage=5,repair_cost=2]</code>。
+** 组件类型会自动补全。
+** 值不会自动补全，但会被验证。如果指定的组件不正确，命令将无法解析。
+*** 如<code>give @s wooden_pickaxe[damage=-34]</code>是无效的。
+** 移除了旧NBT语法<code>{…}</code>，它现在被<code>minecraft:custom_data</code>组件取代。
+** 使用<code>minecraft:custom_data</code>自定义数据语法将使用先存的NBT部分匹配行为。
+*** 这要求谓词中指定的所有标签都出现在目标项上，但可以忽略其他标签。
+*** 目标的列表必须包含谓词中指定的所有物品，但目标列表也可包含其他物品，这些物品的顺序不影响匹配。
+* {{cmd|clear|link=none}}中的物品谓词参数在匹配组件和自定义数据方面具有新的语义。
+** 每个指定的组件都必须出现在目标物品上，并且具有完全相等的解析值。
+** 如果没有指定，视为目标物品包含默认组件。
+* {{cmd|item|link=none}}和{{cmd|loot|link=none}}现在接受内联战利品定义。
+
+'''{{cmd|particle}}'''
+* 使用命令生成<code>entity_effect</code>粒子时需要使用颜色参数。
+* 格式：<code><nowiki>particle entity_effect <r> <g> <b> <a></nowiki></code>
+** 接受4个从<code>0.0</code>到<code>1.0</code>的浮点数，代表RGBA值。
+
+'''{{cmd|place}}'''
+* 将参数{{cd|<max_depth>}}的最大值由7更改为20。
+
+'''{{cmd|playsound}}'''
+* 现在可以不指定玩家（如<code>@s</code>）和声音分类（如<code>neutral</code>）。
+
+'''{{cmd|weather}}'''
+* 现在执行环境为自定义维度也可以生效。
+
+'''实体[[谓词]]'''
+* 删除了实体子谓词<code>any</code>。
+* 为[[物品展示框]]、[[物品展示实体]]等仅有单个槽位的实体加入了槽位名称<code>contents</code>。
+* 现在实体数据<code>item</code>被<code>contents</code>包含。
+* 加入了实体子谓词<code>wolf</code>以匹配狼的变种字段。
+** <code>variant</code>：狼的变种，可以是单一项目、项目列表或标签。
+* 实体子谓词{{cd|d=pretty|cat|frog|painting}}：
+** <code>variant</code>字段现在接受单一项目、项目列表或标签。
+
+'''物品谓词'''
+* 现在指定组件的物品谓词属性被移动到<code>predicates</code>字段中。
+* 现在部分物品谓词字段被移入可选字段<code>predicates</code>中，它们的格式与物品堆叠组件相似。
+** 这为未来添加谓词提供便利，且让子谓词与其匹配的组件更相似。
+** 将以下谓词移动为子谓词：
+*** <code>enchantments</code> → <code>minecraft:enchantments</code>
+*** <code>stored_enchantments</code> → <code>minecraft:stored_enchantments</code>
+*** <code>potions</code> → <code>minecraft:potion_contents</code>
+*** <code>custom_data</code> → <code>minecraft:custom_data</code>
+** <code>durability</code>被扩展为谓词<code>minecraft:damage</code>。
+*** 现在会对拥有<code>minecraft:damage</code>组件的任意物品生效；如果物品没有<code>minecraft:damage</code>组件，它将永不匹配。
+*** 现在不再能检测物品是否含有{{cd|minecraft:unbreakable}}组件，而需获取该组件的值。
+*** 格式：
+<div class="treeview"> 
+:::* {{nbt|compound|minecraft:damage}}
+:::** {{nbt|int|damage}}：（可选）{{cd|minecraft:damage}}组件的精确值。
+:::** {{nbt|int|durability}}：（可选）耐久的精确值，为最大损伤值减{{cd|minecraft:damage}}的值。
+</div>
+:* 谓词{{cd|d=pretty|minecraft:enchantments|minecraft:stored_enchantments|minecraft:potion_contents|minecraft:damage}}现在需要物品具有匹配的组件。
+:** 具有默认值的组件可能总是符合条件。
+:* 示例：
+:: <syntaxhighlight lang="json">{
+	"item": {
+		"predicates": {
+			"minecraft:enchantments": [
+				{
+					"enchantment": "minecraft:silk_touch",
+					"levels": {
+						"min": 1
+					}
+				}
+			]
+		}
+	}
+}</syntaxhighlight>
+* <code>minecraft:custom_data</code>现在既接受写做字符串的现有SNBT数据，也接受不扁平的标签。
+** 因此<code>*[custom_data~{a:1}]</code>等价于<code>*[custom_data~"{a:1}"]</code>。
+* 扩展了用于<code>/execute if|unless items</code>和{{cmd|clear|link=none}}的物品谓词语法。
+** 现在的语法为：<code><type> [comma-separated list of <test>]</code>。
+*** <code><type></code>可以为物品ID、带有<code>#</code>前缀的物品标签或<code>*</code>以表示任意物品。
+*** <code><test></code>现在有以下3种形式：
+**** <code><component_id>=<value></code>：匹配组件的精确值（与先前的格式相同）。<code><value></code>表示[[SNBT格式]]的组件值。
+**** <code><component_id></code>：检测组件是否存在。
+**** <code><predicate_id>~<value></code>：检测物品子谓词。
+***** <code><value></code>表示SNBT格式的物品子谓词，除此以外与用于进度和战利品表的JSON文件格式相同。
+***** 示例：<code>*[damage~{durability:{min:3}}]</code>用于匹配剩余至少可用3次的任意堆叠。
+** <code>minecraft:count</code>可用于匹配堆叠数量。
+*** <code>count=<positive int></code>仅当堆叠数等于赋予值时满足。
+*** <code>count~<int range></code>仅当堆叠数在指定范围间时满足。
+**** 例如<code>*[count~{max:2}]</code>将会匹配堆叠数<=2的任意堆叠。
+*** 仅为<code>count</code>时总是满足。
+** 所有<code><test></code>项都可通过<code>!</code>前缀来反选。
+*** 例如<code>*[!count=1]</code>将会匹配数量非1的任意堆叠。
+** <code><test></code>项还可通过<code>|</code>检测多个替代选项。
+*** 例如<code>*[!damage|damage=0]</code>将会寻找没有<code>damage</code>组件'''或'''此组件值为<code>0</code>的物品。
+* 移除了<code>{}</code>语法，它们已被<code>custom_data</code>谓词代替。
+** 因此<code>stick{a:2}</code>现在变为<code>stick[custom_data~{a:2}]</code>。
+
+=== 常规 ===
+'''[[属性]]'''
+* 将属性<code>horse.jump_strength</code>重命名为<code>generic.jump_strength</code>，现在对所有实体生效。
+** 控制了一次跳跃的基本冲量。计算优先于跳跃提升或方块属性。
+
+'''[[进度触发器]]'''
+* 加入了触发器<code>default_block_use</code>，当玩家与方块进行默认交互时触发，例如打开一扇门。
+* 加入了触发器<code>any_block_use</code>，当玩家与方块进行任何交互时触发，例如对着方块{{ctrl|使用}}物品或进行默认交互。
+
+'''[[创建新的世界]]'''
+* 将“{{tr|允许作弊|允許作弊|容許作弊}}”选项重命名为“允许命令”。
+
+'''[[选择世界菜单]]'''
+* 将世界描述“作弊”重命名为“命令”。
+* 优化世界更改：
+** 现在优化单人游戏世界和运行<code>forceUpgrade</code>的专用服务器也会升级<code>entities</code>和<code>poi</code>目录下的世界内容。
+
+'''[[背景图]]'''
+* 移除了[[泥土]]背景。
+** 现在游戏外的界面以暗化、模糊化的[[全景图]]作为背景，且大多数原本直接显示于泥土背景上的文字现在使用黑色背景框。
+*** 不使用背景框的文本包括[[世界加载屏幕]]的百分比文本，和跨维度传送时的提示文本。
+** 现在[[胜利屏幕]]以[[末地传送门（方块）|末地传送门]]和[[末地折跃门（方块）|末地折跃门]]的动画作为背景。
+* 现在游戏内[[游戏菜单]]各界面统一以暗化、模糊化的玩家镜头作为背景，且暗化程度有所降低。
+** 方块、物品栏和书的GUI背景不受影响。
+* 可以在“辅助功能设置”内调节模糊化背景的模糊强度。
+* 可以通过启用Programmer Art资源包恢复泥土背景。
+* 现在进入世界加载地形时，会显示全景图。
+* 现在从[[下界]]跨越维度或前往下界时，会显示[[下界传送门（方块）|下界传送门]]纹理动画。
+* 现在从[[末地]]跨越维度或前往末地时，会显示[[末地传送门（方块）|末地传送门]]纹理动画。
+** 从下界前往末地或从末地前往下界总会显示下界传送门纹理动画。<ref>{{bug|MC-270784|||WAI}}</ref>
+
+'''[[闪烁标语]]'''
+* 将“Java 16 + 1 = 17!”闪烁标语改为“Java 16 + 1 + 4 = 21!”。
+
+'''界面'''
+* 标题和按钮等屏幕元素在不同屏幕上的位置现在更加一致。
+* 更新了Realms中的玩家和世界备份界面。
+* 列表的顶部和底部现在有更清晰的边界。
+* 在可用磁盘空间少于64MB时，加入单人游戏世界前会出现警告界面。
+* 在单人游戏中，加载或保存区块出错时会在弹窗中呈现警告。
+
+'''[[数据包]]'''
+* 将数据包版本号更改为<code>41</code>。
+* 现在函数中命令的最大长度（包括宏展开）不能超过2,000,000个字符。
+* 通过重用部分原版数据包，减少了登录期间服务器发送的数据量。
+* 附加于物品堆叠标签字段的非结构化NBT数据现在被结构化的“组件”取代。
+* 现在旗帜图案会从<code>-{}-data/<''命名空间''>/banner_pattern/<''id''></code>中加载到动态注册表中。
+<div class="treeview">
+:* {{nbt|compound}}：根标签。
+:** {{nbt|string|asset_id}}：（命名空间ID）用于解析纹理位置。示例：<code>custom:pattern</code>会被解析为<code>assets/custom/textures/entity/banner/pattern.png</code>和<code>assets/custom/textures/entity/shield/pattern.png</code>。
+:** {{nbt|string|translation_key}}：一个翻译键前缀。示例：<code>block.minecraft.banner.custom.pattern</code>会被解析为<code>-{}-block.minecraft.banner.custom.pattern.<''所染颜色''></code>。
+</div>
+* 非默认组件将在物品作为[[方块实体]]放置后被存储在<code>components</code>字段中。
+** 当前不保留从组件默认值中移除的组件。
+** 有些组件（如<code>custom_name</code>）仍然由继承序列化处理，因此它们可能不被保留。
+** 如果要将不被自动存储的组件在掉落时恢复，需要在战利品表中添加<code>copy_components</code>函数。
+* 用于<code>worldgen</code>定义的整数和浮点数提供器不再包装在<code>type</code>旁的额外<code>value</code>字段中。
+** 例如<code>{"type":"minecraft:uniform","value":{"min_inclusive":0.0,"max_inclusive":1.0}}</code>现在变成了<code>{"type":"minecraft:uniform","min_inclusive":0.0,"max_inclusive":1.0}</code>。
+
+'''[[战利品表]]'''
+* 为熊猫打喷嚏加入了战利品表<code>gameplay/panda_sneeze</code>。
+
+'''[[战利品表函数]]'''
+* {{cd|d=pretty|set_nbt|copy_nbt}}函数已分别重命名为{{cd|d=pretty|set_custom_data|copy_custom_data}}。
+** 这些现在适用于目标物品的<code>custom_data</code>组件。
+** <code>set_custom_data</code>中，{{nbt|string}}{{nbt|compound|tag}}现在接受SNBT字符串数据和不扁平标签。
+* 更新了<code>set_attributes</code>函数。
+** 修饰符<code>slot</code>现在支持{{cd|d=pretty|any|hand|armor|body}}值。
+** 修饰符<code>operation</code>的值现在被重命名：
+*** <code>addition</code> → <code>add_value</code>
+*** <code>multiply_base</code> → <code>add_multiplied_base</code>
+*** <code>multiply_total</code> → <code>add_multiplied_total</code>
+** 加入了<code>replace</code>字段，默认为<code>true</code>。
+*** <code>false</code>时，属性会附加。
+* <code>set_lore</code>函数：
+** 移除了<code>replace</code>字段。
+** 加入了<code>mode</code>，与{{cd|d=pretty|set_fireworks|set_written_book_pages}}中的同名字段格式相同。
+* <code>set_written_book_pages</code>函数：
+** <code>pages</code>现在是一个JSON对象而不再是一个JSON文本。
+* <code>set_contents</code>
+** 移除了未使用的{{nbt|string|type}}字段。
+** 加入了必选字段{{nbt|string|component}}，描述将加入物品的目标组件。
+*** 可选的值为{{cd|d=pretty|container|bundle_contents|charged_projectiles}}，其中{{cd|d=pretty|bundle_contents|charged_projectiles}}会忽略空堆叠。
+
+'''[[配方]]'''
+* 现在可以指定物品组件。
+** {{cd|d=pretty|crafting_shaped|crafting_shapeless|stonecutting|smithing_transform}}的{{nbt|compound|result}}物品堆现在接受{{nbt|compound|components}}。
+** {{cd|d=pretty|smelting|blasting|smoking|campfire_cooking}}类型配方的{{nbt|string|result}}字段现在改为无数量的物品堆叠格式，即必须指定{{nbt|string|id}}且可指定{{nbt|compound|components}}数据。
+
+'''[[Java版函数|函数]]'''
+* 函数列表中不再支持嵌套列表。
+
+'''[[调试屏幕]]'''
+* 改进了帧生成时间图表。
+** 图表底部的深红色部分显示服务器运行主逻辑的时间，相当于旧图表中的显示值。
+** 浅棕色部分显示用于执行计划任务的时间。
+** 紫色部分显示为每刻执行其他所有代码所花费的时间。
+** 顶部浅绿色（受延迟影响可能显示为黄色或红色）部分显示到下一刻的空闲时间。
+** 显示的<code>min</code>（最小）、<code>avg</code>（平均）和<code>max</code>（最大）聚合值的计算基于前三部分值。
+** 现在允许服务器管理员查看专用服务器的TPS调试图表。
+
+'''[[菜单屏幕]]'''
+* 现在使用{{key|Tab}}或方向键导航进入或退出任意菜单时都会设置默认焦点。
+
+'''[[提示框]]'''
+* 鼠标悬停于元素外时，按钮提示框不再显示。
+
+'''[[选取方块]]'''
+* 现在所选取方块的物品提示框中不再显示<code>(+NBT)</code>。
+
+'''[[资源包]]'''
+* 将资源包版本号更改为<code>32</code>。
+* 调整了<code>ttf</code>字体提供器的转换功能，使其具有更合理的默认值。
+** <code>shift</code>不再被双重应用，而以直接在游戏UI中显示一些像素替代。
+** 现在字体的字身框与游戏UI的像素大小所匹配，而不再匹配字体的升降部（字面框）之间的距离。
+** 现在字体基线的位置与默认字体一致（低于顶线<code>7</code>像素）。
+* 移除了<code>IViewRotMat</code>uniform，实体的<code>Position</code>属性现在位于（相对于摄影机的）世界空间中。
+* 灯光方向uniforms不再与视图矩阵预先相乘。
+* 移除了{{cd|d=pretty|options_background|light_dirt_background}}纹理。
+* 更新了{{cd|d=pretty|footer_separator|header_separator}}纹理，分别被应用于列表的底部和顶部。
+* 加入了{{cd|d=pretty|menu_background|menu_list_background}}纹理，分别被应用于屏幕的背景和列表的背景。
+* 更新了精灵图：
+** {{cd|d=pretty|widget\tab|widget\tab_highlighted|widget\tab_selected|widget\tab_selected_highlighted}}。
+* 加入了精灵图：
+** {{cd|widget\scroller_background}}。
+* 移除了Realms的纹理：
+** {{cd|d=pretty|changes|changes_highlighted|restore|restore_highlighted|make_operator_highlighted|remove_operator_highlighted|remove_player_highlighted}}。
+* 加入了{{cd|d=pretty|gui/inworld_menu_background|gui/inworld_menu_list_background|gui/inworld_header_separator|gui/inworld_footer_separator textures}}纹理来区分[[游戏菜单]]和[[主菜单]]。
+* 加入了{{cd|gui/tab_header_background}}纹理，渲染于[[创建新的世界]]选项卡按钮后侧。
+* 加入了{{cd|misc/credits_vignette}}纹理，渲染于[[胜利屏幕]]后侧。
+* 现在可以使用[https://github.com/Mojang/slicer/releases/tag/v1.1.5 Slicer]自动工具来升级资源包。
+* 地图装饰图标已经从以前的<code>map_icons.png</code>中分离为从<code>textures/map/decorations/</code>目录中加载的图集。
+* 加入了<code>trial_chambers</code>地图装饰图标。
+* 加入了{{cd|d=pretty|infested|oozing|weaving|wind_charged|raid_omen|trial_omen|bad_omen_121}}的状态效果图标纹理。
+
+'''[[出生点区块]]'''
+* 出生点区块的大小从10（19×19强加载区块）更改为2（3×3强加载区块），以降低内存使用和CPU负荷，减少加载时间。
+
+'''[[横扫之刃]]'''
+* ID由<code>sweeping</code>改为<code>sweeping_edge</code>。
+
+'''[[Java版标签|标签]]'''
+* 将物品标签{{cd|#trimmable_armor}}的值替换为{{cd|d=pretty|#chest_armor|#foot_armor|#head_armor|#leg_armor}}。
+* 在方块标签{{cd|#wolves_spawnable_on}}中加入了{{cd|d=pretty|coarse_dirt|podzol}}。
+* 将物品标签{{cd|axolotl_tempt_items}}重命名为{{cd|axolotl_food}}。
+* 移除了{{cd|#tools}}物品标签，因为它与{{cd|#breaks_decorated_pots}}重合。
+
+'''[[着色器]]'''
+* 移除了核心着色器定义中未使用的属性数组。
+* 移除了未使用的{{cd|d=pretty|position_color_normal|position_tex_lightmap_color}}着色器。
+* 将仅用于云的{{cd|position_tex_color_normal}}着色器替换为{{cd|rendertype_clouds}}。
+* 将<code>blur</code>后处理着色器重命名为<code>box_blur</code>。
+* 加入了后处理过程可选字段{{nbt|bool|use_linear_filter}}。
+** 为<code>true</code>时，此过程的纹理采样模式由最近邻采样切换到线性插值。
+* 加入了后处理着色器{{cd|entity_outline_box_blur}}。
+
+'''谓词格式'''
+* 更新了物品谓词格式：
+** 移除了{{nbt|string|tag}}字段。
+** <code>items</code>字段现在支持单一的项、带哈希前缀（<code>#</code>）的物品标签或物品列表。
+** <code>potion</code>被重命名为<code>potions</code>，且现在支持单一的项、带哈希前缀（<code>#</code>）的药水效果标签或药水效果列表。
+** <code>nbt</code>谓词被重命名为<code>custom_data</code>，现在其与组件<code>minecraft:custom_data</code>相匹配。
+** 加入了用于精确匹配组件的新可选字段<code>components</code>。
+*** 被指定的所有组件必须与目标物品上存在的对应组件完全相等，但额外组件会被忽略。
+*** 如果未指定组件，其默认值将假定存在于目标物品上。
+*** 因组件ID而异，格式为组件ID到组件值的映射。
+* 更新了方块谓词格式：
+** 移除了{{nbt|string|tag}}字段。
+** <code>blocks</code>字段现在支持单一的项、带哈希前缀（<code>#</code>）的方块标签或方块列表。
+* 更新了流体谓词格式：
+** 移除了{{nbt|string|tag}}字段。
+** 现在由<code>fluid</code>字段重命名为<code>fluids</code>，且支持单一的项、带哈希前缀（<code>#</code>）的流体标签或流体列表。
+* 更新了实体谓词格式：
+** <code>type</code>字段现在支持单一的项、带哈希前缀（<code>#</code>）的实体类型标签或实体类型列表。
+* 更新了定位谓词格式：
+** 现在由<code>biome</code>字段重命名为<code>biomes</code>，且支持单一的项、带哈希前缀（<code>#</code>）的生物群系标签或生物群系列表。
+** 现在由<code>structure</code>字段重命名为<code>structures</code>，且支持单一的项、带哈希前缀（<code>#</code>）的结构标签或结构列表。
+
+'''[[聊天]]'''
+* 客户端聊天状态（屏幕上的消息和聊天输入历史记录）现在在进入和退出配置阶段时由客户端保存。
+* 消息签名链处理保持不变——进入配置阶段会开始新的会话。
+* 如果客户端配置了消息延迟，则等待的消息将在离开世界之前立即发送。
+* 服务器可以在配置阶段通过发送<code>reset_chat</code>数据包来清除聊天状态。
+
+'''协议'''
+* <code>minecraft:chat_command_signed</code>数据包已从<code>minecraft:chat_command</code>中分离。
+** 不接受任何签名参数的命令将使用未签名的数据包，并且将不会传递任意“last seen”的聊天更新。
+* 从服务器发送的数据包中的无效数据现在将导致游戏客户端断开连接。
+
+'''其他'''
+* 当[[实体]]离开或进入[[末地]]时，其到达的区域将保持加载状态<code>15</code>秒，以与[[下界传送门]]的行为相匹配。
+* 现在生成[[探险家地图]]、使用命令{{cmd|locate}}等方式定位结构所需时间减少。
+* 物品或实体中存储的[[药水效果]]不再编码默认值。
+* 现在启动游戏要求的最低Java版本为21，且需要64位操作系统。
+* 现在使用的Java发行版为[[wzh:微软|Microsoft]]构建的OpenJDK 21.0.3。
+
+== 新内容（实验性） ==
+=== 方块 ===
+'''[[沉重核心]]'''
+* 一种[[碰撞箱]]不完整且[[含水]]的方块。
+* 可从[[试炼密室]]的[[宝库]]或柱廊入口密室的奖励箱获得。
+* 具有金属音效。
+* [[硬度]]为10，[[爆炸抗性]]为1200，合适挖掘工具为[[镐]]，被非创造模式玩家破坏时总会掉落。
+* 可被[[活塞]]推拉。
+* 会被[[熔岩]]源破坏，但不会被[[水流]]和熔岩流破坏。
+* 用于合成[[重锤]]。
+
+'''[[宝库]]'''
+* 生成在[[试炼密室]]的入口、廊尾和决斗室结构中。
+* 一种锁着战利品的方块，需要{{ctrl|使用}}[[试炼钥匙]]或[[不祥试炼钥匙]]解锁才会喷出奖励。
+** 方块内部有循环展示其战利品表的[[物品实体]]，但喷出的物品随机。
+** 其战利品表分为<code>reward_common</code>（普通）<code>reward_rare</code>（稀有）、<code>reward_unique</code>（独有）、<code>reward_ominous_common</code>（不祥普通）<code>reward_ominous_rare</code>（不祥稀有）和<code>reward_ominous_unique</code>（不祥独有）。
+*** 每次解锁时从对应普通战利品表抽取1-3次，另有80%的概率从稀有战利品表抽取1次（20%概率从普通战利品表抽取1次），另有25%的概率从独有战利品表抽取1次（75%概率不抽取）。
+* 世界中的每名玩家都有一次解锁某一个宝库的机会。
+** 附近4格内有任一玩家未解锁过该宝库时，其锁孔打开，并产生橙色或蓝色粒子。
+** 若附近4-5格内的玩家都解锁过该宝库，其锁孔闭合，无法{{ctrl|使用}}对应的试炼钥匙。
+* [[硬度]]为50，没有合适挖掘工具，无法被常规的爆炸破坏。
+
+=== 物品 ===
+'''[[旋风棒]]'''
+* 由[[旋风人]]掉落。
+* 可以合成为4个[[风弹（物品）|风弹]]，也可以与沉重核心合成重锤。
+
+'''[[重锤]]'''
+* 一种重型武器。
+* 使用1个[[沉重核心]]和1个旋风棒合成。
+* 与[[剑]]和[[三叉戟]]一样，创造模式下主手持重锤的玩家不能破坏方块。
+* 可以打破饰纹陶罐。
+* 击中生物前，玩家<ref>{{bug|MC-269428|||Fixed}}</ref>的摔落高度越大，造成的伤害越高。
+** 如果摔落高度大于5格且成功击中目标，则会抵消累积的摔落伤害，重置累积的摔落高度，产生猛击粒子，并会击退目标周围的其他实体。
+* 具有250点[[耐久度]]，可以在[[铁砧]]上使用旋风棒修复。
+* 适用以下魔咒：
+** [[经验修补]]、[[耐久]]、[[亡灵杀手]]、[[节肢杀手]]、[[火焰附加]]、[[消失诅咒]]、[[致密]]、[[破甲]]和[[风爆]]。
+
+'''[[旗帜图案]]'''
+* 加入了涡流和旋风2种旗帜图案。
+** 可从试炼密室的宝库获得。
+
+'''[[锻造模板]]'''
+* 加入了镶铆和涡流2种盔甲纹饰锻造模板。
+** 可从试炼密室的宝库获得。
+** 镶铆盔甲纹饰锻造模板可使用[[铜块]]复制。
+** 涡流盔甲纹饰锻造模板可使用[[旋风棒]]复制。
+
+'''[[陶片]]'''
+* 加入了涡流、旋风和刮削3种纹样陶片。
+** 试炼密室中会生成带有这些纹样的饰纹陶罐。
+
+'''[[探险家地图]]'''
+* 加入了[[试炼密室]]探险家地图。
+** 可通过与老手级[[制图师]]村民[[交易]]获得。
+** 用于指向最近的试炼密室。
+
+'''[[风弹（物品）|风弹]]'''
+* 由[[旋风棒]]合成。
+* 可由[[玩家]]和[[发射器]]发射。
+** 玩家发射的风弹比[[旋风人]]发射的多10%击退，但影响范围更小。
+** 玩家被自己发射的风弹击中时会重置摔落伤害，且摔落伤害只会从该玩家上一次受到[[爆炸#风爆|风爆]]的高度以下开始累积。
+* 每次使用后有0.5秒的冷却时间。
+
+'''[[刷怪蛋]]'''
+* 加入了[[沼骸]]刷怪蛋。
+
+'''[[不祥之瓶]]'''
+* 可由[[宝库]]和[[不祥宝库]]喷出，也会在[[袭击]]外<ref>{{bug|MC-269981||不祥之兆效果的新形式不再能在袭击中获得。|Invalid}}</ref>击杀[[袭击队长]]时掉落。
+* {{ctrl|使用}}后，瓶子会碎裂，并给予玩家1小时40分钟的[[不祥之兆]]状态效果。
+* 每个不祥之兆效果倍率各有一个物品变种，总共有5种不祥之瓶。
+* 最大堆叠数量为64。
+
+'''[[不祥试炼钥匙]]'''
+* [[试炼钥匙]]的变种，仅作为不祥试炼刷怪笼的奖励获得。
+* 用于解锁不祥宝库。
+
+=== 生物 ===
+'''[[沼骸]]'''
+* [[骷髅]]的新变种。
+** 拥有{{hp|16}}生命值，少于骷髅的{{hp|20}}。
+** 攻击间隔是3.5秒，长于骷髅的2秒。
+** 发射[[剧毒之箭]]而非普通箭。
+* 被玩家或驯服的狼杀死时，有概率掉落1支剧毒之箭。
+* 身上有蘑菇，玩家可以{{ctrl|使用}}[[剪刀]]剪下2个蘑菇（红色和棕色蘑菇均有可能）。
+* 自然生成于[[沼泽]]和[[红树林沼泽]]生物群系，也会代替先前的带剧毒之箭的骷髅生成于[[试炼密室]]的部分[[试炼刷怪笼]]。
+
+=== 非生物实体 ===
+'''[[不祥之物生成器]]'''
+* 由激活的不祥试炼刷怪笼周期性生成于附近生物的上方，用于向下投掷[[弹射物]]。
+* 所显示的物品会不停旋转，同时从周围聚集<code>ominous_spawning</code>粒子直到对应弹射物生成。
+
+=== 游戏内容 ===
+'''[[进度]]'''
+* 加入了8个新进度。
+** [[进度#advancements-anchor-adventure.minecraft_trials_edition|{{Advancement name|adventure.minecraft_trials_edition|zh|rev=1}}]]
+*** {{tr|踏入试炼密室|踏入試煉密室|踏入試煉密室}}
+** [[进度#advancements-anchor-adventure.under_lock_and_key|{{Advancement name|adventure.under_lock_and_key|zh|rev=1}}]]
+*** {{tr|对宝库使用试炼钥匙|用試煉鑰匙解鎖寶庫|用試煉鎖匙打開寶庫}}
+** [[进度#advancements-anchor-adventure.blowback|{{Advancement name|adventure.blowback|zh|rev=1}}]]
+*** {{tr|反弹旋风人的风弹来击杀旋风人|反彈旋風使者的風彈來擊殺它|反彈旋風使者嘅風彈嚟擊殺旋風使者}}
+** [[进度#advancements-anchor-adventure.who_needs_rockets|{{Advancement name|adventure.who_needs_rockets|zh|rev=1}}]]
+*** {{tr|使用风弹将自己向上弹射8格|使用風彈將自己向上彈射 8 格|用風彈將自己向上彈 8 格}}
+** [[进度#advancements-anchor-adventure.crafters_crafting_crafters|{{Advancement name|adventure.crafters_crafting_crafters|zh|rev=1}}]]
+*** {{tr|靠近一个正在合成合成器的合成器|靠近一台正在合成合成器的合成器|靠近一部喺度合成合成器嘅合成器}}
+** [[进度#advancements-anchor-adventure.lighten_up|{{Advancement name|adventure.lighten_up|zh|rev=1}}]]
+*** {{tr|用斧刮削铜灯让它变得更亮|用斧頭為銅燈除鏽使其更加明亮|用斧頭刮銅燈令佢變到更光}}
+** [[进度#advancements-anchor-adventure.overoverkill|{{Advancement name|adventure.overoverkill|zh|rev=1}}]]
+*** {{tr|使用重锤一击造成50颗心的伤害|使用重錘一擊造成50顆心的傷害|用重鎚一下打出 50 粒心嘅傷害}}
+** [[进度#advancements-anchor-adventure.revaulting|{{Advancement name|adventure.revaulting|zh|rev=1}}]]
+*** {{tr|用不祥试炼钥匙解锁不祥宝库|用不祥試煉鑰匙解鎖不祥寶庫|用不祥試煉鎖匙解鎖不祥寶庫}}
+
+'''[[不祥事件]]'''
+* 包括[[袭击]]和不祥试炼的新设计。
+* 更改了不祥之兆状态效果的图标和音效。
+* 拥有不祥之兆效果的玩家进入村庄后不再直接触发袭击：
+** 不祥之兆会转变为同倍率持续30秒的袭击之兆，这允许玩家在这段时间内饮用[[奶桶]]来阻止袭击。
+** 袭击之兆结束时会在玩家获得此效果的位置开始袭击。
+* 在袭击外击败[[袭击队长]]不再给予玩家不祥之兆。
+
+=== 常规 ===
+'''[[Java版标签|标签]]'''
+* 加入了下列实体类型标签：
+** {{cd|#no_anger_from_wind_charge}}：{{cd|d=pretty|bogged|breeze|skeleton|stray|zombie|husk|spider|cave_spider|slime}}。
+*** 不会被风弹激怒的实体。
+** {{cd|#immune_to_infested}}：{{cd|silverfish}}。
+*** 免疫寄生状态效果的实体。
+** {{cd|#immune_to_oozing}}：{{cd|slime}}。
+*** 免疫渗浆状态效果的实体。
+* 加入了下列方块标签：
+** {{cd|#blocks_wind_charge_explosions}}：{{cd|d=pretty|barrier|bedrock}}。
+*** 当被风弹击中时不受爆炸影响的方块。
+* 加入了下列物品标签：
+** {{cd|#enchantable/mace}}：{{cd|mace}}
+*** 可以附上适用于重锤的魔咒的物品。
+* 加入了下列旗帜图案标签：
+** {{cd|#pattern_item/flow}}：{{cd|flow}}。
+** {{cd|#pattern_item/guster}}：{{cd|guster}}。
+
+== 更改（实验性） ==
+=== 方块 ===
+'''[[合成器]]'''
+* 更改了模型UV映射，现在顶面纹理不再反转。
+
+'''[[试炼刷怪笼]]'''
+* 为了更频繁地提供保障战斗安全的更高质量的食物而调整了战利品表，现在拥有与位于[[试炼密室]]内自然生成时相同的两个默认战利品表。
+* 现在每个额外的玩家只会增加0.5的生物数量，而不是2。
+* 现在幼年[[僵尸]]基本只会一组生成2个。
+* 现在只会在玩家处于检测范围内时激活。
+* 在<code>spawn_potentials</code>生成数据中加入了可选的{{nbt|compound|equipment}}字段，用于将指定战利品表内的物品随机选取装备到生成的生物身上。
+** 格式与刷怪笼数据中的同名标签相同。
+* 加入了<code>ominous</code>方块状态。
+** 纹理有别于普通试炼刷怪笼，且激活时会发出灵魂火粒子而非普通火焰粒子。
+** 当普通试炼刷怪笼检测到玩家带有[[试炼之兆]]状态效果，且满足以下条件之一时，它将变成不祥试炼刷怪笼：
+*** 它不在冷却中。
+*** 它在冷却中，但上一次激活时没有变为不祥试炼刷怪笼。
+**** 使普通试炼刷怪笼变成不祥试炼刷怪笼会跳过冷却时间、重置挑战并清除此前由它产生的所有在场生物。
+** 挑战完成且冷却结束后，不祥试炼刷怪笼会变回普通试炼刷怪笼。
+** 生成的怪物如果能穿装备，则有概率装备带有魔咒的武器和[[盔甲]]。
+*** 这些盔甲是锁链质、铁质或钻石质的，锻有铜质的涡流或镶铆[[盔甲纹饰]]。
+*** 盔甲魔咒包括[[保护]]IV、[[弹射物保护]]IV和[[火焰保护]]IV。
+*** 武器魔咒包括[[锋利]]I、[[击退]]I、[[力量（魔咒）|力量]]I和[[冲击]]I。
+*** 这些装备不会在死亡时掉落。
+** 会定期在附近生物或玩家（50%概率）的头顶生成[[弹射物]]。
+*** 可能为1瓶滞留药水（[[蓄风]]I、[[盘丝]]I、[[渗浆]]I、[[寄生]]I、[[力量（状态效果）|力量]]I、[[迅捷]]I或[[缓降]]I）、1支[[药箭]]（[[剧毒]]I或[[緩速]]IV）、1支[[箭]]、1-3个[[小火球]]、1-3个[[风弹]]或1-3个[[附魔之瓶]]。
+*** 弹射物种类是随机的，但邻近的刷怪笼总会选择同种弹射物。
+** 挑战完成后，它会弹出与普通试炼刷怪笼不同的战利品。
+*** 弹出[[不祥试炼钥匙]]的概率是30%而非50%。
+
+=== 物品 ===
+'''[[试炼钥匙]]'''
+* 更改了纹理。
+* 现在可用于解锁宝库。
+
+'''[[药水]]'''
+* 蓄风药水可用[[粗制的药水]]和[[旋风棒]]酿造。
+* 盘丝药水可用粗制的药水和[[蜘蛛网]]酿造。
+* 渗浆药水可用粗制的药水和[[黏液块]]酿造。
+* 虫蚀药水可用粗制的药水和[[石头]]酿造。
+* 以上药水及其喷溅型药水、滞留型药水和药箭可在[[创造模式物品栏]]中找到。
+
+=== 生物 ===
+'''[[旋风人]]'''
+* 加入了空闲时旋转、跳跃前蓄力和反射弹射物的音效。
+* 调整了已有的音效。
+* 更改了杆的底面纹理，使之更契合相邻纹理的颜色。
+* 现在会反弹除风弹以外的所有[[弹射物]]，并且反弹的弹射物会朝发射者的方向重新射出。
+* 现在被玩家或驯服的狼杀死后会掉落1-2个[[旋风棒]]和{{xp|10}}，而不是只掉落{{xp|5}}。
+* 现在会主动攻击[[铁傀儡]]。
+* 现在受到非玩家生物攻击后会尝试反击，但不会反击[[骷髅]]、[[流浪者]]、[[僵尸]]、[[尸壳]]、[[蜘蛛]]、[[洞穴蜘蛛]]和[[史莱姆]]。
+* 现在骷髅、流浪者、僵尸、尸壳、蜘蛛、洞穴蜘蛛和史莱姆被其[[风弹（实体）|风弹]]伤害后不会尝试反击。
+* 现在会避免跳到危险的方块上或空中。
+
+=== 非生物实体 ===
+'''[[风弹（实体）|风弹]]'''
+* 更改了模型、纹理和动画。
+* 旋风人发射的风弹的ID由{{cd|wind_charge}}重命名为{{cd|breeze_wind_charge}}。
+* 现在使用新的[[伤害类型]]{{cd|wind_charge}}，而不是{{cd|mob_projectile}}。
+* 现在可以穿过[[碰撞箱]]不完整的方块。
+* 降低了爆炸威力的随机性。
+* 现在总会在所在维度的最高建筑高度30格以上立即爆炸。
+* 现在会正确计算摔落伤害。
+* 现在不会与[[末地水晶]]碰撞。
+
+=== 世界生成 ===
+'''[[试炼密室]]'''
+* 加入了{{cd|d=pretty|pedestal|eruption|assembly|slanted}}决斗室，同时移除了{{cd|d=pretty|chamber_3|chamber_5|chamber_6|chamber_9}}。
+* 加入了{{cd|atrium}}柱廊，柱廊不再无尽地生成。
+* 更改了交叉口和柱廊的布局。
+* 移除了{{cd|reward/default}}结构中的[[箱子]]，并加入了[[宝库]]。
+* 将{{cd|chests/supply}}结构中的底座方块由涂蜡的铜块和涂蜡的雕纹铜块更改为磨制安山岩和雕纹凝灰岩砖。
+* 现在会生成[[涂蜡的斑驳铜灯]]、[[涂蜡的锈蚀铜灯]]和[[涂蜡的氧化铜灯]]，而不是[[斑驳的铜灯]]、[[锈蚀的铜灯]]和[[氧化的铜灯]]。
+* 现在其中的[[饰纹陶罐]]会按结构池中的<code>decor.json</code>随机附有涡流、旋风或刮削纹样陶片。
+* 现在柱廊的[[试炼刷怪笼]]生成得更频繁。
+* 降低了试炼密室的生成次数。
+* 将两个试炼密室之间的平均距离由8区块更改为12区块，最小距离由32区块更改为34区块。
+* 现在会更常见地被地形掩埋。
+* 为各种决斗室加入了[[发射器]]陷阱。
+
+=== 游戏内容 ===
+'''[[交易]]'''
+* 现在针叶林盔甲匠收购的盔甲无视耐久度。
+
+'''[[进度]]'''
+* 现在可通过击杀沼骸达成“{{Advancement name|adventure.kill_a_mob|zh|rev=1}}”进度。
+* 将沼骸加入到“{{Advancement name|adventure.kill_all_mobs|zh|rev=1}}”进度的达成要求中。
+
+'''[[魔咒]]'''
+* [[致密]]：
+** 属于常见魔咒，可通过[[附魔台]]、交易和战利品中的[[附魔书]]获取。
+** 附有此魔咒的[[重锤]]每摔落一格时造成的伤害会增加。
+*** 每魔咒等级增加{{hp|1}}。
+* [[破甲]]:
+** 属于稀有魔咒，可通过附魔台、交易和战利品中的附魔书获取。
+** 附有此魔咒的重锤可降低目标的[[盔甲机制#伤害减免|盔甲效果]]。
+*** 每魔咒等级使盔甲效果降低15%。
+* [[风爆]]：
+** 属于独有魔咒，除命令外，只能通过不祥宝库获取。
+** 附有此魔咒的重锤需要用猛击击中目标才能将攻击者弹起，且允许玩家不断猛击。
+* 以上魔咒均可用{{cmd|enchant}}进行[[附魔（物品修饰）|附魔]]。
+
+'''[[状态效果]]'''
+* [[渗浆]]：
+** 史莱姆免疫此状态效果。
+* [[寄生]]：
+** 蠹虫免疫此状态效果。
+* [[袭击之兆]]：
+** 玩家进入村庄时，其身上的[[不祥之兆]]效果会变成同倍率的袭击之兆，持续30秒。
+** 此效果结束时，袭击将于玩家获得此效果的位置开始。
+* [[试炼之兆]]：
+** 玩家在普通试炼刷怪笼探测范围内时，其身上的不祥之兆效果就会变成试炼之兆。
+*** 持续时间为15分钟×不祥之兆的放大倍率。
+* [[蓄风]]、[[盘丝]]、渗浆、寄生、袭击之兆和试炼之兆均可用{{cmd|effect}}获取。
+
+=== 常规 ===
+'''[[Java版标签|标签]]'''
+* 将{{cd|d=pretty|#deflects_arrows|#deflects_tridents}}实体类型标签合并为{{cd|#deflects_projectiles}}。
+* 在{{cd|#features_cannot_replace}}方块标签中加入了{{cd|vault}}。
+* 在{{cd|#impact_projectiles}}实体类型标签中加入了{{cd|breeze_wind_charge}}。
+* 在{{cd|#skeletons}}实体类型标签中加入了{{cd|bogged}}。
+* 在{{cd|d=pretty|#decorated_pot_ingredients|#decorated_pot_sherds}}物品标签中加入了{{cd|d=pretty|flow_pottery_sherd|guster_pottery_sherd|scrape_pottery_sherd}}。
+* 在{{cd|#trim_templates}}物品标签中加入了{{cd|d=pretty|flow_armor_trim_smithing_template|bolt_armor_trim_smithing_template}}。
+* 在物品标签{{cd|d=pretty|#enchantable/durability|#enchantable/fire_aspect|#enchantable/vanishing|#enchantable/weapon}}中加入了{{cd|mace}}。
+* 在实体类型标签{{cd|#redirectable_projectile}}中加入了{{cd|d=pretty|wind_charge|breeze_wind_charge}}。
+* 在物品标签{{cd|#breaks_decorated_pots}}中加入了{{cd|mace}}。
+* 在魔咒标签{{cd|#tooltip_order}}的{{cd|channeling}}后加入了{{cd|wind_burst}}，在{{cd|power}}后加入了{{cd|d=pretty|density|breach}}。
+
+== 修复 ==
+{{fixes|fixedin=23w51a,23w51b,24w03a,24w03b,24w04a,24w05a,24w05b,24w06a,24w07a,24w09a,24w10a,24w11a,24w12a,24w13a,24w14a,1.20.5 Pre-Release 1,1.20.5 Pre-Release 2,1.20.5 Pre-Release 3,1.20.5 Pre-Release 4,1.20.5 Release Candidate 1,1.20.5 Release Candidate 2,1.20.5 Release Candidate 3|beforeVersion=23w51a|showdesc=1
+|;old
+|19893|击败末影龙后，鸣谢名单内{{filename|options_background.png}}异常颠倒。
+|71977|更改已驯服狼的{{cd|generic.attack_damage}}属性无效或驯服狼会移除自定义的{{cd|generic.attack_damage}}属性。
+|72151|雪傀儡投掷的雪球对狼会造成伤害，而不是击退。
+|94413|破坏、放置蜘蛛网和在蜘蛛网上行走时播放石头音效。
+|100016|单人世界选择屏幕在{{filename|light_dirt_background.png}}或{{filename|options_background.png}}透明时显示异常。
+|100994|快捷栏中的物品会显示在Tab菜单上方。
+|107353|恶魂火球被击退附魔击中时移动异常。
+|108350|不死图腾动画渲染在快捷栏上方，但在物品、经验值、饥饿值和生命值显示下方。
+|117637|在终末之诗结束后、重生前，世界会短暂可见。
+|117955|玩家被活塞头挤压时会被传送到顶部。
+|118857|状态效果的{{cd|amplifier}}以整型存储，但在NBT中以字节型读写。
+|118890|插在地上的药箭永不失效。
+|122008|箭实体中的{{cd|custom_potion_effects}}在通过{{cmd|link=none|execute store}}操作时会重复，并且不受{{cmd|link=none|data remove}}的影响。
+|122703|可以使用数据包合成一组不可堆叠的物品。
+|123804|探险家地图和灾厄旗帜的名称会在物品展示框中显示，写作斜体，且可用铁砧移除。
+|130244|在{{key|F1}}模式下打开聊天屏幕时无法查看历史聊天消息。
+|132380|进入下界或末地传送门时会出现“正在加入世界...”消息。
+|140397|将两个附魔的无法破坏的物品放入砂轮，会输出两个堆叠的物品。
+|140565|带旗帜的灾厄巡逻队队长会掉落2种不可堆叠的不同旗帜。
+|148057|在前哨站生成的灾厄旗帜显示图案列表。
+|148480|在砂轮里输入两本相同的附魔书只会输出一本书。
+|149457|更新“强制使用Unicode字体”设置会重置语言选择菜单中已选中的语言。
+|153329|在重载世界前，被拴住的铁傀儡寻路异常。
+|153643|调试屏幕渲染在快捷栏物品下层。
+|154975|使用{{cmd|link=none|summon}}生成的物品总是带有{{cd|Damage}}标签。
+|155857|命令{{cmd|link=none|team}}不会影响灾厄村民和女巫的AI。
+|157133|使用砂轮能将诅咒附魔书堆叠。
+|162453|自定义头颅在手中时不显示皮肤。
+|164298|玩家头颅材质的应用方式不一致。
+|165435|当站在2×2岩浆块气泡柱中间时创造模式玩家不能飞行。
+|165948|蜜蜂会被引诱到危险的方块处。
+|166361|当使用键盘而非鼠标更改选项时，GUI尺寸不会明显更新。
+|167324|多个UI按钮同时高亮。
+|167375|幼年海龟字幕文本的语法不正确。
+|168407|蜜蜂会被灯笼困住。
+|169187|尝试在距离玩家触及范围5格处使用刷怪蛋时，手部动画会播放。
+|169389|末地传送门有时会将玩家传送到主世界坐标。
+|170000|以第一人称视角环顾四周，手上或持有物品的亮度会发生剧烈变化。
+|171177|在创造模式下，你可以通过撞击传送门框架进入下界传送门。
+|171981|燃料燃烧时间映射在每次物品被放入熔炉时都会重新创建，而不会被缓存。
+|172047|狼试图攻击盔甲架。
+|172447|离开末地时显示的加载屏幕文本重叠。
+|172898|在创造模式下通过右键装备盔甲会导致其从快捷栏中消失一帧。
+|173303|重载世界时，被拴住的宠物会传送到玩家身边。
+|173672|屏幕标题文本渲染在玩家列表中玩家名称上层。
+|174496|玩家的头被放置后丢失名称。
+|175437|在视频设置中按下{{key|Esc}}键退出时，全屏分辨率未被应用。
+|175622|如果最大生命值增加，狼的尾巴会旋转360度。
+|178410|旗帜作为方块被放置时不储存<code>HideFlags</code>标签。
+|179817|使用{{cmd|link=none|data}}修改拴绳时会导致其掉落。
+|184066|重生锚不会产生环境音效。
+|184622|离开传送门或通过传送门前往另一维度时播放的声音没有使用其对应的字幕，尽管该字符串存在于{{cd|en_us.json}}中。
+|185379|幼年北极熊的字幕没有明确提及其来自幼年北极熊。
+|185955|当你的眼睛高度高于水面最多2像素时，你会被视为处于水下，就像它是一个完整方块一样。
+|186626|{{cmd|link=none|weather}}在自定义维度中无效。
+|187267|屏幕标题文本渲染在侧边栏上层。
+|187372|调试屏幕中FPS限制与垂直同步或图像等级间没有空格。
+|187616|不死图腾使用后1秒渲染过暗。
+|187746|“编辑游戏规则”屏幕中的游戏规则按钮即使被遮盖，也会被高亮。
+|188497|生成时不能设定{{cd|d=pretty|AngerTime|AngryAt}}。
+|189211|从炼药锅中舀水的统计数据被屏幕底部的叠加层略微覆盖。
+|189484|统计数据屏幕选项卡选择框未居中。
+|192981|修改实体属性修饰值不会正确更新NBT数据。
+|193202|当NBT数据加载后，会重置驯服的狼的生命值。
+|193460|侧边栏和{{key|F3}}调试屏幕文本分层不一致。
+|193511|屏幕标题文本渲染在复述功能文本上层。
+|193515|Boss栏文本渲染在复述功能文本上层。
+|193517|Boss栏文本渲染在侧边栏上层。
+|193521|Boss栏文本渲染在调试屏幕文本上层。
+|193524|Boss栏文本的删除线与下划线渲染在玩家列表上层。
+|193656|旗帜方向导致其破坏纹理位移或反复水平翻转。
+|193753|重生锚使用了与传送门一样的环境音效字幕。
+|194948|{{tr|画|繪畫|畫}}、物品展示框和拴绳被破坏时的字幕与方块被破坏时的字幕不一致。
+|195572|与基岩版相比，当抗火状态生效时，从熔岩中冒出的雾更密集。
+|198492|玩家在通常不会受伤的情况下可能被推入危险区域。
+|198787|{{cd|GoalSelector}}方法使用了低效的Stream API。
+|198963|聊天文本渲染在玩家列表中玩家名称上层。
+|199973|沾水的狼与上个版本相比渲染得更暗了。
+|200947|<code>map_icons.png</code>纹理文件中有大量未使用的空白。
+|200987|Boss栏的标题会破坏HUD的不透明度。
+|207353|如果攻击造成0伤害，则恶魂火球和风弹不能被近战反射。
+|208528|喂食已驯服的幼年狼、猫会切换其站起/坐下状态。
+|209906|通过生物物品栏为其装备物品时，不会激活幽匿感测体。
+|213104|调整Minecraft窗口大小时，统计信息选项卡会重置。
+|216071|在多人游戏菜单按下{{key|Esc}}键会重置闪烁标语，但在单人游戏菜单中不会。
+|217084|玩家的头的NBT<code>ExtraType</code>在不使用<code>DataFixerUpper</code>升级路径时不再被存储。
+|218811|大型垂滴叶从侧面触碰时会倾斜。
+|219899|对缠根泥土使用骨粉时，产生的粒子在方块上方，而垂根是在下方生长的。
+|219967|当接收到无效ID的数据包时，会发生<code>IndexOutOfBoundsException</code>而不是“Bad packet ID”消息。
+|221754|为狼解开拴绳后，它不再攻击。
+|224343|书在放置在讲台上后无法堆叠。
+|225170|在某些情况下正常矩阵缩放损坏。
+|226775|熄灭蜡烛时显示不准确的字幕。
+|228486|在macOS上不能使用{{key|Cmd+Tab}}切换窗口。
+|229209|战利品表函数{{cd|set_count}}不再适用于不可堆叠物品。
+|229680|若开着箱子、陷阱箱、末影箱、木桶GUI时走远，这些方块会停止工作。
+|229919|蜜蜂不能识别下方有营火、上方有方块的蜂箱或蜂巢。
+|230256|NBT的{{cd|HideFlags}}标签无法隐藏{{cd|minecraft:bundle}}上的 "Slot" 信息。
+|230257|当马的盔甲物品从NBT中读取时，马会播放装备盔甲的音效。
+|230900|NBT的{{cd|HideFlags}}标签无法隐藏{{cd|FILLED_MAP}}上的地图编号。
+|231466|Minecraft崩溃，提示{{cd|Index 335550507 out of bounds for length 8000' / java.lang.ArrayIndexOutOfBoundsException: Index 335550507 out of bounds for length 8000}}。
+|232489|从花盆中取出植物时无视物品栏。
+|232560|为已驯服的狼解开栅栏上的拴绳后，它的速度降低。
+|234406|与Realms界面中的“玩家”按钮交互时，泥土背景变动。
+|234558|Realms“邀请玩家”界面没有标题。
+|234889|显示在HUD的状态效果图标会与Boss栏重叠。
+|238242|物品栏状态效果图标右上角有多余的黑色像素。
+|239084|物品拾取动画比实际的物品模型更暗。
+|248076|特定类型的烟花火箭在被{{ctrl|使用}}后不可堆叠到一起。
+|248684|移动中的活塞上的迷雾出现得过早。
+|248689|下落中的方块上的迷雾出现得过早。
+|248961|当玩家装备上头盔时，进度准则{{cd|takenDamage}}的计算有误。
+|249136|尝试定位埋藏的宝藏或是打开/破坏内含地图的箱子时，会出现卡顿或造成服务端延迟。
+|249335|对红树树叶使用骨粉时，产生的粒子在方块中心而非下方。
+|250432|在演示模式下，{{key|Esc}}键总是取消暂停游戏。
+|251027|头盔不会将下落的铁砧或钟乳石造成的伤害减少{{frac|1|4}}。
+|251042|多人游戏第三方警告按钮在非英文语言中的位置不合适。
+|251303|屏幕中的Boss栏多于1个时，它们的透明度失效了。
+|251509|旗帜图案不能合理堆叠/旗帜被破坏后失去“<code>banner</code>”ID。
+|252409|调试屏幕的内存统计中存在多余的空格。
+|253881|当LAN世界的主机更改渲染距离时，其他玩家的屏幕会重复闪烁。
+|258762|切石机配方不会验证{{cd|result}}键是否无效。
+|259142|朝下的木桶在漏斗上方时，漏斗仍会拾取物品。
+|259355|由于{{cmd|link=none|place}}有时不检查位置是已加载还是在世界外，游戏崩溃了。
+|259587|负数耐久值导致物品耐久条渲染错误。
+|260099|嗅探兽在嗅探时的鼻子阴影发生变化。
+|260889|玩家可以在放置距离外的方块上使用水桶和熔岩桶。
+|260921|使用键盘在统计页面导航时，数据总是最后被选中的。
+|261577|使用望远镜且站在下界传送门内时，下界传送门的叠加层将完全不透明。
+|261596|工作台的“搜索”键盘快捷键无法使用。
+|261749|已驯服的猫在切换坐立/站立模式时，不会发出生物交互振动。
+|261846|日文使用中文的字体。
+|262503|{{cd|d=pretty|light_dirt_background.png|header_separator.png}}与<code>options_background.png</code>不匹配。
+|263256|聊天栏渲染在玩家列表上层，这会挡住一部分信息。
+|263315|疣猪兽和僵尸疣猪兽的攻击目标不会被{{cmd|link=none|execute on target}}检测到。
+|263641|Boss栏文本不再显示在状态效果图标后面。
+|263872|多人游戏目录中的“{{tr|正在你的本地网络中寻找游戏|正在您的區域網路內尋找可供加入的遊戲|正在在你的 LAN 內尋找可供加入的遊戲}}”元素不可被鼠标指针选中。
+|263874|统计数据目录中的元素列表不可被鼠标指针选中。
+|264456|被青蛙和美西螈选为目标的实体不会被{{cmd|link=none|execute on target}}检测到。
+|264597|{{key|F3}}调试屏幕的下划线渲染在字幕上层。
+|264637|文本着色器资源包导致字幕闪烁。
+|264684|太长的宏静默失效。
+|264821|实体所穿盔甲上的雾出现得太早。
+|265273|使用{{key|Tab}}键在创建世界屏幕的标签页列表中导航时，未通过突出显示或渲染边界来示明聚焦状态。
+|265390|{{cmd|link=none|forceload}}命令提供错误的输出。
+|265520|切换连接协议有时会产生错误。
+|265541|即使{{filename|player.dat}}文件不存在，游戏也不会读取{{filename|player.dat_old}}。
+|265585|含水屏障不会漫射天空光照。
+|265661|某些特定的窗口大小会导致“实验性功能需求”数据包界面内泥土背景与返回按钮重叠。
+|265669|快捷栏文本渲染在字幕背景上层，但在字幕文本下层。
+|265698|骷髅马跳跃时头部会遮挡玩家屏幕。
+|265709|（仅限服务器）GUI中超过第32行的切石机输出终止。
+|265741|含水屏障不在地图上显示。
+|265749|按钮文本或字段的值改变时，提示框会闪烁。
+|266135|缓存的宏命令在执行时无视权限等级，可导致命令被越权执行。
+|266136|宏函数执行时无视服务器{{cd|function-permisson-level}}设置，包括在该项设定为低于默认值的情况。
+|266334|潜影弹会破坏盔甲架。
+|266389|对洞穴藤蔓使用骨粉时，产生的粒子过少。
+|266589|创造模式下按下使用键交换盔甲会同时改变其耐久值。
+|266628|鼠标轮询率过高会导致卡顿。
+|266960|Boss栏文本渲染在玩家列表背景上层，但在玩家图标下层。
+|266990|拥有相同{{cd|map}}标签值，但{{cd|display}}标签数据不同的地图可导致玩家标记消失。
+|266997|破坏正在播放闭合动画的潜影盒时，天空光照不更新。
+|267433|光标持有相同物品时使用{{key|Shift}}双击不会转移物品。
+|;1.20.3的漏洞
+|265835|使用望远镜时，屏幕边缘的冻结效果将完全不透明。
+|266032|尝试在合成器中复制“{{tr|副本的副本|複本的複本}}”成书时行为不正确。
+|266055|开关铜门或铜活板门时，手持斧，会获得“{{Advancement name|husbandry.wax_off|zh|rev=1}}”进度；手持蜜脾，会获得“{{Advancement name|husbandry.wax_on|zh|rev=1}}”进度。
+|266144|铜门没有{{cd|#doors}}物品标签。
+|266145|铜活板门不属于{{cd|#trapdoors}}物品标签。
+|266308|铜灯有未使用的“关闭”音效。
+|266430|在不完整方块上的旋风人会产生更下方方块的粒子效果。
+|266432|试炼密室内处于斑驳、锈蚀、氧化状态的铜灯没有被涂蜡。
+|266449|旋风人不攻击或反击视野中的生物。
+|266467|风弹在空中飞行不流畅。
+|266469|被攻击时，旋风人有时会停止寻路、跳跃或发射风弹。
+|266532|旋风人会被某些弹射物击中。
+|266533|旋风人使用的AI在开阔地形中有严重缺陷。
+|266557|旋风人在攻击时有时会四处移动，从而打断其攻击动画。
+|266570|风弹无法穿过方块轮廓箱。
+|266577|试炼密室中一些试炼刷怪笼生成的生物可以被自然清除。
+|266680|旋风人在具有发光效果时，发光轮廓没有包含眼睛与眉毛。
+|266685|与实际模型大小相比，旋风人的实体阴影过大。
+|266688|旋风人模型上发光的眼睛对资源包不友好。
+|266707|试炼刷怪笼不受其{{cd|custom_spawn_rules}}规则影响。
+|266738|字幕{{cd|subtitles.block.trial_spawner.spawn_mob}}的字符串具有误导性，且与其他字符串不一致。
+|266879|透过旋风人的眼睛和眉毛能够观察到云、实体判定框、方块边界框（特别是有特殊渲染的）和附魔光效。
+|266909|旋风人停止移动时不会平缓地过渡到空闲状态。
+|266999|旁观模式下玩家依然能看到合成器的按钮提示框。
+|267044|刻状态字符串中词语用法不一致。
+|267045|部分与刻有关的字符串缺少冠词，表述不清。
+|267086|通过{{cmd|link=none|tick}}冻结游戏后，指南针无法正确指示出生点位置。
+|267104|旋风人的杆的底面纹理不正确，与相邻颜色不契合。
+|267133|旋风人周围没有陆地且与玩家处于同一高度时不会攻击或移动。
+|267149|合成器顶面的UV纹理映射是反转的。
+|267193|在聊天中执行带有{{cmd|link=none|return fail}}的函数返回成功而非失败。
+|267352|{{filename|level.dat}}中不存在<code>Player</code>标签时，单人世界不加载{{filename|player.dat}}。
+|267465|1.20.3中的上传错误：<code>Cannot invoke "ctt.c()" because "this.b" is null</code>。
+|267868|原版资源包未在首次启动时完全启用。
+|269472|当<code>table_bonus</code>战利品表条件具有空概率列表时，游戏崩溃。
+|;1.20.4的漏洞
+|267194|分支里的{{cmd|link=none|return run}}在执行无返回值的函数时存在不一致的行为。
+|267273|4级信标的第2个效果在玩家将鼠标指针悬停在其上时会闪烁。
+|267732|{{cmd|link=none|place jigsaw}}命令的参数{{cd|max_depth}}仍为7。
+|267747|启用{{key|F1}}时，在聊天框的单击或悬停事件不生效。
+|267866|熊猫掉落黏液球依赖于硬编码。
+|267451|在1.20.4中用铁砧命名的物品不与在更早版本命名的物品堆叠。
+|267500|UUID的前两个或后两个整数为0时，物品上的属性修饰符无效。
+|267742|打开一本写好的书会使其与相同的未打开的书无法堆叠。
+|267975|Realms中渲染的玩家列表比它的可见尺寸大。
+|267976|Realms玩家列表中的滚动条不再能被鼠标指针拖动。
+|268000|使用{{cmd|link=none|give}}给予玩家一个头颅时，客户端崩溃。
+|268011|漏斗会泄漏上个被其吸取过物品实体的世界。
+|268022|“实验性功能需求”菜单内的列表控件不能被鼠标指针选中。
+|268110|删除世界中止于文件目录报错。
+|268236|社交屏幕的搜索栏不被默认选中。
+|268355|{{cmd|link=none|tick freeze}}会使已加载区块过期。
+|268597|玩家发射或反射的风弹击中旋风人时会被困于其中，直到旋风人移动。
+|268624|“{{tr|保存世界中|正在儲存世界}}”文本渲染于暂停菜单背景底部而非其顶部。
+|269083|物品栏中的状态效果背景纹理将半透明像素渲染为不透明像素。
+|269085|经验条和蓄力条将半透明像素渲染为不透明像素。
+|269279|Realms玩家界面内的“普通玩家”按钮英文大小写错误。
+|269496|在矿车或船中与旋风人战斗不会受到任何伤害。
+}}
+
+== 你知道吗 ==
+* 因为{{bug|MC-270954}}（当前被标记为“不予修复”），原计划在“{{tr|1.21更新|1.21 更新}}”[[实验性内容]]中加入的致密、破甲和风爆魔咒及蓄风、盘丝、渗浆、寄生、袭击之兆和试炼之兆状态效果也可在未启用此实验性内容的世界中通过[[物品堆叠组件]]获取。
+
+== 参考 ==
+{{Reflist}}
+
+== 导航 ==
+{{Navbox Java Edition versions|1.20}}
+
+[[de:1.20.5]]
+[[en:Java Edition 1.20.5]]
+[[es:Java Edition 1.20.5]]
+[[fr:Version Java 1.20.5]]
+[[ja:Java Edition 1.20.5]]
+[[pt:Edição Java 1.20.5]]
+[[ru:1.20.5 (Java Edition)]]
+[[th:รุ่น Java 1.20.5]]
+[[uk:1.20.5 (Java Edition)]]

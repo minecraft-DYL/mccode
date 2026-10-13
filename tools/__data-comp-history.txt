@@ -1,0 +1,142 @@
+﻿# 数据组件 / section 130 — 10648 字符
+== 历史 ==
+{{HistoryTable
+|{{HistoryLine|java}}
+|{{HistoryLine||1.20.5|dev=24w09a|加入了数据组件。}}
+|{{HistoryLine|||dev=24w10a|为{{cd|d=pretty|attribute_modifiers|dyed_color|enchantments|potion_contents|profile|stored_enchantments}}组件加入了简化定义。
+|将<code>lodestone_target</code>组件重命名为<code>lodestone_tracker</code>。
+|现在<code>container</code>组件适用于所有的[[容器]]而不只有[[潜影盒]]。}}
+|{{HistoryLine|||dev=24w12a|现在<code>unbreakable</code>组件与[[耐久]]魔咒兼容。<ref>{{bug|MC-268510|||Fixed}}</ref>
+|加入了{{cd|d=pretty|fire_resistant|food|hide_tooltip|max_damage|max_stack_size|rarity|tool}}组件。}}
+|{{HistoryLine|||dev=24w13a|加入了{{cd|d=pretty|item_name|ominous_bottle_amplifier}}组件。
+|现在方块实体会保存方块物品的全部组件，而非只能由继承序列化处理的组件。}}
+|{{HistoryLine|||dev=24w14a|将{{cd|d=pretty|writable_book_content|written_book_content}}组件中的未过滤的文本组件原始信息<code>text</code>被重命名为<code>raw</code>以避免歧义。<ref>{{bug|MC-269677|||Fixed}}</ref>
+|现在<code>profile</code>组件中不存在<code>name</code>而存在<code>id</code>时，可由UUID解析玩家档案数据。<ref>{{bug|MC-269983|||Fixed}}</ref>}}
+|{{HistoryLine|||dev=pre1|移除了{{cd|food}}组件的营养价值字段{{nbt|float|saturation_modifier}}，现在由新字段{{nbt|float|saturation}}直接指定饱和度。}}
+|{{HistoryLine||1.21|dev=24w19a|<code>custom_data</code>组件现在可以使用SNBT字符串定义。
+|向<code>food</code>组件加入新字段{{nbt|compound|using_converts_to}}。}}
+|{{HistoryLine|||dev=24w21a|加入了{{cd|jukebox_playable}}组件。
+|向<code>attribute_modifiers</code>组件加入新字段{{nbt|string|id}}，取代{{nbt|string|name}}和{{nbt|int array|uuid}}字段。}}
+|{{HistoryLine||1.21.2|dev=24w33a|加入了{{cd|d=pretty|enchantable|repairable}}组件。
+|将<code>enchantments</code>和<code>stored_enchantments</code>组件中的魔咒等级下限由0提升至1。
+|现在<code>written_book_content</code>组件中的<code>title</code>具有比<code>custom_name</code>和<code>item_name</code>更高的优先级。
+|现在<code>instrument</code>组件的内联定义需要<code>description</code>字段。}}
+|{{HistoryLine|||dev=24w34a|加入了{{cd|d=pretty|consumable|use_cooldown|use_remainder}}组件。
+|移除了<code>food</code>组件中{{nbt|list|effects}}、{{nbt|float|eat_seconds}}和{{nbt|compound|using_converts_to}}字段，现在此组件仅作为食物数据容器。
+{{Collapse|title=此前字段格式：|content=
+<div class="treeview">
+* {{nbt|compound|food}} 物品堆叠组件
+** {{nbt|float|eat_seconds}}：（默认为1.6）物品食用所需要的时间，以秒为单位。小于{{convert|0.05|秒|游戏刻}}时无法被食用。下列物品使用此标签无法修改食用时间：[[蜂蜜瓶]]（{{convert|40}}）、[[药水]]（{{convert|32}}）、[[不祥之瓶]]（{{convert|32}}）。
+** {{nbt|list|effects}}：物品被食用后可能被赋予的状态效果。
+*** {{nbt|compound}}：一项可能施加的状态效果。
+**** {{nbt|compound|effect|existonsave=1|required=1}}：一项状态效果。
+***** {{nbt|string|id|existonsave=1|required=1}}：状态效果的[[命名空间ID]]。
+***** {{nbt|bool|ambient}}：表示状态效果是否是被信标添加的。如果不存在则为<code>false</code>。
+***** {{nbt|byte|amplifier}}：（无符号8位整数，不小于0且不大于255）状态效果的等级。0表示等级1，以此类推。由于此数字为无符号整数，当值超过127时显示为负数但实际为正数，保存数字''s''和实际代表数字''a''的关系为<math>a=256+s</math>。如果不存在则为0。
+***** {{nbt|int|duration}}：距离状态效果失效的时间刻数。如果此值为-1，则此状态效果不会失效。如果不存在则为0。
+***** {{nbt|bool|show_icon}}：表示是否显示状态效果的图标。如果不存在则与{{nbt|bool|show_particles}}值相同。
+***** {{nbt|bool|show_particles}}：表示是否显示粒子效果。如果不存在则为<code>true</code>。
+**** {{nbt|float|probability}}：（{{interval|left=0|right=1}}，默认为1）食用后施加此状态效果的概率。
+** {{nbt|compound|using_converts_to}}：物品被食用后返还的物品。
+*** {{nbt|string|id|existonsave=1|required=1}}：（[[命名空间ID]]）表示某种类的物品堆叠。不能为[[空气]]（<code>air</code>）。
+*** {{nbt|compound|components}}：关于当前物品的额外信息。此标签对于多数物品来说都是非必需项。
+**** {{nbt|any|<''物品堆叠组件''>}}：一个物品堆叠组件，标签名称为物品组件的命名空间ID，类型则与对应的物品组件有关。在设置此数据时可以不写命名空间，但在导出时命名空间ID会自行加上<code>minecraft:</code>前缀。
+</div>
+}}
+|现在<code>custom_name</code>组件具有比<code>written_book_content</code>中<code>title</code>字段更高的优先级。}}
+|{{HistoryLine|||dev=24w35a|现在{{cd|use_cooldown}}组件使用{{nbt|string|cooldown_group}}字段而非{{nbt|string|cooldownGroup}}字段。
+|现在<code>bucket_entity_data</code>组件使用{{nbt|string|type}}字段用来保存鲑鱼的尺寸。}}
+|{{HistoryLine|||dev=24w36a|加入了{{cd|d=pretty|equippable|glider|item_model|tooltip_style}}组件。}}
+|{{HistoryLine|||dev=24w37a|加入了{{cd|d=pretty|damage_resistant|death_protection}}组件。
+|移除了<code>fire_resistant</code>组件。
+|向<code>potion_contents</code>组件加入新字段{{nbt|string|custom_name}}。
+|向<code>equippable</code>组件加入新字段{{nbt|boolean|swappable}}和{{nbt|boolean|damage_on_hurt}}。
+|<code>item_name</code>组件的优先级现在永远最低，因此它能被<code>potion_contents</code>之类影响物品名称的组件覆盖。
+|现在所有具有<code>map_id</code>组件的物品能像[[地图]]一样被展开，在[[物品展示框]]上直角旋转，作为地图被复制、锁定或拓展，且在未启用高级提示框时的物品提示框中显示地图编号。}}
+|{{HistoryLine|||dev=24w39a|<code>lock</code>组件现在是一个物品谓词，此前为任意字符串。}}
+|{{HistoryLine|||dev=pre1|向<code>equippable</code>组件加入新字段{{nbt|string|camera_overlay}}。}}
+|{{HistoryLine||1.21.4|dev=24w44a|现在<code>consumable</code>组件的第一人称格挡动画可以正常显示。<ref>{{bug|MC-275917|||Fixed}}</ref>}}
+|{{HistoryLine|||dev=24w45a|修改了<code>custom_model_data</code>的格式。
+|现在<code>item_model</code>组件不再设置物品模型，而是设置物品模型映射。
+|将<code>equippable</code>组件的{{nbt|string|model}}字段重命名为{{nbt|string|asset_id}}。}}
+|{{HistoryLine|||dev=24w46a|向<code>consumable</code>组件的{{nbt|string|animation}}字段添加了新的可选值<code>bundle</code>。}}
+|{{HistoryLine||1.21.5|dev=25w02a|向<code>tool</code>组件加入新可选字段{{nbt|boolean|can_destroy_blocks_in_creative}}。
+|加入了{{cd|d=pretty|potion_duration_scale|weapon}}组件。}}
+|{{HistoryLine|||dev=25w03a|将<code>weapon</code>组件的{{nbt|int|damage_per_attack}}字段重命名为{{nbt|int|item_damage_per_attack}}。
+|向<code>equippable</code>组件加入新字段{{nbt|boolean|equip_on_interaction}}。
+|加入了{{cd|d=pretty|axolotl/variant|cat/collar|cat/variant|fox/variant|frog/variant|horse/variant|llama/variant|mooshroom/variant|parrot/variant|painting/variant|pig/variant|rabbit/variant|salmon/size|sheep/color|shulker/color|tropical_fish/pattern|tropical_fish/base_color|tropical_fish/pattern_color|villager/variant|wolf/collar|wolf/variant}}组件。
+|移除了<code>bucket_entity_data</code>的{{nbt|int|BucketVariantTag}}和{{nbt|string|type}}字段，由对应的变种组件保存。}}
+|{{HistoryLine|||dev=25w04a|将<code>weapon</code>组件的{{nbt|boolean|can_disable_blocking}}字段重做为{{nbt|float|disable_blocking_for_seconds}}。
+|加入了{{cd|d=pretty|blocks_attacks|break_sound|provides_banner_patterns|provides_trim_material|tooltip_display}}组件。
+|移除了{{cd|d=pretty|hide_additional_tooltip|hide_tooltip}}组件。
+|移除了{{cd|d=pretty|attribute_modifiers|can_break|can_place_on|dyed_color|enchantments|stored_enchantments|jukebox_playable|unbreakable|trim}}组件的{{nbt|boolean|show_in_tooltip}}字段。
+|现在具有简化定义的组件始终以简化形式存储，{{cd|jukebox_playable}}组件直接指定命名空间ID，{{cd|dyed_color}}组件可接受RGB数组。
+|现在<code>villager/variant</code>组件对僵尸村民可用，{{cd|d=pretty|potion_contents|potion_duration_scale}}组件对区域效果云可用。}}
+|{{HistoryLine|||dev=25w05a|加入了{{cd|cow/variant}}组件。
+|向<code>blocks_attacks</code>组件加入新字段{{nbt|string|bypassed_by}}和{{nbt|float|horizontal_blocking_angle}}。
+|现在{{cd|provides_banner_patterns}}接受的旗帜图案标签需带有<code>#</code>前缀。}}
+|{{HistoryLine|||dev=25w06a|加入了{{cd|chicken/variant}}组件。}}
+|{{HistoryLine|||dev=25w08a|加入了{{cd|wolf/sound_variant}}组件。}}
+|{{HistoryLine||1.21.6|dev=25w15a|向{{cd|attribute_modifiers}}组件的属性修饰符加入新字段{{nbt|compound|display}}。}}
+|{{HistoryLine|||dev=25w16a|现在{{cd|painting/variant}}组件只接受命名空间ID，不再接受内联定义。}}
+|{{HistoryLine|||dev=25w20a|向<code>equippable</code>组件加入新字段{{nbt|boolean|can_be_sheared}}和{{nbt|string}}{{nbt|compound|shearing_sound}}。}}
+|{{HistoryLine||1.21.9|dev=25w31a|<code>entity_data</code>和<code>block_entity_data</code>组件不再支持字符串格式定义。}}
+|{{HistoryLine|||dev=25w34a|修改了<code>profile</code>组件的解析行为，不再自动存储解析的玩家游戏档案数据，现在若未指定游戏档案则动态获取档案数据。}}
+|{{HistoryLine|||dev=pre1|现在<code>profile</code>组件可指定本地纹理以进行覆盖，并使其对玩家模型生效。}}
+|{{HistoryLine||1.21.11|dev=25w41a|加入了{{cd|d=pretty|damage_type|kinetic_weapon|minimum_attack_charge|piercing_weapon|swing_animation|use_effects}}组件。
+|将{{cd|consumable}}组件的动画<code>spear</code>重命名为<code>trident</code>，被新的<code>spear</code>取代。}}
+|{{HistoryLine|||dev=25w45a|<code>entity_data</code>和<code>block_entity_data</code>组件再次支持字符串格式定义。}}
+|{{HistoryLine|||dev=25w46a|向<code>use_effects</code>组件加入新字段{{nbt|bool|interact_vibrations}}。}}
+|{{HistoryLine|||dev=pre1|加入了{{cd|attack_range}}组件。}}
+|{{HistoryLine||26.1|dev=snapshot-1|加入了<code>additional_trade_cost</code>组件。}}
+|{{HistoryLine|||dev=snapshot-3|更改了<code>bundle_contents</code>、<code>charged_projectiles</code>、<code>container</code>和<code>use_remainder</code>组件对物品的处理方式：现在这些组件内的物品可使用字符串直接定义。
+|更改了<code>bundle_contents</code>、<code>charged_projectiles</code>、<code>container</code>组件对物品的验证方式：现在游戏也会对这些组件内的物品进行严格性验证，验证失败时自动替换为空气。}}
+|{{HistoryLine|||dev=snapshot-5|加入了<code>dye</code>组件。}}
+|{{HistoryLine|||dev=snapshot-7|加入了<code>cat/sound_variant</code>、<code>chicken/sound_variant</code>、<code>cow/sound_variant</code>和<code>pig/sound_variant</code>组件。}}
+|{{HistoryLine||26.2|dev=snapshot-1|加入了<code>sulfur_cube_content</code>组件。}}
+|{{HistoryLine|||dev=pre-3|现在<code>charged_projectiles</code>组件最多只接受64个物品堆叠。}}
+|{{HistoryLine|||dev=pre-4|现在<code>charged_projectiles</code>组件最多只接受1024个物品堆叠，且过多的物品会静默丢弃。}}
+|{{HistoryLine||26.3|dev=snapshot-1|加入了<code>provides_pottery_pattern</code>组件。}}
+|{{HistoryLine|||dev=snapshot-2|加入了<code>block_transformer</code>组件。}}
+|{{HistoryLine|||dev=snapshot-3|加入了<code>compostable</code>组件。
+|向<code>block_transformer</code>组件加入新可选字段{{nbt|bool|update_from_neighbors}}。}}
+|{{HistoryLine|||dev=snapshot-4|加入了{{cd|d=pretty|brewing_fuel|cooking_fuel|cushion/color|mob_visibility|sign_text_back|sign_text_front|villager_food|waxed}}组件。}}
+|{{HistoryLine|||dev=snapshot-6|以下字段现在还接受内联常量：<code>cooking_fuel</code>的<code>burn_time</code>和<code>speed_multiplier</code>、<code>brewing_fuel</code>的<code>uses</code>和<code>speed_multiplier</code>、<code>compostable</code>的<code>layers</code>。}}
+|{{HistoryLine|||dev=snapshot-7|加入了<code>interact_animation</code>组件。
+|移除了<code>map_color</code>组件。
+|将<code>swing_animation</code>组件重命名为<code>attack_animation</code>，同时移除了{{nbt|string|type}}字段的<code>none</code>动画类型。}}
+|{{HistoryLine|||dev=snapshot-10|<code>attack_animation</code>和<code>attack_animation</code>的{{nbt|string|type}}字段重新加入了<code>none</code>动画类型，且{{nbt|int|duration}}字段现在必须是非负整数。
+|<code>block_transformer</code>不再接受内联定义的方块变换效果，现在必须引用<code>block_transformer</code>注册表中的项目。
+|向<code>consumable</code>组件的<code>teleport_randomly</code>消耗效果类型加入了新可选字段{{nbt|bool|directional_particles}}。}}
+}}
+
+=== 已移除的组件 ===
+==== fire_resistant ====
+控制物品是否无法在熔岩或火中燃烧，且装备时是否不会因为受到火焰伤害而消耗耐久度。
+
+此组件已被<code>[[#damage_resistant|damage_resistant]]</code>组件替代。
+
+<div class="treeview">
+* {{nbt|compound|components}}
+** {{nbt transclude|编码格式/DataComponent|codec_fire_resistant_component}}
+</div>
+
+==== hide_additional_tooltip ====
+隐藏物品的提示框文本信息。部分由组件产生的提示框文本由对应组件的{{nbt|boolean|show_in_tooltip}}决定。
+
+此组件已被<code>[[#tooltip_display|tooltip_display]]</code>组件替代。
+
+<div class="treeview">
+* {{nbt|compound|components}}
+** {{nbt transclude|编码格式/DataComponent|codec_hide_additional_tooltip_component}}
+</div>
+
+==== hide_tooltip ====
+隐藏物品的提示框。
+
+此组件已被<code>[[#tooltip_display|tooltip_display]]</code>组件替代。
+
+<div class="treeview">
+* {{nbt|compound|components}}
+** {{nbt transclude|编码格式/DataComponent|codec_hide_tooltip_component}}
+</div>

@@ -1,0 +1,16 @@
+{
+  "name": "mccode",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "纯静态 Minecraft Java 版编辑器：版本能力矩阵 + NBT / 物品组件 / 命令节点图 / 选择器。无构建步骤，直接开 index.html 即可。",
+  "scripts": {
+    "serve": "python -m http.server 8777 --bind 127.0.0.1",
+    "test": "node tools/unit-test.mjs",
+    "test:unit": "node tools/unit-test.mjs",
+    "test:pages": "node tools/cdp-tour.mjs",
+    "test:interact": "node tools/cdp-interact.mjs",
+    "test:probe": "node tools/cdp-test.mjs"
+  },
+  "license": "GPL-3.0-or-later"
+}

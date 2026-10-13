@@ -1,0 +1,241 @@
+{{Infobox version
+|title=26.1-snapshot-3
+|image=26.1-snapshot-3.jpg
+|image2=Java Edition 26.1-snapshot-3 Simplified.png\Java Edition 26.1-snapshot-3 Traditional.png\Java Edition 26.1-snapshot-3 Traditional HK.png
+|edition=Java
+|type=Snapshot
+|date=2026年1月13日
+|jsonhash=4cc909f0660a57a897fb6cb2a1e6604696b5aca4
+|clienthash=7d4a5d1026cbd2fec3db1c801cf9d25e0e558285
+|serverhash=430ae0858fe2663346745a7be773cebc68a79e31
+|parent=26.1
+|prevparent=1.21.11
+|prev=26.1-snapshot-2
+|next=26.1-snapshot-4
+|nextparent=26.1.1
+}}<onlyinclude>
+
+'''26.1-snapshot-3'''是[[Java版26.1]]的第3个快照，发布于2026年1月13日<ref>{{article|minecraft-26-1-snapshot-3|Minecraft 26.1 Snapshot 3|Jan 13, 2026}}</ref>，修改了命令{{cmd|time}}，并修复了一些漏洞。
+
+== 新内容 ==
+=== 常规 ===
+'''[[选项]]'''
+* 加入了“世界选项”选项，在先前“难度”选项的位置。
+** 包括“难度”选项和游戏规则屏幕。
+** 因此，现在可以通过暂停菜单进入游戏规则屏幕，而不仅仅是在创建新的世界时。
+** 游戏规则屏幕仅对管理员可用。
+
+'''用户界面'''
+* 在游戏规则屏幕的顶栏加入了一个搜索框。
+
+'''[[世界时钟]]'''
+* 世界时钟包含一个内部时间，每[[游戏刻]]都会增加。它们可以定义在[[数据包]]的<code>world_clock</code>注册表下（<code>data/<namespace>/world_clock/<id></code>）。
+* 世界时钟可以暂停或恢复，其时间也可以用{{cmd|time}}查询。
+* 格式：空对象。
+
+'''[[时间线定义格式]]'''
+* 加入了<code>clock</code>字段：世界时钟ID，指定此时间线用哪个世界时钟。
+** 必选，但为了与之前的行为匹配，可以使用<code>minecraft:overworld</code>。
+* 新增了一个可选的<code>time_markers</code>字段，用以指定带命名空间的时间标记ID与数值或对象的映射。
+** 格式：
+*** 非负整数，此时间标记的游戏刻。
+*** 或对象格式：
+**** <code>ticks</code>：在0至<code>period_ticks</code>的整数，此时间标记的游戏刻。
+**** <code>show_in_commands</code>：此时间标记是否显示在命令提示中，默认为<code>false</code>。
+
+'''时间标记'''
+* 时间标记为特定世界时钟的特定时间节点赋予特定名称。时间标记取代了之前用在{{cmd|time set}}中的预设名称，如<code>day</code>和<code>night</code>。
+* 时间标记会在特定的世界时钟中存在，这意味着不同的时间标记可以被不同的时间线定义，但只有一个具有特定ID、代表特定世界时钟的时间标记。这也意味着两个世界时钟可以有相同的时间标记。
+* 时间标记的内置用途
+** 部分时间标记被用于控制游戏行为，它们不会在{{cmd|time}}命令中提示：
+*** <code>minecraft:wake_up_from_sleep</code>：玩家从睡眠中醒来的时间。
+*** <code>minecraft:roll_village_siege</code>：开始评估僵尸围城发生的时间。
+
+'''[[Java版标签|标签]]'''
+* 加入了方块标签：
+** {{cd|#cannot_support_kelp}}：{{cd|magma_block}}
+*** 无法支撑[[海带]]的方块。
+** {{cd|#cannot_support_seagrass}}：{{cd|magma_block}}
+*** 无法支撑[[海草]]和[[高海草]]的方块。
+** {{cd|#enables_bubble_column_drag_down}}：{{cd|magma_block}}
+*** 能生成[[涡流气泡柱]]的方块。
+** {{cd|#enables_bubble_column_push_up}}：{{cd|soul_sand}}
+*** 能生成[[涌流气泡柱]]的方块。
+** {{cd|#grows_crops}}：{{cd|farmland}}
+*** 上方种植的[[小麦植株]]、[[胡萝卜]]、[[马铃薯]]、[[甜菜根]]、[[火把花植株]]、[[瓶子草植株]]、[[南瓜茎]]、[[西瓜茎]]能够生长的方块。
+** {{cd|#support_override_cactus_flower}}：{{cd|d=pretty|cactus|farmland}}
+*** 能支撑[[仙人掌花]]、无视上表面完整性的方块。
+** {{cd|#supports_crops}}：{{cd|farmland}}
+*** 能支撑所有生长阶段的小麦植株、胡萝卜、马铃薯、甜菜根、火把花植株及瓶子草植株的方块。
+** {{cd|#supports_stem_crops}}：{{cd|#supports_crops}}
+** {{cd|#supports_melon_stem}}：{{cd|#supports_stem_crops}}
+*** 能支撑[[西瓜茎]]的方块。
+** {{cd|#supports_pumpkin_stem}}：{{cd|#supports_stem_crops}}
+*** 能支撑[[南瓜茎]]的方块。
+** {{cd|#supports_vegetation}}：{{cd|d=pretty|#dirt|farmland}}
+*** 能支撑[[灌木丛]]、[[萤火虫灌木丛]]、[[甜浆果丛]]、[[矮草丛]]、[[高草丛]]、[[蕨]]、[[大型蕨]]、[[花]]（[[凋灵玫瑰]]除外）、[[粉红色花簇]]、[[野花簇]]、[[树苗]]的方块。
+** {{cd|#supports_azalea}}：{{cd|d=pretty|#supports_vegetation|clay}}
+*** 能支撑[[杜鹃花丛]]和[[盛开的杜鹃花丛]]的方块。
+** {{cd|#supports_cactus}}：{{cd|#sand}}
+*** 能支撑[[仙人掌]]的方块。
+** {{cd|#supports_chorus_flower}}：{{cd|end_stone}}
+*** 能支撑[[紫颂花]]的方块。
+** {{cd|#supports_chorus_plant}}：{{cd|end_stone}}
+*** 能支撑[[紫颂植株]]的方块。
+** {{cd|#supports_cocoa}}：{{cd|#jungle_logs}}
+*** 能支撑[[可可果]]的方块。
+** {{cd|#supports_warped_fungus}}：{{cd|d=pretty|#supports_vegetation|#nylium|mycelium|soul_soil}}
+*** 能支撑[[诡异菌]]的方块。
+** {{cd|#supports_crimson_fungus}}：{{cd|#supports_warped_fungus}}
+*** 能支撑[[绯红菌]]的方块。
+** {{cd|#supports_warped_roots}}：{{cd|d=pretty|#supports_vegetation|#nylium|soul_soil}}
+*** 能支撑[[诡异菌索]]的方块。
+** {{cd|#supports_crimson_roots}}：{{cd|#supports_warped_roots}}
+*** 能支撑[[绯红菌索]]的方块。
+** {{cd|#supports_frogspawn}}：默认为空
+*** 能支撑[[青蛙卵]]的方块。
+** {{cd|d=pretty|#supports_mangrove_propagule}}：{{cd|d=pretty|#supports_vegetation|clay}}
+*** 能支撑[[红树胎生苗]]的方块。
+** {{cd|d=pretty|#supports_hanging_mangrove_propagule}}：{{cd|mangrove_leaves}}
+*** 能支撑悬挂的红树胎生苗的方块。
+** {{cd|#supports_lily_pad}}：{{cd|d=pretty|ice|frosted_ice}}
+*** 能支撑[[睡莲]]的方块。
+** {{cd|#supports_nether_sprouts}}：{{cd|d=pretty|#supports_vegetation|#nylium|soul_soil}}
+*** 能支撑[[下界苗]]的方块。
+** {{cd|#supports_nether_wart}}：{{cd|soul_sand}}
+*** 能支撑[[下界疣]]的方块。
+** {{cd|#supports_sugar_cane}}：{{cd|d=pretty|#dirt|sand}}
+*** 能支撑[[甘蔗]]的方块。
+** {{cd|#supports_sugar_cane_adjacently}}：{{cd|frosted_ice}}
+*** 能与甘蔗下方方块毗邻的方块。
+** {{cd|#supports_wither_rose}}：{{cd|d=pretty|#supports_vegetation|netherrack|soul_sand|soul_soil}}
+*** 能支撑[[凋灵玫瑰]]的方块。
+* 加入了流体标签：
+** {{cd|#bubble_column_can_occupy}}：{{cd|water}}
+*** 能被[[气泡柱]]占据的流体。
+** {{cd|#supports_frogspawn}}：{{cd|water}}
+*** 能支撑[[青蛙卵]]的流体。
+** {{cd|#supports_lily_pad}}：{{cd|water}}
+*** 能支撑[[睡莲]]的流体。
+** {{cd|#supports_sugar_cane_adjacently}}：{{cd|water}}
+*** [[甘蔗]]下方方块需要毗邻的流体。
+
+== 更改 ==
+=== 方块 ===
+'''[[铜箱子]]'''
+* 圣诞节期间不再使用圣诞节礼物纹理。
+
+=== 生物 ===
+'''[[铁傀儡]]'''
+* 现在始终不会攻击恶魂，先前若铁傀儡和恶魂的碰撞箱交叠时，铁傀儡会对恶魂发起攻击。
+
+=== 命令格式 ===
+'''{{cmd|swing}}'''
+* 现在所有的参数均可省略。
+** 目标选择器不存在时，默认为<code>@s</code>。
+** 挥动的手臂不存在时，默认为<code>mainhand</code>。
+
+'''{{cmd|time}}'''
+* {{cmd|time}}现在基于世界时钟。
+** 世界时钟可选择性地指定为命令的输入，如<code>/time of <clock> ...</code>。
+** 如果未指定世界时钟（像之前一样的<code>time ...</code>），则使用本维度默认的世界时钟。
+* <code>set</code>和<code>add</code>子命令的返回值（<code>/execute store ...</code>）现在是世界时钟经过的总刻数，而不是当前时间。
+** 语法：
+*** <code>time [of <clock>] set &lt;time></code>：设置世界时钟经过的总刻数。
+*** <code>time [of <clock>] set <timemarker></code>：将当前的世界时钟快进到下一时间标记。
+**** 对于世界时钟<code>minecraft:overworld</code>，可用的时间标记是{{cd|d=pretty|day|noon|night|midnight}}。
+*** <code>time [of <clock>] add &lt;time></code>：将当前的世界时钟加上刻数，可以为正数或负数。
+*** <code>time [of <clock>] pause</code>：暂停当前世界时钟。
+*** <code>time [of <clock>] resume</code>：继续暂停的世界时钟。
+*** <code>time [of <clock>] query &lt;timeline></code>：显示并返回当前时间线在本周期内经过的刻数。
+*** <code>time [of <clock>] query &lt;timeline> repetitions</code>：显示并返回当前时间线经过的周期数。
+*** <code>time [of <clock>] query time</code>：显示并返回当前世界时钟经过的总刻数。
+*** <code>time query gametime</code>：与之前一样，世界中经过的总刻数，不受{{cmd|time}}更改的影响。
+
+=== 常规 ===
+'''[[数据包]]'''
+* 将数据包版本号更改为<code>97.0</code>。
+
+'''[[资源包]]'''
+* 将资源包版本号更改为<code>78.0</code>。
+* 绊线的纹理现在由alpha cutout渲染，而不再是透明的。
+
+'''[[调试屏幕]]'''
+* 从<code>local_difficulty</code>项拆分出了<code>day_count</code>项，显示玩家在世界内度过的游戏日。
+
+'''[[测试环境定义格式]]'''
+* 将<code>time_of_day</code>替换为<code>clock_time</code>。
+** 新增必选字段<code>clock</code>：一个世界时钟的ID，此世界时钟将被设置为对应时间。
+
+'''[[谓词]]'''
+* <code>time_check</code>：
+** 新增字段<code>clock</code>：一个世界时钟的ID，指定对哪个世界时钟进行检查。
+
+'''[[配方]]'''
+* <code>result</code>字段现在在所有配方类型中更加一致。
+** 它现在可以使用简写格式，如<code>"minecraft:foo"</code>相当于<code>{"id":"minecraft:foo", "count": 1}</code>。
+** 对于配方类型{{cd|d=pretty|smelting|blasting|smoking|campfire_cooking}}，现在也可以接受<code>count</code>字段。
+
+'''[[维度类型]]'''
+* 增加了下列字段：
+** <code>default_clock</code>：可选的世界时钟ID。
+*** 指定用于{{cmd|time}}的默认世界时钟。
+**** 如果不存在，那么{{cmd|time}}将需要明确的世界时钟参数。
+*** 同时指定了要应用时间标记<code>minecraft:wake_up_from_sleep</code>和<code>minecraft:roll_village_siege</code>的世界时钟。
+**** 如果不存在，则这些时间标记将在本维度内永远不会生效。
+
+'''[[Java版标签|标签]]'''
+* 更改了以下标签的名称以保持一致性：
+** <code>#dry_vegetation_may_place_on</code> → <code>#supports_dry_vegetation</code>
+*** 同时其中的值{{cd|d=pretty|#dirt|farmland}}被替换为{{cd|#supports_vegetation}}。
+** <code>#bamboo_plantable_on</code> → <code>#supports_bamboo</code>
+** <code>#small_dripleaf_placeable</code> → <code>#supports_small_dripleaf</code>
+** <code>#big_dripleaf_placeable</code> → <code>#supports_big_dripleaf</code>
+** <code>#mushroom_grow_block</code> → <code>#overrides_mushroom_light_requirement</code>
+** <code>#snow_layer_can_survive_on</code> → <code>#support_override_snow_layer</code>
+** <code>#snow_layer_cannot_survive_on</code> → <code>#cannot_support_snow_layer</code>
+
+== 修复 ==
+{{fixes|fixedin=26.1 Snapshot 3|showdesc=1
+|;26.1前正式版的漏洞
+|233911|在床上睡觉并醒来后，不再立即设置白天的天空。
+|261837|绊线在使用自定义模型时渲染异常。
+|297536|调试屏幕上的十字准星存在深度冲突。
+|299992|手动将某些组件设置为默认值时，给予物品或对物品进行测试会出现异常行为。
+|303387|当从副手使用时，物品在第三人称下会以“猛击”挥动动画类型进行挥动，无论{{cd|swing_animation}}组件如何设置。
+|305218|非方形的动画纹理在特定的mipmap层级下会渲染为黑色。
+|305292|铜箱子使用圣诞节礼物纹理。
+|;dev
+|305105|使用{{cmd|swing|link=none}}挥动生物的副手时，主手的矛会播放动画。
+|305156|UI刷新前，对话框元素不会显示。
+|305251|旋风人对所有生物敌对。
+|305261|<code>enchant_with_levels</code>和<code>enchant_randomly</code>物品修饰器类型会使游戏崩溃。
+|305451|如果“{{tr|改进透明显示|改善透明顯示|改進透明顯示}}”被禁用，绊线在透过半透明方块观察时会变得不可见。
+|305459|使用刷怪蛋生成村民时，其变种由世界原点(0,0,0)处的生物群系决定。
+|;prev
+|305540|流浪商人以3个绿宝石出售南瓜而不是海带。
+|305577|猪灵不再逃离数量更多的疣猪兽。
+|305670|繁殖后出现错误的幼年村民皮肤。
+}}</onlyinclude>
+
+== 影片 ==
+由[[slicedlime]]製作的影片：
+{{yt|YLHTLf8RNIs}}
+{{yt|ILnYqYftvX4}}
+
+== 参考 ==
+{{reflist}}
+
+== 导航 ==
+{{Navbox Java Edition versions|2026}}
+
+[[de:26.1-snapshot-3]]
+[[en:Java Edition 26.1 Snapshot 3]]
+[[es:Java Edition 26.1 Snapshot 3]]
+[[fr:Édition Java 26.1 Snapshot 3]]
+[[he:Java Edition 26.1 Snapshot 3]]
+[[it:Java Edition 26.1 Snapshot 3]]
+[[ja:Java Edition 26.1 Snapshot 3]]
+[[lzh:爪哇版二六點一之快照三]]
+[[pt:Edição Java 26.1 Snapshot 3]]
+[[ru:26.1 Snapshot 3 (Java Edition)]]

@@ -1,0 +1,187 @@
+{{Infobox version
+|title=26.4-snapshot-1
+|image=26.4-snapshot-1.jpg
+|image2=Java Edition 26.4-snapshot-1 Simplified.png\Java Edition 26.4-snapshot-1 Traditional.png\Java Edition 26.4-snapshot-1 Traditional HK.png
+|edition=Java
+|type=Snapshot
+|date=2026年9月22日
+|jsonhash=38de33cff6c65a518a24aa4b8198f7e3673ebd08
+|clienthash=99dea8ec5ae3c5adc7d246061a90960e7d8441c3
+|serverhash=1c5ef8ced87763278a406812e7f0932384c3bb44
+|parent=26.4
+|prevparent=26.3
+|prev=
+|next=26.4-snapshot-2
+|nextparent=
+}}<onlyinclude>
+
+'''26.4-snapshot-1'''是[[Java版26.4]]的首个快照，发布于2026年9月22日<ref>{{article|minecraft-26-4-snapshot-1|Minecraft 26.4 Snapshot 1|Sep 22, 2026}}</ref>，进行了一些技术性更改，将Vulkan重新设为默认的图形API，并修复了一些漏洞。
+
+== 新内容 ==
+=== 常规 ===
+'''[[服务端配置文件格式]]'''
+* 加入了服务器属性<code>allowed-connection-ids</code>。
+** 用于限制连接到服务器所需要使用的ID。
+** 为逗号分隔的值列表，默认为空。如果非空，服务器会检查<code>minecraft:intention</code>{{tr|数据包|封包}}中的<code>_id</code>值，如果值不在列表内，则拒绝连接。
+** 该检查会同时作用于服务端列表查询和登录{{tr|数据包|封包}}，因此<code>_id</code>字段不匹配的用户既不能看到服务器状态，也不能登录。
+* 加入了服务器属性<code>status-contact-details</code>。
+** 用于提供联系服务器所有者的方式。
+** 默认为空。如果非空，服务器会将此属性的值附加到<code>minecraft:status_response</code>{{tr|数据包|封包}}的JSON负载中的<code>contact</code>字段下。
+** 该字段没有额外的格式限制，但是其设计意图是提供人类可读的信息。
+* 加入了服务器属性<code>enable-legacy-status</code>。
+** 用于控制是否要启用[[Java版1.7|1.7]]之前的服务器状态与ping处理协议。
+** 为布尔值，默认为<code>true</code>。
+** 仍需<code>enable-status</code>设为<code>true</code>方能起效。
+
+'''[[Java版标签|标签]]'''
+* 加入了<code>#generated_in_below_zero_retrogen</code>生物群系标签，包含可在[[洞穴与山崖]]前的世界升级时在旧区块Y=0以下生成的生物群系。
+** 包含<code>#is_cave</code>。
+* 加入了<code>#is_cave</code>生物群系标签，包含所有[[洞穴类生物群系]]。
+** 包含[[溶洞]]、[[繁茂洞穴]]、[[深暗之域]]和[[硫黄洞穴]]。
+
+== 更改 ==
+=== 方块 ===
+'''[[红色蘑菇]]和[[棕色蘑菇]]'''
+* 现在能在任意亮度等级下放置，以匹配{{el|be}}。
+
+=== 物品 ===
+'''[[沙漠神殿地图]]'''
+* 略微更改了纹理。
+
+=== 世界生成 ===
+'''[[硫黄洞穴]]'''
+* 现在，洞穴与山崖版本之前的世界升级时，硫黄洞穴可以在旧区块下方生成。
+
+=== 命令格式 ===
+'''{{cmd|fillbiome}}'''
+* 现在对生物群系的更改可以精确到方块。
+
+=== 常规 ===
+'''[[数据包]]'''
+* 将数据包版本号更改为<code>122.0</code>。
+
+'''[[资源包]]'''
+* 将资源包版本号更改为<code>98.0</code>。
+
+'''[[选项]]'''
+* 现在将“{{tr|图形API|圖形 API}}”选项设为“默认”时与设为“{{tr|优先使用Vulkan|偏好 Vulkan}}”行为相同。
+* 游戏不再会在检测到启动期崩溃时自动修改“{{tr|图形API|圖形 API}}”选项的值。
+
+'''[[NBT格式]]'''
+* 现在浮点数{{tr|类型|型别}}的字段向整数{{tr|类型|型别}}转换时总是向下取整。
+
+'''[[多噪声参数列表]]'''
+* 现在如果不同的生物群系有相同的偏移值，则其参数列表中的噪声参数不能全部重叠。
+
+'''[[地物定义格式]]'''
+* 修改了<code>minecraft:straight_trunk_placer</code>树干放置器类型。
+** 加入了<code>trunk_width</code>可选字段。
+*** 指定树干的宽度。
+*** 为整数提供器，默认为1。
+
+'''[[已放置的地物]]'''
+* 现在游戏会验证生物群系中所包含的已放置的地物在XZ平面内的可能位置。
+** 地物放置只能发生在3&times;3区块的范围内，超出此范围则无效。
+** 注：由于地物本身的大小未纳入考虑，地物的一部分仍然可能超出此范围。
+* 修改了<code>minecraft:cuboid</code>放置修饰器类型。
+** {{cd|d=pretty|xz_size|y_size}}字段现在会忠实反映长方体本身的尺寸，不再会隐式地增大1。
+* 修改了<code>minecraft:fixed_placement</code>放置修饰器类型。
+** <code>positions</code>字段现在必须是非空的。
+
+'''[[噪声设置]]'''
+* 移除了<code>default_block</code>字段。
+** 现在的行为和之前把该字段设为<code>minecraft:air</code>的行为相同。如果要修改，应使用[[材料规则]]。
+
+'''[[材料条件]]'''
+* 修改了<code>minecraft:steep</code>材料条件类型。
+** 不再使用顺序依赖的方式考虑[[风蚀恶地]]的陶瓦岩柱带来的高度修改。
+*** 游戏现在会在完全计算完陶瓦岩柱后再计算噪声设置指定的材料规则。
+
+'''[[着色器]]与后处理管线'''
+* 现在，顺序无关透明算法使用基于深度分箱的累积代替基于小波的数学运算，以简化算法。
+** 至少在一部分设备上略微提升了性能，并在总体上而言减少了浮点数精度问题。
+** 移除了{{cd|d=pretty|OIT_WAVELET_RANK|OIT_COEFF_COUNT}}定义项。
+** 加入了<code>OIT_NUMBER_OF_DEPTH_BINS</code>定义项以取代<code>OIT_COEFF_COUNT</code>。
+** 将<code>OIT_COEFF_ATTACHMENT_COUNT</code>定义项重命名为<code>OIT_TRANSMITTANCE_TARGET_COUNT</code>。
+
+'''[[Java版网络协议|网络协议]]'''
+* 修改了<code>minecraft:custom_payload</code>{{tr|数据包|封包}}。
+** 加入了<code>minecraft:mod_list</code>自定义{{tr|数据包|封包}}载荷。
+*** 客户端将用此载荷向服务端报告客户端[[加载器Mod|Mod]]的列表，以简化调试。
+*** 原版客户端会在[[Java版网络协议/配置|配置阶段]]开始时发送一个空包，这是因为原版客户端并不知道有哪些模组。仍需第三方模组加载器负责发送模组列表。
+* 修改了<code>minecraft:intention</code>{{tr|数据包|封包}}。
+** <code>hostName</code>{{note|更新日志中误作<code>host</code>。}}字段现在可以存储所要连接到服务器的域名之外的额外参数。
+*** 新格式类似于[[wzh:查询字符串|URI查询]]的格式，现在域名之后可以可选地跟随一个<code>?</code>及使用<code>&</code>分隔的、<code>key=value</code>格式的键值对。
+*** 空值可连带<code>=</code>一同被省略。
+*** 键和值会被[[wzh:URL编码|URL编码]]以转义。
+*** 以<code>_</code>开头的键名为保留给原版使用的。
+*** 示例：<code>example.com?key1=value2&key2</code>。
+*** 用户可以在任何“服务器地址”的输入框中以这种方式输入属性。
+**** 特别地，<code><id>@<host></code>的格式会被转写为<code><host>?_id=<id></code>。
+*** 若服务器使用SRV类型的DNS记录，<code>hostName</code>字段会同时包含解析前后的域名。
+**** 若解析后的域名与原域名不同，会优先以解析后的域名作为要连接到的服务器的域名，而原域名会作为<code>_o</code>属性添加。解析后的端口会覆写原<code>port</code>字段的值。
+**** 示例：<code><redirected domain>?_o=<original domain>:<original port></code>。
+*** 字段的大小扩充到了1024字节。
+** 注：该{{tr|数据包|封包}}不会被加密，不应用于安全用途。
+* 修改了<code>minecraft:transfer</code>{{tr|数据包|封包}}。
+** 加入了<code>properties</code>字段。
+*** 为字符串到字符串的映射，用于存储需要添加到要发送到目标服务器的<code>minecraft:intention</code>{{tr|数据包|封包}}中的<code>hostName</code>字段末尾的属性。
+
+== 修复 ==
+{{fixes|fixedin=26.4 Snapshot 1|showdesc=1
+|;old
+|8959|玩家在水中顶着方块时会自动跳跃。
+|44560|实体被推到水或熔岩边缘时会自行跳跃。
+|50749|跳入靠墙的水会导致玩家自动跳跃。
+|93533|盔甲架被放置后的一瞬间会朝向错误的方向。
+|123848|天花板上的物品展示框（和其中的物品）被移除时会掉落在其附着的方块上面而非下面。
+|135211|实体从特定高度落入1格深的水时会自动跳跃。
+|135212|实体从特定高度落入任意深度的水时会自动跳跃。
+|262252|繁茂洞穴和溶洞的生成定义不明确。
+|276879|{{cmd|data|link=none}}转换浮点数为long时会将其截断，但在其他情况下向下取整。
+|278651|使用SRV记录时，握手包中的主机名不一致。
+|296053|修改物品展示框的{{cd|Facing}}NBT标签时，其不会正确更新。
+|299060|用命令设置物品展示框的方向会导致不同步。
+|303702|物品模型中仍会出现小缝隙。
+|307065|{{cd|builtin/generated}}物品模型的侧面缺少优化。
+|310051|{{cd|bits.fsh}}的浮点抵消产生了伪影。
+|310131|可放置的实体在放置时短暂地出现在错误位置。
+|310767|使用Vulkan渲染后端时，管线总是声明{{cd|D32_FLOAT}}深度附件格式。
+|311195|放置出来的盔甲架在一个游戏刻内旋转不正确。
+|311265|世界边界从外侧观察时渲染不正确。
+|311473|在创造模式下使用滚轮复制物品可能会产生幽灵物品。
+|311582|沙漠神殿地图的纹理与其他地图相比有一个不一致的像素。
+|311726|含水铜格栅中水的{{cd|falling}}流体状态属性设为true。
+|311727|玩家是否悬空的检查没有使用更新后的玩家位置。
+|311773|红色和棕色蘑菇不能在任意亮度等级下放置，与基岩版不同。
+|311786|执行有超出范围的{{cd|rotationSteps}}值的{{cmd|test run|link=none}}会导致错误。
+|311788|传送物品展示框会导致其在视觉上移动到比应有距离更远的位置。
+|311818|在旁观模式下通过传送门进入末地会导致黑曜石平台重新生成。
+|311836|现在矿车的音效失真了。
+|311859|受损的染色狼铠不再会在染色部分显示裂痕。
+|311966|“{{tr|退出游戏快捷键|離開遊戲快捷鍵}}”选项的提示将{{key|Command}}键称为“Cmd”。
+}}</onlyinclude>
+
+== 影片 ==
+由[[slicedlime]]製作的影片：
+{{yt|d0bjxn9xxpc}}
+{{yt|tAEPeNLdI_0}}
+
+== 注释 ==
+{{Notelist}}
+
+== 参考 ==
+{{Reflist}}
+
+== 导航 ==
+{{Navbox Java Edition versions|2026}}
+
+[[de:26.4-snapshot-1]]
+[[en:Java Edition 26.4 Snapshot 1]]
+[[es:Java Edition 26.4 Snapshot 1]]
+[[fr:Édition Java 26.4 Snapshot 1]]
+[[he:Java Edition 26.4 Snapshot 1]]
+[[ja:Java Edition 26.4 Snapshot 1]]
+[[lzh:爪哇版二六點四之快照一]]
+[[pt:Edição Java 26.4 Snapshot 1]]
+[[ru:26.4 Snapshot 1 (Java Edition)]]

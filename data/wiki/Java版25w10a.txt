@@ -1,0 +1,155 @@
+{{Infobox version
+|title=25w10a
+|image=25w10a.png
+|image2=Java Edition 25w10a Simplified.png\Java Edition 25w10a Traditional.png\Java Edition 25w10a Traditional HK.png
+|edition=Java
+|type=Snapshot
+|date=2025年3月5日
+|jsonhash=2129cf8d425f8f4ac7210b908683723811c37040
+|clienthash=77fd403d0e8e091571f914891ec359db196a4252
+|clientmap=78b6ff754335c4c3dba82ab3f94471d076578d47
+|serverhash=0177c3a044813dc7d10b43b14b7f47224bd43067
+|servermap=218c144d03dfb0db51a15e4a05ff793703e5a54a
+|parent=1.21.5
+|prevparent=1.21.4
+|prev=25w09b
+|next=1.21.5-pre1
+|nextparent=1.21.6
+}}<onlyinclude>
+
+'''25w10a'''是[[Java版1.21.5]]的第10个，也是最后一个快照，发布于2025年3月5日<ref>{{snap|25w10a|Mar 05, 2025}}</ref>，加入了<code>[[游戏规则/tntExplodes|tntExplodes]]</code>游戏规则，更新了全景图，为所有实体加入了自定义数据字段，并修复了一些漏洞。
+
+== 新内容 ==
+=== 游戏内容 ===
+'''[[游戏规则]]'''
+* 加入了<code>[[游戏规则/tntExplodes|tntExplodes]]</code>游戏规则，以同步{{el|be}}。
+** 为<code>false</code>时，TNT将不能爆炸，也不可被激活。
+** 默认为<code>true</code>。
+
+=== 常规 ===
+'''[[实体数据格式]]'''
+* 向所有实体（除固有此字段的[[标记]]）加入了{{nbt|compound|data}}字段。
+** 由于以<code>custom_data</code>[[数据组件]]形式公开，故可由生成类物品设置，也可由谓词匹配。
+** 当前自定义实体数据存储于<code>data</code>中，未来引入更合适的实体组件存储方式后，此字段名称将会更改。
+** 仅在非空时存储。
+
+'''[[实体谓词]]'''
+* 加入了新可选字段<code>predicates</code>。
+** 除了操作对象是实体组件外，其功能和格式与物品谓词<code>predicates</code>相同。
+** 存在时，将匹配实体组件的部分内容。
+
+'''方块谓词'''
+* 加入了新可选字段{{cd|d=pretty|components|predicates}}。
+** 除了操作对象是方块实体组件（若有）外，其功能和格式与同名的物品谓词相同。
+** <code>components</code>存在时，其将匹配方块实体组件的精确内容。
+** <code>predicates</code>存在时，其将匹配方块实体组件的部分内容。
+
+'''[[Java版标签|标签]]'''
+* 加入了物品标签{{cd|#flowers}}：{{cd|d=pretty|#small_flowers|sunflower|lilac|peony|rose_bush|pitcher_plant|flowering_azalea_leaves|flowering_azalea|mangrove_propagule|cherry_leaves|pink_petals|wildflowers|chorus_flower|spore_blossom|cactus_flower}}。
+** 现有的方块标签{{cd|#flowers}}的对应物品标签。
+
+== 更改 ==
+=== 方块 ===
+'''[[活塞]]'''
+* 现在所破坏的方块会播放对应的破坏音效。
+
+'''[[仙人掌花]]'''
+* 现在可以放置在[[耕地]]上。
+* 现在可以被[[末影人]]拿起。
+
+'''[[熔岩]]、[[水]]和[[萤火虫灌木丛]]'''
+* 现在其播放的环境音效由“方块”分类移动到“{{tr|环境|環境音效／環境}}”分类。
+
+'''[[测试方块]]和[[测试实例方块]]'''
+* 更改了纹理。
+
+=== 生物 ===
+'''[[绵羊]]'''
+* 调整了羊毛纹理，以消除背部的明显线条。
+
+'''[[牛]]'''
+* 更新了模型。
+
+=== 游戏内容 ===
+'''[[创造模式物品栏]]'''
+* 现在[[涡流纹样陶片]]位于探险纹样陶片之后。
+
+=== 命令格式 ===
+'''[[SNBT格式]]'''
+* 为简化数据输入和{{tr|宏|巨集}}使用，SNBT现在接受以下操作：
+** <code>bool(-{}-<''参数''>)</code>：将参数转换为布尔值。
+*** 参数为布尔值时，直接返回值。
+*** 参数为数字时，在非0时返回<code>true</code>，否则返回<code>false</code>。
+** <code>uuid(-{}-<''字符串''>)</code>：将[[UUID]]的字符串表示转换为整型数组。
+* 将溢出至无穷的浮点值（如<code>1e1000</code>）现在会被拒绝。
+
+=== 常规 ===
+'''[[全景图]]'''
+* 更新了主菜单全景图以匹配[[春意盎然]]。
+** 其使用种子{{cd|Desert}}（<code>2043584565</code>）在坐标为X=-2970.64, Y=70, Z=832.53的地方拍摄。
+
+'''[[数据包]]'''
+* 将数据包版本号更改为{{cd|70}}。
+
+'''[[资源包]]'''
+* 将资源包版本号更改为{{cd|54}}。
+
+'''[[着色器]]'''
+* “全局”Uniform现在可以在任何着色器中定义，游戏将尝试填充这类变量。
+** 目前，包含这些Uniform：{{cd|d=pretty|ModelViewMat|ProjMat|TextureMat|ScreenSize|ColorModulator|Light0_Direction|Light1_Direction|GlintAlpha|FogStart|FogEnd|FogColor|FogShape|LineWidth|GameTime|ModelOffset}}。
+** Uniform的类型必须与其通常应有的类型匹配，否则将导致未定义的行为。
+
+'''[[Java版标签|标签]]'''
+* 向方块标签{{cd|#enderman_holdable}}中加入了{{cd|cactus_flower}}。
+* 从方块标签{{cd|d=pretty|#sword_efficient|#mineable/axe|#mineable/hoe}}中移除了可被[[瞬间破坏]]的方块。
+
+== 修复 ==
+{{fixes|fixedin=25w10a|showdesc=1
+|;old
+|203550|被活塞破坏的方块不会播放破坏音效。
+|269386|创造模式物品栏中的涡流纹样陶片未处于合适的位置。
+|270043|减少盔甲的光效时，也减少了三叉戟的光效。
+|;dev
+|279414|在旁观模式中飞行到远处后再切换到创造模式会导致游戏暂时软锁定。
+|279920|在死亡动画中时，信标每游戏刻都播放{{tr|失效|關閉|失效}}音效。
+|279967|温带牛因其腿部纹理变得对称而变得映射奇怪/边缘粗糙。
+|279993|幼年牛的头居于错误的位置。
+|280050|Programmer Art资源包中缺失骡的鞍纹理。
+|280061|测试实例方块的明暗层次方向相反。
+|280063|输出堆叠与合成格中堆叠的数量相同时，<code>crafting_transmute</code>配方不会产生输出。
+|280106|仙人掌花不能被末影人拿起。
+|280109|“{{advancement name|husbandry.leash_all_frog_variants|zh|rev=1}}”进度在数据生成时没有固定顺序。
+|280113|剪刀用于可被瞬间挖掘的方块不再消耗耐久度。
+|280143|刷怪笼和试炼刷怪笼的提示框中不再显示“{{tr|用刷怪蛋交互时：|用生怪蛋互動時：|用生成蛋互動時：}}”提示。
+|280159|新版牛模型与基岩版不同。
+|280242|并非所有环境音效均被移入“{{tr|环境|環境音效／環境}}”分类。
+|280244|Java版中的温带牛模型的角没有基岩版一样的新位置。
+|280285|共振的紫水晶块尝试创造振动时，某些游戏事件会导致游戏崩溃。
+|280315|在列出具有无效Unicode转义的命令建议时崩溃。
+|280325|玩家的手在第一人称视角下闪烁。
+|280337|史莱姆导致游戏冻结。
+|280340|某些物品有时会导致游戏冻结。
+|;prev
+|280360|加载区块时，游戏的帧更新暂停。
+|280379|打开任何UI时或玩了几分钟后，屏幕冻结。
+|280383|物品栏中的物品有时不被渲染。
+|280423|方块纹理随机闪烁。
+|280439|SNBT中浮点数和双精度浮点数解析的值成功越界，导致值以<code>Infinity</code>存储。
+}}</onlyinclude>
+
+== 参考 ==
+{{Reflist}}
+
+== 导航 ==
+{{Navbox Java Edition versions|1.21}}
+
+[[de:25w10a]]
+[[en:Java Edition 25w10a]]
+[[es:Java Edition 25w10a]]
+[[fr:Édition Java 25w10a]]
+[[ja:Java Edition 25w10a]]
+[[ko:Java Edition 25w10a]]
+[[lzh:爪哇版二五週一〇甲]]
+[[pt:Edição Java 25w10a]]
+[[ru:25w10a (Java Edition)]]
+[[uk:25w10a (Java Edition)]]

@@ -1,0 +1,81 @@
+{{Lost version}}
+{{Infobox version
+|title=0.0.20a
+|image=Classic 0.0.20a in-game.png
+|server=[[Java版Classic服务器1.8|1.8]]
+|edition=java
+|date=2009年6月20日
+|downloads=不可用
+|prefix=Classic_
+|prev=0.0.19a_06
+|prevparent=0.0.19a
+|next=0.0.20a_01
+|nextparent=0.0.21a
+}}<onlyinclude>
+
+'''0.0.20a'''是{{el|java}}的一次更新，发布于2009年6月20日<ref>{{notch|127170416|New server, new client version 0.0.20|June 20, 2009}}</ref><ref>[[#logs|IRC记录]]: "''P3:53:35 <Notch> new minecraft-server.zip up, new client up, there's a protocol change, so you need to update all servers''" (20:53:35 UTC)</ref>，加入了[[羊毛#历史|布料]]、[[蒲公英]]、[[虞美人|玫瑰]]、[[棕色蘑菇]]、[[红色蘑菇]]、[[金块]]和[[物品栏]]，并修复了一些漏洞。
+
+== 新内容 ==
+=== 方块 ===
+'''[[羊毛#历史|布料]]<ref>[[#logs|IRC记录]]: "''P3:56:14 <liq3> COLORED BLOCKS''" [...] "''P3:59:45 <Miclee> THERE ARE COLORED ROCKS?''" [...] "''P4:03:43 <mezo> the cloth blocks are an awesome addition''" (20:55至20:59 UTC)</ref>'''
+* 共有十六种颜色。
+
+'''[[蒲公英]]<ref name="flowers">[[#logs|IRC记录]]: "''P3:54:30 <ZomBuster> FLOWERS :D''", "''P3:54:34 <ZomBuster> pretty flowers''" [...] "''P3:58:53 <C418> wow, there are flowers! :D''" [...] "''P3:59:07 <ez> oooooh flowers ''" (20:54至20:59 UTC)</ref>'''
+* 一种小型花。
+* 在黑暗中会消失。
+
+'''[[虞美人|玫瑰]]<ref name="flowers"/>'''
+* 一种小型花。
+* 在黑暗中会消失。
+
+'''蘑菇<ref name="mushrooms">[[#logs|IRC记录]]: "''P4:01:02 <C418> mushrooms!''" (21:01:02 UTC)</ref>'''
+* 加入了[[红色蘑菇]]和[[棕色蘑菇]]。
+* 在黑暗中会消失。<ref>[[#logs|IRC记录]]: "''P4:27:17 <vdgmprgrmr> Why do the shrooms die in the darkness?''" (21:27:17 UTC)</ref>
+
+'''[[金块]]<ref>[[#logs|IRC记录]]: "''P4:02:10 <Miclee> A white and yellow striped block?''" (21:02:10 UTC)</ref>'''
+* 一种装饰性方块。
+* 不会自然生成在世界中。
+
+=== 常规 ===
+'''[[物品栏]]'''
+* 按下{{key|B}}打开，并展示所有可用的[[方块]]。<ref>[[#logs|IRC记录]]: "''P3:55:09 <ZomBuster> but lol where did all the other blocks gone too''" [...] "''P3:55:23 <Notch> press B''" [...] "''P3:55:53 <AnnihilatorBeta> SO MANY BLOCKS''" (20:55 UTC)</ref>
+** 所有最近使用的可用方块会出现在快捷栏中。<ref>[[#logs|IRC记录]]: "''P4:01:23 <Miclee> Where did sponge and glass go?''" [...] "''P4:01:35 <liq3> Miclee: Press B.''" [...] "''P4:04:19 <Rydia> i can only see 9 of the blocks''" [...] "''P4:04:25 <Miclee> Hit B''" (21:01至21:04 UTC)</ref>
+
+== 更改 ==
+=== 生物 ===
+'''[[玩家]]和[[生物（已移除实体）|人类]]'''
+* 其皮肤颜色变得更深了。
+
+=== 游戏内容 ===
+'''[[物品栏]]'''
+* [[圆石]]和[[沙子]]现在通过新的物品栏再次可用。
+
+'''常规'''
+* 玩家不再能破坏不可破坏的方块了，但管理员仍然可以。<ref>[[#logs|IRC记录]]: "''P3:56:52 <Notch> admins can place unbreakable blocks now''" [...] "''P3:56:57 <Notch> players shouldn't be able to break them''", "''P3:57:00 <Notch> admins can''" (20:56至20:57 UTC)</ref>
+
+=== 常规 ===
+'''[[控制]]'''
+* 鼠标滚轮选择方块被反转。<ref>[[#logs|IRC记录]]: "''P4:02:29 <mezo> notch, you inverted the mousewheel''" [...] "''P4:02:43 <AnnihilatorBeta> mousewheel seems inverted''" (21:02 UTC)</ref>
+
+== 修复 ==
+; 修复了3个漏洞
+: 修复了人类的皮肤的问题。
+: 修复了水的纹理因重叠而造成深度的漏洞。{{verify|edition=java|type=untestable}}
+: 通过移除FPS限制器修复了出现故障的系统计时器。<ref>[[#logs|IRC记录]]: ""''P3:28:19 <Notch> the fps limiting did not work at all, so I'm taking it out. it caused a whole bunch of bugs with timing''" [...] "''P3:28:42 <LKA> Notch: I'm guessing the FPS limiting thing was why some of us have been seeing the game going somewhere around 1.5x to 2x faster than it should?''" [...] "''P3:31:26 <Notch> yes, LKA, I thin kso too''", "''P3:31:32 <Notch> so I'm taking it out for 0.0.20''" (20:28至20:31 UTC)</ref></onlyinclude>
+
+== 参考 ==
+* {{anchor|logs}} [https://archive.org/download/Minecraft_IRC_Logs_2009/DBN-IRC-Logs/ IRC记录] on Archive.org; #minecraft.20090620.log. 2009年6月20日(UTC&minus;5)。
+{{reflist}}
+
+== 导航 ==
+{{Navbox Java Edition versions|Classic}}
+
+[[de:Classic 0.0.20a]]
+[[en:Java Edition Classic 0.0.20a]]
+[[es:Java Edition Classic 0.0.20a]]
+[[fr:Édition Java Classique 0.0.20a]]
+[[he:Java Edition Classic 0.0.20a]]
+[[ja:Java Edition Classic 0.0.20a]]
+[[lzh:爪哇版古典版〇點〇點二〇甲]]
+[[pt:Edição Java Classic 0.0.20a]]
+[[ru:Classic 0.0.20a (Java Edition)]]

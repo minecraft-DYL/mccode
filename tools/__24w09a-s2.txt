@@ -1,0 +1,341 @@
+﻿# Java版24w09a / section 2 — 20736 字符
+=== 常规 ===
+'''[[战利品表]]'''
+* 战利品表抽取项<code>loot_table</code>（从提供的嵌套战利品表返回所有物品）现在有以下语法：
+** <code>value</code>可以是：
+*** 一个命名空间ID，指对另一个战利品表的引用。
+*** 完整的战利品表，格式与独立文件的战利品表相同。
+* 加入了函数<code>set_components</code>，用于在输入物品上添加或替换给定组件。
+** <code>conditions</code>，条件列表，默认为<code>[]</code>。
+*** 在应用函数之前要检查的条件。
+** <code>components</code>，组件ID到组件值的映射，格式因ID而异。
+*** 带有“!”前缀的组件将导致该组件被删除。
+* 加入了函数<code>copy_components</code>，用于将组件从指定源复制到物品上。
+** 现在在原版数据包中使用它来代替{{cd|d=pretty|copy_name|copy_nbt}}函数。
+** <code>conditions</code>，条件列表，默认为<code>[]</code>。
+*** 在应用函数之前要检查的条件。
+** <code>source</code>，被提取组件的资源类型，当前必须为<code>block_entity</code>。
+** <code>components</code>，被复制的组件ID列表。
+
+'''[[物品堆叠组件]]'''
+* 物品堆相关的非结构化NBT数据（{{nbt|compound|tag}}）被结构化的“组件”（{{nbt|compound|components}}）取代。
+** 这些数据将在物品被加载时进行解析和验证。
+** 这将提升在某些应用场景下的程序性能（如[[盔甲纹饰]]的渲染），常见于物品被频繁地比较或请求和解析数据时。
+** 可将自定义物品数据存储在<code>minecraft:custom_data</code>组件中。
+* 物品类型（比如，<code>minecraft:stick</code>）控制物品所拥有的默认组件，个别物品堆可以进行覆盖。
+* 在数据包中，序列化物品格式和物品格式变得更加一致，以支持物品堆叠组件。
+* 当高级提示框开启时（{{key|F3+H}}），将显示物品的组件数量而非其NBT标签数量。
+* 在<code>reports</code>目录内的<code>items.json</code>文件中加入了物品默认组件的值。
+* 在<code>blocks.json</code>报告中加入了方块定义，但尚未使用。
+* 加入了以下物品堆叠组件（均省略命名空间<code>minecraft:</code>）：
+<div class="treeview"> 
+::*; {{nbt|compound|custom_data}}：可用于存储物品的自定义数据。
+::** {{nbt|string}}：一个包含任意字段的对象。
+</div>
+::* 在{{cmd|give}}等命令中，可在物品名后使用<code>{…}</code>来表示，与之前表示物品{{nbt|compound|tag}}的语法一致。
+::* 在命令的谓词判断中（比如{{cmd|clear}}），将与当前被判断物品的<code>custom_data</code>进行匹配，仅当其中的所有数据都相同时才返回“成功”，否则返回“失败”。
+::* 升级世界时，旧的物品标签{{nbt|compound|tag}}中的任何非游戏数据都会移动到该组件中。
+::* 示例：<code>custom_data={some:'data'}</code>。
+::; {{nbt|int|damage}}：（不小于0）物品损耗的耐久度。对于可损坏的物品，此值默认为0。若移除此组件，物品将变得不可损坏。
+::* 替代了标签{{nbt|int|Damage}}。
+::* 示例：<code>damage=12</code>。
+::; {{nbt|int|repair_cost}}：（默认为0，不小于0）在铁砧中修改物品后所消耗的额外经验。
+::* 替代了标签{{nbt|int|RepairCost}}。
+::* 示例：<code>repair_cost=12</code>。
+<div class="treeview"> 
+::*; {{nbt|compound|unbreakable}}：若挂载该组件，则物品将不会消耗耐久度。
+::** {{nbt|bool|show_in_tooltip}}：（默认为<code>true</code>）若为<code>true</code>，则在物品提示框中将显示“无法破坏”文本。替代了标签{{nbt|int|HideFlags}}的第3个二进制位。
+</div>
+::* 替代了标签{{nbt|bool|Unbreakable}}。
+::* 示例：<code>unbreakable={}</code>、<code>unbreakable={show_in_tooltip:false}</code>。
+<div class="treeview"> 
+::*; {{nbt|compound|enchantments}}：（默认为<code>{levels:{}}</code>）存储物品的魔咒及其等级。
+::** {{nbt|compound|levels}}：（允许多个项）。
+::*** {{nbt|int|<''魔咒命名空间ID''>}}：（可选，默认为1，不小于0且不大于255）魔咒及其对应的等级。
+::** {{nbt|bool|show_in_tooltip}}：（默认为<code>true</code>）表示物品提示框中是否显示魔咒。用于替代标签{{nbt|int|HideFlags}}的第1个二进制位。
+</div>
+::* 替代了标签{{nbt|list|Enchantments}}。
+::* 示例：<code>enchantments={levels:{'minecraft:protection':2},show_in_tooltip:false}</code>。
+<div class="treeview"> 
+::*; {{nbt|compound|stored_enchantments}}：（附魔书默认为<code>{levels:{}}</code>）存储[[附魔书]]上的魔咒及其等级，但魔咒的实际效果不会因为此组件的挂载而生效。
+::** {{nbt|compound|levels}}：（允许多个项）。
+::*** {{nbt|int|<''魔咒命名空间ID''>}}：（可选，默认为1，不小于0且不大于255）魔咒及其对应的等级。
+::** {{nbt|bool|show_in_tooltip}}：（可选，默认为<code>true</code>）表示物品提示框中是否显示魔咒。用于替代标签{{nbt|int|HideFlags}}的第6个二进制位。
+</div>
+::* 替代了附魔书标签{{nbt|list|StoredEnchantments}}。
+::; {{nbt|string|custom_name}}：（JSON聊天组件字符串）覆盖物品原名称的自定义名称。
+::* 替代了标签{{nbt|string|display.Name}}。
+::* 示例：<code>-{}-custom_name='{"text": "此物品被重命名过了！", "color": "red"}'</code>。
+<div class="treeview"> 
+::*; {{nbt|list|lore}}：（默认为<code>[]</code>，最多包含64个项）物品提示框中附加的描述性信息列表。
+::** {{nbt|string}}：一个JSON聊天组件字符串，表示一行文本。
+</div>
+::* 替代了标签{{nbt|list|display.Lore}}。
+::* 示例：<code>-{}-lore=['{"text": "蛋糕是个谎言！"}']</code>。
+<div class="treeview"> 
+::*; {{nbt|compound|can_break}}：控制冒险模式玩家可以用此物品破坏哪些方块。
+::** {{nbt|list|predicates}}：（可选）代替原来字符串的方块谓词列表。
+::*** {{nbt|string}}{{nbt|list|blocks}}：可以为单个方块、方块列表或带哈希前缀（<code>#</code>）的方块标签。
+::*** {{nbt|string|nbt}}：（可选）可解析的方块实体NBT。
+::*** {{nbt|compound|state}}：（可选）一个表示方块状态的映射表（map），映射键为方块状态的属性名，映射值为该方块状态对应的可用值。
+::** {{nbt|string}}{{nbt|list|blocks}}：（可选）单个方块谓词，如<code>can_break={blocks:'minecraft:stone'}</code>。
+::** {{nbt|bool|show_in_tooltip}}：（可选，默认为<code>true</code>）表示物品提示框中是否显示该物品可破坏的方块。用于替代标签{{nbt|int|HideFlags}}的第4个二进制位。
+</div>
+::* 替代了标签{{nbt|list|CanDestroy}}。
+::* 示例：<code>can_break={predicates:{blocks:'minecraft:furnace',state:{facing:'north'}}</code>。
+<div class="treeview"> 
+::*; {{nbt|compound|can_place_on}}：控制冒险模式玩家可以把此物品放在哪些方块上。
+::** {{nbt|list|predicates}}：（可选）代替原来字符串的方块谓词列表。
+::*** {{nbt|string}}{{nbt|list|blocks}}：可以为单个方块、方块列表或带哈希前缀（<code>#</code>）的方块标签。
+::*** {{nbt|string|nbt}}：（可选）可解析的方块实体NBT。
+::*** {{nbt|compound|state}}：（可选）一个表示方块状态的映射表（map），映射键为方块状态的属性名，映射值为该方块状态对应的可用值。
+::** {{nbt|string}}{{nbt|list|blocks}}：（可选）单个方块谓词，如<code>can_place_on={blocks:'minecraft:stone'}</code>。
+::** {{nbt|bool|show_in_tooltip}}：（可选，默认为<code>true</code>）表示物品提示框中是否显示此物品能放在哪些方块上。用于替代标签{{nbt|int|HideFlags}}的第5个二进制位。
+</div>
+::* 替代了标签{{nbt|list|CanPlaceOn}}。
+::* 示例：<code>can_place_on={predicates:{blocks:'minecraft:furnace',state:{facing:'north'}}</code>。
+<div class="treeview"> 
+::*; {{nbt|compound|dyed_color}}：表示应用于可染色物品（拥有物品标签<code>#dyeable</code>的物品）的颜色。
+::** {{nbt|int|rgb}}：RGB值。
+::** {{nbt|bool|show_in_tooltip}}：（可选，默认为<code>true</code>）表示物品提示框中是否显示“已染色”。用于替代标签{{nbt|int|HideFlags}}的第7个二进制位。
+</div>
+::* 替代了标签{{nbt|int|display.color}}。
+::* 示例：<code>dyed_color={rgb:16711680}</code>。
+<div class="treeview"> 
+::*; {{nbt|compound|attribute_modifiers}}：（默认值为该物品类型的属性，一般物品默认为<code>{modifiers:[]}</code>）控制在物品上应用的属性修饰符。
+::** {{nbt|list|modifiers}}：属性修饰符列表。
+::*** {{nbt|string|type}}：一个属性修饰符ID，代替了{{nbt|string|AttributeName}}。
+::*** {{nbt|string|slot}}：只有当装备在指定的槽位时，修饰符才会生效。代替了{{nbt|string|Slot}}。值可以为<code>any</code>（默认）、<code>hand</code>（新增，无论主手或副手）、<code>armor</code>（新增，任意盔甲槽）、<code>mainhand</code>、<code>offhand</code>、<code>head</code>、<code>chest</code>、<code>legs</code>和<code>feet</code>。
+::*** {{nbt|int-array|uuid}}：同一个id只能存在一个修饰符。代替了{{nbt|int-array|UUID}}。
+::*** {{nbt|string|name}}：可读的属性文本，代替了{{nbt|string|Name}}。
+::*** {{nbt|double|amount}}：计算中调整修饰符的数值，代替了{{nbt|double|Amount}}。
+::*** {{nbt|string|operation}}：定义修饰符对属性的基础值的[[属性#运算模式|运算方法]]。代替了{{nbt|int|Operation}}。值可以为<code>add_value</code>（加法，曾为<code>0</code>）、<code>add_multiplied_base</code>（与基值相乘，曾为<code>1</code>）和<code>add_multiplied_total</code>（与总值相乘，曾为<code>2</code>）。
+::** {{nbt|bool|show_in_tooltip}}：（可选，默认为<code>true</code>）表示物品提示框中是否显示属性。用于替代标签{{nbt|int|HideFlags}}的第2个二进制位。
+</div>
+::* 替代了标签{{nbt|list|AttributeModifiers}}。
+::* 示例：<code>attribute_modifiers={modifiers:[{type:'minecraft:generic.scale',uuid:[1,2,3,4],name:'大！',amount:1.0,operation:'add_multiplied_base'}]}</code>。<ref>官网更新日志的示例少了一对大括号，参见{{bug|MC-269016|||Awaiting Response}}</ref>
+<div class="treeview"> 
+::*; {{nbt|list|charged_projectiles}}：包含所有装入弩中的弹射物。如果不存在，则弩未蓄力。
+::** {{nbt|compound}}：一个物品堆。现在不再限制弩中的物品堆数。
+</div>
+::* 替代了标签{{nbt|bool|Charged}}和{{nbt|list|ChargedProjectiles}}。
+::* 示例：<code>charged_projectiles=[{id:'minecraft:arrow'}]</code>。
+::; {{nbt|compound|intangible_projectile}}：一个空组件，用于标记发射时不显示在弓弩且将只能被创造模式玩家捡起的弹射物物品。这个物品应被弩的组件{{nbt|list|charged_projectiles}}包含。
+::* 示例：<code>intangible_projectile={}</code>。
+::; {{nbt|list|bundle_contents}}：（收纳袋默认为<code>[]</code>）存储[[收纳袋]]中的物品。如果被移除，则收纳袋不能收纳物品。
+::* 替代了标签{{nbt|compound|Items}}。
+::; {{nbt|int|map_color}}：（地图的默认值为<code>4603950</code>）表示[[地图]]物品上装饰物的色调。为RGB值，如<code>map_color=16711680</code>。
+::* 替代了标签{{nbt|int|display.MapColor}}。
+<div class="treeview"> 
+::*; {{nbt|compound|map_decorations}}：（地图默认为<code>{}</code>）包含地图上的图标列表，用于[[探险家地图]]。
+::** {{nbt|compound|<''图标名称''>}}：一个图标。
+::*** {{nbt|string|type}}：图标种类。值可以为<code>player</code>（曾为<code>0</code>）、<code>frame</code>（曾为<code>1</code>）、<code>red_marker</code>（曾为<code>2</code>）、<code>blue_marker</code>（曾为<code>3</code>）、<code>target_x</code>（曾为<code>4</code>）、<code>target_point</code>（曾为<code>5</code>）、<code>player_off_map</code>（曾为<code>6</code>）、<code>player_off_limits</code>（曾为<code>7</code>）、<code>mansion</code>（曾为<code>8</code>）、<code>monument</code>（曾为<code>9</code>）、<code>banner_white</code>（曾为<code>10</code>）、<code>banner_orange</code>（曾为<code>11</code>）、<code>banner_magenta</code>（曾为<code>12</code>）、<code>banner_light_blue</code>（曾为<code>13</code>）、<code>banner_yellow</code>（曾为<code>14</code>）、<code>banner_lime</code>（曾为<code>15</code>）、<code>banner_pink</code>（曾为<code>16</code>）、<code>banner_gray</code>（曾为<code>17</code>）、<code>banner_light_gray</code>（曾为<code>18</code>）、<code>banner_cyan</code>（曾为<code>19</code>）、<code>banner_purple</code>（曾为<code>20</code>）、<code>banner_blue</code>（曾为<code>21</code>）、<code>banner_brown</code>（曾为<code>22</code>）、<code>banner_green</code>（曾为<code>23</code>）、<code>banner_red</code>（曾为<code>24</code>）、<code>banner_black</code>（曾为<code>25</code>）、<code>red_x</code>（曾为<code>26</code>）、<code>village_desert</code>（曾为<code>27</code>）、<code>village_plains</code>（曾为<code>28</code>）、<code>village_savanna</code>（曾为<code>29</code>）、<code>village_snowy</code>（曾为<code>30</code>）、<code>village_taiga</code>（曾为<code>31</code>）、<code>jungle_temple</code>（曾为<code>32</code>）和<code>swamp_hut</code>（曾为<code>33</code>）。
+::*** {{nbt|double|x}}：世界坐标。
+::*** {{nbt|double|z}}：世界坐标。
+::*** {{nbt|float|rotation}}：以度为单位从北方顺时针旋转。代替了先前的{{nbt|double|rot}}。
+</div>
+::* 示例：<code>map_decorations={'Some marker':{type:'target_x',x:123.0,z:-45.0,rotation:0.0f}}</code>。
+::; {{nbt|int|map_id}}：用于引用持有地图内容和地图标记的共享映射档案。
+::* 替代了标签{{nbt|int|map}}。
+::* 示例：<code>map_id=1</code>。
+::; {{nbt|int|custom_model_data}}：用于替换自定义物品模型。
+::* 示例：<code>custom_model_data=43</code>。
+<div class="treeview"> 
+::*; {{nbt|compound|potion_contents}}：（药水和药箭物品有默认值<code>{}</code>）控制药水、喷溅药水和滞留药水的效果以及附着于物品上的药水效果。
+::** {{nbt|string|potion}}：（可选）药水ID，也指物品中的药水类型。拥有此组件的物品会继承药水的所有效果。
+::** {{nbt|int|custom_color}}：（可选）RGB值，用于覆盖药水的视觉颜色。
+::** {{nbt|list|custom_effects}}：（可选，默认为<code>[]</code>）额外对物品附加的自定义状态效果列表，其显示可与现有药水种类不同。
+</div>
+::* 替代了标签{{nbt|string|Potion}}、{{nbt|int|CustomPotionColor}}和{{nbt|list|custom_potion_effects}}。
+::* 示例：<code>potion_contents={potion:'minecraft:invisibility',custom_color:16711680}</code>。
+<div class="treeview"> 
+::*; {{nbt|compound|writable_book_content}}：（书与笔有默认值<code>{pages:[]}</code>）存储[[书与笔]]的内容。
+::** {{nbt|list|pages}}：页面列表，包含下列其中一种格式的信息。
+::*** {{nbt|compound}}：一页的信息，最多100页。
+::**** {{nbt|string|filtered}}：（可选）已过滤的文本信息。在开启过滤时，此字符串优先级高于{{nbt|string|text}}。
+::**** {{nbt|string|text}}：未过滤的文本信息。
+::*** {{nbt|string}}：一页的纯文本信息。
+</div>
+::* 替代了标签{{nbt|list|pages}}和{{nbt|compound|filtered_pages}}。
+::* 示例：<code>writable_book_content={pages:[{text:'你好，世界！'}]}</code>。
+<div class="treeview"> 
+::*; {{nbt|compound|written_book_content}}：存储[[成书]]的内容和元数据。
+::** {{nbt|list|pages}}：页面列表，包含下列其中一种格式的信息。
+::*** {{nbt|compound}}：一页的信息，最多100页。
+::**** {{nbt|string}}{{nbt|compound|filtered}}：（可选）已过滤的JSON聊天组件或文本。在开启过滤时，此字符串优先级高于{{nbt|string|text}}。
+::**** {{nbt|string}}{{nbt|compound|text}}：未过滤的JSON聊天组件或文本。
+::*** {{nbt|string}}：一页的纯文本信息。
+::** {{nbt|string|title}}：（和{{nbt|list|pages}}的格式一致）已过滤的标题。
+::** {{nbt|string|author}}：作者名。
+::** {{nbt|int|generation}}：（不小于0，不大于2）成书被复制的次数，0为原作。
+::** {{nbt|bool|resolved}}：本书中的聊天组件是否已解析。如果为<code>false</code>，将在打开这本书时解析。
+</div>
+::* 替代了标签{{nbt|list|pages}}、{{nbt|compound|filtered_pages}}、{{nbt|string|title}}、{{nbt|string|filtered_title}}、{{nbt|string|author}}、{{nbt|int|generation}}和{{nbt|bool|resolved}}。
+::* 示例：<code>-{}-written_book_content={pages:[{text:'你好，世界！'}],title:{text:'一次愉快的阅读'},author:'Herobrine',generation:1,resolved:true}</code>。
+<div class="treeview"> 
+::*; {{nbt|compound|trim}}：存储物品的纹饰。
+::** {{nbt|string|pattern}}：图案ID或内联的图案。
+::** {{nbt|string|material}}：材料ID或内联的材料。
+::** {{nbt|bool|show_in_tooltip}}：（可选，默认为<code>true</code>）表示物品提示框中是否显示纹饰信息。用于替代标签{{nbt|int|HideFlags}}的第8个二进制位。
+</div>
+::* 替代了相同格式的标签{{nbt|compound|Trim}}。
+::* 此组件的存在不再受物品标签<code>#trimmable_armor</code>的限制。
+::* 示例：<code>trim={pattern:'minecraft:silence',material:'minecraft:redstone'}</code>。
+<div class="treeview"> 
+::*; {{nbt|list|suspicious_stew_effects}}：（谜之炖菜默认为<code>[]</code>）控制食用[[谜之炖菜]]获得的状态效果。
+::** {{nbt|compound}}：一个状态效果。
+::*** {{nbt|string|id}}：状态效果ID。
+::*** {{nbt|int|duration}}：（默认值为<code>160</code>）状态效果持续刻数。
+</div>
+::* 替代了相同格式的标签{{nbt|list|effects}}。
+::* 示例：<code>suspicious_stew_effects=[{id:'minecraft:poison'}]</code>。
+::; {{nbt|compound|hide_additional_tooltip}}：空组件，表示禁用物品提示框中附加的物品类型信息。
+::* 替代了标签{{nbt|int|HideFlags}}的第6个二进制位。
+::* 示例：<code>hide_additional_tooltip={}</code>。
+<div class="treeview"> 
+::*; {{nbt|compound|debug_stick_state}}：（调试棒默认为<code>{}</code>）存储[[调试棒]]使用的选定方块状态档案。
+::** {{nbt|string|<''方块命名空间ID''>}}：一个对应的方块状态档案。
+</div>
+::* 替代了标签{{nbt|compound|DebugProperty}}。
+::* 示例：<code>debug_stick_state={'minecraft:turtle_egg':'eggs','minecraft:furnace':'facing'}</code>。
+<div class="treeview"> 
+::*; {{nbt|compound|entity_data}}：存储非结构化的NBT数据以便在使用生成实体的物品时应用于实体，如[[刷怪蛋]]或[[盔甲架]]。
+::** {{nbt|string|id}}：（必填）一个实体ID。
+::** 其他在生成实体时与其数据合并的实体标签。
+</div>
+::* 替代了标签{{nbt|compound|EntityTag}}。
+::* 示例：<code>entity_data={id:'minecraft:pig',Health:1.0f}</code>。
+<div class="treeview"> 
+::*; {{nbt|compound|bucket_entity_data}}：（桶装生物物品默认为<code>{}</code>）存储非结构化的NBT数据以便在将实体从桶中放出时应用于实体。
+::** {{nbt|bool|NoAI}}
+::** {{nbt|bool|Silent}}
+::** {{nbt|bool|NoGravity}}
+::** {{nbt|bool|Glowing}}
+::** {{nbt|bool|Invulnerable}}
+::** {{nbt|float|Health}}
+::** {{nbt|int|Age}}
+::** {{nbt|int|Variant}}
+::** {{nbt|long|HuntingCooldown}}
+::** {{nbt|int|BucketVariantTag}}
+</div>
+::* 替代了标签{{nbt|bool|NoAI}}、{{nbt|bool|Silent}}、{{nbt|bool|NoGravity}}、{{nbt|bool|Glowing}}、{{nbt|bool|Invulnerable}}、{{nbt|float|Health}}、{{nbt|int|Age}}、{{nbt|int|Variant}}、{{nbt|long|HuntingCooldown}}和{{nbt|int|BucketVariantTag}}。
+::* 示例：<code>bucket_entity_data={NoAI:1,Age:43}</code>。
+::; {{nbt|string|instrument}}：[[山羊角]]使用的乐器ID。
+::* 替代了相同格式的标签{{nbt|string|instrument}}。
+::* 示例：<code>instrument='minecraft:ponder_goat_horn'</code>。
+::; {{nbt|list|recipes}}：（知识之书默认为<code>[]</code>）使用[[知识之书]]后应获得的配方ID列表。
+::* 替代了相同格式的标签{{nbt|list|Recipes}}。
+::* 示例：<code>recipes=['minecraft:acacia_boat','minecraft:anvil']</code>。
+<div class="treeview"> 
+::*; {{nbt|compound|lodestone_target}}：存储指南针指向的目标磁石。
+::** {{nbt|int-array|pos}}：<code>['x','y','z']</code>。
+::** {{nbt|string|dimension}}：维度ID。
+::** {{nbt|bool|tracked}}：（默认为<code>true</code>）是否追踪目标磁石的方块状态。为<code>true</code>时，该组件会随目标位置的磁石被破坏而移除。
+</div>
+::* 替代了标签{{nbt|compound|LodestonePos}}、{{nbt|string|LodestoneDimension}}和{{nbt|byte|LodestoneTracked}}。
+::* 示例：<code>lodestone_target={pos:[13,64,-43],dimension:'minecraft:the_nether'}</code>。
+<div class="treeview"> 
+::*; {{nbt|compound|firework_explosion}}：存储[[烟火之星]]的爆炸效果。
+::** {{nbt|string|shape}}：爆炸的形状。值可以为<code>small_ball</code>（曾为<code>0</code>）、<code>large_ball</code>（曾为<code>1</code>）、<code>star</code>（曾为<code>2</code>）、<code>creeper</code>（曾为<code>3</code>）和<code>burst</code>（曾为<code>4</code>）
+::** {{nbt|list|colors}}：（默认为<code>[]</code>）初始的粒子颜色列表，实际显示颜色从中随机选择。
+::*** {{nbt|int-array}}一个RGB值
+::** {{nbt|list|fade_colors}}：（默认为<code>[]</code>）淡化时的粒子颜色列表，实际显示颜色从中随机选择。
+::*** {{nbt|int-array}}一个RGB值
+::** {{nbt|bool|has_trail}}：（默认为<code>false</code>）是否有踪迹效果。
+::** {{nbt|bool|has_twinkle}}：（默认为<code>false</code>）是否有闪烁效果。
+</div>
+::* 替代了标签{{nbt|byte|Explosion.Type}}、{{nbt|int-array|Explosion.Colors}}、{{nbt|int-array|Explosion.FadeColors}}、{{nbt|bool|Explosion.Trail}}和{{nbt|bool|Explosion.Flicker}}。
+::* 示例：<code>firework_explosion={shape:'large_ball',colors:[16711680],has_trail:true}</code>。
+<div class="treeview"> 
+::*; {{nbt|compound|fireworks}}：存储[[烟花火箭]]的所有爆炸效果和飞行时间。
+::** {{nbt|list|explosions}}：爆炸列表。
+::*** {{nbt|string|shape}}：爆炸的形状。值可以为<code>small_ball</code>（曾为<code>0</code>）、<code>large_ball</code>（曾为<code>1</code>）、<code>star</code>（曾为<code>2</code>）、<code>creeper</code>（曾为<code>3</code>）和<code>burst</code>（曾为<code>4</code>）
+::*** {{nbt|list|colors}}：（默认为<code>[]</code>）初始的粒子颜色列表，实际显示颜色从中随机选择。
+::**** {{nbt|int-array}}：一个RGB值。
+::*** {{nbt|list|fade_colors}}：（默认为<code>[]</code>）淡化时的粒子颜色列表，实际显示颜色从中随机选择。
+::**** {{nbt|int-array}}：一个RGB值。
+::*** {{nbt|bool|has_trail}}：（默认为<code>false</code>）是否有踪迹效果。
+::*** {{nbt|bool|has_twinkle}}：（默认为<code>false</code>）是否有闪烁效果。
+::** {{nbt|byte|flight_duration}}：飞行时间，为该烟花火箭中[[火药]]的数量。
+</div>
+::* 替代了标签{{nbt|list|Fireworks.Explosions}}、{{nbt|byte|Fireworks.Flight}}。
+::* 示例：<code>{explosions:[],flight_duration:1}</code>。
+<div class="treeview"> 
+::*; {{nbt|compound|profile}}：控制[[玩家的头]]显示的皮肤，此数据在放下物品后复制到“玩家的头”方块中。
+::** {{nbt|string|name}}：（长度不超过16）玩家名称。如果仅指定了{{nbt|string|name}}，会解析为相应的玩家UUID和皮肤数据。
+::** {{nbt|int-array|id}}：（可选）玩家的UUID。
+::** {{nbt|list|properties}}：（可选）档案列表。
+::*** {{nbt|string|name}}：游戏档案属性的名称。
+::*** {{nbt|string|value}}：游戏档案属性的数据，Base64编码的JSON数据。
+::*** {{nbt|string|signature}}：（可选）游戏档案属性的签名。
+</div>
+::* 替代了标签{{nbt|compound|SkullOwner}}。
+::* 示例：<code>profile={name:'MHF_Sheep'}</code>。
+::; {{nbt|string|note_block_sound}}：音效事件ID。控制玩家的头放置在[[音符盒]]上时音符盒播放的音效，此数据在放下物品后复制到“玩家的头”方块中。
+::* 替代了标签{{nbt|string|BlockEntityTag.note_block_sound}}。
+::; {{nbt|string|base_color}}：存储旗帜和盾的基础颜色。值可以为<code>white</code>（曾为<code>0</code>）、<code>orange</code>（曾为<code>1</code>）、<code>magenta</code>（曾为<code>2</code>）、<code>light_blue</code>（曾为<code>3</code>）、<code>yellow</code>（曾为<code>4</code>）、<code>lime</code>（曾为<code>5</code>）、<code>pink</code>（曾为<code>6</code>）、<code>gray</code>（曾为<code>7</code>）、<code>light_gray</code>（曾为<code>8</code>）、<code>cyan</code>（曾为<code>9</code>）、<code>purple</code>（曾为<code>10</code>）、<code>blue</code>（曾为<code>11</code>）、<code>brown</code>（曾为<code>12</code>）、<code>green</code>（曾为<code>13</code>）、<code>red</code>（曾为<code>14</code>）和<code>black</code>（曾为<code>15</code>）
+::* 替代了标签{{nbt|int|BlockEntityTag.Base}}。
+<div class="treeview"> 
+::*; {{nbt|list|banner_patterns}}：（旗帜和盾默认为<code>[]</code>）列表，存储对旗帜和盾生效的图案，放置时数据复制到旗帜方块中。
+::** {{nbt|compound}}：一个旗帜图案。
+::*** {{nbt|string|pattern}}：图案的注册ID。
+::*** {{nbt|string|color}}：图案的染料颜色。
+</div>
+::* 替代了标签{{nbt|list|BlockEntityTag.Patterns}}。
+::* 示例：<code>banner_patterns=[{pattern:'minecraft:stripe_top',color:'red'}]</code>。
+<div class="treeview"> 
+::*; {{nbt|list|pot_decorations}}：（饰纹陶罐默认为<code>['minecraft:brick','minecraft:brick','minecraft:brick','minecraft:brick']</code>）存储[[饰纹陶罐]]每侧的陶片，放置时复制到方块数据中。
+::** {{nbt|string|<''一个物品命名空间ID''>}}
+</div>
+::* 替代了相同格式的标签{{nbt|list|BlockEntityTag.sherds}}。
+::* 示例：<code>['arms_up_pottery_sherd','angler_pottery_sherd','danger_pottery_sherd','shelter_pottery_sherd']</code>。
+<div class="treeview"> 
+::*; {{nbt|list|container}}：（潜影盒默认为<code>[]</code>）表示[[潜影盒]]（物品形式）中的各个槽位。当潜影盒被放置时，将复制该组件中的数据。
+::** {{nbt|int|slot}}：（不小于0，不大于255）容器中的槽位。
+::** {{nbt|compound|item}}：一个物品堆。
+</div>
+::* 替代了标签{{nbt|list|BlockEntityTag.Items}}。
+::* 示例：<code>container=[{slot:7,item:{id:'diamond_pickaxe',components:{'minecraft:unbreakable':{}}}}]</code>。
+<div class="treeview"> 
+::*; {{nbt|list|bees}}：（蜂巢和蜂箱默认为<code>[]</code>）用于控制[[蜂巢（方块）|蜂巢]]或[[蜂箱]]中的[[蜜蜂]]数据。当[[蜂巢（方块）|蜂巢]]或[[蜂箱]]被放置时，将复制该组件的数据。
+::** {{nbt|compound}}：一个蜜蜂实体。
+::*** {{nbt|compound|entity_data}}：该实体的数据。
+::**** {{nbt|string|id}}：实体的命名空间ID。
+::***; 其余的标签将在蜜蜂生成时被合并到其数据中。
+::*** {{nbt|int|ticks_in_hive}}
+::*** {{nbt|int|min_ticks_in_hive}}
+</div>
+::* 替代了标签{{nbt|list|BlockEntityTag.Bees}}。
+::* 示例：<code>bees=[{entity_data:{id='minecraft:bee'},ticks_in_hive:3,min_ticks_in_hive:10}]</code>。
+::; {{nbt|string|lock}}：表示类容器方块的“锁”。只有玩家使用与之匹配的“钥匙”才能打开该容器，“钥匙”即为自定义名称与“锁”名称相同的物品。当容器方块被放置时将复制该组件中的数据。
+::* 替代了标签{{nbt|string|BlockEntityTag.Lock}}。
+::* 示例：<code>lock='hunter2'</code>。
+<div class="treeview"> 
+::*; {{nbt|compound|container_loot}}：存储处于未解析状态的战利品表和类容器方块的种子。放置容器方块时，该组件中的数据将被复制到方块数据中。
+::** {{nbt|string|loot_table}}：战利品表ID。
+::** {{nbt|long|seed}}：（可选）伪随机种子，将参与到战利品表的解析过程中。若未设定此值或此值为0，则将在战利品表被计算时随机选取一个种子。
+</div>
+::* 替代了标签{{nbt|string|BlockEntityTag.LootTable}}和{{nbt|long|BlockEntityTag.LootTableSeed}}。
+::* 示例：<code>container_loot={loot_table:'minecraft:chests/buried_treasure',seed:123}</code>。
+<div class="treeview"> 
+::*; {{nbt|compound|block_entity_data}}：存储应用于方块实体的非结构化NBT数据，放置诸如箱子和熔炉方块时将加载该组件的数据。方块实体数据被移动到专用的物品组件中时会被删除。当方块被放置时，其任何附加字段都将被合并到该组件中。
+::** {{nbt|string|id}}：（必填）方块实体类型。
+::** 其他在放置方块实体时与其数据合并的方块实体标签。
+</div>
+::* 如果玩家是管理员，则此标签仅对[[命令方块]]、[[讲台]]、[[告示牌]]和[[刷怪笼]]生效。
+::* 替代了先前具有相同行为的{{nbt|compound|BlockEntityTag}}标签。
+::* 示例：<code>block_entity_data={id:'minecraft:chest',Items:[{Slot:1,item:'minecraft:diamond'}]}</code>。
+::; {{nbt|compound|block_state}}：控制方块被放置时要应用的方块状态。
+::* 格式：一个键值对映射表，映射键为方块状态的属性名，映射值为该属性的允许值。
+::* 替代了标签{{nbt|compound|BlockStateTag}}。
+::* 示例：<code>block_state={eggs:'10'}</code>。
+::; {{nbt|bool|enchantment_glint_override}}：为物品覆上附魔光效。之前可通过在{{nbt|list|Enchantments}}中添加无效的魔咒标签以使得物品像是被添加了附魔光效。
+::* 若为<code>true</code>，没有附魔光效的物品将获得光效并开始闪烁（不论是否来自魔咒或物品的内在属性）。
+::* 若为<code>false</code>，有附魔光效的物品将不显示光效也不闪烁。
+::* 示例：<code>enchantment_glint_override=true</code>。
+
+'''[[选项]]'''
+* 在“辅助功能设置”屏幕中加入了“菜单背景模糊程度”滚动条。
+
+'''[[Java版标签|标签]]'''
+* 加入了伤害类型标签<code>#bypasses_wolf_armor</code>：{{cd|d=pretty|#bypasses_invulnerability|cramming|drown|dry_out|freeze|in_wall|indirect_magic|magic|outside_border|starve|thorns|wither}}。

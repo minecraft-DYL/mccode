@@ -1,0 +1,299 @@
+{{Infobox version
+|title=25w15a
+|image=25w15a.png
+|image2=Java Edition 25w15a Simplified.png\Java Edition 25w15a Traditional.png\Java Edition 25w15a Traditional HK.png
+|edition=Java
+|type=Snapshot
+|date=2025年4月8日
+|jsonhash=260b643baa01f8f02396e94fb6dfea60878922c1
+|clienthash=a12b375db4d067af9653557e7e3c8a61fa1016c5
+|clientmap=2a8329ac1dece528e834ac79255d3d28638716d8
+|serverhash=fed01fcdf4d2f37b3f847e08fd099714766533c3
+|servermap=0a5b698d19dcb090e15684e076e101d596d8fec5
+|parent=1.21.6
+|prevparent=1.21.5
+|prev=
+|next=25w16a
+|nextparent=1.21.7
+}}<onlyinclude>
+
+'''25w15a'''是[[Java版1.21.6]]的首个快照，发布于2025年4月8日<ref>{{snap|25w15a|Apr 08, 2025}}</ref>，加入了[[追逐天空]]的部分内容，并修复了一些漏洞。
+
+== 新内容 ==
+=== 方块 ===
+'''[[失水恶魂]]'''
+* 在[[下界]]中作为[[下界化石]]的一部分自然生成。
+* 可使用1个[[骨块]]和8个[[恶魂之泪]]合成。
+* 被放置时默认处于“干燥”状态，[[含水]]时经过3个阶段，持续一段时间后会生成一只[[小恶魂]]。
+* 不再含水时，失水恶魂会逐渐恢复到“干燥”状态。
+* 状态变化时会发出声音并产生粒子。
+* 被挖掘时，其方块状态不会保留。
+* 物品[[稀有度]]为“少见”。
+
+=== 物品 ===
+'''[[挽具]]'''
+* 一种能够装备在[[快乐恶魂]]上的物品，允许玩家骑乘快乐恶魂。
+* 可使用3个[[皮革]]、2个[[玻璃]]和1个[[羊毛]]合成。
+* 可通过与[[染料]]合成以重新染色。
+* 对未被骑乘的快乐恶魂{{ctrl|使用}}[[剪刀]]可卸下其装备的挽具。
+
+'''[[刷怪蛋]]'''
+* 加入了快乐恶魂刷怪蛋。
+
+=== 生物 ===
+'''[[快乐恶魂]]'''
+* 一种生命值为{{hp|20}}的飞行可骑乘生物。
+* 幼年形态快乐恶魂被称为小恶魂，有着不同的行为：
+** 由持续含水20分钟的失水恶魂生成。
+** 生成后会尝试跟随以下生物：
+*** 半径16格内的玩家
+*** 半径16格内的非水生成年友好生物
+** 若附近没有合适的可跟随生物，小恶魂会在其原点位置（生成位置或最后与之交互的位置）32格内游荡。
+** 会在20分钟后成长。
+** 可被喂食[[雪球]]以加速成长，也会被雪球吸引。
+* 可装备[[挽具]]，最多允许4名玩家骑乘。
+** 被骑乘时护目镜会下降并遮住眼睛，表示能够被控制。
+*** 未被骑乘时护目镜会升起，并且快乐恶魂会开始在原点位置附近游荡。
+** 第一个骑乘快乐恶魂的玩家会坐在最前方，能够控制它。
+** 后来骑乘的玩家会坐在两侧的槽位上，以第一个骑乘的玩家开始顺时针排序。
+** 玩家按下{{ctrl|潜行}}会脱离快乐恶魂。
+* 玩家位于其上方时会停止移动。
+* 会被雪球和挽具吸引。
+** 已装备挽具时不会被挽具吸引。
+* 无法[[繁殖]]和乘[[船]]。
+* 会缓慢地自然恢复生命值，[[降雨]]、[[降雪]]或飞行高度与[[云]]的高度相同（即主世界的Y={{range|192|196}}）时会加快恢复速度。
+* 游荡时会保持位于原点位置（生成位置或最后与之交互的位置）64格内。
+** 已装备挽具时会更靠近原点位置，保持位于32格内。
+** 单独游荡时会尝试靠近方块。
+
+=== 世界生成 ===
+'''[[随机斑块]]'''
+* 枯叶堆斑块<code>patch_leaf_litter</code>现在要求生成位置下方一格是[[草方块]]。
+
+=== 游戏内容 ===
+'''[[进度]]'''
+* 加入了“{{Advancement name|husbandry.place_dried_ghast_in_water|zh|rev=1}}”{{Advancement name|husbandry.root|zh}}进度。
+** 将[[失水恶魂]]放入水中时获得。
+* 加入了“{{Advancement name|adventure.heart_transplanter|zh|rev=1}}”{{Advancement name|adventure.root|zh}}进度。
+** 将[[嘎枝之心]]放入两块朝向正确的[[苍白橡木原木]]之间时获得。
+
+'''[[属性]]'''
+* 加入了<code>camera_distance</code>属性，用于修改第三人称视角下摄像机与玩家或被旁观实体的距离，默认值<code>4.0</code>，取值范围{{range|0|32}}。
+** 如果被骑乘的实体的属性<code>camera_distance</code>更大，则会使用更大值。
+** 此距离会与<code>scale</code>属性相乘以得出最终摄像机距离。
+* 加入了{{cd|d=pretty|waypoint_transmit_range|waypoint_receive_range}}属性。
+** 属性默认值<code>0.0</code>，范围{{range|0|60000000}}。
+** 玩家的默认值均为60,000,000。
+** 仅在启用功能开关<code>locator_bar</code>时生效：
+*** 传输距离大于0的生物会向周围的接收者发送路径点{{tr|数据包|封包}}。
+*** 同样的，接收距离大于0的玩家只会接收此范围内的路径点{{tr|数据包|封包}}。
+
+'''[[统计信息]]'''
+* 加入了<code>happy_ghast_one_cm</code>统计信息。
+
+=== 命令格式 ===
+'''{{cmd|version}}'''
+* 用于输出服务端的版本信息。
+* 无附加参数。
+* 需要权限等级2。
+
+'''{{cmd|datapack}}'''
+* 加入了子命令<code>create</code>，用于在当前世界文件夹下创建空数据包。
+** 新数据包所支持的数据包版本号总是等于当前游戏支持的版本号。
+** 需要权限等级4。
+** 语法：
+*** <code>/datapack create <id> <name></code>
+**** {{cd|id}}：数据包名称，必须为有效的文件夹名称。
+**** {{cd|name}}：[[数据包#pack.mcmeta|{{filename|pack.mcmeta}}]]中{{nbt|string}}{{nbt|compound|description}}的值。
+
+'''[[参数类型]]'''
+* 加入了<code>hex_color</code>。
+
+=== 常规 ===
+'''[[调试屏幕]]'''
+* 现在按下{{key|F3+V}}会输出客户端的版本信息。
+
+'''[[维度类型]]'''
+* 加入了可选字段{{nbt|int|cloud_height}}，表示此维度中云层的起始高度。
+
+'''[[实体数据格式]]'''
+* 生物共通标签中加入了{{nbt|compound|locator_bar_icon}}字段。
+
+'''[[实验性内容]]'''
+* 加入了定位栏实验性数据包和<code>locator_bar</code>功能开关。
+
+'''[[Java版标签|标签]]'''
+* 加入了下列方块标签：
+** <code>#triggers_ambient_desert_sand_block_sounds</code>：{{cd|d=pretty|sand|red_sand}}。
+*** 在沙子和红沙的环境音效判定中有效的方块。
+* 加入了下列实体标签：
+** <code>#can_equip_harness</code>：{{cd|happy_ghast}}。
+*** 能装备挽具的实体。
+** <code>#followable_friendly_mobs</code>：{{cd|d=pretty|armadillo|bee|camel|cat|chicken|cow|donkey|fox|goat|horse|skeleton_horse|llama|mule|ocelot|panda|parrot|pig|polar_bear|rabbit|sheep|sniffer|strider|villager|wolf}}。
+*** 会被幼年快乐恶魂{{sic}}跟随的非幼年实体。
+* 加入了下列物品标签：
+** <code>#happy_ghast_food</code>：{{cd|snowball}}。
+*** 可用于喂食快乐恶魂的物品。
+** <code>#happy_ghast_tempt_items</code>：{{cd|d=pretty|#happy_ghast_food|#harnesses}}。
+*** 可用于引诱快乐恶魂的物品。
+** <code>#harnesses</code>：{{cd|d=pretty|white_harness|orange_harness|magenta_harness|light_blue_harness|yellow_harness|lime_harness|pink_harness|gray_harness|light_gray_harness|cyan_harness|purple_harness|blue_harness|brown_harness|green_harness|red_harness|black_harness}}。
+*** 所有挽具物品，用于其他标签。
+
+== 更改 ==
+=== 方块 ===
+'''所有[[陶瓦]]'''
+* 不再发出环境音效。
+
+'''[[矮枯草丛]]和[[高枯草丛]]'''
+* 现在当下方两格均为沙子、红沙或任何陶瓦时会发出特殊的环境音效。
+
+'''[[沙子]]和[[红沙]]'''
+* 现在会发出的环境音效不再包括“风声”。
+* 略微降低了播放环境音效的概率。
+* 修改了判断是否播放环境音效的逻辑，现在不需要方块本身露天，只需要上方一格为空气。
+
+'''[[枯萎的灌木]]'''
+* 略微提升了播放环境音效的概率。
+
+=== 生物 ===
+'''[[恶魂]]'''
+* 更新了纹理。
+
+'''[[玩家]]'''
+* 增加了旁观或骑乘恶魂、[[末影龙]]和[[巨人]]时的第三人称相机距离。
+* 现在会在旁观模式下随所旁观的实体传送到其他维度，但也会在到达其他维度时停止旁观。
+
+'''[[狼]]、[[绵羊]]和[[猪]]'''
+* 更新了纹理模型，现在腿部也是镜像的。
+
+'''[[鹦鹉]]'''
+* 现在会尝试模仿快乐恶魂，但未使用对应的音效事件。
+
+=== 非生物实体 ===
+'''[[区域效果云]]'''
+* 实体数据<code>Particle</code>字段现已重命名为<code>custom_particle</code>，需要为默认有色粒子<code>entity_effect</code>的精确覆盖。
+** 指定{{cd|d=或|entity_effect|tinted_leaves}}时，颜色不再从药水效果中继承。
+
+=== 世界生成 ===
+'''[[林地府邸]]'''
+* 结构{{filename|1x1_b5.nbt}}现在会正常生成。
+
+'''[[地物数据格式]]'''
+* 树木装饰器<code>place_on_ground</code>现在不能在除树叶外的阻止运动方块或流体下方放置地物。
+
+=== 游戏内容 ===
+'''[[粒子]]'''
+* <code>firefly_particle</code>的生命周期由{{range|36|180}}游戏刻更改为{{range|200|300}}游戏刻。
+
+'''[[隐身]]'''
+* 现在会100%降低生物的<code>waypoint_transmit_range</code>属性。
+
+=== 常规 ===
+'''[[数据包]]'''
+* 将数据包版本号更改为{{cd|72}}。
+
+'''[[物品堆叠组件]]'''
+* 在<code>attribute_modifiers</code>组件中的属性修饰符项加入了字段{{nbt|compound|display}}，以修改属性修饰符的显示方式。
+** 格式如下：
+<div class="treeview">
+:** {{nbt|compound|display}}
+:*** {{nbt|string|type}}：显示类型。
+:*** {{nbt condition|当{{nbt|string|type}}为{{cd|default}}时，显示此项计算后的属性修饰符值。}}
+:*** {{nbt condition|当{{nbt|string|type}}为{{cd|hidden}}时，不显示此项属性修饰符值。}}
+:*** {{nbt condition|当{{nbt|string|type}}为{{cd|override}}时，替换所显示的属性修饰符文本，附加如下字段：}}
+:*** {{nbt|string}}{{nbt|compound}}{{nbt|list|value}}：（[[文本组件]]）替换值。
+</div>
+
+'''[[资源包]]'''
+* 将资源包版本号更改为{{cd|56}}。
+
+'''[[Java版标签|标签]]'''
+* 将方块标签{{cd|#plays_ambient_desert_block_sounds}}重命名为{{cd|#triggers_ambient_desert_dry_vegetation_block_sounds}}。
+* 在实体标签{{cd|d=pretty|#dismounts_underwater|#fall_damage_immune}}中加入{{cd|happy_ghast}}。
+
+'''[[Java版声音事件|声音事件]]'''
+* 将{{cd|block.sand.wind}}重命名为{{cd|block.dry_grass.ambient}}。
+
+== 新内容（实验性） ==
+本段落的内容需要开启[[实验性内容]]“定位栏”后才可使用。
+
+=== 游戏内容 ===
+'''[[定位栏]]'''
+* 一种在多人游戏中允许玩家定位其他玩家的界面元素。
+* 定位栏的定位依赖于路径点。
+** 玩家相机视野夹角120°内的路径点会在定位栏上显示不同颜色的指示器。
+** 路径点在相机视域（即屏幕）上/下方时，则会显示指向它的箭头。
+** 队伍中的玩家或生物的路径点的颜色由其所处的队伍颜色决定。
+* 默认情况下，所有玩家都会传输出一个路径点，所有玩家也会接收所有路径点。
+** [[潜行]]、在头盔槽戴有[[雕刻南瓜]]或[[生物头颅]]、[[隐身]]状态效果会使玩家不在定位栏中显示。
+** 旁观模式玩家只会在其他旁观模式玩家的定位栏中显示。
+** 会在普通情况下占用经验条的位置。
+
+'''[[游戏规则]]'''
+* 加入了<code>useLocatorBar</code>，默认启用。
+** 启用时，服务器会运行定位栏实验性内容相关特性。
+** 将其关闭时，所有玩家的路径点会被移除。
+
+=== 命令格式 ===
+'''{{cmd|waypoint}}'''
+* 用于查询或修改路径点。
+** 语法：
+*** {{cd|waypoint list}}
+*** {{cd|waypoint modify <entity-selector> color <color>}}
+*** {{cd|waypoint modify <entity-selector> color hex <hex-color>}}
+*** {{cd|waypoint modify <entity-selector> color reset}}
+*** {{cd|waypoint modify <entity-selector> fade <fade_start> <alpha_start> <fade_end> <alpha_end>}}
+*** {{cd|waypoint modify <entity-selector> fade reset}}
+** 参数：
+*** {{cd|entity-selector}}：[[目标选择器]]，选择传输路径点的实体。
+*** {{cd|color}}：覆写此路径点在定位栏上的图标颜色。
+*** {{cd|hex-color}}：以Web格式（RRGGBB）覆写此路径点在定位栏上的图标颜色。
+*** {{cd|d=pretty|fade_start|alpha_start|fade_end|alpha_end}}：设置路径点的淡化效果。具体而言，此4参数用于处理始（即最近）末（即最远）淡化距离及Alpha透明度。
+
+== 修复 ==
+{{fixes|fixedin=25w15a|showdesc=1
+|;old
+|147260|地图图标不在制图台中显示。
+|191306|{{cmd|playsound|link=none}}会在所有维度中播放音效。
+|265294|命令方块界面中的“上一个输出”按钮文本渲染在命令建议的文本背景框上方。
+|266318|活板门和门的被打开/被关闭字幕不一致。
+|270279|禁用状态的物品冷却覆盖层在堆叠数量数字上渲染不正确。
+|275374|<code>CanBreakDoors:1b</code>的溺尸不能破门。
+|276264|进度界面阴影渲染于物品图标下。
+|277678|应用资源包时，文本会渲染在加载条的上方。
+|277992|苍白橡木运输船物品中的1种颜色错误。
+|278466|收纳袋实验性数据包相关字符串不在{{filename|deprecated.json}}中。
+|278873|在1.13版本前对花盆使用{{key|Ctrl}}+{{ctrl|选取方块}}获取物品后，数据修复器会重新生成包含此物品的区块，或是使物品栏中包含此物品的玩家的游戏崩溃。
+|280353|制图台绘制地图颜色时会覆盖地图图标，导致图标被隐藏。
+|;1.21.5的漏洞
+|280047|启用Programmer Art资源包的温带牛使用其1.14纹理。
+|280266|萤火虫灌木丛不会与基岩版一样产生同样多、或数量恒定的粒子。
+|280268|烈焰人和旋风人使用“大型”刷怪蛋而非因生物大小正常使用“中型”刷怪蛋。
+|280471|区域效果云的<code>Particle.color</code>是只读的。
+|293619|Programmer Art中的鸡刷怪蛋纹理缺少与物品栏槽位背景颜色匹配的像素。
+|295681|枯叶堆能在林地府邸内部生成。
+|295850|创建世界“编辑游戏规则”屏幕中的“完成”和“取消”按钮起同一效果。
+|295866|某些情况下，{{cmd|setblock|link=none}}和{{cmd|fill|link=none}}命令不再更新红石信号强度。
+|295867|对上个版本的结构运行DataFixerUpper时失败。
+|296035|<code>mooshroom_spawn_egg</code>中的两个像素与<code>cow_spawn_egg</code>中相同。
+|296624|Programmer Art中缺失旧版棕色哞菇纹理。
+|297537|多余的“<code>entity.wolf_whine.whine</code>”声音事件存在于{{filename|sounds.json}}中。
+}}</onlyinclude>
+
+== 你知道吗 ==
+* 自此快照开始，快照通常在星期二而不是星期三发布。
+
+== 参考 ==
+{{Reflist}}
+
+== 导航 ==
+{{Navbox Java Edition versions|1.21}}
+
+[[de:25w15a]]
+[[en:Java Edition 25w15a]]
+[[es:Java Edition 25w15a]]
+[[fr:Édition Java 25w15a]]
+[[ja:Java Edition 25w15a]]
+[[pt:Edição Java 25w15a]]
+[[ru:25w15a (Java Edition)]]
+[[uk:25w15a (Java Edition)]]

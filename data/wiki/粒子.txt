@@ -1,0 +1,31 @@
+{{upcoming in draft|粒子}}
+
+'''粒子（Particle）'''，也称'''粒子效果（Particle Effect）'''，是Minecraft中一种特殊的图形效果，在特定事件发生（比如[[爆炸]]、[[降雨]]、用[[熔炉]]进行[[烧炼]]）时出现。
+
+它可以指：
+* [[Java版粒子]]
+* [[基岩版粒子]]
+
+; 技术性
+* [[粒子数据格式]]
+
+; 命令
+* {{cmd|particle}}
+
+{{disambig}}
+
+[[cs:Částice]]
+[[de:Partikel]]
+[[en:Particles]]
+[[es:Partículas]]
+[[fr:Particules]]
+[[it:Particelle]]
+[[ja:パーティクル]]
+[[ko:입자]]
+[[lzh:粒]]
+[[nl:Deeltjes]]
+[[pl:Cząsteczki]]
+[[pt:Partículas]]
+[[ru:Частицы]]
+[[th:อนุภาค]]
+[[uk:Частинки]]

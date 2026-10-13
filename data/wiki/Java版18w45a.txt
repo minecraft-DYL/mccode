@@ -1,0 +1,104 @@
+{{Infobox version
+|title=18w45a
+|image=18w45a.jpg
+|image2=Java Edition 18w45a Simplified.png\Java Edition 18w45a Traditional.png
+|edition=Java
+|type=Snapshot
+|date=2018年11月7日
+|jsonhash=192ac2fe3a3202ed3b542c3c088cf21ec9069e15
+|clienthash=e03e8d27b07cccc85ae669e666bc3e4e2036c374
+|serverhash=a004069d93ebfd9a6d93c57b66becac29f876d4c
+|parent=1.14
+|prevparent=1.13.2
+|prev=18w44a
+|next=18w46a
+|nextparent=1.14.1
+}}<onlyinclude>
+
+'''18w45a'''是[[Java版1.14]]的第5个快照，发布于2018年11月7日<ref>{{snap|18w45a|November 7, 2018}}</ref>，加入了脚手架、灾厄巡逻队，重写了命令{{cmd|loot}}，在资源包菜单加入了旧版纹理的资源包（“Programmer Art – The classic look of Minecraft”），并修复了一些漏洞。
+
+== 新内容 ==
+=== 方块 ===
+'''[[脚手架]]'''
+* 一种可以攀爬的[[方块]]。
+* 可使用[[竹子]]和[[线]]合成。
+* [[玩家]]可以按{{control|跳跃}}爬上，{{control|潜行}}爬下。
+* 玩家和生物可以步行穿过脚手架。
+
+=== 游戏内容 ===
+'''[[灾厄巡逻队]]'''
+* 在世界中生成的一个由1只[[灾厄之兽|{{tr|灾厄之兽|窳獸}}]]和4只[[掠夺者]]或[[卫道士]]组成的群体。
+* 生成在[[平原]]、[[针叶林]]、[[沙漠]]、[[热带草原]]生物群系的所有变种的[[草方块]]和[[沙子]]上。
+* 在巡逻队队长的头顶上可以找到[[灾厄旗帜]]。
+
+=== 常规 ===
+'''[[资源包]]'''
+* 在资源包菜单加入了“Programmer Art – The classic look of Minecraft”资源包。
+
+== 更改 ==
+=== 方块 ===
+'''[[告示牌]]'''
+* 重写了告示牌编辑，使其更直观。
+** 加入了用于编辑自由文本的新可移动光标。
+** 支持选择、复制和粘贴。
+
+=== 命令格式 ===
+'''{{cmd|drop}}'''
+* 将{{cmd|drop}}重命名为{{cmd|loot}}。
+* 新语法：
+** {{cmd|loot <目标> <源>}}。
+*** 源：
+**** {{cd|fish <战利品表ID> <钓鱼位置> [tool <物品>{{!}}mainhand{{!}}offhand]}}：使用钓鱼状态。
+**** {{cd|-{}-loot <战利品表ID>}}：使用资源箱战利品表状态（同样可以用作进度奖励和猫的礼物）。
+**** {{cd|-{}-kill <实体选择器>}}：模拟实体掉落物品
+**** {{cd|mine <挖掘位置> [tool <物品>{{!}}mainhand{{!}}offhand]}}：模拟方块掉落
+*** 目标：
+**** {{code|spawn <位置>}}：掉落到世界中。
+**** {{code|replace}}：与{{cmd|replaceitem}}类似。如果未给定{{code|-{}-数量}}，该命令会尝试替换所有返回的物品。如果给定的{{code|-{}-数量}}高于物品数量，多余的槽位将被清除。
+**** {{code|-{}-entity <实体选择器> <开始槽位> [<数量>]}}：替换一定范围的物品。
+**** {{code|-{}-block <位置> <开始槽位> [<数量>]}}：替换一定范围的物品。
+**** {{code|-{}-give <玩家选择器>}}：向玩家物品栏添加物品（与{{code|give}}类似）。
+**** {{code|insert <位置>}}：向容器内添加物品（与{{key|Shift}}+鼠标左键类似）。
+
+=== 常规 ===
+'''[[谓词|实体谓词]]'''
+* 现在接受{{code|equipment}}方面。
+** 谓词能包括多达6个方面：{{code|head|chest|legs|feet|mainhand|offhand|delimiter=、}}。
+** 如果谓词未满，对没有装备的实体（即除玩家、生物和[[盔甲架]]以外的实体）的测试会失败。
+
+== 修复 ==
+{{fixes|fixedin=18w45a|prefix=Minecraft|showdesc=1
+|;old
+|123263|光照更新或方块更新导致的FPS问题。
+|124456|卫道士、唤魔者和幻术师不渲染装备于其头上的物品。
+|138003|在告示牌上书写时光标不能向后移动/不能从告示牌上复制任何东西。
+|;dev
+|137456|凋灵玫瑰会给予创造模式的玩家凋零效果。
+|137459|竹子物品不使用手持模型。
+|137473|烟花和多重射击（弩）不能很好地组合在一起。
+|137496|旗帜图案不能按住{{key|Shift}}键然后点击退出织布机。
+|137498|弩的魔咒在创造模式标签页中缺失。
+|137572|织布机消耗两条旗帜。
+|137783|副手持并使用弩时，三叉戟和弓会使用弩的动画。
+|137967|树叶掉落2根或不掉木棍，但从不掉落1根木棍。
+|138338|当<code>mobGriefing</code>设置为禁止时，凋灵玫瑰依然会生成。
+|;previous
+|138528|丢失的“Programmer Art”资源包。
+|138539|当你死亡并重生时，你会卡在一个空荡的地方无法活动，直到重新进入世界。
+}}</onlyinclude>
+
+== 参考 ==
+{{reflist}}
+
+== 导航 ==
+{{Navbox Java Edition versions|1.13}}
+
+[[de:18w45a]]
+[[en:Java Edition 18w45a]]
+[[es:Java Edition 18w45a]]
+[[fr:Édition Java 18w45a]]
+[[ja:Java Edition 18w45a]]
+[[nl:18w45a]]
+[[pt:Edição Java 18w45a]]
+[[ru:18w45a (Java Edition)]]
+[[th:รุ่น Java 18w45a]]

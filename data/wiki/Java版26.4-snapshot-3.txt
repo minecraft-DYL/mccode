@@ -1,0 +1,267 @@
+{{wip}}
+{{Infobox version
+|title=26.4-snapshot-3
+|image=26.4-snapshot-3.jpg
+|image2=Java Edition 26.4-snapshot-3 Simplified.png\Java Edition 26.4-snapshot-3 Traditional.png\Java Edition 26.4-snapshot-3 Traditional HK.png
+|edition=Java
+|type=Snapshot
+|date=2026年10月6日
+|jsonhash=1f72c04e6911826c9b68a54d290d755d9645c74a
+|clienthash=96611d3cbefeae43527552fd008a7031b6f46e71
+|serverhash=2d89c95c030e635387448f332961074ce1adbb4b
+|parent=26.4
+|prevparent=26.3
+|prev=26.4-snapshot-2
+|next=
+|nextparent=
+}}<onlyinclude>
+
+'''26.4-snapshot-3'''是[[Java版26.4]]的第3个快照，发布于2026年10月6日<ref>{{article|minecraft-26-4-snapshot-3|Minecraft 26.4 Snapshot 3|Oct 06, 2026}}</ref>，添加了[[2026年第4次小更新]]的首批特性，并修复了一些漏洞。
+
+== 新内容 ==
+=== 方块 ===
+'''[[冰晶]]'''
+* 类似[[紫水晶簇]]的方块。
+* 可以放置在[[方块支撑形状]]完整的固体方块表面。
+* 没有方块支撑时会被破坏。
+* 会发出[[亮度]]为4的光。
+
+'''{{pa|Icicle|}}'''
+* 类似[[滴水石锥]]的方块，有钟乳石和石笋形态。
+* 会在{{pa|Ice Caves}}的天花板上自然生成。
+* 亮度过高时，其钟乳石形态会脱落变成[[下落的方块]]。
+* 若附近没有较强的光源且不处于[[下界]]，钟乳石上方为[[浮冰]]时会缓慢生长，最多生长至5格。
+* 下落时能造成伤害，类似于滴水石锥。
+* 末梢会飘落雪花[[Java版粒子|粒子]]。
+
+=== 物品 ===
+'''[[冰球]]'''
+* 由{{pa|Frostbite}}掉落。
+* 可投掷出对应弹射物。
+** 会对击中的实体造成击退，造成的伤害取决于弹射物速度。
+* 可用于酿造冰冻药水。
+
+'''[[冰冻药水]]'''
+* 用[[粗制的药水]]和冰球酿造。
+* 可制作对应的[[喷溅药水]]、[[滞留药水]]和[[药箭]]。
+* 给予冰冻效果。
+
+'''[[刷怪蛋]]'''
+* 加入了{{pa|Frostbite}}刷怪蛋。
+
+=== 生物 ===
+'''{{pa|Frostbite|}}'''
+* 自然生成于{{pa|Ice Caves}}和积雪生物群系的[[僵尸]]变种。
+* 近战攻击时会对目标造成冰冻状态效果。
+* 生成时可能手持冰球并会向目标投掷。
+
+=== 世界生成 ===
+'''{{pa|Ice Caves|}}'''
+* 新的[[洞穴类生物群系]]。
+* 在主世界较冷生物群系的地下生成。
+* 会生成较多[[浮冰]]和[[方解石]]。
+* {{pa|Icicle}}会在天花板上自然生成。
+* 地上会生成少量雪和冰晶。
+* 发光地衣不会在此生成。
+* {{pa|Frostbite}}和[[流浪者]]会在此生成。
+
+=== 游戏内容 ===
+'''[[状态效果]]'''
+* 加入了[[冰冻（状态效果）|冰冻]]。
+
+=== 常规 ===
+'''[[注册表]]'''
+* 加入了<code>minecraft:block_sound_set</code>注册表。
+
+'''[[选项]]'''
+* 加入了「其他玩家」屏幕以替代[[社交屏幕]]。
+
+'''[[调试屏幕]]'''
+* 加入了<code>lightmap_texture</code>调试屏幕文本，用来配置光照贴图纹理图表的显示。
+** 显示在“Light”组别内。
+** 显示状态会被持久化到[[调试选项文件格式|调试选项文件]]中。
+** 现在，使用{{ctrl|调试修饰键}}{{key|+4}}改为在此处显示光照贴图纹理图表。
+** 该图表不再与FPS图表和网络图表互斥。
+* 加入了<code>chunk_section_status</code>调试屏幕文本，显示周围区块的渲染情况。
+** 渲染距离较高时，此选项对性能会有影响。
+* 将区块加载相关的内容从<code>visualize_chunks_on_server</code>调试屏幕文本中拆分到了<code>chunk_load_status</code>中。
+
+'''[[噪声]]'''
+* 加入了<code>minecraft:ice_cave_gradient</code>噪声。
+
+'''[[方块音效集]]'''
+* 新的注册表项，用于定义不同类别的方块所产生的声音。
+* 格式：
+<div class="treeview">
+:* {{nbt|compound}} JSON文件根节点
+:** {{nbt|float|volume}}：（{{interval|left=0.00001|right=10.0}}）所有声音播放时的相对音量。默认为1.0。
+:** {{nbt|float|pitch}}：（{{interval|left=0.00001|right=10.0}}）所有声音播放时的相对音高。默认为1.0。
+:** {{nbt|compound|break_sound}}：破坏方块时要使用的[[Java版声音事件|声音事件]]。
+:** {{nbt|compound|step_sound}}：实体在方块上行走时要使用的声音事件。
+:** {{nbt|compound|place_sound}}：放置方块时要使用的声音事件。
+:** {{nbt|compound|hit_sound}}：[[挖掘]]方块时要使用的声音事件。
+:** {{nbt|compound|fall_sound}}：实体[[摔落]]到方块上时要使用的声音事件。
+</div>
+
+'''[[Java版标签|标签]]'''
+* 加入了以下方块标签：
+** <code>#ice_cave_ore_replaceables</code>
+*** {{pa|Ice Caves}}中，矿石团簇生成时可以替换的方块。
+** <code>#melts_icicle_above</code>
+*** 会使得正上方的{{pa|Icicle}}融化的方块。
+** <code>#large_icicle_replaceable</code>
+*** 大型{{pa|Icicle}}生成时可以替换的方块。
+** <code>#pathfinding/avoid_in_air</code>
+*** 生物飞行[[寻路]]时会尝试避开的方块。
+** <code>#pathfinding/damage_cautious</code>
+*** 寻路时被视为会对走过的实体造成伤害但不足以因此让实体完全避开的方块。
+** <code>#pathfinding/damaging</code>
+*** 寻路时被视为会对走过的实体造成伤害的方块。
+** <code>#pathfinding/drop_down</code>
+*** 寻路时被视为向下掉落时可以穿过的方块。
+** <code>#pathfinding/leaves</code>
+*** 寻路时被视为[[树叶]]的方块。
+** <code>#pathfinding/open</code>
+*** 寻路时被视为完全开放进而可以穿过的方块。
+** <code>#pathfinding/powder_snow</code>
+*** 寻路时被视为[[细雪]]的方块。
+** <code>#pathfinding/rails</code>
+*** 寻路时被视为[[铁轨]]的方块。
+** <code>#pathfinding/sticky</code>
+*** 寻路时被视为有黏性、会导致移动速度降低和无法跳跃的方块。
+* 加入了以下物品标签：
+** <code>#frostbite_preferred_weapons</code>
+*** {{pa|Frostbite}}会偏好捡起带有此标签物品。
+** <code>#knocks_back_players_even_with_zero_damage</code>
+*** 标签内的物品即使对玩家造成的伤害为0，仍然会产生击退。
+** <code>#sheep_wool_dyes</code>
+*** 可以用来给[[绵羊]]的羊毛染色的物品。
+*** 颜色将从<code>[[数据组件#dye|minecraft:dye]]</code>组件中获取。
+* 加入了以下生物群系标签：
+** <code>#spawns_strays_without_powder_snow</code>
+*** 无需在生物群系表面生成细雪即可生成[[流浪者]]的生物群系。
+* 加入了以下方块音效集标签：
+** <code>#sounds_wooden</code>
+*** 会使马匹在方块上行走时发出疾驰声的方块音效集。
+
+'''[[Java版粒子|粒子]]'''
+* 加入了<code>minecraft:freezing</code>粒子类型。
+** 被冰冻影响的实体会发出此粒子。
+** 为简单粒子。
+
+== 更改 ==
+=== 方块 ===
+'''[[雪]]'''
+* 现在可以放置在[[浮冰]]上。
+
+=== 物品 ===
+'''[[雪球]]'''
+* 现在可以对玩家造成击退。
+
+'''[[染料]]'''
+* 现在对[[狼]]和[[猫]]的项圈染色时会播放音效。
+
+=== 常规 ===
+'''[[数据包]]'''
+* 将数据包版本号更改为<code>123.0</code>。
+
+'''[[资源包]]'''
+* 将资源包版本号更改为<code>100.0</code>。
+
+'''[[选项]]'''
+* 调整了[[游戏菜单]]中按钮的顺序，以匹配[[主菜单]]。
+
+'''[[好友列表]]'''
+* 修改了好友列表按钮的纹理。
+* 加入了搜索功能。
+** 在“好友”标签页下，用于发送{{tr|请求|邀請|請求}}的玩家档案名称输入框现在可同时用于搜索。
+** 在“{{tr|请求|好友邀請|請求}}”标签页下，如果有至少15条{{tr|请求|邀請|請求}}，则会显示搜索框。
+* 加入了排序功能。
+** 可通过排序按钮在不同排序方法间循环。
+** 有以下排序方式：
+*** {{tr|按在线玩家排序|依線上狀態排序|按玩家線上狀態排序}}：在线的好友会显示在列表的靠前位置。
+*** {{tr|按字母顺序排序|依字母順序排序|按英文字母順序排列}}：按名称的字母顺序排列。
+* 点击好友的图标可以进入新增的“玩家选项”屏幕。
+** 将“移除好友”按钮移动到了该屏幕内。
+
+'''其他玩家'''
+* 现在还会额外列出以下不在线的玩家：
+** 刚退出的玩家；
+** 最近发言过的玩家。
+* 点击玩家的图标可以进入新增的“其他玩家”屏幕。
+** 将“举报”按钮移动到了该屏幕内。
+
+'''玩家选项'''
+* 包含对单个玩家可以执行的操作：
+** 发出或取消好友{{tr|请求|邀請|請求}}。
+** 接受或拒绝好友{{tr|请求|邀請|請求}}。
+** 屏蔽玩家消息。
+** 举报玩家。
+* 屏蔽玩家消息将隐藏他们发出的消息，直至下次启动游戏。
+* 屏蔽玩家需于「其他玩家」操作。
+* 对举报功能进行了修改。
+** 重新设计了保存/放弃草稿确认界面。
+** 如果已经保存的举报草稿可以在退出世界后继续填写，则不再会在退出世界时提示是否要放弃这些草稿。
+*** 聊天消息举报无法在退出世界后继续填写。
+*** 如果被举报的玩家在好友列表中，则玩家皮肤和玩家草稿名称举报可以在退出世界后继续填写。
+** 在主菜单点击“退出游戏”时，如果有未发送的举报草稿，则会显示警告。
+
+'''[[控制]]'''
+* 将键位“社交屏幕”重命名为“其他玩家”。
+
+'''[[地物定义格式]]'''
+* 修改了<code>minecraft:speleothem_cluster</code>地物类型。
+** 加入了<code>placement_options</code>字段，包含放置钟乳石簇时可应用的设置。格式：
+<div class="treeview">
+::** {{nbt|compound|placement_options}}
+::*** {{nbt|string|placement_mode}}：放置模式。需为{{cd|d=pretty|floor_and_ceiling|floor_only|ceiling_only}}之一。
+::*** {{nbt|string|base_block_transformer}}：要为基础方块设置的方块状态类型。需为{{cd|d=pretty|none|set_attached}}之一。
+::*** {{nbt|bool|allow_water_placement}}：是否允许将钟乳石簇放置在水中。
+</div>
+* 修改了<code>minecraft:large_dripstone</code>地物类型。
+** 加入了<code>base_block</code>字段，需为方块状态提供器，表示大型滴水石锥的基础方块。
+
+'''[[Java版粒子|粒子]]'''
+* 移除了<code>minecraft:item_snowball</code>粒子类型。
+
+== 修复 ==
+{{fixes|fixedin=26.4 Snapshot 3|showdesc=1
+|;old
+|212616|对着驯服的狼或猫使用染料不会播放染料的染色音效。
+|303468|宠物穿过下界传送门时可能被传送到错误的坐标。
+|306017|手持和驯服的狼的项圈颜色相同的染料时，令其坐下或站起不会让主手挥动。
+|307830|在一些系统上使用Vulkan渲染后端时，游戏帧率限制为20fps。
+|308037|好友屏幕中未选中的{{tr|选项卡|頁籤}}显示白色文本而不是灰色。
+|308051|一些按钮上的图标没有对齐UI像素网格。
+|308747|在没有玩家可举报的{{tr|局域网世界|區網世界|LAN 世界}}中，游戏菜单的{{tr|社交|社群交流|社羣互動}}按钮置灰。
+|308994|聊天限制屏幕不显示影响聊天的Xbox通信设置。
+|309896|{{cd|options.allowFriendRequests.tooltip}}和{{cd|options.inGameNotification.tooltip}}字符串的英文缺少句号，与类似的字符串不同。
+|309906|术语“Friends List”在不同字符串的英文中大小写不一致。
+|310124|离开先前使用键盘打开的界面不会选中上一界面中用于打开它的按钮。
+|310237|{{cd|gui.friends.error.generic}}字符串的英文使用长破折号，与类似的字符串不同。
+|310854|好友界面的按钮轮廓显示不一致。
+|311932|相关控制项设为“按住”时，Caps Lock<!--Caps Lock在游戏中被保留原文了，所以这里也保留原文-->键不再能激活疾跑、潜行等。
+|311963|{{cd|subtitles.block.poplar_leaves.ambient}}字符串的英文使用现在分词而不是一般现在时，与类似的字符串不同。
+|312120|游戏处于窗口化状态时启用“独占全屏”选项后进入非独占全屏不会将“独占全屏”选项按钮更新为“{{tr|关|關閉|關}}”。
+|;prev
+|312198|蘑菇岛上几乎不再生成小型蘑菇。
+|312213|使用包含空气的超平坦预设时，游戏崩溃。
+|312311|从旧版本升级世界时游戏崩溃。
+}}</onlyinclude>
+
+== 影片 ==
+由[[slicedlime]]製作的影片：
+{{yt|Gxn_bQwbpNw}}
+
+== 参考 ==
+{{Reflist}}
+
+== 导航 ==
+{{Navbox Java Edition versions|2026}}
+
+[[de:26.4-snapshot-3]]
+[[en:Java Edition 26.4 Snapshot 3]]
+[[he:Java Edition 26.4 Snapshot 3]]
+[[ja:Java Edition 26.4 Snapshot 3]]
+[[pt:Edição Java 26.4 Snapshot 3]]
+[[ru:26.4 Snapshot 3 (Java Edition)]]

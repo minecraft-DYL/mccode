@@ -1,0 +1,16 @@
+# 测试产物（巡测截图、探针转储）
+.shots/
+*.log
+
+# 依赖目录（本项目零依赖，正常不会有）
+node_modules/
+
+# 构建产物：dist/MC编辑器.exe 约 96 MB，远超 GitHub 单文件 50 MB 警告线
+# （硬上限 100 MB），进仓库只会把 clone 拖垮。要发布请用 Release 附件。
+dist/
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini

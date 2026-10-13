@@ -1,0 +1,10 @@
+{{Development versions}}
+
+[[en:Java Edition 26.2/Development versions]]
+[[es:Java Edition 26.2/Versiones de desarrollo]]
+[[fr:Édition Java 26.2/Versions de développement]]
+[[he:Java Edition 26.2/גרסאות פיתוח]]
+[[ja:Java Edition 26.2/開発版]]
+[[pt:Edição Java 26.2/Versões de desenvolvimento]]
+[[ru:26.2 (Java Edition)/Предварительные сборки]]
+[[uk:26.2 (Java Edition)/Версії розробки]]

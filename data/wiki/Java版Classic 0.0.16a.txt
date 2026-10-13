@@ -1,0 +1,41 @@
+{{Lost version}}
+{{Infobox version
+|title=0.0.16a
+|edition=java
+|date=2009年6月7日
+|downloads=不可用
+|prefix=Classic_
+|prevparent=0.0.15a
+|prev=0.0.15a_03
+|next=0.0.16a_01
+|nextparent=0.0.17a
+}}<onlyinclude>
+
+'''0.0.16a'''是{{el|je}}的一次更新，发布于2009年6月7日<ref>{{notch|119434936|By popular demand, another MP test today|June 7, 2009}}</ref><ref>[[#logs|IRC日志]]: "''[11:08] <Barlon> yay 0.0.16a!''" (17:08 UTC)</ref><ref>[[#logs|IRC日志]]: "''[11:26] * Notch changes topic to 'http://www.minecraft.net/  |  http://www.minecraft.net/mptest.jsp  |  64 player limit. Huge map.  |  I might have to restart the server a few times..'''" (17:26 UTC)</ref>，修复了一些漏洞。
+
+== 更改 ==
+=== 游戏内容 ===
+'''[[多人游戏]]'''
+* 降低了带宽占用。
+
+== 修复 ==
+; 修复了2个漏洞
+: 修复了一些小的漏洞。{{more info}}
+: 修复了玩家更改游戏后登录时会出现不同步现象的漏洞。</onlyinclude>
+
+== 参考 ==
+* {{anchor|logs}} [https://archive.org/download/Testvan-Minecraft-IRC-logs IRC日志], #minecraft.20090607.log (2009年6月7日, UTC&minus;6)
+{{Reflist}}
+
+== 导航 ==
+{{Navbox Java Edition versions|Classic}}
+
+[[de:Classic 0.0.16a]]
+[[en:Java Edition Classic 0.0.16a]]
+[[es:Java Edition Classic 0.0.16a]]
+[[fr:Édition Java Classique 0.0.16a]]
+[[he:Java Edition Classic 0.0.16a]]
+[[ja:Java Edition Classic 0.0.16a]]
+[[lzh:爪哇版古典版〇點〇點一六甲]]
+[[pt:Edição Java Classic 0.0.16a]]
+[[ru:Classic 0.0.16a (Java Edition)]]

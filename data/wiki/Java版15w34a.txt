@@ -1,0 +1,107 @@
+{{Infobox version
+|title=15w34a
+|image=Java Edition 15w34a Simplified.png\Java Edition 15w34a Traditional.png
+|edition=Java
+|type=Snapshot
+|date=2015年8月19日
+|jsonhash=71b1b3cc02415227a5600d97c84eb211b741a49f
+|clienthash=e8320ed660bcdc6c80d94a5c4e068e783465a2f5
+|serverhash=70103317cd7b973e4f8511a5d8973da20c6654d1
+|exehash=d18d0618ddfb5f4a7e00f04d09709717e5861e4b
+|parent=1.9
+|prevparent=1.8.9
+|prev=15w33c
+|next=15w34b
+|nextparent=1.9.1
+}}<onlyinclude>
+
+'''15w34a'''是[[Java版1.9]]的第10个快照，发布于2015年8月19日<ref>{{cite|url=http://mojang.com/2015/08/minecraft-snapshot-15w34a/|archive-url=1|archive=1|title=Minecraft 1.9 snapshot 15w34a|author=Dinnerbone|website=Mojang.com|date=Aug 19, 2015}}</ref>，加入了新的NBT标签，并修复了一些漏洞。
+
+== 新内容 ==
+=== 常规 ===
+'''NBT标签'''
+* 为[[命令方块]]加入了<code>powered</code>和<code>conditional</code>byte标签。
+* 给<code>FireballBase</code>添加<code>life</code>（整形）和 <code>power</code>（列表/双精度）标签。
+* 为[[刷怪笼]]在<code>SpawnData</code>标签加入了<code>id</code>string标签。
+* 为[[音符盒]]加入了<code>powered</code>byte标签。
+
+== 更改 ==
+=== 方块 ===
+'''[[命令方块]]'''
+* 16种新纹理 - 15个颜色变种， 1个纹理变种。
+* 以前的命令方块电路依然可以工作。
+* 3种模式：脉冲、循环、连锁 - 颜色基于模式改变。
+** 脉冲模式：在该方块从未充能到充能状态时触发一次命令。
+** 连锁模式：此命令方块激活时，当指向该命令方块的命令方块执行命令后才会触发命令。
+** 循环模式：激活后每一游戏刻都会触发一次命令。
+* 有指向性了，放置模式与活塞一样。
+* 选取方块功能在新命令方块上依旧有效。
+* 动态纹理：方块中心的像素点。
+
+=== 物品 ===
+'''[[地图]]'''
+* 最新的地图现在会有更大更有用处的比例尺（1:4）
+* 现在可以用[[剪刀]]缩小地图比例尺
+** 缩小后的地图现在是原地图的右下角部分
+
+=== 生物 ===
+'''[[僵尸]]'''
+* 空闲时现在会放下双臂。
+
+'''[[巨人]]'''
+* 不再渲染模型。
+* 依然可以用命令召唤。
+
+'''[[潜影贝]]'''
+* 再次能搭乘矿车了。
+
+=== 游戏内容 ===
+'''战斗系统'''
+* 新的“攻击力度”战斗机制。
+** 攻击后出现一个进度条。
+*** 在进度条满之前造成的伤害将减少。
+*** 空手填充时间为0.25秒，[[剑]]、[[镐]]、[[锹]]填充时间为0.8秒，[[斧]]的填充时间为1.2秒。
+*** 可以显示在物品栏旁边（左右由主手决定），在准星下方，或者不显示。
+** 切换物品栏时会产生一个缓慢上升的冷却动画。
+* 当剑、锹、镐、斧装备在主手时会产生延迟。
+
+=== 常规 ===
+'''NBT标签'''
+* 刷怪笼不再使用<code>EntityId</code>标签。
+
+'''优化'''
+* 优化了生物AI，寻路算法和方块刻。
+** 可见度为16时方块刻加快15%。
+
+== 修复 ==
+{{fixes|fixedin=15w34a|prefix=Minecraft|showdesc=1
+
+|;old
+|86152|将音乐唱片放入唱片机后会丢失其自定义名称。
+
+|;dev
+|83471|<code>CustomPotionEffects</code>标签对喷溅和滞留药水无效。
+|84260|药水箭不显示粒子效果。
+|85115|末影龙火球的名称显示为<code>entity.DragonFireball.name</code>。
+|85592|默认的{{filename|log4j2.xml}}并非最佳配置。
+
+|;previous
+|86137|生存模式下破坏生物头颅时游戏会崩溃。
+|86138|对生物头颅和结构方块按下{{ctrl|选取方块}}键会导致游戏崩溃。
+
+}}</onlyinclude>
+
+== 参考 ==
+{{reflist}}
+
+== 导航 ==
+{{Navbox Java Edition versions|1.8}}
+
+[[de:15w34a]]
+[[en:Java Edition 15w34a]]
+[[es:Java Edition 15w34a]]
+[[fr:Édition Java 15w34a]]
+[[it:Java Edition 15w34a]]
+[[ja:Java Edition 15w34a]]
+[[pt:Edição Java 15w34a]]
+[[ru:15w34a (Java Edition)]]

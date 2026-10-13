@@ -1,0 +1,12 @@
+{{Development versions}}
+
+[[de:Versionen/Vollversion 1.13/Entwicklung#Vollversion 1.13]]
+[[en:Java Edition 1.13/Development versions]]
+[[es:Java Edition 1.13/Versiones de desarrollo]]
+[[fr:Édition Java 1.13/Versions de développement]]
+[[ja:Java Edition 1.13/開発版]]
+[[ko:Java Edition 1.13/개발 버전]]
+[[nl:1.13/Ontwikkelingsversies]]
+[[pt:Edição Java 1.13/Versões de desenvolvimento]]
+[[ru:1.13 (Java Edition)/Предварительные сборки]]
+[[uk:1.13 (Java Edition)/Версії розробки]]
